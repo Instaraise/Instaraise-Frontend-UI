@@ -1,6 +1,6 @@
 import React from 'react';
-import { PRICE_DATA } from '../../config/StatsConfig/config.stats';
-import '../../../scss/_stats.css';
+import { PRICE_DATA } from '../../../../config/HomeConfig/StatsConfig/config.stats';
+import '../../../../scss/_stats.css';
 const Stats = () => {
     return (
         <section className=" landing-page-container two-background mb-5">

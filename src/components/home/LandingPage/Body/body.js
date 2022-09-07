@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from '../Header/header';
-import { DESC_DATA } from '../../config/BodyConfig/config.body';
-import instagramLogo from '../../../assets/images/socials/instagram.svg';
-import linkedinLogo from '../../../assets/images/socials/linkedin.svg';
-import twitterLogo from '../../../assets/images/socials/twitter.svg';
-import upRight from '../../../assets/images/arrow-up-right.svg';
-import '../../../scss/_body.css';
+import { DESC_DATA } from '../../../../config/HomeConfig/BodyConfig/config.body';
+import instagramLogo from '../../../../assets/images/socials/instagram.svg';
+import linkedinLogo from '../../../../assets/images/socials/linkedin.svg';
+import twitterLogo from '../../../../assets/images/socials/twitter.svg';
+import upRight from '../../../../assets/images/arrow-up-right.svg';
+import '../../../../scss/_body.css';
 const Body = () => {
     return (
         <section className="BodySection">
