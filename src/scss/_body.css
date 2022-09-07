@@ -1,0 +1,57 @@
+
+.BodySection{
+    background: linear-gradient(165.25deg, #5105E1 -32.71%, #8B2BE2 107.11%);
+    height: 85vh;
+}
+.vl{
+    border-left: 1px solid #D0B3FE;
+    margin-left: 10px;
+    height: 120px;
+}
+.vlb{
+    border-left: 3px solid #A97BED;
+    height: 45px;
+}
+.vlb p {
+    color: rgba(255, 255, 255, 0.34);;
+    line-height:1.5rem;
+    margin-left: 1rem;
+
+}
+.vlb button span{
+    color: #6B16E2;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+.logosEdit img{
+    padding: 0.5rem 0rem;
+}
+.bodyHeaderPara{
+    color: #FFFFFF;
+    font-family: Aileron-Light;
+    font-weight: 550;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 0.2px;
+}
+.bodyContent h1{
+    color: #FFFFFF;
+    line-height: 130%;
+    font-size: 60px;
+    letter-spacing: 0.2px;
+    font-family: Aileron-Bold;
+}
+@media (max-width: 1000px) 
+{
+   .bodyContent h1
+   {
+       font-size:40px;
+   }
+   /* .vl{
+    height: 95px;
+   }
+   .featured{
+    height: 50vh;
+   } */
+}

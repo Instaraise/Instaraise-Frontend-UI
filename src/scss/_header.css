@@ -1,0 +1,53 @@
+@font-face {
+    font-family: font-Medium;
+    src: url(../assets//fonts//BinancePlex-Medium.ttf);
+}
+@font-face {
+    font-family: font-SemiBold;
+    src: url(../assets/fonts/BinancePlex-SemiBold.ttf);
+}
+@font-face {
+    font-family: font-Regular;
+    src: url(../assets/fonts/BinancePlexRegular.ttf);
+}
+@font-face {
+    font-family: Aileron-Light;
+    src: url(../assets/fonts/Aileron-Light.otf);
+}
+@font-face {
+    font-family: Aileron-Bold;
+    src: url(../assets//fonts/Aileron-Bold.otf);
+}
+@font-face {
+    font-family: Aileron-Thin;
+    src: url(../assets//fonts/Aileron-Thin.otf);
+}
+.headerSection{
+    background: transparent;
+    padding: 0.1rem;
+}
+.container-fluid {
+    /* padding-right: 79px; */
+    padding-left: 79px;
+}
+@media (max-width: 992px){
+    .container-fluid {
+       padding-left: 30px;
+       padding-right: 30px;
+    }
+}
+.headerIcons img{
+    padding: 0rem 0.5rem;
+}
+.navbar-nav{
+    margin-left: 7.5rem;
+}
+.navbar-nav li a span{
+    color: #FFFFFF;
+    font-family: font-Regular;
+}
+@media (max-width: 991px){
+    .navbar-nav {
+       margin: auto;
+    }
+}
