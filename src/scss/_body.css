@@ -7,7 +7,6 @@
     margin-left: 3px;
     height: 35%;
 }
-
 .homepage-body-socials img{
     padding: 0.5rem 0rem;
     margin-left: -6px;
@@ -45,17 +44,20 @@
     letter-spacing: .2px;
     line-height: 130%;
 }
-/* @media (max-width: 1000px) 
+@media (max-width: 1001px) 
 {
     .homepage-body{
-        height: 80vh;
+        height: 100%;
     }
-    .homepage-body-description h1
+    .homepage-body-description .btn{
+        margin-bottom: 2rem;
+}
+    /* .homepage-body-description h1
    {
        font-size:40px;
-   }
+   } */
  
-} */
+}
 /* 
 .BodySection{
     background: linear-gradient(165.25deg, #5105E1 -32.71%, #8B2BE2 107.11%);
