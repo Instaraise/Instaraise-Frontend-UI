@@ -37,7 +37,7 @@ const Body = () => {
             <Header />
             <div className="container">
                 <div className="row">
-                    <div className="col-2 col-md-2 d-none d-lg-block">
+                    <div className="col-md-2 d-none d-lg-block">
                         <div className="vl"></div>
                         <div className="homepage-body-socials">
                             <img src={instagramLogo} />
@@ -48,7 +48,7 @@ const Body = () => {
                         </div>
                         <div className="vl"></div>
                     </div>
-                    <div className="col-7 col-md-7 mx-auto homepage-body-description d-none d-lg-block">
+                    <div className="col-md-7 mx-auto homepage-body-description d-none d-lg-block">
                         {HomePageDesElem}
                     </div>
                     <div class="col-md-12 mx-auto homepage-body-description d-lg-none">
