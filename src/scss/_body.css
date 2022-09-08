@@ -1,16 +1,68 @@
-
-.BodySection{
-    background: linear-gradient(165.25deg, #5105E1 -32.71%, #8B2BE2 107.11%);
+.homepage-body{
+    background: var(--gradient-background);
     height: 85vh;
 }
 .vl{
     border-left: 1px solid #D0B3FE;
-    margin-left: 10px;
-    height: 120px;
+    margin-left: 3px;
+    height: 20vh;
+}
+
+.homepage-body-socials img{
+    padding: 0.5rem 0rem;
+    margin-left: -6px;
+}
+.homepage-body-description h1{
+    color: #FFFFFF;
+    line-height: 130%;
+    font-size: 60px;
+    letter-spacing: 0.2px;
+    font-family: Aileron-Bold;
+}
+.homepage-body-description .homepage-body-description-headerpara{
+    color: #FFFFFF;
+    font-family: font-Regular;
+    font-weight: 550;
+    letter-spacing: 0.2px;
+}
+.vlb p {
+    color: rgba(255, 255, 255, 0.34);;
+    line-height:1.5rem;
+    margin-left: 1rem;
+    font-family: font-Regular;
 }
 .vlb{
     border-left: 3px solid #A97BED;
 }
+.btn{
+    padding: 12px 24px;
+}
+.btn span {
+    font-family: font-Regular;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: 0.2px;
+    color: #6B16E2;
+}
+@media (max-width: 1000px) 
+{
+    .homepage-body{
+        height: 100vh;
+    }
+    /* .homepage-body-description h1
+   {
+       font-size:40px;
+   } */
+ 
+}
+/* 
+.BodySection{
+    background: linear-gradient(165.25deg, #5105E1 -32.71%, #8B2BE2 107.11%);
+    height: 85vh;
+}
+
+
 .vlb p {
     color: rgba(255, 255, 255, 0.34);;
     line-height:1.5rem;
@@ -33,11 +85,11 @@
     font-size: 16px;
     line-height: 100%;
     letter-spacing: 0.2px;
-}
+} */
 /* .bodyContent{
     margin: 0rem 4rem;
 } */
-.bodyContent h1{
+/* .homepage-body-description h1{
     color: #FFFFFF;
     line-height: 130%;
     font-size: 60px;
@@ -46,7 +98,7 @@
 }
 .btn span{
     color: #6B16E2;
-}
+} */
 /* @media (max-width: 1000px) 
 {
    .bodyContent h1

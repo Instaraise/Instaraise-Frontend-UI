@@ -1,16 +1,65 @@
 import React from 'react';
 import { HEADER_DATA } from '../../../../config/HomeConfig/HeaderConfig/config.header';
-// import CompLogo from '../../../../assets/images/CompLogo.svg';
+import instaLogo from '../../../../assets/images/InstaLogo.svg';
 import CompName from '../../../../assets/images/Instaraise.svg';
 import darkModeImg from '../../../../assets/images/darkModeImg.svg';
 import GithubImg from '../../../../assets/images/GithubImg.svg';
-import docsImg from '../../../../assets/images/docsImg.svg';
-import compLogo from '../../../../assets/images/compLogo.png';
 import shareDocs from '../../../../assets/images/shareDocs.svg';
 import '../../../../scss/_header.css';
 const Header = () => {
     return (
-        <header className="headerSection">
+        <header className="homepage-navbar ">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div className="container my-4">
+                    <a class="navbar-brand" href="#">
+                        <img className="compLogo" src={instaLogo} />
+                        <img className="ml-2" src={CompName} />
+                    </a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div
+                        class="collapse navbar-collapse"
+                        id="navbarSupportedContent"
+                    >
+                        <div className="homepage-navbar-menu mx-auto">
+                            <ul class="navbar-nav mt-2">
+                                {HEADER_DATA.map((elem) => (
+                                    <li class="nav-item px-2">
+                                        <a class="nav-link text-end" href="#">
+                                            <span>{elem.headerNav}</span>{' '}
+                                            <span class="sr-only">
+                                                (current)
+                                            </span>
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="homepage-navbar-social ml-auto text-end">
+                            <img src={darkModeImg} />
+                            <img src={GithubImg} />
+                            <img src={shareDocs} />
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    );
+};
+
+export default Header;
+{
+    /* <header className="headerSection">
             <nav class="container my-4 navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand ml-1" href="#">
                     <img className="compLogo" src={compLogo} />
@@ -45,8 +94,5 @@ const Header = () => {
                     </div>
                 </div>
             </nav>
-        </header>
-    );
-};
-
-export default Header;
+        </header> */
+}

@@ -22,14 +22,27 @@
     font-family: Aileron-Thin;
     src: url(../assets//fonts/Aileron-Thin.otf);
 }
-.headerSection{
+:root{
+    --gradient-background: linear-gradient(165.25deg, #5105E1 -32.71%, #8B2BE2 107.11%)
+}
+.homepage-navbar .homepage-navbar-menu ul li a span{
+    color: #FFFFFF;
+    font-family: font-Regular;
+    letter-spacing: 0.2px;
+}
+.homepage-navbar .homepage-navbar-social img{
+    padding: 0rem 0.5rem;
+    cursor: pointer;
+}
+.text-end {
+    text-align: right;
+}
+
+/* .headerSection{
     background: transparent;
     padding: 0.1rem;
 }
-.navbar-nav li a span{
-    color: #FFFFFF;
-    font-family: font-Regular;
-}
+
 .headerIcons img{
     padding: 0rem 0.5rem;
 }
@@ -39,7 +52,7 @@
 .compLogo{
     height: 25px;
     width: 10px;
-}
+} */
 /* .container-fluid {
     padding-right: 79px;
     padding-left: 79px;

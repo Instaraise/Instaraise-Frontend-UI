@@ -8,9 +8,74 @@ import upRight from '../../../../assets/images/arrow-up-right.svg';
 import '../../../../scss/_body.css';
 const Body = () => {
     return (
-        <section className="BodySection">
+        <section className="homepage-body">
             <Header />
             <div className="container">
+                <div className="row">
+                    <div className="col-2 col-md-2">
+                        <div className="vl"></div>
+                        <div className="homepage-body-socials">
+                            <img src={instagramLogo} />
+                            <br />
+                            <img src={linkedinLogo} />
+                            <br />
+                            <img src={twitterLogo} />
+                        </div>
+                        <div className="vl"></div>
+                    </div>
+                    <div className="col-7 col-md-7 mx-auto homepage-body-description">
+                        {DESC_DATA.map((elem) => (
+                            <>
+                                <div className="mt-5">
+                                    <p className="mb-0 homepage-body-description-headerpara">
+                                        {elem.heading}
+                                    </p>
+                                </div>
+                                <div className="mb-4">
+                                    <h1>{elem.subHeading}</h1>
+                                </div>
+                                <div className="vlb">
+                                    <p className="ml-2">{elem.para}</p>
+                                </div>
+                            </>
+                        ))}
+                        <button
+                            type="button"
+                            className=" btn btn-light btn-lg mt-4"
+                        >
+                            <span>
+                                Launch App
+                                <img className="ml-2" src={upRight} />
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {/* <div className="container">
+                <div className="row">
+                    <div className="col-4">
+                        <div className="vl"></div>
+                    </div>
+                    <div className="col">
+                        <p>ch</p>
+                    </div>
+                    <div className="col">
+                        <div className="vl"></div>
+                        <div className="homepage-body-socials">
+                            <img src={instagramLogo} />
+                            <br />
+                            <img src={linkedinLogo} />
+                            <br />
+                            <img src={twitterLogo} />
+                        </div>
+                        <div className="vl"></div>
+                    </div>
+                    <div className="col">
+                        <h2>hec</h2>
+                    </div>
+                </div>
+            </div> */}
+            {/* <div className="container">
                 <div className="row">
                     <div className="col-2">
                         <div className="vl"></div>
@@ -50,7 +115,7 @@ const Body = () => {
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </section>
     );
 };
