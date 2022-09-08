@@ -34,6 +34,12 @@
     padding: 0rem 0.5rem;
     cursor: pointer;
 }
+.navbar-toggler-icon svg{
+    color: #FFFFFF;
+}
+.navbar-light .navbar-toggler {
+    border-color: transparent;
+}
 .text-end {
     text-align: right;
 }
