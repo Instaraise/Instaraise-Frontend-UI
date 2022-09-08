@@ -24,7 +24,7 @@ const Header = () => {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <span class="navbar-toggler-icon">
+                        <span class="navbar-menu-icon">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"
