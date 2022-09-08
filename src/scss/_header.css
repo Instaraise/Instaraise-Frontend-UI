@@ -26,8 +26,22 @@
     background: transparent;
     padding: 0.1rem;
 }
-.container-fluid {
-    /* padding-right: 79px; */
+.navbar-nav li a span{
+    color: #FFFFFF;
+    font-family: font-Regular;
+}
+.headerIcons img{
+    padding: 0rem 0.5rem;
+}
+.nav-item{
+    padding: 0rem 1rem;
+}
+.compLogo{
+    height: 25px;
+    width: 10px;
+}
+/* .container-fluid {
+    padding-right: 79px;
     padding-left: 79px;
 }
 @media (max-width: 992px){
@@ -36,18 +50,13 @@
        padding-right: 30px;
     }
 }
-.headerIcons img{
-    padding: 0rem 0.5rem;
-}
+
 .navbar-nav{
     margin-left: 7.5rem;
 }
-.navbar-nav li a span{
-    color: #FFFFFF;
-    font-family: font-Regular;
-}
+
 @media (max-width: 991px){
     .navbar-nav {
        margin: auto;
     }
-}
+} */

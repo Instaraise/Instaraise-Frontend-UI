@@ -1,17 +1,19 @@
 import React from 'react';
 import { HEADER_DATA } from '../../../../config/HomeConfig/HeaderConfig/config.header';
-import CompLogo from '../../../../assets/images/CompLogo.svg';
+// import CompLogo from '../../../../assets/images/CompLogo.svg';
 import CompName from '../../../../assets/images/Instaraise.svg';
 import darkModeImg from '../../../../assets/images/darkModeImg.svg';
 import GithubImg from '../../../../assets/images/GithubImg.svg';
 import docsImg from '../../../../assets/images/docsImg.svg';
+import compLogo from '../../../../assets/images/compLogo.png';
+import shareDocs from '../../../../assets/images/shareDocs.svg';
 import '../../../../scss/_header.css';
 const Header = () => {
     return (
         <header className="headerSection">
-            <nav class="container-fluid w-100 my-4 navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="#">
-                    <img className="ml-1" src={CompLogo} />
+            <nav class="container my-4 navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand ml-1" href="#">
+                    <img className="compLogo" src={compLogo} />
                     <img className="ml-3" src={CompName} />
                 </a>
                 <button
@@ -26,9 +28,9 @@ const Header = () => {
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        {HEADER_DATA.map((elem, index) => (
-                            <li class="nav-item pl-4">
+                    <ul class="navbar-nav mx-auto">
+                        {HEADER_DATA.map((elem) => (
+                            <li class="nav-item">
                                 <a class="nav-link" href="#">
                                     <span>{elem.headerNav}</span>{' '}
                                     <span class="sr-only">(current)</span>
@@ -39,7 +41,7 @@ const Header = () => {
                     <div className="ml-auto headerIcons">
                         <img src={darkModeImg} />
                         <img src={GithubImg} />
-                        <img src={docsImg} />
+                        <img src={shareDocs} />
                     </div>
                 </div>
             </nav>

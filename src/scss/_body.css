@@ -10,7 +10,6 @@
 }
 .vlb{
     border-left: 3px solid #A97BED;
-    height: 45px;
 }
 .vlb p {
     color: rgba(255, 255, 255, 0.34);;
@@ -35,6 +34,9 @@
     line-height: 100%;
     letter-spacing: 0.2px;
 }
+/* .bodyContent{
+    margin: 0rem 4rem;
+} */
 .bodyContent h1{
     color: #FFFFFF;
     line-height: 130%;
@@ -42,16 +44,19 @@
     letter-spacing: 0.2px;
     font-family: Aileron-Bold;
 }
-@media (max-width: 1000px) 
+.btn span{
+    color: #6B16E2;
+}
+/* @media (max-width: 1000px) 
 {
    .bodyContent h1
    {
        font-size:40px;
    }
-   /* .vl{
+   .vl{
     height: 95px;
    }
    .featured{
     height: 50vh;
-   } */
-}
+   }
+} */

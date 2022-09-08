@@ -10,9 +10,9 @@ const Body = () => {
     return (
         <section className="BodySection">
             <Header />
-            <div className="container-fluid">
+            <div className="container">
                 <div className="row">
-                    <div className="col-3 col-md-3">
+                    <div className="col-2">
                         <div className="vl"></div>
                         <div className="logosEdit">
                             <img src={instagramLogo} />
@@ -23,10 +23,10 @@ const Body = () => {
                         </div>
                         <div className="vl"></div>
                     </div>
-                    <div className="col-8 col-md-6 bodyContent mt-5">
+                    <div className="col-7 mx-auto bodyContent">
                         {DESC_DATA.map((elem) => (
                             <>
-                                <div className="">
+                                <div className="mt-5">
                                     <p className="mb-0 bodyHeaderPara">
                                         {elem.heading}
                                     </p>
@@ -36,18 +36,18 @@ const Body = () => {
                                 </div>
                                 <div className="vlb">
                                     <p className="ml-2">{elem.para}</p>
-                                    <button
-                                        type="button"
-                                        className=" btn btn-light btn-lg mt-4"
-                                    >
-                                        <span>
-                                            Launch App
-                                            <img src={upRight} />
-                                        </span>
-                                    </button>
                                 </div>
                             </>
                         ))}
+                        <button
+                            type="button"
+                            className=" btn btn-light btn-lg mt-4"
+                        >
+                            <span>
+                                Launch App
+                                <img src={upRight} />
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>
