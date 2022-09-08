@@ -5,7 +5,7 @@
 .vl{
     border-left: 1px solid #D0B3FE;
     margin-left: 3px;
-    height: 20vh;
+    height: 35%;
 }
 
 .homepage-body-socials img{
@@ -19,7 +19,7 @@
     letter-spacing: 0.2px;
     font-family: Aileron-Bold;
 }
-.homepage-body-description .homepage-body-description-headerpara{
+.homepage-body-description .homepage-body-description-bodypara{
     color: #FFFFFF;
     font-family: font-Regular;
     font-weight: 550;
@@ -34,28 +34,28 @@
 .vlb{
     border-left: 3px solid #A97BED;
 }
-.btn{
-    padding: 12px 24px;
+.homepage-body-description .btn{
+    padding: 8px 24px;
 }
-.btn span {
-    font-family: font-Regular;
-    font-weight: 500;
-    font-size: 16px;
+.homepage-body-description .btn span {
+    color: #6b16e2;
+    font-family: Aileron-Thin;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: .2px;
     line-height: 130%;
-    letter-spacing: 0.2px;
-    color: #6B16E2;
 }
-@media (max-width: 1000px) 
+/* @media (max-width: 1000px) 
 {
     .homepage-body{
-        height: 100vh;
+        height: 80vh;
     }
-    /* .homepage-body-description h1
+    .homepage-body-description h1
    {
        font-size:40px;
-   } */
+   }
  
-}
+} */
 /* 
 .BodySection{
     background: linear-gradient(165.25deg, #5105E1 -32.71%, #8B2BE2 107.11%);
