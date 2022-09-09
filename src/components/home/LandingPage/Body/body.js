@@ -5,6 +5,7 @@ import instagramLogo from '../../../../assets/images/socials/instagram.svg';
 import linkedinLogo from '../../../../assets/images/socials/linkedin.svg';
 import twitterLogo from '../../../../assets/images/socials/twitter.svg';
 import upRight from '../../../../assets/images/arrow-up-right.svg';
+import Stats from '../Stats/stats';
 import '../../../../scss/_body.css';
 const Body = () => {
     var HomePageDesElem = (

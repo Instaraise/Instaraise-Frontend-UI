@@ -26,24 +26,36 @@
 /* .statsImages img{
     height: 20%;
 } */
-/* .statsContainer{
-    height: 18vh;
-} */
+.statsContainer{
+    height: 17vh;
+}
 .details{
     background: #fff;
-   
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 .border-bottom{
     border-bottom: 1px solid rgba(44, 9, 11, 0.08);
 }
-.statsHeader span{
+.statsDesc span{
     color: #8a94a6;
     font-size: 12px;
     font-weight: 500;
 }
-.statsDesc{
+.statsHeader{
     color: #4E5D78;
     font-family: font-AilRegular;
+    font-weight:bold;
+}
+.statsDesc span{
+    color: #4E5D78;
     font-weight: 600;
+    font-size: 15px;
+    font-family: font-Regular;
+    
+}
+.statsNames{
+    color: #8a94a6;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: font-Regular;
 }

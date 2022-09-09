@@ -7,13 +7,14 @@
     src: url(../assets/fonts/BinancePlex-SemiBold.ttf);
 }
 @font-face {
-    font-family: font-AilRegular;
-    src: url(../assets/fonts//Aileron-Regular.otf);
-}
-@font-face {
     font-family: font-Regular;
     src: url(../assets/fonts/BinancePlexRegular.ttf);
 }
+@font-face {
+    font-family: font-AilRegular;
+    src: url(../assets/fonts//Aileron-Regular.otf);
+}
+
 @font-face {
     font-family: Aileron-Light;
     src: url(../assets/fonts/Aileron-Light.otf);

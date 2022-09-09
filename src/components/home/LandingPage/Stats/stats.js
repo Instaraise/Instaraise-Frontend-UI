@@ -3,32 +3,54 @@ import { PRICE_DATA } from '../../../../config/HomeConfig/StatsConfig/config.sta
 import '../../../../scss/_stats.css';
 const Stats = () => {
     return (
-        <section className="statsContainer shadow-sm">
+        <section className="statsContainer shadow-sm mb-5 p-4 bg-white rounded">
             <div className=" container details">
-                <div className="row ">
+                <div class="row">
                     {PRICE_DATA.map((elem) => (
-                        <>
-                            <div className=" pb-2 pt-3 m-sm-auto col-xl-2 col-md-2 col-sm-6">
-                                <div className="d-flex">
-                                    <div className="mr-2 m-0">
+                        <div class="col-md-2 col-6 d-flex">
+                            {/* <div class="d-flex"> */}
+                            <div class="mr-2">
+                                <img
+                                    src={elem.image}
+                                    className="img-fluid"
+                                    width="20"
+                                    height="20"
+                                />
+                            </div>
+                            <div class="text-left">
+                                <p class="font-weight-bold m-0 statsDesc">
+                                    <span class="">{elem.description}</span>
+                                </p>
+                                <p class="statsNames">{elem.name}</p>
+                            </div>
+                            {/* </div> */}
+                        </div>
+                    ))}
+                </div>
+                {/* <div className="row "> */}
+                {/* {PRICE_DATA.map((elem) => (
+                        <> */}
+                {/* <div className="col-md-2 col-6">
+                                <div className="d-flex"> */}
+                {/* <div className="mr-2 m-0">
                                         <img
                                             className="img-fluid me-1"
                                             width="25"
                                             height="25"
                                             src={elem.image}
                                         />
-                                    </div>
-                                    <div className="text-left">
+                                    </div> */}
+                {/* <div className="text-left">
                                         <p className="m-0 statsHeader">
-                                            <span>{elem.name}</span>
-                                        </p>
-                                        <p className="statsDesc">
                                             {elem.description}
                                         </p>
+                                        <p className="statsDesc">
+                                            <span>{elem.name}</span>
+                                        </p>
                                     </div>
-                                </div>
-                            </div>
-                            {/* <div className="m-sm-auto col-xl-2  col-sm-6 d-flex justify-content-center">
+                                </div> */}
+                {/* </div> */}
+                {/* <div className="m-sm-auto col-xl-2  col-sm-6 d-flex justify-content-center">
                                 <div className="d-flex align-items-center w-50per   my-4 ">
                                     <div className="d-flex justify-content-start align-items-start">
                                         <img
@@ -48,9 +70,9 @@ const Stats = () => {
                                     </div>
                                 </div>
                             </div> */}
-                        </>
-                    ))}
-                </div>
+                {/* </>
+                    ))} */}
+                {/* </div> */}
             </div>
         </section>
     );
