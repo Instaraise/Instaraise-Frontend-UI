@@ -26,13 +26,14 @@
 /* .statsImages img{
     height: 20%;
 } */
+
 .statsContainer{
     height: 12%;
 }
-.details{
+/* .details{
     background: #fff;
-    /* border-radius: 10px; */
-}
+    border-radius: 10px;
+} */
 .border-bottom{
     border-bottom: 1px solid rgba(44, 9, 11, 0.08);
 }
@@ -58,4 +59,10 @@
     font-size: 14px;
     font-weight: 500;
     font-family: font-Regular;
+}
+@media (max-width: 1001px) 
+{
+    .statsContainer{
+        height: auto;
+    }
 }

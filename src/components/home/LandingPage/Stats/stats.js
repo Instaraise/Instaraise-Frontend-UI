@@ -4,7 +4,7 @@ import '../../../../scss/_stats.css';
 const Stats = () => {
     return (
         <section className="statsContainer shadow-sm mb-5 p-4 bg-white rounded">
-            <div className=" container details">
+            <div className=" container">
                 <div class="row">
                     {PRICE_DATA.map((elem) => (
                         <div class="col-md-2 col-6 d-flex">

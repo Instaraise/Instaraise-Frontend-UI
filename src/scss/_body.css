@@ -55,17 +55,18 @@
 @media (max-width: 1001px) 
 {
     .homepage-body{
-        height: 100%;
+        height: 70%;
     }
     .homepage-body-description .btn{
         margin-bottom: 2rem;
 }
-    /* .homepage-body-description h1
+    .homepage-body-description h1
    {
        font-size:40px;
-   } */
+   }
  
 }
+
 /* 
 .BodySection{
     background: linear-gradient(165.25deg, #5105E1 -32.71%, #8B2BE2 107.11%);
