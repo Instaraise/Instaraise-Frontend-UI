@@ -1,5 +1,9 @@
 .homepage-body{
-    background: var(--gradient-background);
+    /* background-color: var(--gradient-background); */
+    background:url(../assets/images/INSTA.svg), url(../assets//images/RAISE.svg), var(--gradient-background);
+    background-repeat: no-repeat;
+    background-position: 60%, 70%;
+    background-position-y: 28%, 60%;
     height: 85vh;
 }
 .vl{
