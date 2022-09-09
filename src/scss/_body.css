@@ -1,6 +1,6 @@
 
 .section-1{
-    height: 100vh;
+    min-height: 100vh;
 }
 .homepage-body{
     /* background-color: var(--gradient-background); */
@@ -8,7 +8,7 @@
     background-repeat: no-repeat;
     background-position: 60%, 70%;
     background-position-y: 28%, 60%;
-    height: 88%;
+    min-height: 85vh;
 }
 .vl{
     border-left: 1px solid #D0B3FE;
@@ -54,16 +54,16 @@
 }
 @media (max-width: 1001px) 
 {
-    .homepage-body{
+    /* .homepage-body{
         height: 80%;
-    }
-    /* .homepage-body-description .btn{
+    } */
+    .homepage-body-description .btn{
         margin-bottom: 2rem;
-} */
-    .homepage-body-description h1
+}
+    /* .homepage-body-description h1
    {
        font-size:50px;
-   }
+   } */
  
 }
 

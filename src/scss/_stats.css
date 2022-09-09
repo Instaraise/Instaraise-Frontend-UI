@@ -28,7 +28,7 @@
 } */
 
 .statsContainer{
-    height: 12%;
+    min-height: 15vh;
 }
 /* .details{
     background: #fff;
