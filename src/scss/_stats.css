@@ -63,6 +63,6 @@
 @media (max-width: 1001px) 
 {
     .statsContainer{
-        height: 30%;
+        height: auto;
     }
 }
