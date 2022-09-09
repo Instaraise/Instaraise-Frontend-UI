@@ -28,7 +28,8 @@
     src: url(../assets//fonts/Aileron-Thin.otf);
 }
 :root{
-    --gradient-background: linear-gradient(165.25deg, #5105E1 -32.71%, #8B2BE2 107.11%);
+    --gradient-background: linear-gradient(65.25deg, #5105E1 -32.71%, #8B2BE2 107.11%);
+
 }
 .homepage-navbar .homepage-navbar-menu ul li a span{
     color: #FFFFFF;
