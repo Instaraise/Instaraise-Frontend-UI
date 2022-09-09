@@ -57,12 +57,12 @@
     .homepage-body{
         height: 80%;
     }
-    .homepage-body-description .btn{
+    /* .homepage-body-description .btn{
         margin-bottom: 2rem;
-}
+} */
     .homepage-body-description h1
    {
-       font-size:40px;
+       font-size:50px;
    }
  
 }
