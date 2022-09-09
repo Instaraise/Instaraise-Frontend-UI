@@ -25,9 +25,9 @@ const Body = () => {
                 </>
             ))}
             <button type="button" className=" btn btn-light btn-lg mt-4">
-                <span>
-                    Launch App
-                    <img className="ml-2" src={upRight} />
+                <span className="">
+                    Launch app
+                    <img className="ml-1" src={upRight} />
                 </span>
             </button>
         </>
