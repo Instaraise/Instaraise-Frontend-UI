@@ -6,13 +6,13 @@ import Services from './Services/services';
 
 const HomeComponent = () => {
     return (
-        <>
+        <div className="section-1">
             {/* <Header /> */}
             <Body />
             <Stats />
             {/*
             <Services /> */}
-        </>
+        </div>
     );
 };
 

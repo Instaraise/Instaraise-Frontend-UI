@@ -31,7 +31,7 @@ export const PRICE_DATA = [
     {
         id: 5,
         name: 'Burned',
-        description: '$75572.97 INSTA',
+        description: '$75572.97',
         image: BurnedImg,
     },
     {

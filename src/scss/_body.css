@@ -1,10 +1,14 @@
+
+.section-1{
+    height: 100vh;
+}
 .homepage-body{
     /* background-color: var(--gradient-background); */
     background:url(../assets/images/INSTA.svg), url(../assets//images/RAISE.svg), var(--gradient-background);
     background-repeat: no-repeat;
     background-position: 60%, 70%;
     background-position-y: 28%, 60%;
-    height: 83vh;
+    height: 88%;
 }
 .vl{
     border-left: 1px solid #D0B3FE;
