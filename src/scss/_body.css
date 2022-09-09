@@ -54,9 +54,9 @@
 }
 @media (max-width: 1001px) 
 {
-    /* .homepage-body{
-        height: 80%;
-    } */
+    .homepage-body{
+        min-height: 75vh;
+    }
     .homepage-body-description .btn{
         margin-bottom: 2rem;
 }
