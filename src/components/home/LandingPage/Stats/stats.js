@@ -8,7 +8,7 @@ const Stats = () => {
                 <div className="row ">
                     {PRICE_DATA.map((elem) => (
                         <>
-                            <div className=" pb-2 pt-3 m-sm-auto col-xl-2 col-md-4 col-sm-6">
+                            <div className=" pb-2 pt-3 m-sm-auto col-xl-2 col-md-2 col-sm-6">
                                 <div className="d-flex">
                                     <div className="mr-2 m-0">
                                         <img
