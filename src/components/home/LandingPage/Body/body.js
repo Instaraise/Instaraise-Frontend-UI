@@ -25,7 +25,7 @@ const Body = () => {
                     </div>
                 </>
             ))}
-            <button type="button" className=" btn btn-light btn-lg mt-4">
+            <button type="button" className=" btn btn-light btn-lg my-4">
                 <span className="">
                     Launch app
                     <img className="ml-1" src={upRight} />

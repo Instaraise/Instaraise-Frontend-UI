@@ -28,7 +28,7 @@
 } */
 
 .statsContainer{
-    min-height: 15vh;
+    min-height: 15.1vh;
 }
 /* .details{
     background: #fff;
@@ -60,9 +60,9 @@
     font-weight: 500;
     font-family: font-Regular;
 }
-@media (max-width: 1001px) 
+/* @media (max-width: 1001px) 
 {
     .statsContainer{
         height: auto;
     }
-}
+} */
