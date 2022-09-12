@@ -26,9 +26,12 @@
 /* .statsImages img{
     height: 20%;
 } */
-
+.alg{
+    min-height: 15vh;
+}
 .statsContainer{
-    min-height: 15.1vh;
+   
+    min-height: 15vh;
 }
 /* .details{
     background: #fff;
@@ -37,11 +40,17 @@
 .border-bottom{
     border-bottom: 1px solid rgba(44, 9, 11, 0.08);
 }
+/* .allff{
+    margin: 15rem 0rem;
+} */
 .statsDesc span{
     color: #8a94a6;
     font-size: 12px;
     font-weight: 500;
 }
+/* .alg{
+    height: 15vh;
+} */
 .statsHeader{
     color: #4E5D78;
     font-family: font-AilRegular;
@@ -60,9 +69,3 @@
     font-weight: 500;
     font-family: font-Regular;
 }
-/* @media (max-width: 1001px) 
-{
-    .statsContainer{
-        height: auto;
-    }
-} */

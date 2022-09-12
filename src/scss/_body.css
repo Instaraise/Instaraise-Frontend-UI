@@ -13,8 +13,11 @@
 .vl{
     border-left: 1px solid #D0B3FE;
     margin-left: 3px;
-    height: 33%;
+    height: 20vh;
 }
+/* .homepage-body-socials {
+    min-height: 20vh;
+} */
 .homepage-body-socials img{
     padding: 0.5rem 0rem;
     margin-left: -6px;
@@ -32,7 +35,7 @@
     font-weight: 550;
     letter-spacing: 0.2px;
 }
-.vlb p {
+.descPara {
     color: rgba(255, 255, 255, 0.34);;
     line-height:1.5rem;
     margin-left: 1rem;
@@ -52,21 +55,43 @@
     letter-spacing: .2px;
     line-height: 130%;
 }
-@media (max-width: 1001px) 
+.cen{
+     margin-top: 10vh;
+}
+@media (max-width: 991px) 
 {
     .homepage-body{
-        min-height: 75vh;
+        background: var(--gradient-background);
     }
-    .homepage-body-description .btn{
+    .homepage-body-description h1
+    {
+        font-size:40px;
+    }
+    /* .alignItems{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    } */
+    /* .homepage-body{
+        min-height: 75vh;
+    } */
+    /* .homepage-body-description .btn{
         margin-bottom: 2rem;
-}
-    /* .homepage-body-description h1
-   {
-       font-size:50px;
-   } */
+    } */
+   
  
 }
-
+@media (min-width: 500px) and (max-width: 991px){
+    .cen{
+        margin-top: 25vh;
+   }
+}
+/* @media (min-width: 768px) and (max-width: 991px){
+    
+    .alg{
+        height: 25vh;
+    }
+} */
 /* 
 .BodySection{
     background: linear-gradient(165.25deg, #5105E1 -32.71%, #8B2BE2 107.11%);

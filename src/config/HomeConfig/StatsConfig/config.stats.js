@@ -1,14 +1,15 @@
-import PriceImg from '../../../assets/images/priceTokenImg.png';
-import MarketCapImg from '../../../assets/images/marketCapImg.png';
-import CirculatingSupplyImg from '../../../assets/images/circulatingSupplyImg.png';
-import BurnedImg from '../../../assets/images/burnedImg.png';
-import tvl_img from '../../../assets/images/tvl_img.png';
+import PriceImg from '../../../assets/images/price.svg';
+import Icon from '../../../assets/images/Icon.svg';
+import MarketCapImg from '../../../assets/images/market.svg';
+import CirculatingSupplyImg from '../../../assets/images/supply.svg';
+import BurnedImg from '../../../assets/images/burned.svg';
+import tvl_img from '../../../assets/images/TVL.svg';
 export const PRICE_DATA = [
     {
         id: 1,
         name: 'Token ticker',
         description: '$INSTA',
-        image: PriceImg,
+        image: Icon,
     },
     {
         id: 2,

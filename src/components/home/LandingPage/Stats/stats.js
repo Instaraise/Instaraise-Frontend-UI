@@ -3,13 +3,13 @@ import { PRICE_DATA } from '../../../../config/HomeConfig/StatsConfig/config.sta
 import '../../../../scss/_stats.css';
 const Stats = () => {
     return (
-        <section className="statsContainer shadow-sm mb-5 p-4 bg-white rounded">
-            <div className=" container">
-                <div class="row">
+        <section className="statsContainer">
+            <div className="container">
+                <div class="row alg">
                     {PRICE_DATA.map((elem) => (
-                        <div class="col-md-2 col-6 d-flex">
+                        <div class="m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex">
                             {/* <div class="d-flex"> */}
-                            <div class="mr-2">
+                            <div class="mr-2 mt-4">
                                 <img
                                     src={elem.image}
                                     className="img-fluid"
@@ -17,7 +17,7 @@ const Stats = () => {
                                     height="20"
                                 />
                             </div>
-                            <div class="text-left">
+                            <div class="text-left mt-4">
                                 <p class="font-weight-bold m-0 statsDesc">
                                     <span class="">{elem.description}</span>
                                 </p>

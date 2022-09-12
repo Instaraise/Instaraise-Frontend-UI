@@ -12,7 +12,7 @@ const Body = () => {
         <>
             {DESC_DATA.map((elem) => (
                 <>
-                    <div className="mt-5">
+                    <div className="">
                         <p className="mb-0 homepage-body-description-bodypara">
                             {elem.heading}
                         </p>
@@ -21,11 +21,11 @@ const Body = () => {
                         <h1>{elem.subHeading}</h1>
                     </div>
                     <div className="vlb">
-                        <p className="ml-2">{elem.para}</p>
+                        <p className="ml-2 mb-5 descPara">{elem.para}</p>
                     </div>
                 </>
             ))}
-            <button type="button" className=" btn btn-light btn-lg my-4">
+            <button type="button" className=" btn btn-light btn-lg">
                 <span className="">
                     Launch app
                     <img className="ml-1" src={upRight} />
@@ -49,11 +49,35 @@ const Body = () => {
                         </div>
                         <div className="vl"></div>
                     </div>
-                    <div className="col-md-7 mx-auto homepage-body-description d-none d-lg-block">
+                    <div className="mt-auto col-md-7 mx-auto d-none d-lg-block homepage-body-description">
                         {HomePageDesElem}
                     </div>
-                    <div class="col-md-12 mx-auto homepage-body-description d-lg-none">
-                        {HomePageDesElem}
+                    <div class="col-md-12 mx-auto homepage-body-description d-lg-none cen text-center">
+                        {DESC_DATA.map((elem) => (
+                            <>
+                                <div className="">
+                                    <p className="mb-0 homepage-body-description-bodypara">
+                                        {elem.heading}
+                                    </p>
+                                </div>
+                                <div className="mb-4">
+                                    <h1>{elem.subHeading}</h1>
+                                </div>
+
+                                <p className="ml-2 mb-5 descPara">
+                                    {elem.para}
+                                </p>
+                            </>
+                        ))}
+                        <button
+                            type="button"
+                            className=" btn btn-light btn-lg mb-5"
+                        >
+                            <span className="">
+                                Launch app
+                                <img className="ml-1" src={upRight} />
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>
