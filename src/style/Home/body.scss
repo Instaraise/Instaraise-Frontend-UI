@@ -1,0 +1,79 @@
+
+.section-1{
+    min-height: 100vh;
+}
+.homepage-body{
+    background:url(../../assets/images/INSTA.svg), url(../../assets//images/RAISE.svg), var(--gradient-background);
+    background-repeat: no-repeat;
+    background-position: 60%, 70%;
+    background-position-y: 28%, 60%;
+    min-height: 85vh;
+}
+.vl{
+    border-left: 1px solid #D0B3FE;
+    margin-left: 3px;
+    height: 20vh;
+}
+.homepage-body-socials img{
+    cursor: pointer;
+    padding: 0.5rem 0rem;
+    margin-left: -6px;
+}
+.homepage-body-description h1{
+    color: #FFFFFF;
+    line-height: 130%;
+    letter-spacing: 0.2px;
+}
+.text-aileron-bold{
+    font-family: Aileron-Bold;
+    font-size: 60px;
+}
+.text-insta-regular{
+    font-family: font-Regular;
+    color: #4e5d78;
+    line-height:1.5rem;
+}
+.homepage-body-description-bodypara{
+    color: #FFFFFF;
+    letter-spacing: 0.2px;
+}
+.font-insta-regular{
+    font-family: font-Regular;
+}
+.descPara {
+    color: rgba(255, 255, 255, 0.34);
+}
+.vlb{
+    border-left: 3px solid #A97BED;
+}
+.homepage-body-description .btn{
+    padding: 8px 24px;
+}
+.homepage-body-description .btn span {
+    color: #6b16e2;
+    font-size: 18px;
+    font-weight: 550;
+    letter-spacing: .2px;
+    line-height: 130%;
+}
+.cen{
+     margin-top: 10vh;
+}
+@media (max-width: 991px) 
+{
+    .homepage-body{
+        background: var(--gradient-background);
+    }
+    .homepage-body-description h1
+    {
+        font-size:40px;
+    }
+    .services_section h1{
+        font-size: 40px;
+    }
+}
+@media (min-width: 500px) and (max-width: 991px){
+    .cen{
+        margin-top: 25vh;
+   }
+}

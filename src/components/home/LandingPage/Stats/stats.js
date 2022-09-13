@@ -1,14 +1,12 @@
 import React from 'react';
 import { PRICE_DATA } from '../../../../config/HomeConfig/StatsConfig/config.stats';
-import '../../../../scss/_stats.css';
 const Stats = () => {
     return (
-        <section className="statsContainer">
+        <section className="statsContainer shadow-sm">
             <div className="container">
                 <div class="row alg">
                     {PRICE_DATA.map((elem) => (
                         <div class="m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex">
-                            {/* <div class="d-flex"> */}
                             <div class="mr-2 mt-4">
                                 <img
                                     src={elem.image}
@@ -23,7 +21,6 @@ const Stats = () => {
                                 </p>
                                 <p class="statsNames">{elem.name}</p>
                             </div>
-                            {/* </div> */}
                         </div>
                     ))}
                 </div>
@@ -79,19 +76,3 @@ const Stats = () => {
 };
 
 export default Stats;
-{
-    /* <section className=" two-background mb-5">
-            <div className="container ">
-                <div className="details">
-                    <div className="row">
-                        {PRICE_DATA.map((elem) => (
-                            <div className="col my-4">
-                                <p>{elem.name}</p>
-                                <h4>{elem.amount}</h4>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section> */
-}

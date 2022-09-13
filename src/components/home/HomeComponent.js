@@ -4,11 +4,15 @@ import Stats from './LandingPage/Stats/stats';
 import Services from './Services/services';
 const HomeComponent = () => {
     return (
-        <div className="section-1">
-            <Body />
-            <Stats />
-            <Services />
-        </div>
+        <>
+            <div className="section-1">
+                <Body />
+                <Stats />
+            </div>
+            <div className="section-2">
+                <Services />
+            </div>
+        </>
     );
 };
 

@@ -5,7 +5,6 @@ import CompName from '../../../../assets/images/Instaraise.svg';
 import darkModeImg from '../../../../assets/images/darkModeImg.svg';
 import GithubImg from '../../../../assets/images/GithubImg.svg';
 import shareDocs from '../../../../assets/images/shareDocs.svg';
-import '../../../../scss/_header.css';
 const Header = () => {
     return (
         <header className="homepage-navbar ">
