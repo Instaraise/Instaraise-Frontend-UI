@@ -19,6 +19,7 @@
     min-height: 20vh;
 } */
 .homepage-body-socials img{
+    cursor: pointer;
     padding: 0.5rem 0rem;
     margin-left: -6px;
 }

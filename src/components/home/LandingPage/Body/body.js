@@ -33,6 +33,30 @@ const Body = () => {
             </button>
         </>
     );
+    var HomePageDesElemMobile = (
+        <>
+            {DESC_DATA.map((elem) => (
+                <>
+                    <div className="">
+                        <p className="mb-0 homepage-body-description-bodypara">
+                            {elem.heading}
+                        </p>
+                    </div>
+                    <div className="mb-4">
+                        <h1>{elem.subHeading}</h1>
+                    </div>
+
+                    <p className="ml-2 mb-5 descPara">{elem.para}</p>
+                </>
+            ))}
+            <button type="button" className=" btn btn-light btn-lg mb-5">
+                <span className="">
+                    Launch app
+                    <img className="ml-1" src={upRight} />
+                </span>
+            </button>
+        </>
+    );
     return (
         <section className="homepage-body">
             <Header />
@@ -49,35 +73,11 @@ const Body = () => {
                         </div>
                         <div className="vl"></div>
                     </div>
-                    <div className="mt-auto col-md-7 mx-auto d-none d-lg-block homepage-body-description">
+                    <div className=" mt-auto col-md-7 mx-auto d-none d-lg-block homepage-body-description">
                         {HomePageDesElem}
                     </div>
                     <div class="col-md-12 mx-auto homepage-body-description d-lg-none cen text-center">
-                        {DESC_DATA.map((elem) => (
-                            <>
-                                <div className="">
-                                    <p className="mb-0 homepage-body-description-bodypara">
-                                        {elem.heading}
-                                    </p>
-                                </div>
-                                <div className="mb-4">
-                                    <h1>{elem.subHeading}</h1>
-                                </div>
-
-                                <p className="ml-2 mb-5 descPara">
-                                    {elem.para}
-                                </p>
-                            </>
-                        ))}
-                        <button
-                            type="button"
-                            className=" btn btn-light btn-lg mb-5"
-                        >
-                            <span className="">
-                                Launch app
-                                <img className="ml-1" src={upRight} />
-                            </span>
-                        </button>
+                        {HomePageDesElemMobile}
                     </div>
                 </div>
             </div>

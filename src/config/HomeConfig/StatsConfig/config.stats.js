@@ -9,13 +9,13 @@ export const PRICE_DATA = [
         id: 1,
         name: 'Token ticker',
         description: '$INSTA',
-        image: Icon,
+        image: PriceImg,
     },
     {
         id: 2,
         name: 'Price',
         description: '$0.007',
-        image: PriceImg,
+        image: Icon,
     },
     {
         id: 3,
