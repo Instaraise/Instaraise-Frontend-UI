@@ -40,13 +40,20 @@
 //     text-align: justify;
 //     word-break: break-all;
 // }
-@media (max-width: 991px) 
+@media (max-width: 760px) 
 {
+    //this is flex
+    .service-heading{
+        display: flex;
+        justify-content: center;
+    }
+    //spaces inline of our services
+    .services_section h1{
+        margin-left: 1rem;
+        font-size: 40px;
+    }
+    //align center
     .services_section .container{
         text-align: center;
-    }
-    .services-section .service-heading{
-        display: flex;
-        flex-direction: row;
     }
 }
