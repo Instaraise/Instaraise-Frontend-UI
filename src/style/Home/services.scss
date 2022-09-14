@@ -34,10 +34,11 @@
     }
 } */
 .services-text {
-    color: #5E0EE2;
+    color: var(--services-text-color)
 }
-.insta-para-font-size{
-    font-size: 14px;
+.text-insta-regular{
+    color: #4e5d78;
+    line-height:1.5rem;
 }
 // .card-text-align{
 //     text-align: justify;

@@ -26,7 +26,7 @@ const Services = () => {
                                             <h4 className="text-insta-regular font-weight-bold">
                                                 {elem.heading}
                                             </h4>
-                                            <p className="text-insta-regular insta-para-font-size">
+                                            <p className="text-insta-regular font-insta-regular">
                                                 {elem.description}
                                             </p>
                                         </div>
@@ -45,7 +45,7 @@ const Services = () => {
                                             <h4 className="text-insta-regular font-weight-bold">
                                                 {elem.heading}
                                             </h4>
-                                            <p className="text-insta-regular insta-para-font-size">
+                                            <p className="text-insta-regular font-insta-regular">
                                                 {elem.description}
                                             </p>
                                         </div>
