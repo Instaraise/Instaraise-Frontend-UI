@@ -18,11 +18,11 @@ const Services = () => {
                                 {SERVICES_DATA.map((elem) => (
                                     <div className="">
                                         <img
-                                            class="ml-3"
+                                            className="ml-md-3"
                                             src={elem.image}
                                             alt="Card image cap"
                                         />
-                                        <div class="card-body ">
+                                        <div class="card-body">
                                             <h4 className="text-insta-regular font-weight-bold">
                                                 {elem.heading}
                                             </h4>
@@ -37,7 +37,7 @@ const Services = () => {
                                 {SERVICES_DATA2.map((elem) => (
                                     <div className="">
                                         <img
-                                            class="ml-3"
+                                            class="ml-md-3"
                                             src={elem.image}
                                             alt="Card image cap"
                                         />
