@@ -18,6 +18,8 @@ const Services = () => {
                                 {SERVICES_DATA.map((elem) => (
                                     <div className="">
                                         <img
+                                            height="50px"
+                                            width="52px"
                                             class="ml-3"
                                             src={elem.image}
                                             alt="Card image cap"
