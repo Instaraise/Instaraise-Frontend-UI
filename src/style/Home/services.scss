@@ -33,27 +33,33 @@
         text-align: center;
     }
 } */
-.services-text{
+.services-text {
     color: #5E0EE2;
+}
+.insta-para-font-size{
+    font-size: 14px;
 }
 // .card-text-align{
 //     text-align: justify;
 //     word-break: break-all;
 // }
-@media (max-width: 760px) 
-{
-    //this is flex
-    .service-heading{
+@media (max-width: 760px) {
+
+    //align center
+    .services_section .container {
+        text-align: center;
+    }
+
+    //this is flex of our services
+    .service-heading {
         display: flex;
         justify-content: center;
     }
+
     //spaces inline of our services
-    .services_section h1{
+    .services_section h1 {
         margin-left: 1rem;
         font-size: 40px;
     }
-    //align center
-    .services_section .container{
-        text-align: center;
-    }
+
 }
