@@ -1,0 +1,26 @@
+.imageEdit {
+    border-radius: 2.5rem;
+    display: block;
+    height: 21rem;
+    width: 100%;
+}
+.cardEditImg {
+    border-radius: 0.5rem;
+    cursor: pointer;
+    height: 210px;
+    width: 100%;
+}
+.card-para{
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    color: #b0b2b5;
+    color: #607d8b;
+    display: -webkit-box;
+    font-family: font-Regular;
+    font-size: 14px;
+    line-height: 1.5rem;
+    margin-top: 1rem;
+    overflow: hidden;
+    text-align: justify;
+    word-break: break-word;
+}
