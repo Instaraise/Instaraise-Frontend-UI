@@ -5,6 +5,7 @@ import Services from './Services/services';
 // import Backers from './Backers/backers';
 import EcoSystem from './EcoSystem/ecosystem';
 import RoadMap from './Roadmap/roadmap';
+import TrendingNews from './TrendingNews/trendingnews';
 import Footer from './Footer/footer';
 const HomeComponent = () => {
     return (
@@ -22,7 +23,10 @@ const HomeComponent = () => {
             <div className="section-3">
                 <EcoSystem />
             </div>
-            {/* <div className="section-4">
+            <div>
+                <TrendingNews />
+            </div>
+            {/* <div className="section-5">
                 <RoadMap />
             </div> */}
             <div className="section-4">
