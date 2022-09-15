@@ -8,14 +8,14 @@ import shareDocs from '../../../../assets/images/shareDocs.svg';
 const Header = () => {
     return (
         <header className="homepage-navbar ">
-            <nav class="navbar navbar-expand-lg navbar-light">
+            <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="container my-4">
-                    <a class="navbar-brand" href="#">
+                    <a className="navbar-brand" href="#">
                         <img className="compLogo" src={instaLogo} />
                         <img className="ml-2" src={CompName} />
                     </a>
                     <button
-                        class="navbar-toggler"
+                        className="navbar-toggler"
                         type="button"
                         data-toggle="collapse"
                         data-target="#navbarSupportedContent"
@@ -23,13 +23,13 @@ const Header = () => {
                         aria-expanded="false"
                         aria-label="Toggle navigation"
                     >
-                        <span class="navbar-menu-icon">
+                        <span className="navbar-menu-icon">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="16"
                                 height="16"
                                 fill="currentColor"
-                                class="bi bi-hdd-stack-fill"
+                                className="bi bi-hdd-stack-fill"
                                 viewBox="0 0 16 16"
                             >
                                 {' '}
@@ -39,16 +39,19 @@ const Header = () => {
                     </button>
 
                     <div
-                        class="collapse navbar-collapse"
+                        className="collapse navbar-collapse"
                         id="navbarSupportedContent"
                     >
                         <div className="homepage-navbar-menu mx-auto">
-                            <ul class="navbar-nav mt-2">
-                                {HEADER_DATA.map((elem) => (
-                                    <li class="nav-item px-2">
-                                        <a class="nav-link text-end" href="#">
+                            <ul className="navbar-nav mt-2">
+                                {HEADER_DATA.map((elem, index) => (
+                                    <li key={index} className="nav-item px-2">
+                                        <a
+                                            className="nav-link text-end"
+                                            href="#"
+                                        >
                                             <span>{elem.headerNav}</span>{' '}
-                                            <span class="sr-only">
+                                            <span className="sr-only">
                                                 (current)
                                             </span>
                                         </a>
@@ -71,13 +74,13 @@ const Header = () => {
 export default Header;
 {
     /* <header className="headerSection">
-            <nav class="container my-4 navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand ml-1" href="#">
+            <nav className="container my-4 navbar navbar-expand-lg navbar-light">
+                <a className="navbar-brand ml-1" href="#">
                     <img className="compLogo" src={compLogo} />
                     <img className="ml-3" src={CompName} />
                 </a>
                 <button
-                    class="navbar-toggler"
+                    className="navbar-toggler"
                     type="button"
                     data-toggle="collapse"
                     data-target="#navbarNavDropdown"
@@ -85,15 +88,15 @@ export default Header;
                     aria-expanded="false"
                     aria-label="Toggle navigation"
                 >
-                    <span class="navbar-toggler-icon"></span>
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav mx-auto">
+                <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul className="navbar-nav mx-auto">
                         {HEADER_DATA.map((elem) => (
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
+                            <li className="nav-item">
+                                <a className="nav-link" href="#">
                                     <span>{elem.headerNav}</span>{' '}
-                                    <span class="sr-only">(current)</span>
+                                    <span className="sr-only">(current)</span>
                                 </a>
                             </li>
                         ))}

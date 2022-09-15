@@ -1,15 +1,24 @@
 .section-4{
     background: var(--gradient-background);
 }
-.footer-social-text{
-    color: #EDD9FF;
-}
 .footer-header-color{
     color: #FFFFFF;
 }
 .footer-img img{
     cursor: pointer;
 }
-.footer-hr-line{
-    border-top: 1px solid #FCF9F9C9;
+.footer-copyright-section{
+    border-top: 0.2px solid #EDD9FF;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.footer-font{
+    font-family: font-Regular;
+    color: #EDD9FF;
+    font-size: 14px;
+    font-weight: 500;
+}
+@media (max-width: 760px) {
+    
 }

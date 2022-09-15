@@ -18,8 +18,8 @@ const Services = () => {
                     <div className="col-md-7">
                         <div className="row">
                             <div className="col-md-6 ">
-                                {SERVICES_DATA.map((elem) => (
-                                    <div className="">
+                                {SERVICES_DATA.map((elem, index) => (
+                                    <div key={index} className="">
                                         <img
                                             className="ml-md-3"
                                             src={elem.image}
@@ -27,7 +27,7 @@ const Services = () => {
                                             widht="50"
                                             height="52"
                                         />
-                                        <div class="card-body">
+                                        <div className="card-body">
                                             <h4 className="text-insta-regular lh-sm font-weight-bold">
                                                 {elem.heading}
                                             </h4>
@@ -39,16 +39,16 @@ const Services = () => {
                                 ))}
                             </div>
                             <div className="col-md-6">
-                                {SERVICES_DATA2.map((elem) => (
-                                    <div className="">
+                                {SERVICES_DATA2.map((elem, index) => (
+                                    <div key={index} className="">
                                         <img
-                                            class="ml-md-3"
+                                            className="ml-md-3"
                                             src={elem.image}
                                             alt="Card image cap"
                                             widht="50"
                                             height="52"
                                         />
-                                        <div class="card-body">
+                                        <div className="card-body">
                                             <h4 className="text-insta-regular lh-sm font-weight-bold">
                                                 {elem.heading}
                                             </h4>

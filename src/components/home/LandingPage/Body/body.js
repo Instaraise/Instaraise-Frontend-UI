@@ -9,8 +9,8 @@ import Stats from '../Stats/stats';
 const Body = () => {
     var HomePageDesElem = (
         <>
-            {DESC_DATA.map((elem) => (
-                <>
+            {DESC_DATA.map((elem, index) => (
+                <React.Fragment key={index}>
                     <div className="">
                         <p className="mb-0 homepage-body-description-bodypara font-insta-regular">
                             {elem.heading}
@@ -24,7 +24,7 @@ const Body = () => {
                             {elem.para}
                         </p>
                     </div>
-                </>
+                </React.Fragment>
             ))}
             <button type="button" className=" btn btn-light btn-lg">
                 <span className="font-insta-regular">
@@ -36,8 +36,8 @@ const Body = () => {
     );
     var HomePageDesElemMobile = (
         <>
-            {DESC_DATA.map((elem) => (
-                <>
+            {DESC_DATA.map((elem, index) => (
+                <React.Fragment key={index}>
                     <div className="">
                         <p className="mb-0 homepage-body-description-bodypara font-insta-regular">
                             {elem.heading}
@@ -50,7 +50,7 @@ const Body = () => {
                     <p className="ml-2 mb-5 lh-base descPara font-insta-regular">
                         {elem.para}
                     </p>
-                </>
+                </React.Fragment>
             ))}
             <button type="button" className=" btn btn-light btn-lg mb-5">
                 <span className="font-insta-regular">
@@ -79,7 +79,7 @@ const Body = () => {
                     <div className=" mt-auto col-md-7 mx-auto d-none d-lg-block homepage-body-description">
                         {HomePageDesElem}
                     </div>
-                    <div class="col-md-12 mx-auto homepage-body-description d-lg-none cen text-center">
+                    <div className="col-md-12 mx-auto homepage-body-description d-lg-none cen text-center">
                         {HomePageDesElemMobile}
                     </div>
                 </div>

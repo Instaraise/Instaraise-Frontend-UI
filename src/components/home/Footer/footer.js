@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import instaLogo from '../../../assets/images/InstaLogo.svg';
 import CompName from '../../../assets/images/Instaraise.svg';
 import instagramLogo from '../../../assets/images/socials/instagram.svg';
@@ -11,11 +13,11 @@ const Footer = () => {
             <div className="container p-4">
                 <div className="row">
                     <div className=" col-lg-6 col-md-6 mb-4 mb-md-0 text-start">
-                        <a class="navbar-brand" href="#">
+                        <a className="navbar-brand" href="#">
                             <img className="compLogo" src={instaLogo} />
                             <img className="ml-2" src={CompName} />
                         </a>
-                        <p className="footer-social-text mt-4 font-insta-regular">
+                        <p className="mt-4 footer-font">
                             Instaraise is building DeFi Universe on Tezos. We
                             support projects to raise fund, build communities
                             and turn their ideas into products.
@@ -23,23 +25,35 @@ const Footer = () => {
                         <h4 className="mt-4 font-weight-bold font-insta-regular footer-header-color">
                             Contact Us:
                         </h4>
-                        <div className="mt-3">
-                            <img className="" src={instagramLogo} />
-                            <img className="ml-2" src={linkedinLogo} />
-                            <img className="ml-2" src={twitterLogo} />
+                        <div className="my-2">
+                            <img
+                                className="cursor-pointer"
+                                src={instagramLogo}
+                            />
+                            <img
+                                className="ml-2 cursor-pointer"
+                                src={linkedinLogo}
+                            />
+                            <img
+                                className="ml-2 cursor-pointer"
+                                src={twitterLogo}
+                            />
                         </div>
                     </div>
                     <div className=" col-lg-6 col-md-6 mb-4 mb-md-0 d-flex justify-content-start justify-content-lg-end justify-content-md-end">
                         <div>
-                            <h4 className="font-weight-bold font-insta-regular footer-header-color">
+                            <h4 className="mb-3 font-weight-bold font-insta-regular footer-header-color">
                                 General
                             </h4>
-                            <ul class="list-unstyled">
-                                {FOOTER_DATA.map((elem) => (
-                                    <li class="mt-3 text-sm">
-                                        <p class="font-insta-regular footer-social-text text-white">
+                            <ul className="list-unstyled">
+                                {FOOTER_DATA.map((elem, index) => (
+                                    <li key={index} className="mt-2 text-sm">
+                                        <Link
+                                            to="/"
+                                            className=" font-insta-regular footer-social-text text-white"
+                                        >
                                             {elem.footer_links}
-                                        </p>
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -47,113 +61,14 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-md-12">
-                        <div className="footer-hr-line my-3"></div>
-                        <p className="footer-social-text text-center font-insta-regular">
+                    <div className="col-md-12 py-2">
+                        <p className="footer-font text-center footer-copyright-section py-2">
                             ©COPYRIGHT - INSTARAISE - 2022
                         </p>
                     </div>
                 </div>
             </div>
         </footer>
-        // <footer className="py-5 container">
-        //     <div class="row">
-        //         <div class="col-md-4">
-        //      <a class="navbar-brand" href="#">
-        //          <img className="compLogo" src={instaLogo} />
-        //          <img className="ml-2" src={CompName} />
-        //      </a>
-        // <p className="footer-social-text mt-4 font-insta-regular">
-        //     Instaraise is building DeFi Universe on Tezos. We
-        //     support projects to raise fund, build communities and
-        //     turn their ideas into products.
-        // </p>
-        //         </div>
-        //         <div class="col-md-4 offset-md-4">
-        // <h4 className="font-weight-bold font-insta-regular footer-header-color">
-        //     General
-        // </h4>
-        //             <div className="row">
-        //                 {FOOTER_DATA.map((elem) => (
-        //                     <div className="col-md-3 footer-social-text mt-4 font-insta-regular">
-        //                         <p>{elem.footer_links}</p>
-        //                     </div>
-        //                 ))}
-        //             </div>
-        // <h4 className="mt-4 font-weight-bold font-insta-regular footer-header-color">
-        //     Contact Us:
-        // </h4>
-        //             <div className="row my-3">
-        //                 <div className="col-md-2 col-2">
-        //                     <img src={instagramLogo} />
-        //                 </div>
-        //                 <div className="col-md-2 col-2">
-        //                     <img src={linkedinLogo} />
-        //                 </div>
-        //                 <div className="col-md-2 col-2">
-        //                     <img src={twitterLogo} />
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     </div>
-        //     <div class="text-center footer-social-text">
-        //         <hr class="mb-4" />
-        // <p className=" font-insta-regular">
-        //     ©COPYRIGHT - INSTARAISE - 2022
-        // </p>
-        //     </div>
-        // </footer>
-
-        // <footer className=" pt-5 pb-4">
-        //     <div className="container">
-        //         <div className="row">
-        //             <div className="col-md-4">
-        //                 <a class="navbar-brand" href="#">
-        //                     <img className="compLogo" src={instaLogo} />
-        //                     <img className="ml-2" src={CompName} />
-        //                 </a>
-        //                 <p className="footer-social-text mt-4 font-insta-regular">
-        //                     Instaraise is building DeFi Universe on Tezos. We
-        //                     support projects to raise fund, build communities
-        //                     and turn their ideas into products.
-        //                 </p>
-        //             </div>
-        //             <div className="col-md-3"></div>
-        //             <div className="col-md-5">
-        //                 <h4 className="font-weight-bold font-insta-regular footer-header-color">
-        //                     General
-        //                 </h4>
-        //                 <div className="row">
-        //                     {FOOTER_DATA.map((elem) => (
-        //                         <div className="col-12 col-md-3 footer-social-text mt-4 font-insta-regular">
-        //                             <p>{elem.footer_links}</p>
-        //                         </div>
-        //                     ))}
-        //                 </div>
-        //                 <h4 className="font-weight-bold font-insta-regular footer-header-color">
-        //                     Contact Us:
-        //                 </h4>
-        //                 <div className="row footer-img">
-        //                     <div className="col-md-1 col-1">
-        //                         <img src={instagramLogo} />
-        //                     </div>
-        //                     <div className="col-md-1 col-1">
-        //                         <img src={linkedinLogo} />
-        //                     </div>
-        //                     <div className="col-md-1 col-1">
-        //                         <img src={twitterLogo} />
-        //                     </div>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //         <div class="text-center footer-social-text">
-        //             <hr class="mb-4" />
-        //             <p className=" font-insta-regular">
-        //                 ©COPYRIGHT - INSTARAISE - 2022
-        //             </p>
-        //         </div>
-        //     </div>
-        // </footer>
     );
 };
 

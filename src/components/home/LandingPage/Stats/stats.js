@@ -4,10 +4,13 @@ const Stats = () => {
     return (
         <section className="statsContainer shadow-sm">
             <div className="container">
-                <div class="row alg">
-                    {PRICE_DATA.map((elem) => (
-                        <div class="m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex">
-                            <div class="mr-2 mt-4">
+                <div className="row alg">
+                    {PRICE_DATA.map((elem, index) => (
+                        <div
+                            key={index}
+                            className="m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex"
+                        >
+                            <div className="mr-2 mt-4">
                                 <img
                                     src={elem.image}
                                     className="img-fluid"
@@ -15,11 +18,11 @@ const Stats = () => {
                                     height="20"
                                 />
                             </div>
-                            <div class="text-left mt-4">
-                                <p class="font-weight-bold m-0 statsDesc">
-                                    <span class="">{elem.description}</span>
+                            <div className="text-left mt-4">
+                                <p className="font-weight-bold m-0 statsDesc">
+                                    <span className="">{elem.description}</span>
                                 </p>
-                                <p class="statsNames">{elem.name}</p>
+                                <p className="statsNames">{elem.name}</p>
                             </div>
                         </div>
                     ))}

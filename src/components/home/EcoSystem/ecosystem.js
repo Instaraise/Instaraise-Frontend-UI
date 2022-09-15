@@ -4,15 +4,12 @@ import mexc_img from '../../../assets/images/mexc_img.svg';
 const EcoSystem = () => {
     return (
         <>
-            <div className="container d-flex justify-content-center my-3">
+            <div className="container d-flex justify-content-center">
                 <div className="mt-5 d-flex font-size-media">
-                    <h2 class="fw-bold secondary-primary-text font-insta-regular">
-                        Our
+                    <h2 className="fs-1 text-aileron-bold text-insta-regular">
+                        &nbsp;Ecosystem
                     </h2>
-                    <h2 class="fw-bold services-text font-insta-regular">
-                        &nbsp;Eco System
-                    </h2>
-                    <h2 class="fw-bold secondary-primary-text font-insta-regular">
+                    <h2 className="fs-1 text-aileron-bold services-text">
                         &nbsp;Partners
                     </h2>
                 </div>
