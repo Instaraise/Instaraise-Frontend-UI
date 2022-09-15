@@ -22,9 +22,7 @@ const Footer = () => {
                             support projects to raise fund, build communities
                             and turn their ideas into products.
                         </p>
-                        <h4 className="mt-4 font-weight-bold font-insta-regular footer-header-color">
-                            Contact Us:
-                        </h4>
+
                         <div className="my-2">
                             {SOCIALS_DATA.map((elem, index) => (
                                 <Link
