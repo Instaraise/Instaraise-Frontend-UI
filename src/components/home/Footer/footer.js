@@ -23,9 +23,11 @@ const Footer = () => {
                         <h4 className="mt-4 font-weight-bold font-insta-regular footer-header-color">
                             Contact Us:
                         </h4>
-                        <img className="" src={instagramLogo} />
-                        <img className="ml-2" src={linkedinLogo} />
-                        <img className="ml-2" src={twitterLogo} />
+                        <div className="mt-3">
+                            <img className="" src={instagramLogo} />
+                            <img className="ml-2" src={linkedinLogo} />
+                            <img className="ml-2" src={twitterLogo} />
+                        </div>
                     </div>
                     <div className=" col-lg-6 col-md-6 mb-4 mb-md-0 d-flex justify-content-start justify-content-lg-end justify-content-md-end">
                         <div>
