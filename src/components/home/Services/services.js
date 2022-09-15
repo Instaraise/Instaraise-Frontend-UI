@@ -7,7 +7,9 @@ const Services = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-md-5 card-body service-heading">
-                        <h1 className="text-aileron-bold">Our</h1>
+                        <h1 className="text-aileron-bold text-insta-regular">
+                            Our
+                        </h1>
                         <h1 className="text-aileron-bold services-text">
                             Services
                         </h1>
@@ -25,10 +27,10 @@ const Services = () => {
                                             height="52"
                                         />
                                         <div class="card-body">
-                                            <h4 className="text-insta-regular font-weight-bold">
+                                            <h4 className="text-insta-regular lh-sm font-weight-bold">
                                                 {elem.heading}
                                             </h4>
-                                            <p className="text-insta-regular font-insta-regular">
+                                            <p className="statsNames font-insta-regular">
                                                 {elem.description}
                                             </p>
                                         </div>
@@ -46,10 +48,10 @@ const Services = () => {
                                             height="52"
                                         />
                                         <div class="card-body">
-                                            <h4 className="text-insta-regular font-weight-bold">
+                                            <h4 className="text-insta-regular lh-sm font-weight-bold">
                                                 {elem.heading}
                                             </h4>
-                                            <p className="text-insta-regular font-insta-regular">
+                                            <p className="statsNames font-insta-regular">
                                                 {elem.description}
                                             </p>
                                         </div>
