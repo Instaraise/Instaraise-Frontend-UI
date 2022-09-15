@@ -2,7 +2,7 @@ import React from 'react';
 import Body from './LandingPage/Body/body';
 import Stats from './LandingPage/Stats/stats';
 import Services from './Services/services';
-import Backers from './Backers/backers';
+// import Backers from './Backers/backers';
 import EcoSystem from './EcoSystem/ecosystem';
 import RoadMap from './Roadmap/roadmap';
 import Footer from './Footer/footer';
@@ -16,9 +16,9 @@ const HomeComponent = () => {
             <div className="section-2">
                 <Services />
             </div>
-            <div>
+            {/* <div>
                 <Backers />
-            </div>
+            </div> */}
             <div className="section-3">
                 <EcoSystem />
             </div>
