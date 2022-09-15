@@ -1,8 +1,7 @@
-import Services_LAUNCH_Img from '../../../assets/images/Services_LAUNCH_Img.svg';
-import Services_FARM_Img from '../../../assets/images/Services_FARM_Img.svg';
-import Services_POOL_Img from '../../../assets/images/Services_POOL_Img.svg';
-import Services_DEX_Img from '../../../assets/images/Services_DEX_Img.svg';
-
+import Services_FARM_Img from '../../../assets/images/Farm_Png.png';
+import Services_POOL_Img from '../../../assets/images/pool_png.png';
+import Services_DEX_Img from '../../../assets/images/dex_png.png';
+import Services_LAUNCH_Img from '../../../assets/images/laungPng.png';
 export const SERVICES_DATA = [
     {
         id: 1,
