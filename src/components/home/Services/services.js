@@ -21,6 +21,8 @@ const Services = () => {
                                             className="ml-md-3"
                                             src={elem.image}
                                             alt="Card image cap"
+                                            widht="50"
+                                            height="52"
                                         />
                                         <div class="card-body">
                                             <h4 className="text-insta-regular font-weight-bold">
@@ -40,6 +42,8 @@ const Services = () => {
                                             class="ml-md-3"
                                             src={elem.image}
                                             alt="Card image cap"
+                                            widht="50"
+                                            height="52"
                                         />
                                         <div class="card-body">
                                             <h4 className="text-insta-regular font-weight-bold">
