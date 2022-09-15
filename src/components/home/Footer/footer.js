@@ -50,7 +50,7 @@ const Footer = () => {
                                     <li key={index} className="mt-2 text-sm">
                                         <Link
                                             to="/"
-                                            className=" font-insta-regular footer-social-text text-white"
+                                            className="text-decoration-none font-insta-regular footer-social-text text-white"
                                         >
                                             {elem.footer_links}
                                         </Link>
