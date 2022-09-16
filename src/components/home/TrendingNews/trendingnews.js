@@ -4,15 +4,13 @@ import { TRENDNEWS_DATA } from '../../../config/HomeConfig/TrendingConfig/config
 const TrendingNews = () => {
     return (
         <div className="container my-5">
-            <div className="d-flex justify-content-center">
-                <div className="py-4 d-flex">
-                    <h2 className="fs-1 text-aileron-bold text-insta-regular">
-                        &nbsp;Trending
-                    </h2>
-                    <h2 className="fs-1 text-aileron-bold services-text">
-                        &nbsp;News
-                    </h2>
-                </div>
+            <div className="d-flex pt-3 pb-5 justify-content-center">
+                <h2 className="fs-1 text-aileron-bold text-insta-regular">
+                    &nbsp;Trending
+                </h2>
+                <h2 className="fs-1 text-aileron-bold services-text">
+                    &nbsp;News
+                </h2>
             </div>
 
             <div className="row py-md-4">
@@ -27,7 +25,7 @@ const TrendingNews = () => {
                     <h5 className="trending-font">
                         {TRENDNEWS_DATA[0].subtitle}
                     </h5>
-                    <p className="mb-4 trending-header-para">
+                    <p className="mb-4 trending-header-para font-insta-regular">
                         Decentralized Finance, DeFi is a revolutionary
                         application of cryptocurrency’s underlying blockchain
                         technology that has expanded the horizons of global
@@ -44,7 +42,7 @@ const TrendingNews = () => {
             </div>
             <div className="row py-md-4 hoverChange">
                 {TRENDNEWS_DATA.map((elem, index) => (
-                    <div key={index} className="col-md-4 py-3">
+                    <div key={index} className="col-md-4 p-3">
                         <img
                             className="cardEditImg"
                             src={elem.image_url}
