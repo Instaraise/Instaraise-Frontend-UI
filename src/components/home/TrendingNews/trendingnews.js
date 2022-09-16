@@ -15,7 +15,7 @@ const TrendingNews = () => {
                 </div>
             </div>
 
-            <div className="row py-4">
+            <div className="row py-4 d-none">
                 <div className="col-md-6 d-none d-lg-block">
                     <img
                         className="imageEdit"
