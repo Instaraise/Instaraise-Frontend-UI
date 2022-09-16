@@ -4,12 +4,12 @@ import { TRENDNEWS_DATA } from '../../../config/HomeConfig/TrendingConfig/config
 const TrendingNews = () => {
     return (
         <div className="container my-5">
-            <div class="d-flex justify-content-center">
-                <div class="py-4 d-flex">
-                    <h2 class="fs-1 text-aileron-bold text-insta-regular">
+            <div className="d-flex justify-content-center">
+                <div className="py-4 d-flex">
+                    <h2 className="fs-1 text-aileron-bold text-insta-regular">
                         &nbsp;Trending
                     </h2>
-                    <h2 class="fs-1 text-aileron-bold services-text">
+                    <h2 className="fs-1 text-aileron-bold services-text">
                         &nbsp;News
                     </h2>
                 </div>
@@ -19,13 +19,13 @@ const TrendingNews = () => {
                 <div className="col-md-6 d-none d-lg-block">
                     <img
                         className="imageEdit"
-                        src="https://blog.instaraise.io/wp-content/uploads/2022/06/3.jpg"
+                        src={TRENDNEWS_DATA[0].image_url}
                         alt="descImage"
                     />
                 </div>
                 <div className="col-md-6 py-1 d-none d-lg-block">
                     <h5 className="trending-font">
-                        Understanding Decentralized Finance (DeFi) Evolution
+                        {TRENDNEWS_DATA[0].subtitle}
                     </h5>
                     <p className="mb-4 trending-header-para lh-lg fs-6">
                         Decentralized Finance, DeFi is a revolutionary
@@ -42,8 +42,8 @@ const TrendingNews = () => {
                 </div>
             </div>
             <div className="row py-4 hoverChange">
-                {TRENDNEWS_DATA.map((elem) => (
-                    <div className="col-md-4 py-3">
+                {TRENDNEWS_DATA.map((elem, index) => (
+                    <div key={index} className="col-md-4 py-3">
                         <img
                             className="cardEditImg"
                             src={elem.image_url}
@@ -55,7 +55,7 @@ const TrendingNews = () => {
                         <p className="mb-4 lh-lg font-insta-regular text-justify lh-base trending-font-para">
                             {elem.description}
                         </p>
-                        <div class="d-flex justify-content-between">
+                        <div className="d-flex justify-content-between">
                             <h6 className="cardDate">27 June, 2022</h6>
                             <Link
                                 className="trending-font text-decoration-none"
