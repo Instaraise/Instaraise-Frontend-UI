@@ -43,7 +43,7 @@ const TrendingNews = () => {
             </div>
             <div className="row py-4 hoverChange">
                 {TRENDNEWS_DATA.map((elem) => (
-                    <div className="col-md-4 py-4">
+                    <div className="col-md-4 py-3">
                         <img
                             className="cardEditImg"
                             src={elem.image_url}
