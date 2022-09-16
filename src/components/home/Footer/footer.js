@@ -35,7 +35,7 @@ const Footer = () => {
                                     }
                                 >
                                     <img
-                                        className="mx-2"
+                                        className="pr-2"
                                         src={elem.footer_social_img}
                                     />
                                 </Link>
