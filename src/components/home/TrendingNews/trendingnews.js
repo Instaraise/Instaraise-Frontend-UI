@@ -5,7 +5,7 @@ const TrendingNews = () => {
     return (
         <div className="container">
             <div class="d-flex justify-content-center">
-                <div class="py-4 d-flex font-size-media">
+                <div class="py-4 d-flex">
                     <h2 class="fs-1 text-aileron-bold text-insta-regular">
                         &nbsp;Trending
                     </h2>
@@ -44,19 +44,28 @@ const TrendingNews = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="row mt-5">
+                <div className="row py-4 hoverChange">
                     {TRENDNEWS_DATA.map((elem) => (
-                        <div className="col-md-4 my-4">
+                        <div className="col-md-4 cards-display cardEdit">
                             <img
                                 className="cardEditImg"
                                 src={elem.image_url}
                                 alt="descImage"
                             />
-                            <h5 className="my-4">{elem.subtitle}</h5>
-                            <p className="mb-4 card-para">{elem.description}</p>
+                            <h5 className="my-4 trending-font">
+                                {elem.subtitle}
+                            </h5>
+                            <p className="mb-4 font-insta-regular text-justify lh-base trending-font-para">
+                                {elem.description}
+                            </p>
                             <div class="d-flex justify-content-between">
-                                <h6>27 June, 2022</h6>
-                                <Link to="/">Read More</Link>
+                                <h6 className="cardDate">27 June, 2022</h6>
+                                <Link
+                                    className="trending-font text-decoration-none"
+                                    to="/"
+                                >
+                                    Read More
+                                </Link>
                             </div>
                         </div>
                     ))}
