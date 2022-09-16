@@ -1,5 +1,5 @@
 .imageEdit {
-    border-radius: 2.5rem;
+    border-radius: 1rem;
     display: block;
     height: 21rem;
     width: 100%;
@@ -9,6 +9,16 @@
     cursor: pointer;
     height: 210px;
     width: 100%;
+}
+.trending-font{
+    font-family: font-SemiBold;
+    color: #4e5d78;
+}
+.trending-font-para{
+    color: #607d8b;
+    font-family: font-Regular;
+    line-height: 1.8rem;
+    text-align: justify;
 }
 .card-para{
     -webkit-box-orient: vertical;

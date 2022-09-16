@@ -5,10 +5,13 @@ export const FOOTER_DATA = [
     {
         id: 1,
         footer_links: 'Get Alerts',
+        footer_external_link: 'https://telegram.me/Instaraise_Ann',
     },
     {
         id: 2,
         footer_links: 'Apply for Incubation',
+        footer_external_link:
+            'https://docs.google.com/forms/d/e/1FAIpQLSfCcJ9knICdpYUbUGe82AH91pKsUA6M-u5I2ZHl3xSQ4BmKsg/viewform',
     },
     {
         id: 3,

@@ -2,9 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import instaLogo from '../../../assets/images/InstaLogo.svg';
 import CompName from '../../../assets/images/Instaraise.svg';
-// import instagramLogo from '../../../assets/images/socials/instagram.svg';
-// import linkedinLogo from '../../../assets/images/socials/linkedin.svg';
-// import twitterLogo from '../../../assets/images/socials/twitter.svg';
 import { FOOTER_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
 import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
 const Footer = () => {
@@ -17,7 +14,8 @@ const Footer = () => {
                             <img className="compLogo" src={instaLogo} />
                             <img className="ml-2" src={CompName} />
                         </a>
-                        <p className="mt-4 footer-font">
+
+                        <p className="mt-4 w-75 footer-font">
                             Instaraise is building DeFi Universe on Tezos. We
                             support projects to raise fund, build communities
                             and turn their ideas into products.
@@ -54,9 +52,29 @@ const Footer = () => {
                                     <li key={index} className="mt-2 text-sm">
                                         <Link
                                             to="/"
+                                            target="_blank"
+                                            onClick={() =>
+                                                window.open(
+                                                    elem.footer_external_link,
+                                                    '_blank'
+                                                )
+                                            }
                                             className="text-decoration-none font-insta-regular footer-social-text text-white"
                                         >
                                             {elem.footer_links}
+                                            <svg
+                                                className="ml-1"
+                                                stroke="currentColor"
+                                                fill="currentColor"
+                                                stroke-width="0"
+                                                viewBox="0 0 24 24"
+                                                height="1em"
+                                                width="1em"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path>
+                                                <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path>
+                                            </svg>
                                         </Link>
                                     </li>
                                 ))}
