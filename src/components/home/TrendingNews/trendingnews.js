@@ -38,6 +38,7 @@ const TrendingNews = () => {
                     </p>
                     <Link className="trending-font text-decoration-none" to="/">
                         Read More
+                        <img src={TRENDNEWS_DATA[0].arrowImg} />
                     </Link>
                 </div>
             </div>
