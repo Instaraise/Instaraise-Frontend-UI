@@ -27,7 +27,7 @@ const TrendingNews = () => {
                     <h5 className="trending-font">
                         {TRENDNEWS_DATA[0].subtitle}
                     </h5>
-                    <p className="mb-4 trending-header-para lh-lg fs-6">
+                    <p className="mb-4 trending-header-para">
                         Decentralized Finance, DeFi is a revolutionary
                         application of cryptocurrency’s underlying blockchain
                         technology that has expanded the horizons of global
