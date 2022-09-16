@@ -1,13 +1,12 @@
 .hoverChange :hover{
     transition: all .4s ease;
--webkit-transition: all .4s ease;
+    -webkit-transition: all .4s ease;
     border-radius: 0.5rem;
     background-color: #fafafa;
 }
 .imageEdit {
     border-radius: 1rem;
     display: block;
-    height: 21rem;
     width: 100%;
 }
 .cardEditImg {
@@ -19,6 +18,12 @@
 .trending-font{
     font-family: font-SemiBold;
     color: #4e5d78;
+}
+.trending-header-para{
+    color: #607d8b;
+    font-weight: 400;
+    text-align: justify;
+    line-height: 1.8;
 }
 .trending-font-para{
     color: #607d8b;
@@ -40,7 +45,7 @@
     font-family: font-Regular;
     font-size: 14px;
 }
-.cards-display h5{
+.cards-display{
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         display: -webkit-box;
