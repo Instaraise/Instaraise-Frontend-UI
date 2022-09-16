@@ -62,6 +62,7 @@ const TrendingNews = () => {
                                 to="/"
                             >
                                 Read More
+                                <img src={elem.arrowImg} />
                             </Link>
                         </div>
                     </div>

@@ -1,3 +1,4 @@
+import rightarrow from '../../../assets/images/rightarrow.svg';
 export const TRENDNEWS_DATA = [
     {
         id: 1,
@@ -14,6 +15,7 @@ export const TRENDNEWS_DATA = [
         descPara2:
             'To realize the importance of DeFi, it is necessary to understand the underlying principles of DeFi and how it is different from the more traditional, centralized financial ecosystem that has been in use for a long time.',
         cardDate: '27 June, 2022',
+        arrowImg: rightarrow,
     },
     {
         id: 2,
@@ -29,6 +31,7 @@ export const TRENDNEWS_DATA = [
         descPara2:
             'The latest edition of Instaraise Spaces, a series of interactive sessions between the Instaraise team and the larger crypto community was centered around the importance of multichain capabilities in today’s DeFi ecosystem. Along with Instaraise co-founders Dibyo Majumder and Adita Gautam, Hong Zhuang L, founder, and CEO of ShuttleOne discussed the need for interoperability between different protocols and how the respective projects are addressing the crypto community’s needs.',
         cardDate: '04 June, 2022',
+        arrowImg: rightarrow,
     },
     {
         id: 3,
@@ -45,5 +48,6 @@ export const TRENDNEWS_DATA = [
             'The successful ShuttleOne IDO has added another feather to Instaraise’s cap, which already has multiple successes under its belt.',
 
         cardDate: '21 Dec, 2022',
+        arrowImg: rightarrow,
     },
 ];
