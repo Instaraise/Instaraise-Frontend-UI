@@ -27,7 +27,7 @@ const TrendingNews = () => {
                         <h5 className="trending-font">
                             Understanding Decentralized Finance (DeFi) Evolution
                         </h5>
-                        <p className="mb-4 trending-font-para">
+                        <p className="mb-4 trending-font-para lh-lg fs-6">
                             Decentralized Finance, DeFi is a revolutionary
                             application of cryptocurrency’s underlying
                             blockchain technology that has expanded the horizons
