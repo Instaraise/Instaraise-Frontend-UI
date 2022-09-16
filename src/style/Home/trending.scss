@@ -6,15 +6,11 @@
 }
 .imageEdit {
     border-radius: 1rem;
-    display: block;
     width: 100%;
-    height:100%;
+    height: 100%;
 }
 .cardEditImg {
-    border-radius: 0.5rem;
-    cursor: pointer;
-    height: 210px;
-    width: 100%;
+    border-radius: 8px;
 }
 .trending-font{
     font-family: font-SemiBold;
@@ -22,8 +18,6 @@
 }
 .trending-header-para{
     color: #607d8b;
-    font-weight: 400;
-    text-align: justify;
     line-height: 1.8;
 }
 .trending-font-para{
@@ -35,15 +29,8 @@
     overflow: hidden;
     word-break: break-word;
 }
-
-.cardEdit {
-    border-radius: 1rem;
-    padding: 2rem;
-    transition: .3s;
-}
 .cardDate {
     color: #1e2329;
-    font-family: font-Regular;
     font-size: 14px;
 }
 .cards-display{
@@ -53,10 +40,4 @@
         min-height: 2.6rem;
         overflow: hidden;
         word-break: break-word;
-}
-
-.cardEdit {
-    border-radius: 1rem;
-    padding: 2rem;
-    transition: .3s;
 }

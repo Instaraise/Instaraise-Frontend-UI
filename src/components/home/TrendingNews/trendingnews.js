@@ -16,7 +16,8 @@ const TrendingNews = () => {
             <div className="row py-md-4">
                 <div className="col-md-6 d-none d-lg-block">
                     <img
-                        className="imageEdit"
+                        role="button"
+                        className="imageEdit d-block"
                         src={TRENDNEWS_DATA[0].image_url}
                         alt="descImage"
                     />
@@ -25,7 +26,7 @@ const TrendingNews = () => {
                     <h5 className="trending-font">
                         {TRENDNEWS_DATA[0].subtitle}
                     </h5>
-                    <p className="mb-4 trending-header-para font-insta-regular">
+                    <p className="mb-4 trending-header-para text-justify font-insta-regular">
                         Decentralized Finance, DeFi is a revolutionary
                         application of cryptocurrency’s underlying blockchain
                         technology that has expanded the horizons of global
@@ -44,7 +45,8 @@ const TrendingNews = () => {
                 {TRENDNEWS_DATA.map((elem, index) => (
                     <div key={index} className="col-md-4 p-3">
                         <img
-                            className="cardEditImg"
+                            role="button"
+                            className="cardEditImg img-fluid"
                             src={elem.image_url}
                             alt="descImage"
                         />
@@ -55,7 +57,9 @@ const TrendingNews = () => {
                             {elem.description}
                         </p>
                         <div className="d-flex justify-content-between">
-                            <h6 className="cardDate">27 June, 2022</h6>
+                            <h6 className="cardDate font-insta-regular">
+                                27 June, 2022
+                            </h6>
                             <Link
                                 className="trending-font text-decoration-none"
                                 to="/"
