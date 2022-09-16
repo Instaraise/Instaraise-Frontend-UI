@@ -15,7 +15,7 @@ const TrendingNews = () => {
                 </div>
             </div>
 
-            <div className="row py-4">
+            <div className="row py-md-4">
                 <div className="col-md-6 d-none d-lg-block">
                     <img
                         className="imageEdit"
@@ -42,7 +42,7 @@ const TrendingNews = () => {
                     </Link>
                 </div>
             </div>
-            <div className="row py-4 hoverChange">
+            <div className="row py-md-4 hoverChange">
                 {TRENDNEWS_DATA.map((elem, index) => (
                     <div key={index} className="col-md-4 py-3">
                         <img
