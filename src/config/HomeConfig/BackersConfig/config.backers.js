@@ -12,9 +12,9 @@ import kretos from '../../../assets/partners/kretos.png';
 import ccix from '../../../assets/partners/ccix.png';
 import wubba from '../../../assets/partners/wubba.png';
 import mintedlabs from '../../../assets/partners/mintedlabs.svg';
-import iog from '../../../assets/partners/oig_grey.png';
+import iog from '../../../assets/partners/oig_grey_modi.png';
 import viviancapital from '../../../assets/partners/viviancapital.png';
-import crazynft from '../../../assets/partners/crazynft.png';
+import crazynft from '../../../assets/partners/crazynft_img.png';
 
 export const BACKERS_DATA = [
     {
