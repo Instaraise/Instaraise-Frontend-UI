@@ -13,7 +13,7 @@ const TrendingNews = () => {
                 </h2>
             </div>
 
-            <div className="row py-md-4">
+            <div className="row py-lg-4">
                 <div className="col-md-6 d-none d-lg-block">
                     <img
                         role="button"

@@ -3,11 +3,11 @@ import { BACKERS_DATA } from '../../../config/HomeConfig/BackersConfig/config.ba
 const Backers = () => {
     return (
         <div className="container">
-            <div class="d-flex py-4 justify-content-center">
-                <h2 class="fs-1 text-aileron-bold text-insta-regular">
+            <div className="d-flex py-4 justify-content-center">
+                <h2 className="fs-1 text-aileron-bold text-insta-regular">
                     &nbsp;Our
                 </h2>
-                <h2 class="fs-1 text-aileron-bold services-text">
+                <h2 className="fs-1 text-aileron-bold services-text">
                     &nbsp;Backers
                 </h2>
             </div>
