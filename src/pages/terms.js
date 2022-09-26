@@ -14,10 +14,10 @@ const Terms = () => {
         <div>
             <div className="container-fluid text-dark-to-light terms_and_condition w-100 py-4 landing-page-container">
                 <div className="rounded text-dark-to-light">
-                    <Header except={true} />
+                    <Header />
                 </div>
                 <div className="terms container">
-                    <h3 className="title">Terms of Service</h3>
+                    <h3 className="fw-bold fs-4 mb-4">Terms of Service</h3>
                     <p className="description">
                         This end user agreement (the "Agreement") should be read
                         by you (the "User" or "you") in its entirety prior to

@@ -14,7 +14,6 @@ const Footer = () => {
                             <img className="compLogo" src={instaLogo} />
                             <img className="ml-2" src={CompName} />
                         </a>
-
                         <p className="mt-4 w-75 footer-font">
                             Instaraise is building DeFi Universe on Tezos. We
                             support projects to raise fund, build communities
