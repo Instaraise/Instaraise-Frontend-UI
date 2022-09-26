@@ -5,6 +5,8 @@ import instagramLogo from '../../../../assets/images/socials/instagram.svg';
 import linkedinLogo from '../../../../assets/images/socials/linkedin.svg';
 import twitterLogo from '../../../../assets/images/socials/twitter.svg';
 import upRight from '../../../../assets/images/arrow-up-right.svg';
+import { SOCIALS_DATA } from '../../../../config/HomeConfig/FooterConfig/config.footer';
+import { Link } from 'react-router-dom';
 import Stats from '../Stats/stats';
 const Body = () => {
     var HomePageDesElem = (
@@ -68,11 +70,23 @@ const Body = () => {
                     <div className="col-md-2 d-none d-lg-block">
                         <div className="vl"></div>
                         <div className="homepage-body-socials">
-                            <img src={instagramLogo} />
-                            <br />
-                            <img src={linkedinLogo} />
-                            <br />
-                            <img src={twitterLogo} />
+                            {SOCIALS_DATA.map((elem, index) => (
+                                <React.Fragment key={index}>
+                                    <Link
+                                        to="/"
+                                        target="_blank"
+                                        onClick={() =>
+                                            window.open(
+                                                elem.footer_social_link,
+                                                '_blank'
+                                            )
+                                        }
+                                    >
+                                        <img src={elem.footer_social_img} />
+                                    </Link>
+                                    <br />
+                                </React.Fragment>
+                            ))}
                         </div>
                         <div className="vl"></div>
                     </div>

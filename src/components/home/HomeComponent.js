@@ -18,7 +18,7 @@ const HomeComponent = () => {
             <div className="section-3">
                 <Backers />
             </div>
-            <div>
+            <div className="section-5">
                 <TrendingNews />
             </div>
             <div className="section-4">

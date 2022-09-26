@@ -13,14 +13,6 @@ export const FOOTER_DATA = [
         footer_external_link:
             'https://docs.google.com/forms/d/e/1FAIpQLSfCcJ9knICdpYUbUGe82AH91pKsUA6M-u5I2ZHl3xSQ4BmKsg/viewform',
     },
-    {
-        id: 3,
-        footer_links: 'Terms of Service',
-    },
-    {
-        id: 4,
-        footer_links: 'Privacy Policy',
-    },
 ];
 export const SOCIALS_DATA = [
     {

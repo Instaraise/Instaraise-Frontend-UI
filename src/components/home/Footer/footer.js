@@ -51,7 +51,7 @@ const Footer = () => {
                                 {FOOTER_DATA.map((elem, index) => (
                                     <li key={index} className="mt-2 text-sm">
                                         <Link
-                                            to="/"
+                                            to="#"
                                             target="_blank"
                                             onClick={() =>
                                                 window.open(
@@ -78,6 +78,48 @@ const Footer = () => {
                                         </Link>
                                     </li>
                                 ))}
+                                <li className="mt-2 text-sm">
+                                    <Link
+                                        to="/terms"
+                                        className="text-decoration-none font-insta-regular footer-social-text text-white"
+                                    >
+                                        Terms of Services
+                                        <svg
+                                            className="ml-1"
+                                            stroke="currentColor"
+                                            fill="currentColor"
+                                            strokeWidth="0"
+                                            viewBox="0 0 24 24"
+                                            height="1em"
+                                            width="1em"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path>
+                                            <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path>
+                                        </svg>
+                                    </Link>
+                                </li>
+                                <li className="mt-2 text-sm">
+                                    <Link
+                                        to="/privacy"
+                                        className="text-decoration-none font-insta-regular footer-social-text text-white"
+                                    >
+                                        Privacy Policy
+                                        <svg
+                                            className="ml-1"
+                                            stroke="currentColor"
+                                            fill="currentColor"
+                                            strokeWidth="0"
+                                            viewBox="0 0 24 24"
+                                            height="1em"
+                                            width="1em"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                        >
+                                            <path d="m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z"></path>
+                                            <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"></path>
+                                        </svg>
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                     </div>

@@ -5,6 +5,7 @@ import CompName from '../../../../assets/images/Instaraise.svg';
 import darkModeImg from '../../../../assets/images/darkModeImg.svg';
 import GithubImg from '../../../../assets/images/GithubImg.svg';
 import shareDocs from '../../../../assets/images/shareDocs.svg';
+import { Link } from 'react-scroll';
 const Header = () => {
     return (
         <header className="homepage-navbar ">
@@ -46,7 +47,7 @@ const Header = () => {
                             <ul className="navbar-nav mt-2">
                                 {HEADER_DATA.map((elem, index) => (
                                     <li key={index} className="nav-item px-2">
-                                        <a
+                                        {/* <a
                                             className="nav-link text-end"
                                             href="#"
                                         >
@@ -54,7 +55,16 @@ const Header = () => {
                                             <span className="sr-only">
                                                 (current)
                                             </span>
-                                        </a>
+                                        </a> */}
+                                        <Link
+                                            to={elem.LinkTo}
+                                            spy={true}
+                                            smooth={true}
+                                            offset={10}
+                                            duration={400}
+                                        >
+                                            <span>{elem.headerNav}</span>{' '}
+                                        </Link>
                                     </li>
                                 ))}
                             </ul>
@@ -72,41 +82,3 @@ const Header = () => {
 };
 
 export default Header;
-{
-    /* <header className="headerSection">
-            <nav className="container my-4 navbar navbar-expand-lg navbar-light">
-                <a className="navbar-brand ml-1" href="#">
-                    <img className="compLogo" src={compLogo} />
-                    <img className="ml-3" src={CompName} />
-                </a>
-                <button
-                    className="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarNavDropdown"
-                    aria-controls="navbarNavDropdown"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                >
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul className="navbar-nav mx-auto">
-                        {HEADER_DATA.map((elem) => (
-                            <li className="nav-item">
-                                <a className="nav-link" href="#">
-                                    <span>{elem.headerNav}</span>{' '}
-                                    <span className="sr-only">(current)</span>
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                    <div className="ml-auto headerIcons">
-                        <img src={darkModeImg} />
-                        <img src={GithubImg} />
-                        <img src={shareDocs} />
-                    </div>
-                </div>
-            </nav>
-        </header> */
-}
