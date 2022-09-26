@@ -5,15 +5,16 @@ import instaLogo from '../../../../assets/images/InstaLogo.svg';
 import CompName from '../../../../assets/images/Instaraise.svg';
 import darkModeImg from '../../../../assets/images/darkModeImg.svg';
 import { Link } from 'react-scroll';
+import { NavLink } from 'react-router-dom';
 const Header = () => {
     return (
         <header className="homepage-navbar ">
             <nav className="navbar navbar-expand-lg navbar-light">
                 <div className="container my-4">
-                    <a className="navbar-brand" href="#">
+                    <NavLink className="navbar-brand" to="/">
                         <img className="compLogo" src={instaLogo} />
                         <img className="ml-2" src={CompName} />
-                    </a>
+                    </NavLink>
                     <button
                         className="navbar-toggler"
                         type="button"
