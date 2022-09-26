@@ -10,12 +10,12 @@ const Privacy = () => {
     }, []);
     return (
         <div>
+            <div className="header_nav_routes">
+                <Header />
+            </div>
             <div className="container-fluid text-dark-to-light terms_and_condition w-100 py-4 landing-page-container">
-                <div className="rounded text-dark-to-light">
-                    <Header />
-                </div>
                 <div className="terms container">
-                    <h3 className="title">Privacy Policy</h3>
+                    <h3 className="fw-bold fs-4 mb-4">Privacy Policy</h3>
                     <p className="description">
                         Herein is provided the privacy policy of Instaraise
                         (owner and operator of Instaraise.io) This Privacy
