@@ -1,78 +1,152 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { TRENDNEWS_DATA } from '../../../config/HomeConfig/TrendingConfig/config.trending';
-const TrendingNews = () => {
-    return (
-        <div className="container my-5">
-            <div className="d-flex pt-3 pb-5 justify-content-center">
-                <h2 className="fs-1 text-aileron-bold text-insta-regular">
-                    &nbsp;Trending
-                </h2>
-                <h2 className="fs-1 text-aileron-bold services-text">
-                    &nbsp;News
-                </h2>
-            </div>
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { TRENDNEWS_DATA } from "../../../config/HomeConfig/TrendingConfig/config.trending";
+import { FETCH_ALL_TRENDING_NEWS } from "../../../redux/actions/news.action";
+import Rightarrow from "../../../assets/images/rightarrow.svg";
 
-            <div className="row py-lg-4">
-                <div className="col-md-6 d-none d-lg-block">
-                    <img
-                        role="button"
-                        className="imageEdit d-block"
-                        src={TRENDNEWS_DATA[0].image_url}
-                        alt="descImage"
-                    />
-                </div>
-                <div className="col-md-6 py-1 d-none d-lg-block">
-                    <h5 className="trending-font">
-                        {TRENDNEWS_DATA[0].subtitle}
-                    </h5>
-                    <p className="mb-4 trending-header-para text-justify font-insta-regular">
-                        Decentralized Finance, DeFi is a revolutionary
-                        application of cryptocurrency’s underlying blockchain
-                        technology that has expanded the horizons of global
-                        finance. Created as an alternative to the traditional
-                        financial ecosystem, DeFi applications were made
-                        possible by Ethereum – the first ever programmable
-                        blockchain protocol with sma...
-                    </p>
-                    <Link className="trending-font text-decoration-none" to="/">
-                        Read More
-                        <img src={TRENDNEWS_DATA[0].arrowImg} />
-                    </Link>
-                </div>
+const TrendingNews = (props) => {
+  console.log(props.allTrendingNews);
+
+  React.useEffect(() => {
+    props.fetchAllTrendingNews();
+  }, []);
+
+  return (
+    <div className="container my-5">
+      <div className="d-flex pt-3 pb-5 justify-content-center">
+        <h2 className="fs-1 text-aileron-bold text-insta-regular">
+          &nbsp;Trending
+        </h2>
+        <h2 className="fs-1 text-aileron-bold services-text">&nbsp;News</h2>
+      </div>
+
+      <div className="row py-lg-4 d-flex justify-content-center align-items-center">
+        <div className="col-md-6 d-none d-lg-block">
+          {props.allTrendingNews.length > 0 ? (
+            <img
+              role="button"
+              className="imageEdit d-block"
+              src={props.allTrendingNews[0].image_url}
+              alt="descImage"
+            />
+          ) : (
+            <div className="d-flex align-items-center justify-content-center">
+              <div className="spinner-border" role="status">
+                <span className="sr-only">Loading...</span>
+              </div>
             </div>
-            <div className="row py-md-4 hoverChange">
-                {TRENDNEWS_DATA.map((elem, index) => (
-                    <div key={index} className="col-md-4 p-3">
-                        <img
-                            role="button"
-                            className="cardEditImg img-fluid"
-                            src={elem.image_url}
-                            alt="descImage"
-                        />
-                        <h5 className="cards-display my-4 trending-font">
-                            {elem.subtitle}
-                        </h5>
-                        <p className="mb-4 lh-lg font-insta-regular text-justify lh-base trending-font-para">
-                            {elem.description}
-                        </p>
-                        <div className="d-flex justify-content-between">
-                            <h6 className="cardDate font-insta-regular">
-                                27 June, 2022
-                            </h6>
-                            <Link
-                                className="trending-font text-decoration-none"
-                                to="/"
-                            >
-                                Read More
-                                <img src={elem.arrowImg} />
-                            </Link>
-                        </div>
-                    </div>
-                ))}
-            </div>
+          )}
         </div>
-    );
+        <div className="col-md-6 py-1 d-none d-lg-block">
+          {props.allTrendingNews.length > 0 ? (
+            <h5
+              dangerouslySetInnerHTML={{
+                __html: props.allTrendingNews[0].title,
+              }}
+              className="trending-font"
+            />
+          ) : (
+            <h5 className="trending-font">
+              A Dex designed to boost and re-shape Tezos Defi &#8211; InstaDEX
+              FAQs
+            </h5>
+          )}
+          {props.allTrendingNews.length > 0 ? (
+            <p
+              dangerouslySetInnerHTML={{
+                __html: props.allTrendingNews[0].excerpt,
+              }}
+              className="my-3 trending-header-para text-justify font-insta-regular"
+            />
+          ) : (
+            <p className="my-3 trending-header-para text-justify font-insta-regular">
+              Instaraise, the first of its kind decentralized fundraising and
+              incubation protocol on Tezos protocol, has been preparing the
+              ground for a full-fledged DeFi offering on its path to introduce
+              Instaraise v2.0. Some of the prominent products and features
+              included in the upgrade includes the InstaDEX decentralized
+              exchange platform and a cross-chain bridge connecting Tezos
+              ecosystem […
+            </p>
+          )}
+
+          {props.allTrendingNews.length > 0 && (
+            <Link
+              href={props.allTrendingNews[0].link}
+              onClick={() => {
+                window.open(props.allTrendingNews[0].link);
+              }}
+              className="trending-font text-decoration-none"
+              to="/"
+            >
+              Read More
+              <img src={Rightarrow} alt="chevron" />
+            </Link>
+          )}
+        </div>
+      </div>
+      <div className="row py-md-4 hoverChange">
+        {props.allTrendingNews
+          .slice(1, props.allTrendingNews.length)
+          .map((elem, index) => (
+            <div
+              key={index}
+              className="col-md-4 p-3"
+              role={"link"}
+              style={{
+                cursor: "pointer",
+              }}
+              onClick={() => window.open(elem.link)}
+            >
+              <img
+                className="cardEditImg img-fluid"
+                src={elem.image_url}
+                alt="descImage"
+              />
+
+              <h5
+                dangerouslySetInnerHTML={{
+                  __html: elem.title,
+                }}
+                className="cards-display my-4 trending-font"
+              />
+
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: elem.excerpt,
+                }}
+                className="mb-4 lh-lg font-insta-regular text-justify lh-base trending-font-para"
+              />
+
+              <div className="d-flex justify-content-between">
+                <h6 className="cardDate font-insta-regular">
+                  {new Date(elem.date).toLocaleDateString()}
+                </h6>
+                <Link
+                  href={elem.link}
+                  onClick={() => {
+                    window.open(elem.link);
+                  }}
+                  className="trending-font text-decoration-none"
+                  to="/"
+                >
+                  Read More
+                  <img src={Rightarrow} alt="chevron" />
+                </Link>
+              </div>
+            </div>
+          ))}
+      </div>
+    </div>
+  );
 };
 
-export default TrendingNews;
+const mapStateToProps = (state) => ({
+  allTrendingNews: state.allTrendingNews,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchAllTrendingNews: (payload) => dispatch(FETCH_ALL_TRENDING_NEWS(payload)),
+});
+export default connect(mapStateToProps, mapDispatchToProps)(TrendingNews);

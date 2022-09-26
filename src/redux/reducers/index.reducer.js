@@ -1,6 +1,7 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from "redux";
+import { fetchAllTrendingNews } from "./news.reducer";
 const rootReducer = combineReducers({
-    //reducer combine
+  allTrendingNews: fetchAllTrendingNews,
 });
 
 export default rootReducer;
