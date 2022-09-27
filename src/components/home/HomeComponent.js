@@ -15,9 +15,9 @@ const HomeComponent = () => {
       <div className="section-2">
         <Services />
       </div>
-      {/* <div className="section-3">
+      <div className="section-3">
         <Backers />
-      </div> */}
+      </div>
       <div className="section-5">
         <TrendingNews />
       </div>
