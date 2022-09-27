@@ -13,12 +13,12 @@ const Terms = () => {
     return (
         <div>
             <div className="header_nav_routes">
-                <Header />
+                <Header except={true} />
             </div>
-            <div className="container text-dark-to-light terms_and_condition w-100 py-4 landing-page-container">
-                <div className="terms container">
-                    <h3 className="fw-bold fs-4 mb-4">Terms of Service</h3>
-                    <p className="description">
+            <div className="container text-dark-to-light py-4">
+                <div className="terms">
+                    <h3 className="title">Terms of Service</h3>
+                    <p className="description font-insta-regular">
                         This end user agreement (the "Agreement") should be read
                         by you (the "User" or "you") in its entirety prior to
                         your use of Instaraise's service or products. Be aware

@@ -20,6 +20,10 @@
     src: url(../../assets/fonts/Aileron-Light.otf);
 }
 @font-face {
+    font-family: Aileron-Heavy;
+    src: url(../../assets/fonts/Aileron-Heavy.otf);
+}
+@font-face {
     font-family: Aileron-Bold;
     src: url(../../assets//fonts/Aileron-Bold.otf);
 }
@@ -46,9 +50,17 @@
 .navbar-menu-icon svg{
     color: #FFFFFF;
 }
+
 .navbar-light .navbar-toggler {
     border-color: transparent;
 }
 .text-end {
     text-align: right;
+}
+.compLogo{
+    height: 30px;
+    width: auto;
+}
+.header-title{
+    color: var(--detail-card-text-color)!important;
 }
