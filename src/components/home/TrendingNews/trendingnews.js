@@ -87,56 +87,54 @@ const TrendingNews = (props) => {
         </div>
       </div>
       <div className="row py-md-4 hoverChange">
-        {props.allTrendingNews
-          .slice(1, props.allTrendingNews.length)
-          .map((elem, index) => (
-            <div
-              key={index}
-              className="col-md-4 p-3"
-              role={"link"}
-              style={{
-                cursor: "pointer",
+        {props.allTrendingNews.map((elem, index) => (
+          <div
+            key={index}
+            className="col-md-4 p-3"
+            role={"link"}
+            style={{
+              cursor: "pointer",
+            }}
+            onClick={() => window.open(elem.link)}
+          >
+            <img
+              className="cardEditImg img-fluid"
+              src={elem.image_url}
+              alt="descImage"
+            />
+
+            <h5
+              dangerouslySetInnerHTML={{
+                __html: elem.title,
               }}
-              onClick={() => window.open(elem.link)}
-            >
-              <img
-                className="cardEditImg img-fluid"
-                src={elem.image_url}
-                alt="descImage"
-              />
+              className="cards-display my-4 trending-font"
+            />
 
-              <h5
-                dangerouslySetInnerHTML={{
-                  __html: elem.title,
+            <p
+              dangerouslySetInnerHTML={{
+                __html: elem.excerpt,
+              }}
+              className="mb-4 lh-lg font-insta-regular text-justify lh-base trending-font-para"
+            />
+
+            <div className="d-flex justify-content-between">
+              <h6 className="cardDate font-insta-regular">
+                {new Date(elem.date).toLocaleDateString()}
+              </h6>
+              <Link
+                href={elem.link}
+                onClick={() => {
+                  window.open(elem.link);
                 }}
-                className="cards-display my-4 trending-font"
-              />
-
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: elem.excerpt,
-                }}
-                className="mb-4 lh-lg font-insta-regular text-justify lh-base trending-font-para"
-              />
-
-              <div className="d-flex justify-content-between">
-                <h6 className="cardDate font-insta-regular">
-                  {new Date(elem.date).toLocaleDateString()}
-                </h6>
-                <Link
-                  href={elem.link}
-                  onClick={() => {
-                    window.open(elem.link);
-                  }}
-                  className="trending-font text-decoration-none"
-                  to="/"
-                >
-                  Read More
-                  <img src={Rightarrow} alt="chevron" />
-                </Link>
-              </div>
+                className="trending-font text-decoration-none"
+                to="/"
+              >
+                Read More
+                <img src={Rightarrow} alt="chevron" />
+              </Link>
             </div>
-          ))}
+          </div>
+        ))}
       </div>
     </div>
   );
