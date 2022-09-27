@@ -23,7 +23,7 @@ const Services = () => {
                                         <img
                                             className="ml-md-3"
                                             src={elem.image}
-                                            alt="Card image cap"
+                                            alt="services_card"
                                             widht="50"
                                             height="52"
                                         />
@@ -44,7 +44,7 @@ const Services = () => {
                                         <img
                                             className="ml-md-3"
                                             src={elem.image}
-                                            alt="Card image cap"
+                                            alt="services_card_2"
                                             widht="50"
                                             height="52"
                                         />

@@ -13,14 +13,22 @@ import { NavLink } from 'react-router-dom';
 const Header = ({ except }) => {
     var show_dark_header_images = (
         <>
-            <img className="compLogo" src={darkmodelogo} />
-            <img className="ml-2" src={dark_comp_name} />
+            <img
+                className="compLogo"
+                src={darkmodelogo}
+                alt="dark_Mode_Logo_Img"
+            />
+            <img
+                className="ml-2"
+                src={dark_comp_name}
+                alt="dark_Mode_CompName"
+            />
         </>
     );
     var not_show_dark_header_images = (
         <>
-            <img src={instaLogo} />
-            <img className="ml-2" src={CompName} />
+            <img src={instaLogo} alt="instaraise_logo" />
+            <img className="ml-2" src={CompName} alt="instaraise_name" />
         </>
     );
     return (
@@ -88,7 +96,10 @@ const Header = ({ except }) => {
                             </ul>
                         </div>
                         <div className="homepage-navbar-social ml-auto text-end">
-                            <img src={except ? dark_mode_img : darkModeImg} />
+                            <img
+                                src={except ? dark_mode_img : darkModeImg}
+                                alt="dark_Mode_img_sign"
+                            />
                             {except
                                 ? HEADER_SOCIAL_IMAGE2.map((elem, index) => (
                                       <Link
@@ -99,7 +110,10 @@ const Header = ({ except }) => {
                                               window.open(elem.linkTo, '_blank')
                                           }
                                       >
-                                          <img src={elem.ShareImg} />
+                                          <img
+                                              src={elem.ShareImg}
+                                              alt="share_icon_image"
+                                          />
                                       </Link>
                                   ))
                                 : HEADER_SOCIAL_IMAGE.map((elem, index) => (
@@ -111,7 +125,10 @@ const Header = ({ except }) => {
                                               window.open(elem.linkTo, '_blank')
                                           }
                                       >
-                                          <img src={elem.ShareImg} />
+                                          <img
+                                              src={elem.ShareImg}
+                                              alt="share_icon_image"
+                                          />
                                       </Link>
                                   ))}
                         </div>
