@@ -41,6 +41,12 @@ module.exports = {
                 ignoreDeclarationSort: true,
             },
         ],
+        'prettier/prettier': [
+            'error',
+            {
+                endOfLine: 'auto',
+            },
+        ],
         'simple-import-sort/exports': 'warn',
         'simple-import-sort/imports': [
             'warn',
