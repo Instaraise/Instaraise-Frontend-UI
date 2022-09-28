@@ -31,24 +31,28 @@
     font-family: Aileron-Thin;
     src: url(../../assets//fonts/Aileron-Thin.otf);
 }
-:root{
-    --gradient-background: linear-gradient(65.25deg, #5105E1 -32.71%, #8B2BE2 107.11%);
-    --ecoSystem-background: #F9FBFC;
+:root {
+    --gradient-background: linear-gradient(
+        65.25deg,
+        #5105e1 -32.71%,
+        #8b2be2 107.11%
+    );
+    --ecoSystem-background: #f9fbfc;
     --detail-card-text-color: #4e5d78;
-    --services-text-color : #5E0EE2; 
+    --services-text-color: #5e0ee2;
 }
-.homepage-navbar .homepage-navbar-menu ul li a span{
-    color: #FFFFFF;
+.homepage-navbar .homepage-navbar-menu ul li a span {
+    color: #ffffff;
     font-family: font-Regular;
     letter-spacing: 0.2px;
     cursor: pointer;
 }
-.homepage-navbar .homepage-navbar-social img{
+.homepage-navbar .homepage-navbar-social img {
     padding: 0rem 0.5rem;
     cursor: pointer;
 }
-.navbar-menu-icon svg{
-    color: #FFFFFF;
+.navbar-menu-icon svg {
+    color: #ffffff;
 }
 
 .navbar-light .navbar-toggler {
@@ -57,10 +61,10 @@
 .text-end {
     text-align: right;
 }
-.compLogo{
+.compLogo {
     height: 30px;
     width: auto;
 }
-.header-title{
-    color: var(--detail-card-text-color)!important;
+.header-title {
+    color: var(--detail-card-text-color) !important;
 }

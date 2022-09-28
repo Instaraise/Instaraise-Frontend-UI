@@ -1,8 +1,8 @@
-import PriceImg from '../../../assets/images/price.svg';
+import BurnedImg from '../../../assets/images/burned.svg';
 import Icon from '../../../assets/images/Icon.svg';
 import MarketCapImg from '../../../assets/images/market.svg';
+import PriceImg from '../../../assets/images/price.svg';
 import CirculatingSupplyImg from '../../../assets/images/supply.svg';
-import BurnedImg from '../../../assets/images/burned.svg';
 import tvl_img from '../../../assets/images/TVL.svg';
 export const PRICE_DATA = [
     {

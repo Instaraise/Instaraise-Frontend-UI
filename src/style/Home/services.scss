@@ -1,7 +1,7 @@
 .services-text {
-    color: var(--services-text-color)
+    color: var(--services-text-color);
 }
-.text-insta-regular{
+.text-insta-regular {
     color: #4e5d78;
 }
 // .card-text-align{
@@ -9,7 +9,6 @@
 //     word-break: break-all;
 // }
 @media (max-width: 760px) {
-
     //align center
     .services_section .container {
         text-align: center;
@@ -26,5 +25,4 @@
         margin-left: 1rem;
         font-size: 40px;
     }
-
 }

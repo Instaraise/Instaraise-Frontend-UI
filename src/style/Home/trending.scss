@@ -1,6 +1,6 @@
-.hoverChange :hover{
-    transition: all .4s ease;
-    -webkit-transition: all .4s ease;
+.hoverChange :hover {
+    transition: all 0.4s ease;
+    -webkit-transition: all 0.4s ease;
     border-radius: 0.5rem;
     background-color: #fafafa;
 }
@@ -11,17 +11,17 @@
 }
 .cardEditImg {
     border-radius: 8px;
-    width:  100%;
+    width: 100%;
 }
-.trending-font{
+.trending-font {
     font-family: font-SemiBold;
     color: #4e5d78;
 }
-.trending-header-para{
+.trending-header-para {
     color: #607d8b;
     line-height: 1.8;
 }
-.trending-font-para{
+.trending-font-para {
     color: #607d8b;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
@@ -34,11 +34,11 @@
     color: #4e5d78;
     font-size: 14px;
 }
-.cards-display{
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2;
-        display: -webkit-box;
-        min-height: 2.6rem;
-        overflow: hidden;
-        word-break: break-word;
+.cards-display {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    min-height: 2.6rem;
+    overflow: hidden;
+    word-break: break-word;
 }

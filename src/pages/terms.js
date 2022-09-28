@@ -12,13 +12,13 @@ const Terms = () => {
     }, []);
     return (
         <div>
-            <div className="header_nav_routes">
+            <div className='header_nav_routes'>
                 <Header except={true} />
             </div>
-            <div className="container text-dark-to-light py-4">
-                <div className="terms">
-                    <h3 className="title">Terms of Service</h3>
-                    <p className="description font-insta-regular">
+            <div className='container text-dark-to-light py-4'>
+                <div className='terms'>
+                    <h3 className='title'>Terms of Service</h3>
+                    <p className='description font-insta-regular'>
                         This end user agreement (the "Agreement") should be read
                         by you (the "User" or "you") in its entirety prior to
                         your use of Instaraise's service or products. Be aware
@@ -33,7 +33,7 @@ const Terms = () => {
                     </p>
                     <h2 style={{ fontSize: '20px' }}>1. Grant of License</h2>
                     <br />
-                    <li className="description">
+                    <li className='description'>
                         1.1. Instaraise grants the User a non-exclusive,
                         personal, non-transferable right to use the Service on
                         your personal computer or other device that accesses the
@@ -44,7 +44,7 @@ const Terms = () => {
                         contained herein.
                     </li>
                     <br />
-                    <li className="description">
+                    <li className='description'>
                         1.2. The Service is not for use by (i) minors and
                         individuals under the age of 18 years, (ii) individuals
                         who can be considered minors or under the age of
@@ -57,7 +57,7 @@ const Terms = () => {
                         not their use of the Service is lawful.
                     </li>
                     <br />
-                    <li className="description">
+                    <li className='description'>
                         1.3. Instaraise and its licensors are the sole holders
                         of all rights in and to the Service and code,
                         technology, organization and structure, architecture,
@@ -71,7 +71,7 @@ const Terms = () => {
                         "Unauthorized Use").
                     </li>
                     <br />
-                    <li className="description">
+                    <li className='description'>
                         1.4 Instaraise reserves any and all rights implied or
                         otherwise, which are not expressly granted to the User
                         hereunder and retain all rights, title and interest in
@@ -86,7 +86,7 @@ const Terms = () => {
                         provided by you in this respect.
                     </li>
                     <br />
-                    <li className="description">
+                    <li className='description'>
                         1.5. The term "Instaraise", its domain names and any
                         other trade marks, or service marks used by Instaraise
                         as part of the Service (the "Trade Marks"), are solely
@@ -107,7 +107,7 @@ const Terms = () => {
                     </li>
                     <br />
                     <h2 style={{ fontSize: '20px' }}>2. No Warranties</h2>
-                    <li className="description">
+                    <li className='description'>
                         2.1. Instaraise disclaims any and all warranties,
                         expressed or implied, in connection with the service
                         which is provided to you "as is" and we provide you with
@@ -115,7 +115,7 @@ const Terms = () => {
                         quality, fitness for purpose, completeness or accuracy.
                     </li>
                     <br />
-                    <li className="description">
+                    <li className='description'>
                         2.2. Regardless of Instaraise's efforts, Instaraise
                         makes no warranty that the service will be
                         uninterrupted, timely or error-free, or that defects
@@ -125,7 +125,7 @@ const Terms = () => {
                     <h2 style={{ fontSize: '20px' }}>
                         3. Authority/Terms of Service
                     </h2>
-                    <p className="description">
+                    <p className='description'>
                         You agree to the rules of the Service provided and
                         described on the Instaraise.io website. Instaraise
                         retains all authority over the issuing, maintenance, and
@@ -138,11 +138,11 @@ const Terms = () => {
                     <h2 style={{ fontSize: '20px' }}>
                         4. Your Representations and Warranties
                     </h2>
-                    <p className="description">
+                    <p className='description'>
                         Prior to your use of the Service and on an ongoing basis
                         you represent, warrant, covenant and agree that:
                     </p>
-                    <div className="description">
+                    <div className='description'>
                         <li>
                             4.1. there is a risk of losing cryptocurrency &
                             other funds of value when using the Service and
@@ -190,8 +190,8 @@ const Terms = () => {
                             other loss of funds from Instaraise, you have the
                             responsibility to notify Instaraise at{' '}
                             <a
-                                href="mailto: connect@instaraise.io"
-                                className="email-link"
+                                href='mailto: connect@instaraise.io'
+                                className='email-link'
                             >
                                 connect@instaraise.io
                             </a>{' '}
@@ -205,8 +205,8 @@ const Terms = () => {
                             disclosed in a responsible manner and in strict
                             confidence with{' '}
                             <a
-                                href="mailto: connect@instaraise.io"
-                                className="email-link"
+                                href='mailto: connect@instaraise.io'
+                                className='email-link'
                             >
                                 connect@instaraise.io
                             </a>{' '}
@@ -215,7 +215,7 @@ const Terms = () => {
                     </div>
                     <br />
                     <h2 style={{ fontSize: '20px' }}>5. Prohibited Uses</h2>
-                    <div className="description">
+                    <div className='description'>
                         <li>
                             5.1. PERSONAL USE. The Service is intended solely
                             for the User’s personal use. The User is only
@@ -264,11 +264,11 @@ const Terms = () => {
                         </li>
                     </div>
                     <br />
-                    <h2 className="description" style={{ fontSize: '20px' }}>
+                    <h2 className='description' style={{ fontSize: '20px' }}>
                         6. Know your Customer (“KYC”) and Anti-Money Laundering
                         (AML) Policy
                     </h2>
-                    <p className="description">
+                    <p className='description'>
                         Instaraise is a permissionless and fully decentralised
                         platform for token sales, swaps, and decentralized
                         exchange. As a software development company, Instaraise
@@ -333,11 +333,11 @@ const Terms = () => {
                         and warrant that they are not on any such lists.
                     </p>
                     <br />
-                    <h2 className="description" style={{ fontSize: '20px' }}>
+                    <h2 className='description' style={{ fontSize: '20px' }}>
                         7. Breach
                     </h2>
                     <br />
-                    <div className="description">
+                    <div className='description'>
                         <li>
                             7.1. Without prejudice to any other rights, if a
                             User breaches in whole or in part any provision
@@ -363,11 +363,11 @@ const Terms = () => {
                     </div>
                     <br />
                     <br />
-                    <h2 className="description" style={{ fontSize: '20px' }}>
+                    <h2 className='description' style={{ fontSize: '20px' }}>
                         8. Limitations and Liability
                     </h2>
                     <br />
-                    <div className="description">
+                    <div className='description'>
                         <li>
                             8.1. Under no circumstances, including negligence,
                             shall Instaraise be liable for any special,
@@ -388,17 +388,17 @@ const Terms = () => {
                     </div>
                     <br />
                     <br />
-                    <h2 className="description" style={{ fontSize: '20px' }}>
+                    <h2 className='description' style={{ fontSize: '20px' }}>
                         9. Disputes
                     </h2>
                     <br />
-                    <div className="description">
+                    <div className='description'>
                         <p>
                             If a User wishes to make a complaint, please contact
                             Instaraise's customer service team at{' '}
                             <a
-                                href="mailto: connect@instaraise.io"
-                                className="email-link"
+                                href='mailto: connect@instaraise.io'
+                                className='email-link'
                             >
                                 connect@instaraise.io
                             </a>{' '}
@@ -408,11 +408,11 @@ const Terms = () => {
                         </p>
                         <br />
                     </div>
-                    <h2 className="description" style={{ fontSize: '20px' }}>
+                    <h2 className='description' style={{ fontSize: '20px' }}>
                         10. Amendment
                     </h2>
                     <br />
-                    <div className="description">
+                    <div className='description'>
                         <p>
                             Instaraise reserves the right to update or modify
                             this Agreement or any part thereof at any time or
@@ -426,11 +426,11 @@ const Terms = () => {
                         </p>
                         <br />
                     </div>
-                    <h2 className="description" style={{ fontSize: '20px' }}>
+                    <h2 className='description' style={{ fontSize: '20px' }}>
                         11. Governing Law
                     </h2>
                     <br />
-                    <div className="description">
+                    <div className='description'>
                         <p>
                             The Agreement and any matters relating hereto shall
                             be governed by, and construed in accordance with,
@@ -455,11 +455,11 @@ const Terms = () => {
                         </p>
                         <br />
                     </div>
-                    <h2 className="description" style={{ fontSize: '20px' }}>
+                    <h2 className='description' style={{ fontSize: '20px' }}>
                         12. Severability
                     </h2>
                     <br />
-                    <div className="description">
+                    <div className='description'>
                         <p>
                             Instaraise reserves the right to assign this
                             agreement, in whole or in part, at any time without
@@ -468,11 +468,11 @@ const Terms = () => {
                         </p>
                         <br />
                     </div>
-                    <h2 className="description" style={{ fontSize: '20px' }}>
+                    <h2 className='description' style={{ fontSize: '20px' }}>
                         13. Assignment
                     </h2>
                     <br />
-                    <div className="description">
+                    <div className='description'>
                         <p>
                             If a provision of this Agreement is or becomes
                             illegal, invalid or unenforceable in any
@@ -484,11 +484,11 @@ const Terms = () => {
                         </p>
                         <br />
                     </div>
-                    <h2 className="description" style={{ fontSize: '20px' }}>
+                    <h2 className='description' style={{ fontSize: '20px' }}>
                         14. Miscellaneous
                     </h2>
                     <br />
-                    <div className="description">
+                    <div className='description'>
                         <li>
                             14.1. No waiver by Instaraise of any breach of any
                             provision of this Agreement (including the failure
@@ -530,11 +530,11 @@ const Terms = () => {
                         </li>
                         <br />
                     </div>
-                    <h2 className="description" style={{ fontSize: '20px' }}>
+                    <h2 className='description' style={{ fontSize: '20px' }}>
                         15. Cryptocurrency
                     </h2>
                     <br />
-                    <div className="description">
+                    <div className='description'>
                         <p>
                             CRYPTOCURRENCY VALUES CAN FLUCTUATE GREATLY IN VALUE
                             DEPENDING ON MARKET CONDITIONS.

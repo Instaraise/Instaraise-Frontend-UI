@@ -1,15 +1,11 @@
-import rootReducer from '../reducers/index.reducer';
-import { createStore, applyMiddleware } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import thunkMiddleware from 'redux-thunk';
-import { createLogger } from 'redux-logger';
 
-const store = createStore(rootReducer);
-const loggerMiddleware = createLogger();
+import rootReducer from '../reducers/index.reducer';
 
 let middleware = [];
 
 if (process.env.NODE_ENV !== 'production') {
-    let logger = loggerMiddleware;
     let thunk = thunkMiddleware;
     middleware = [...middleware, thunk];
 } else {
