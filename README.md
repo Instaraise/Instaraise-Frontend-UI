@@ -76,7 +76,6 @@ We’re really happy to accept contributions from the community, that’s the ma
 You can report issues directly on Github.
 
 <br/>
-<br/>
 
 # License
 
