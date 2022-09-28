@@ -1,13 +1,9 @@
 import React from 'react';
 import Header from '../Header/header';
 import { DESC_DATA } from '../../../../config/HomeConfig/BodyConfig/config.body';
-import instagramLogo from '../../../../assets/images/socials/instagram.svg';
-import linkedinLogo from '../../../../assets/images/socials/linkedin.svg';
-import twitterLogo from '../../../../assets/images/socials/twitter.svg';
 import upRight from '../../../../assets/images/arrow-up-right.svg';
 import { SOCIALS_DATA } from '../../../../config/HomeConfig/FooterConfig/config.footer';
 import { Link } from 'react-router-dom';
-import Stats from '../Stats/stats';
 const Body = () => {
     var HomePageDesElem = (
         <>
@@ -31,7 +27,7 @@ const Body = () => {
             <button type="button" className=" btn btn-light btn-lg">
                 <span className="font-insta-regular">
                     Launch app
-                    <img className="ml-1" src={upRight} />
+                    <img className="ml-1" src={upRight} alt="upright-img" />
                 </span>
             </button>
         </>
@@ -57,7 +53,7 @@ const Body = () => {
             <button type="button" className=" btn btn-light btn-lg mb-5">
                 <span className="font-insta-regular">
                     Launch app
-                    <img className="ml-1" src={upRight} />
+                    <img className="ml-1" src={upRight} alt="upright-img" />
                 </span>
             </button>
         </>
@@ -82,7 +78,10 @@ const Body = () => {
                                             )
                                         }
                                     >
-                                        <img src={elem.footer_social_img} />
+                                        <img
+                                            src={elem.footer_social_img}
+                                            alt="upright-img"
+                                        />
                                     </Link>
                                     <br />
                                 </React.Fragment>
