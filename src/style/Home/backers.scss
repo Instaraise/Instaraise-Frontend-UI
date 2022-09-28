@@ -8,7 +8,7 @@
   .backers_content {
     width: 300% !important;
     display: flex;
-    animation: backers_card 30s linear infinite forwards;
+    animation: backers_card 80s linear infinite forwards;
     &:hover {
       animation-play-state: paused;
     } 
