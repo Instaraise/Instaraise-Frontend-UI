@@ -66,8 +66,8 @@ We’re really happy to accept contributions from the community, that’s the ma
 - fork the repository
 - create a branch (optionally with the reference to the issue in the name)
 - commit incrementally with readable and detailed commit messages
-- submit a pull-request against the master branch of this repository (be sure to add closing keywords in your PR description )
-- usually we follow this file folder structure where in we place all our components in `src/components` and pages/containers in `src/container` with naming convention as `src/components/[name_of_component]` and `src/container/[name_of_page]` respectively.
+- submit a pull-request against the master branch of this repository (be sure to add [closing keywords](https://docs.github.com/en/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) in your PR description )
+- usually we follow this file folder structure where in we place all our components in `src/components` and pages/containers in `src/container` with naming convention as `src/components/[name_of_component]/index.js` and `src/container/[name_of_page]/index.js` respectively.
 - all our redux code is managed in `src/redux` and all actions , reducers are placed in respective folders for example `src/redux/actions` and `src/redux/reducers` with naming conventions as `[name_of_file].action.js` for actions and `[name_of_file].reducer.js`.
 - we perform all the async operations in `src/redux/actions` with naming convention as `api.[name_of_file].js`.
 
