@@ -79,6 +79,6 @@ You can report issues directly on Github.
 
 # License
 
-[Apache License 2.0](https://github.com/Instaraise/Instaraise-Frontend-UI/blob/main/License)
+[Apache License 2.0](https://github.com/Instaraise/Instaraise-Frontend-UI/blob/master/License)
 
 Copyright &copy; 2021 Instaraise. All rights reserved.
