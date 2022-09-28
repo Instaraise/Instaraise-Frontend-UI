@@ -1,49 +1,73 @@
 {
-  "name": "instaraise_version-3",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.27.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-redux": "^8.0.2",
-    "react-router-dom": "^6.4.0",
-    "react-scripts": "5.0.1",
-    "react-scroll": "^1.8.7",
-    "redux": "^4.2.0",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.4.1",
-    "sass": "^1.54.9",
-    "sass-loader": "^13.0.2",
-    "tailwindcss": "^3.1.8",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "dev": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "instaraise_version-3",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^13.5.0",
+        "axios": "^0.27.2",
+        "eslint-plugin-simple-import-sort": "^8.0.0",
+        "lint-staged": "^13.0.3",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-redux": "^8.0.2",
+        "react-router-dom": "^6.4.0",
+        "react-scripts": "5.0.1",
+        "react-scroll": "^1.8.7",
+        "redux": "^4.2.0",
+        "redux-logger": "^3.0.6",
+        "redux-thunk": "^2.4.1",
+        "sass": "^1.54.9",
+        "sass-loader": "^13.0.2",
+        "tailwindcss": "^3.1.8",
+        "web-vitals": "^2.1.4"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "dev": "react-scripts start",
+        "build": "react-scripts build",
+        "lint": "npx eslint .",
+        "lint:fix": "npx eslint --fix && yarn format",
+        "format": "prettier --write .",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "prepare": "husky install"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "eslint": "^8.24.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-react": "^7.31.8",
+        "eslint-plugin-unused-imports": "^2.0.0",
+        "prettier": "^2.7.1",
+        "husky": "^8.0.0"
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,ts,tsx,}": [
+            "eslint --max-warnings=0",
+            "prettier -w"
+        ],
+        "src/**/*.{json,css,scss,md}": [
+            "prettier -w"
+        ]
+    }
 }

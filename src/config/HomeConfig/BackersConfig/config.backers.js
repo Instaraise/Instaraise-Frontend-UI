@@ -1,20 +1,20 @@
-import twin_apex from '../../../assets/partners/twin_apex.png';
 import x21 from '../../../assets/partners/21.png';
-import m6 from '../../../assets/partners/M6.png';
-import exwhite from '../../../assets/partners/exwhite.png';
 import Atlasfund from '../../../assets/partners/Atlasfund.png';
 import blockcapital from '../../../assets/partners/blockcapital.png';
-import dweb from '../../../assets/partners/DWEB.png';
-import roundtable from '../../../assets/partners/roundtable.png';
-import maximus from '../../../assets/partners/maximus.png';
-import tokenova from '../../../assets/partners/tokenova.png';
-import kretos from '../../../assets/partners/kretos.png';
 import ccix from '../../../assets/partners/ccix.png';
-import wubba from '../../../assets/partners/wubba.png';
+import crazynft from '../../../assets/partners/crazynft_img.png';
+import dweb from '../../../assets/partners/DWEB.png';
+import exwhite from '../../../assets/partners/exwhite.png';
+import kretos from '../../../assets/partners/kretos.png';
+import m6 from '../../../assets/partners/M6.png';
+import maximus from '../../../assets/partners/maximus.png';
 import mintedlabs from '../../../assets/partners/mintedlabs.svg';
 import iog from '../../../assets/partners/oig_grey_modi.png';
+import roundtable from '../../../assets/partners/roundtable.png';
+import tokenova from '../../../assets/partners/tokenova.png';
+import twin_apex from '../../../assets/partners/twin_apex.png';
 import viviancapital from '../../../assets/partners/viviancapital.png';
-import crazynft from '../../../assets/partners/crazynft_img.png';
+import wubba from '../../../assets/partners/wubba.png';
 
 export const BACKERS_DATA = [
     {

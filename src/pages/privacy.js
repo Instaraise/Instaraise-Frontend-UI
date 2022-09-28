@@ -1,6 +1,7 @@
 import React from 'react';
-import Header from '../components/home/LandingPage/Header/header';
+
 import Footer from '../components/home/Footer/footer';
+import Header from '../components/home/LandingPage/Header/header';
 const Privacy = () => {
     React.useEffect(() => {
         window.scrollTo({
@@ -10,40 +11,40 @@ const Privacy = () => {
     }, []);
     return (
         <div>
-            <div className="header_nav_routes">
+            <div className='header_nav_routes'>
                 <Header except={true} />
             </div>
-            <div className="container text-dark-to-light terms_and_condition w-100 py-4 landing-page-container">
-                <div className="terms">
-                    <h3 className="title">Privacy Policy</h3>
-                    <p className="description font-insta-regular">
+            <div className='container text-dark-to-light terms_and_condition w-100 py-4 landing-page-container'>
+                <div className='terms'>
+                    <h3 className='title'>Privacy Policy</h3>
+                    <p className='description font-insta-regular'>
                         Herein is provided the privacy policy of Instaraise
                         (owner and operator of Instaraise.io) This Privacy
                         Policy describes how Instaraise.io will manage end
-                        user’s personal information which we collect as a result
-                        of your use of Instaraise.io, your use of our websites
-                        located at www.Instaraise.io and any pages or websites
-                        under the 'Instaraise' brand including any tablet or
-                        mobile phone applications that are owned and/or operated
-                        by us or whenever we otherwise deal with you. Instaraise
-                        is committed to ensuring that the personal information
-                        we collect about you is protected and is used, stored
-                        and disclosed in accordance with the Privacy Act and
-                        this Privacy Policy.
+                        user&apos;s personal information which we collect as a
+                        result of your use of Instaraise.io, your use of our
+                        websites located at www.Instaraise.io and any pages or
+                        websites under the &apos;Instaraise&apos; brand
+                        including any tablet or mobile phone applications that
+                        are owned and/or operated by us or whenever we otherwise
+                        deal with you. Instaraise is committed to ensuring that
+                        the personal information we collect about you is
+                        protected and is used, stored and disclosed in
+                        accordance with the Privacy Act and this Privacy Policy.
                     </p>
                     <br />
-                    <h2 className="description" style={{ fontSize: '20px' }}>
+                    <h2 className='description' style={{ fontSize: '20px' }}>
                         Website use
                     </h2>
                     <br />
-                    <p className="description">
+                    <p className='description'>
                         In using the website, you agree to be bound by the terms
                         of this Privacy Policy. Instaraise.io may review the
                         Privacy Policy periodically and reserves the right to
                         change the Privacy Policy at any time at its discretion
                         by posting such changes on the website. Changes will be
                         effective immediately when posted on the website. The
-                        end users’ continued use of the website following
+                        end users&apos; continued use of the website following
                         posting will constitute your acceptance of those
                         changes.
                         <br />
@@ -88,7 +89,7 @@ const Privacy = () => {
                         following information:
                         <br />
                         <br />
-                        If you wish to subscribe to Instaraise.io's weekly
+                        If you wish to subscribe to Instaraise.io&apos;s weekly
                         newsletter or other marketing communications.
                         <br />
                         <br />
@@ -158,7 +159,7 @@ const Privacy = () => {
                         disclosing your Personal Information for the above
                         purposes.
                     </p>
-                    <p className="description">
+                    <p className='description'>
                         <br />
                         <br />
                         <h3 style={{ fontSize: '20px' }}>
@@ -168,16 +169,17 @@ const Privacy = () => {
                         <br />
                         <br />
                         Occasionally we may use your Personal Information to
-                        inform you about Instaraise.io's products or services or
-                        about promotional activities which Instaraise.io
-                        believes may be of interest or of benefit to you. We may
-                        do this via email, SMS, telephone or mail. If you no
-                        longer wish to receive marketing or promotional material
-                        from Instaraise.io at all or in any particular form, you
-                        may contact us at any time by email to{' '}
+                        inform you about Instaraise.io&apos;s products or
+                        services or about promotional activities which
+                        Instaraise.io believes may be of interest or of benefit
+                        to you. We may do this via email, SMS, telephone or
+                        mail. If you no longer wish to receive marketing or
+                        promotional material from Instaraise.io at all or in any
+                        particular form, you may contact us at any time by email
+                        to{' '}
                         <a
-                            href="mailto: connect@instaraise.io"
-                            className="email-link"
+                            href='mailto: connect@instaraise.io'
+                            className='email-link'
                         >
                             connect@instaraise.io
                         </a>{' '}
@@ -269,8 +271,8 @@ const Privacy = () => {
                         You may access the Personal Information collected by
                         Instaraise.io by contacting us at{' '}
                         <a
-                            href="mailto: connect@instaraise.io"
-                            className="email-link"
+                            href='mailto: connect@instaraise.io'
+                            className='email-link'
                         >
                             connect@instaraise.io
                         </a>{' '}
@@ -282,10 +284,10 @@ const Privacy = () => {
                         means. We may not be required to give you access to your
                         Personal Information in certain circumstances which are
                         set out in the APPs including where it may have an
-                        unreasonable impact on other individual's privacy. If we
-                        refuse access for such reasons, we will advise you in
-                        writing of the refusal and our reasons and the complaint
-                        mechanisms available to you.
+                        unreasonable impact on other individual&apos;s privacy.
+                        If we refuse access for such reasons, we will advise you
+                        in writing of the refusal and our reasons and the
+                        complaint mechanisms available to you.
                         <br />
                         <br />
                         Use of Website
@@ -310,8 +312,8 @@ const Privacy = () => {
                         <br />
                         Email:{' '}
                         <a
-                            href="mailto: connect@instaraise.io"
-                            className="email-link"
+                            href='mailto: connect@instaraise.io'
+                            className='email-link'
                         >
                             connect@instaraise.io
                         </a>

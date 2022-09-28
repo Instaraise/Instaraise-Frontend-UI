@@ -3,18 +3,22 @@
     width: 100%;
     overflow: hidden;
     position: relative;
-  }
-  
-  .backers_content {
+}
+
+.backers_content {
     width: 300% !important;
     display: flex;
     animation: backers_card 80s linear infinite forwards;
     &:hover {
-      animation-play-state: paused;
-    } 
-  }
-  
-  @keyframes backers_card {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-66.6%); }
-  }
+        animation-play-state: paused;
+    }
+}
+
+@keyframes backers_card {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-66.6%);
+    }
+}
