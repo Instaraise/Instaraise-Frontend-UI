@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import Rightarrow from '../../../assets/images/rightarrow.svg';
-import { FETCH_ALL_TRENDING_NEWS } from '../../../redux/actions/news.action';
+import Rightarrow from '../../assets/images/rightarrow.svg';
+import { FETCH_ALL_TRENDING_NEWS } from '../../redux/actions/news.action';
 
 const TrendingNews = (props) => {
     console.log(props.allTrendingNews);

@@ -1,6 +1,6 @@
 /* eslint-disable */
-import Header from '../components/home/LandingPage/Header/header';
-import Footer from '../components/home/Footer/footer';
+import Header from '../../components/LandingPage/Header';
+import Footer from '../../components/Footer';
 import React from 'react';
 
 const Terms = () => {
@@ -17,7 +17,7 @@ const Terms = () => {
             </div>
             <div className='container text-dark-to-light py-4'>
                 <div className='terms'>
-                    <h3 className='title'>Terms of Service</h3>
+                    <h3 className='title mb-5 fs-4'>Terms of Service</h3>
                     <p className='description font-insta-regular'>
                         This end user agreement (the "Agreement") should be read
                         by you (the "User" or "you") in its entirety prior to

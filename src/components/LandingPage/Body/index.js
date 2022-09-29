@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Header from '../Header/header';
-import upRight from '../../../../assets/images/arrow-up-right.svg';
-import { DESC_DATA } from '../../../../config/HomeConfig/BodyConfig/config.body';
-import { SOCIALS_DATA } from '../../../../config/HomeConfig/FooterConfig/config.footer';
+import Header from '../Header';
+import upRight from '../../../assets/images/arrow-up-right.svg';
+import { DESC_DATA } from '../../../config/HomeConfig/BodyConfig/config.body';
+import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
 
 const Body = () => {
     var HomePageDesElem = (
@@ -27,7 +27,7 @@ const Body = () => {
                 </React.Fragment>
             ))}
             <button type='button' className=' btn btn-light btn-lg'>
-                <span className='font-insta-regular'>
+                <span className='font-insta-regular mx-3 fs-5'>
                     Launch app
                     <img className='ml-1' src={upRight} alt='upright-img' />
                 </span>
@@ -66,7 +66,7 @@ const Body = () => {
             <div className='container'>
                 <div className='row'>
                     <div className='col-md-2 d-none d-lg-block'>
-                        <div className='vl'></div>
+                        <div className='vl ml-1'></div>
                         <div className='homepage-body-socials'>
                             {SOCIALS_DATA.map((elem, index) => (
                                 <React.Fragment key={index}>
@@ -81,6 +81,7 @@ const Body = () => {
                                         }
                                     >
                                         <img
+                                            className='my-2'
                                             src={elem.footer_social_img}
                                             alt='social-img'
                                         />
@@ -89,7 +90,7 @@ const Body = () => {
                                 </React.Fragment>
                             ))}
                         </div>
-                        <div className='vl'></div>
+                        <div className='vl ml-1'></div>
                     </div>
                     <div className=' mt-auto col-md-7 mx-auto d-none d-lg-block homepage-body-description'>
                         {HomePageDesElem}

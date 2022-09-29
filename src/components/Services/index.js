@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { SERVICES_DATA } from '../../../config/HomeConfig/ServicesConfig/config.services';
-import { SERVICES_DATA2 } from '../../../config/HomeConfig/ServicesConfig/config.services';
+import { SERVICES_DATA } from '../../config/HomeConfig/ServicesConfig/config.services';
+import { SERVICES_DATA2 } from '../../config/HomeConfig/ServicesConfig/config.services';
 const Services = () => {
     return (
         <section className='services_section py-5 py-lg-none py-md-none py-sm-none'>

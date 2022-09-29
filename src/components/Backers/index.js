@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { BACKERS_DATA } from '../../../config/HomeConfig/BackersConfig/config.backers';
+import { BACKERS_DATA } from '../../config/HomeConfig/BackersConfig/config.backers';
 const Backers = () => {
     return (
         <div className='container-fluid'>

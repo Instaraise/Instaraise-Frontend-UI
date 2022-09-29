@@ -2,15 +2,15 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-scroll';
 
-import dark_comp_name from '../../../../assets/images/dark_comp_name.svg';
-import dark_mode_img from '../../../../assets/images/dark_mode_img.svg';
-import darkModeImg from '../../../../assets/images/darkModeImg.svg';
-import darkmodelogo from '../../../../assets/images/darkmodelogo.png';
-import instaLogo from '../../../../assets/images/InstaLogo.svg';
-import CompName from '../../../../assets/images/Instaraise.svg';
-import { HEADER_DATA } from '../../../../config/HomeConfig/HeaderConfig/config.header';
-import { HEADER_SOCIAL_IMAGE } from '../../../../config/HomeConfig/HeaderConfig/config.header';
-import { HEADER_SOCIAL_IMAGE2 } from '../../../../config/HomeConfig/HeaderConfig/config.header';
+import dark_comp_name from '../../../assets/images/dark_comp_name.svg';
+import dark_mode_img from '../../../assets/images/dark_mode_img.svg';
+import darkModeImg from '../../../assets/images/darkModeImg.svg';
+import darkmodelogo from '../../../assets/images/darkmodelogo.png';
+import instaLogo from '../../../assets/images/InstaLogo.svg';
+import CompName from '../../../assets/images/Instaraise.svg';
+import { HEADER_DATA } from '../../../config/HomeConfig/HeaderConfig/config.header';
+import { HEADER_SOCIAL_IMAGE } from '../../../config/HomeConfig/HeaderConfig/config.header';
+import { HEADER_SOCIAL_IMAGE2 } from '../../../config/HomeConfig/HeaderConfig/config.header';
 const Header = ({ except }) => {
     var show_dark_header_images = (
         <>
@@ -82,6 +82,7 @@ const Header = ({ except }) => {
                         <div className='homepage-navbar-social ml-auto text-end'>
                             <img
                                 src={except ? dark_mode_img : darkModeImg}
+                                className='mx-2'
                                 alt='dark-mode-img'
                             />
                             {except
@@ -95,6 +96,7 @@ const Header = ({ except }) => {
                                           }
                                       >
                                           <img
+                                              className='mx-2'
                                               src={elem.ShareImg}
                                               alt='share-icon'
                                           />
@@ -110,6 +112,7 @@ const Header = ({ except }) => {
                                           }
                                       >
                                           <img
+                                              className='mx-2'
                                               src={elem.ShareImg}
                                               alt='share-icon'
                                           />

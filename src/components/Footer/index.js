@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import instaLogo from '../../../assets/images/InstaLogo.svg';
-import CompName from '../../../assets/images/Instaraise.svg';
-import { FOOTER_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
-import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
+import instaLogo from '../../assets/images/InstaLogo.svg';
+import CompName from '../../assets/images/Instaraise.svg';
+import { FOOTER_DATA } from '../../config/HomeConfig/FooterConfig/config.footer';
+import { SOCIALS_DATA } from '../../config/HomeConfig/FooterConfig/config.footer';
 const Footer = () => {
     return (
         <footer className='footer-section'>
@@ -23,7 +23,7 @@ const Footer = () => {
                                 alt='insta-img'
                             />
                         </a>
-                        <p className='mt-4 w-75 footer-font'>
+                        <p className='mt-4 w-75 footer-font fs-6'>
                             Instaraise is building DeFi Universe on Tezos. We
                             support projects to raise fund, build communities
                             and turn their ideas into products.
@@ -135,7 +135,7 @@ const Footer = () => {
                 </div>
                 <div className='row'>
                     <div className='col-md-12 py-2'>
-                        <p className='footer-font text-center footer-copyright-section py-2'>
+                        <p className='footer-font fs-6 text-center footer-copyright-section py-2'>
                             ©COPYRIGHT - INSTARAISE - 2022
                         </p>
                     </div>

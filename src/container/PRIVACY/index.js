@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Footer from '../components/home/Footer/footer';
-import Header from '../components/home/LandingPage/Header/header';
+import Footer from '../../components/Footer';
+import Header from '../../components/LandingPage/Header';
 const Privacy = () => {
     React.useEffect(() => {
         window.scrollTo({
@@ -16,7 +16,7 @@ const Privacy = () => {
             </div>
             <div className='container text-dark-to-light terms_and_condition w-100 py-4 landing-page-container'>
                 <div className='terms'>
-                    <h3 className='title'>Privacy Policy</h3>
+                    <h3 className='title mb-5 fs-4'>Privacy Policy</h3>
                     <p className='description font-insta-regular'>
                         Herein is provided the privacy policy of Instaraise
                         (owner and operator of Instaraise.io) This Privacy
