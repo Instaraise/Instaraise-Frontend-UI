@@ -12,8 +12,16 @@ const Footer = () => {
                 <div className='row'>
                     <div className=' col-lg-6 col-md-6 mb-4 mb-md-0 text-start'>
                         <a className='navbar-brand' href='#'>
-                            <img className='compLogo' src={instaLogo} alt = "insta-logo-img"/>
-                            <img className='ml-2' src={CompName} />
+                            <img
+                                className='compLogo'
+                                src={instaLogo}
+                                alt='insta-logo'
+                            />
+                            <img
+                                className='ml-2'
+                                src={CompName}
+                                alt='insta-img'
+                            />
                         </a>
                         <p className='mt-4 w-75 footer-font'>
                             Instaraise is building DeFi Universe on Tezos. We
