@@ -1,8 +1,24 @@
+.section-3 {
+    background: var(--ecoSystem-background);
+}
 .backers-scroll {
     margin: 0 auto;
     width: 100%;
     overflow: hidden;
     position: relative;
+}
+
+.secondary-primary-text {
+    color: var(--detail-card-text-color);
+}
+.card {
+    border: none !important;
+    background-color: transparent;
+}
+@media (max-width: 760px) {
+    .font-size-media h2 {
+        font-size: 27px;
+    }
 }
 
 .backers_content {
