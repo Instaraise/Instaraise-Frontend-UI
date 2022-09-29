@@ -14,6 +14,7 @@ const Stats = () => {
                             <div className='mr-2 mt-4'>
                                 <img
                                     src={elem.image}
+                                    alt='insta-stas-img-logos'
                                     className='img-fluid'
                                     width='20'
                                     height='20'
