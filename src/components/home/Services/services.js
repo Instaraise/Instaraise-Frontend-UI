@@ -24,7 +24,7 @@ const Services = () => {
                                         <img
                                             className='ml-md-3'
                                             src={elem.image}
-                                            alt='Card image cap'
+                                            alt='Services-card'
                                             width='50'
                                             height='52'
                                         />
@@ -45,7 +45,7 @@ const Services = () => {
                                         <img
                                             className='ml-md-3'
                                             src={elem.image}
-                                            alt='Card image cap'
+                                            alt='Services-card'
                                             width='50'
                                             height='52'
                                         />

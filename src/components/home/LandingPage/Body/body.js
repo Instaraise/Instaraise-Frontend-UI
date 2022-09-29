@@ -29,7 +29,7 @@ const Body = () => {
             <button type='button' className=' btn btn-light btn-lg'>
                 <span className='font-insta-regular'>
                     Launch app
-                    <img className='ml-1' src={upRight} />
+                    <img className='ml-1' src={upRight} alt='upright-img' />
                 </span>
             </button>
         </>
@@ -55,7 +55,7 @@ const Body = () => {
             <button type='button' className=' btn btn-light btn-lg mb-5'>
                 <span className='font-insta-regular'>
                     Launch app
-                    <img className='ml-1' src={upRight} />
+                    <img className='ml-1' src={upRight} alt='upright-img' />
                 </span>
             </button>
         </>
@@ -80,7 +80,10 @@ const Body = () => {
                                             )
                                         }
                                     >
-                                        <img src={elem.footer_social_img} />
+                                        <img
+                                            src={elem.footer_social_img}
+                                            alt='social-img'
+                                        />
                                     </Link>
                                     <br />
                                 </React.Fragment>

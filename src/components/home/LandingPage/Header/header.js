@@ -14,14 +14,14 @@ import { HEADER_SOCIAL_IMAGE2 } from '../../../../config/HomeConfig/HeaderConfig
 const Header = ({ except }) => {
     var show_dark_header_images = (
         <>
-            <img className='compLogo' src={darkmodelogo} />
-            <img className='ml-2' src={dark_comp_name} />
+            <img className='compLogo' src={darkmodelogo} alt='insta-logo-img' />
+            <img className='ml-2' src={dark_comp_name} alt='insta-img' />
         </>
     );
     var not_show_dark_header_images = (
         <>
-            <img src={instaLogo} />
-            <img className='ml-2' src={CompName} />
+            <img src={instaLogo} alt='insta-logo-img' />
+            <img className='ml-2' src={CompName} alt='insta-img' />
         </>
     );
     return (
@@ -65,15 +65,6 @@ const Header = ({ except }) => {
                             <ul className='navbar-nav mt-2'>
                                 {HEADER_DATA.map((elem, index) => (
                                     <li key={index} className='nav-item px-2'>
-                                        {/* <a
-                                            className="nav-link text-end"
-                                            href="#"
-                                        >
-                                            <span>{elem.headerNav}</span>{' '}
-                                            <span className="sr-only">
-                                                (current)
-                                            </span>
-                                        </a> */}
                                         <Link
                                             className='nav-link text-end'
                                             to={elem.LinkTo}
@@ -89,7 +80,10 @@ const Header = ({ except }) => {
                             </ul>
                         </div>
                         <div className='homepage-navbar-social ml-auto text-end'>
-                            <img src={except ? dark_mode_img : darkModeImg} />
+                            <img
+                                src={except ? dark_mode_img : darkModeImg}
+                                alt='dark-mode-img'
+                            />
                             {except
                                 ? HEADER_SOCIAL_IMAGE2.map((elem, index) => (
                                       <Link
@@ -100,7 +94,10 @@ const Header = ({ except }) => {
                                               window.open(elem.linkTo, '_blank')
                                           }
                                       >
-                                          <img src={elem.ShareImg} />
+                                          <img
+                                              src={elem.ShareImg}
+                                              alt='share-icon'
+                                          />
                                       </Link>
                                   ))
                                 : HEADER_SOCIAL_IMAGE.map((elem, index) => (
@@ -112,7 +109,10 @@ const Header = ({ except }) => {
                                               window.open(elem.linkTo, '_blank')
                                           }
                                       >
-                                          <img src={elem.ShareImg} />
+                                          <img
+                                              src={elem.ShareImg}
+                                              alt='share-icon'
+                                          />
                                       </Link>
                                   ))}
                         </div>
