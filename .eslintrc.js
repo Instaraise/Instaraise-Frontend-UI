@@ -4,7 +4,7 @@ module.exports = {
         es2021: true,
         node: true,
     },
-    plugins: ['unused-imports', 'simple-import-sort'],
+    plugins: ['unused-imports', 'jsx-a11y', 'simple-import-sort'],
     extends: [
         'eslint:recommended',
         'plugin:react/recommended',
@@ -22,6 +22,13 @@ module.exports = {
         },
     },
     rules: {
+        'jsx-a11y/img-redundant-alt': [
+            2,
+            {
+                components: ['Image'],
+                words: ['Bild', 'Foto'],
+            },
+        ],
         'no-unused-vars': 1,
         'no-console': 'off',
         'react/prop-types': 'off',
