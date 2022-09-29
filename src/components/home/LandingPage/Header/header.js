@@ -67,7 +67,7 @@ const Header = ({ except }) => {
                                     <li key={index} className='nav-item px-2'>
                                         <Link
                                             className='nav-link text-end'
-                                            to={elem.LinkTo}
+                                            to={elem.LinkTo || '/'}
                                             spy={true}
                                             smooth={true}
                                             offset={10}
