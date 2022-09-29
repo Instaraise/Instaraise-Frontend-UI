@@ -1,25 +1,19 @@
 <br/>
-<br/>
 
 ![Instaraise](https://pbs.twimg.com/profile_banners/802793144391634944/1660676507/1500x500)
 <br/>
-<br/>
 
 [Instaraise](https://instaraise.io/) is building a DeFi Universe on Tezos. We support projects to raise fund, build communities and turn their ideas into products.Instaraise allows token-based projects in Tezos to raise funds by setting up a swap pool based on a fixed purchase rate for tokens. These so-called “Fixed Swap Pools” have many advantages for token sale investors over traditional fundraising models like ICOs, IEOs, and IDOs (Initial DEX Offerings). Fixed Swap Pools will maintain the token price throughout the sale until the initial supply is bought.
-<br/>
 <br/>
 
 # Useful Links
 
 -   Website: [instaraise.io](https://instaraise.io/)
 -   Docs: [docs.instaraise.io](https://docs.instaraise.io)
--   Twitter: [@Instaraise](https://twitter.com/Instaraise)
--   Email: [contact@instaraise.io](mailto:contact@instaraise.io)
+-   Twitter: [twitter.com/@Instaraise](https://twitter.com/Instaraise)
+-   Email: [connect@instaraise.io](mailto:connect@instaraise.io)
 -   Discord: [Instaraise](https://discord.gg/FCfyBSbCU5)
--   Whitepaper: [v1](https://docs.instaraise.io)
     <br/>
-
-<br/>
 
 # Tech Stack
 
@@ -28,15 +22,21 @@
 -   [Bootstrap](http://getbootstrap.com/) - Extensive list of components and Bundled Javascript plugins.
 -   [SCSS](https://sass-lang.com/) - Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
     <br/>
-    <br/>
 
 # Getting Started
 
-### Available Scripts
+Clone the repo using
 
-In the project directory, you can run:
+### <code></code>
 
-### `npm start`
+```js
+git clone https://github.com/Instaraise/Instaraise-Frontend-UI.git
+cd Instaraise-Frontend-UI
+```
+
+This project uses `node` and `yarn` as our default package manager would encourage you to use the same.
+
+### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -44,18 +44,17 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-### `npm test`
+### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
 
-### `npm run build`
+### `yarn run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
-<br/>
 <br/>
 
 # Contributing
