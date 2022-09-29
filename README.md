@@ -27,8 +27,6 @@
 
 Clone the repo using
 
-### <code></code>
-
 ```js
 git clone https://github.com/Instaraise/Instaraise-Frontend-UI.git
 cd Instaraise-Frontend-UI
