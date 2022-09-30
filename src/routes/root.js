@@ -4,9 +4,10 @@ import { Route, Routes } from 'react-router-dom';
 
 import '../style/index.scss';
 
-import HomeContainer from '../container/HOME/HomeContainer';
-import Privacy from '../pages/privacy';
-import Terms from '../pages/terms';
+import HomeContainer from '../container/home';
+import Privacy from '../container/privacy';
+import Terms from '../container/terms';
+
 const Root = () => {
     return (
         <BrowserRouter>

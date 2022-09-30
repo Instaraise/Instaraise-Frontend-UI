@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Footer from '../components/home/Footer/footer';
-import Header from '../components/home/LandingPage/Header/header';
+import Footer from '../../components/Home/Footer';
+import Header from '../../components/Home/Header';
 const Privacy = () => {
     React.useEffect(() => {
         window.scrollTo({

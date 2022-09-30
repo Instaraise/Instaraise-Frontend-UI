@@ -1,7 +1,7 @@
 /* eslint-disable */
-import Header from '../components/home/LandingPage/Header/header';
-import Footer from '../components/home/Footer/footer';
 import React from 'react';
+import Footer from '../../components/Home/Footer';
+import Header from '../../components/Home/Header';
 
 const Terms = () => {
     React.useEffect(() => {

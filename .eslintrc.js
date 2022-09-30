@@ -29,7 +29,6 @@ module.exports = {
                 words: ['Bild', 'Foto'],
             },
         ],
-        'no-unused-vars': 1,
         'no-console': 'off',
         'react/prop-types': 'off',
         'unused-imports/no-unused-imports': 'error',

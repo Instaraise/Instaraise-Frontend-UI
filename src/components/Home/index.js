@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Backers from './Backers/backers';
-import Footer from './Footer/footer';
-import Body from './LandingPage/Body/body';
-import Stats from './LandingPage/Stats/stats';
-import Services from './Services/services';
-import TrendingNews from './TrendingNews/trendingnews';
+import Backers from './Backers';
+import Body from './Body';
+import Footer from './Footer';
+import Services from './Services';
+import Stats from './Stats';
+import TrendingNews from './TrendingNews';
 const HomeComponent = () => {
     return (
         <>

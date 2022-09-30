@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Header from '../Header/header';
-import upRight from '../../../../assets/images/arrow-up-right.svg';
-import { DESC_DATA } from '../../../../config/HomeConfig/BodyConfig/config.body';
-import { SOCIALS_DATA } from '../../../../config/HomeConfig/FooterConfig/config.footer';
+import Header from '../Header';
+import upRight from '../../../assets/images/arrow-up-right.svg';
+import { DESC_DATA } from '../../../config/HomeConfig/BodyConfig/config.body';
+import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
 
 const Body = () => {
     var HomePageDesElem = (

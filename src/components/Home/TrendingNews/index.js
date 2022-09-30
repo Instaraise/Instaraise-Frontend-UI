@@ -6,8 +6,6 @@ import Rightarrow from '../../../assets/images/rightarrow.svg';
 import { FETCH_ALL_TRENDING_NEWS } from '../../../redux/actions/news.action';
 
 const TrendingNews = (props) => {
-    console.log(props.allTrendingNews);
-
     React.useEffect(() => {
         props.fetchAllTrendingNews();
     }, []);

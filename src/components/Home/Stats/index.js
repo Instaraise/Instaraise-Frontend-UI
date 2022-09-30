@@ -2,18 +2,19 @@ import React from 'react';
 import NumericLabel from 'react-pretty-numbers';
 import { connect } from 'react-redux';
 
-import Burned from '../../../../assets/images/burned.svg';
-import Price from '../../../../assets/images/Icon.svg';
-import MarketCap from '../../../../assets/images/market.svg';
-import TokenImg from '../../../../assets/images/price.svg';
-import supply from '../../../../assets/images/supply.svg';
-import tvl from '../../../../assets/images/TVL.svg';
-import { tokenInfo } from '../../../../redux/actions/stats.action';
+import Burned from '../../../assets/images/burned.svg';
+import Price from '../../../assets/images/Icon.svg';
+import MarketCap from '../../../assets/images/market.svg';
+import TokenImg from '../../../assets/images/price.svg';
+import supply from '../../../assets/images/supply.svg';
+import tvl from '../../../assets/images/TVL.svg';
+import { tokenInfo } from '../../../redux/actions/stats.action';
 const Stats = (props) => {
     const { tokenData } = props;
     React.useMemo(() => {
         props.fetchTokenInfo();
     }, []);
+
     return (
         <section className='statsContainer shadow-sm'>
             <div className='container'>
