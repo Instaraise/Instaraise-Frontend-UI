@@ -1,6 +1,6 @@
 <br/>
 
-![Instaraise](https://pbs.twimg.com/profile_banners/802793144391634944/1660676507/1500x500)
+![Instaraise](public/README_BANNER.png)
 <br/>
 
 [Instaraise](https://instaraise.io/) is building a DeFi Universe on Tezos. At Instaraise, we help projects to design and execute their idea to project journey on Tezos. With 360 degree product studio, launchpad, Decentralized exchange and everything in-between we are helping young entrepreneurs to turn their ideas into reality. To partner with us reach us out at [connect@instaraise.io](mailto:connect@instaraise.io)
