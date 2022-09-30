@@ -1,6 +1,7 @@
-import Header from '../../components/LandingPage/Header';
-import Footer from '../../components/Footer';
 import React from 'react';
+
+import Footer from '../../components/Footer';
+import Header from '../../components/LandingPage/Header';
 
 const Terms = () => {
     React.useEffect(() => {
@@ -18,17 +19,18 @@ const Terms = () => {
                 <div className='terms'>
                     <h3 className='title mb-5 fs-4'>Terms of Service</h3>
                     <p className='description font-insta-regular'>
-                        This end user agreement (the "Agreement") should be read
-                        by you (the "User" or "you") in its entirety prior to
-                        your use of Instaraise's service or products. Be aware
-                        that this Agreement constitutes a legally binding
-                        agreement between you and Instaraise (referred to herein
-                        as "Instaraise", "us" or "we") which owns and operates
-                        the website on the Internet and the Service at
-                        www.instaraise.io (the "Service"). You consent to
-                        adhering to all the terms set forth in this Agreement
-                        when/if you are provided with an “I Agree” button and
-                        clicking on it.
+                        This end user agreement (the &quot;Agreement&quot;)
+                        should be read by you (the &quot;User&quot; or
+                        &quot;you&quot;) in its entirety prior to your use of
+                        Instaraise&apos;s service or products. Be aware that
+                        this Agreement constitutes a legally binding agreement
+                        between you and Instaraise (referred to herein as
+                        &quot;Instaraise&quot;, &quot;us&quot; or
+                        &quot;we&quot;) which owns and operates the website on
+                        the Internet and the Service at www.instaraise.io (the
+                        &quot;Service&quot;). You consent to adhering to all the
+                        terms set forth in this Agreement when/if you are
+                        provided with an “I Agree” button and clicking on it.
                     </p>
                     <h2 style={{ fontSize: '20px' }}>1. Grant of License</h2>
                     <br />
@@ -39,8 +41,8 @@ const Terms = () => {
                         Internet in order to access and use the services
                         available and described on the Instaraise.io website
                         (the website and all its functionality together being
-                        the "Service"), subject to the terms and conditions
-                        contained herein.
+                        the &quot;Service&quot;), subject to the terms and
+                        conditions contained herein.
                     </li>
                     <br />
                     <li className='description'>
@@ -67,7 +69,7 @@ const Terms = () => {
                         Instaraise website or the Service; or (b) use the
                         Service that in any way is prohibited by applicable laws
                         or regulations (each of the above herein defined as an
-                        "Unauthorized Use").
+                        &quot;Unauthorized Use&quot;).
                     </li>
                     <br />
                     <li className='description'>
@@ -86,20 +88,21 @@ const Terms = () => {
                     </li>
                     <br />
                     <li className='description'>
-                        1.5. The term "Instaraise", its domain names and any
-                        other trade marks, or service marks used by Instaraise
-                        as part of the Service (the "Trade Marks"), are solely
-                        owned by Instaraise. In addition, all content on the
-                        website, including, but not limited to, the images,
-                        pictures, graphics, photographs, animations, videos,
-                        music, audio and text (the "Site Content") belongs to
-                        Instaraise and is protected by copyright and/or other
-                        intellectual property or other rights. You hereby
-                        acknowledge that by using the Service, you obtain no
-                        rights in the Site Content and/or the Trade Marks, or
-                        any part thereof. Under no circumstances may you use the
-                        Site Content and/or the Trade Marks without Instaraise's
-                        prior written consent. Additionally, you agree not to do
+                        1.5. The term &quot;Instaraise&quot;, its domain names
+                        and any other trade marks, or service marks used by
+                        Instaraise as part of the Service (the &quot;Trade
+                        Marks&quot;), are solely owned by Instaraise. In
+                        addition, all content on the website, including, but not
+                        limited to, the images, pictures, graphics, photographs,
+                        animations, videos, music, audio and text (the
+                        &quot;Site Content&quot;) belongs to Instaraise and is
+                        protected by copyright and/or other intellectual
+                        property or other rights. You hereby acknowledge that by
+                        using the Service, you obtain no rights in the Site
+                        Content and/or the Trade Marks, or any part thereof.
+                        Under no circumstances may you use the Site Content
+                        and/or the Trade Marks without Instaraise&#39;s prior
+                        written consent. Additionally, you agree not to do
                         anything that will harm or potentially harm the rights,
                         including the intellectual property rights of
                         Instaraise.
@@ -109,13 +112,14 @@ const Terms = () => {
                     <li className='description'>
                         2.1. Instaraise disclaims any and all warranties,
                         expressed or implied, in connection with the service
-                        which is provided to you "as is" and we provide you with
-                        no warranty or representation whatsoever regarding its
-                        quality, fitness for purpose, completeness or accuracy.
+                        which is provided to you &quot;as is&quot; and we
+                        provide you with no warranty or representation
+                        whatsoever regarding its quality, fitness for purpose,
+                        completeness or accuracy.
                     </li>
                     <br />
                     <li className='description'>
-                        2.2. Regardless of Instaraise's efforts, Instaraise
+                        2.2. Regardless of Instaraise&apos;s efforts, Instaraise
                         makes no warranty that the service will be
                         uninterrupted, timely or error-free, or that defects
                         will be corrected.
@@ -128,10 +132,10 @@ const Terms = () => {
                         You agree to the rules of the Service provided and
                         described on the Instaraise.io website. Instaraise
                         retains all authority over the issuing, maintenance, and
-                        closing of the Service. The decision of Instaraise's
-                        management, concerning any use of the Service, or
-                        dispute resolution, is final and shall not be open to
-                        review or appeal.
+                        closing of the Service. The decision of
+                        Instaraise&apos;s management, concerning any use of the
+                        Service, or dispute resolution, is final and shall not
+                        be open to review or appeal.
                     </p>
                     <br />
                     <h2 style={{ fontSize: '20px' }}>
@@ -258,7 +262,7 @@ const Terms = () => {
                             Any and all monies (including cryptocurrencies) of a
                             person located in a Prohibited Jurisdiction on the
                             Service are VOID, and can be confiscated or may be
-                            returned to the person at Instaraise's sole
+                            returned to the person at Instaraise&apos;s sole
                             discretion.
                         </li>
                     </div>
@@ -381,8 +385,8 @@ const Terms = () => {
                         <br />
                         <li>
                             8.2. Nothing in this Agreement shall exclude or
-                            limit Instaraise's liability for death or personal
-                            injury resulting from its negligence.
+                            limit Instaraise&apos;s liability for death or
+                            personal injury resulting from its negligence.
                         </li>
                     </div>
                     <br />
@@ -394,7 +398,7 @@ const Terms = () => {
                     <div className='description'>
                         <p>
                             If a User wishes to make a complaint, please contact
-                            Instaraise's customer service team at{' '}
+                            Instaraise&apos;s customer service team at{' '}
                             <a
                                 href='mailto: connect@instaraise.io'
                                 className='email-link'
