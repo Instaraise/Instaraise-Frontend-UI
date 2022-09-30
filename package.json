@@ -66,12 +66,11 @@
         "prettier": "^2.7.1"
     },
     "lint-staged": {
-        "src/**/*.{js,jsx,ts,tsx,}": [
-            "eslint --max-warnings=0",
-            "prettier -w"
+        "src/**/*.{ts,js,json}": [
+            "eslint --fix"
         ],
-        "src/**/*.{json,css,scss,md}": [
-            "prettier -w"
+        "src/**/*.{js,ts,json}": [
+            "prettier --write"
         ]
     }
 }
