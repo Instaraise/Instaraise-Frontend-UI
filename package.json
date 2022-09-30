@@ -64,7 +64,6 @@
     },
     "lint-staged": {
         "src/**/*.{js,jsx,ts,tsx,}": [
-            "npm run lint -- --fix",
             "eslint --max-warnings=0",
             "prettier -w"
         ],
