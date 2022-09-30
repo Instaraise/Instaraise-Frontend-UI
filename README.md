@@ -3,7 +3,7 @@
 ![Instaraise](https://pbs.twimg.com/profile_banners/802793144391634944/1660676507/1500x500)
 <br/>
 
-[Instaraise](https://instaraise.io/) is building a DeFi Universe on Tezos. We support projects to raise fund, build communities and turn their ideas into products.Instaraise allows token-based projects in Tezos to raise funds by setting up a swap pool based on a fixed purchase rate for tokens. These so-called “Fixed Swap Pools” have many advantages for token sale investors over traditional fundraising models like ICOs, IEOs, and IDOs (Initial DEX Offerings). Fixed Swap Pools will maintain the token price throughout the sale until the initial supply is bought.
+[Instaraise](https://instaraise.io/) is building a DeFi Universe on Tezos. At Instaraise, we help projects to design and execute their idea to project journey on Tezos. With 360 degree product studio, launchpad, Decentralized exchange and everything in-between we are helping young entrepreneurs to turn their ideas into reality. To partner with us reach us out at [connect@instaraise.io](mailto:connect@instaraise.io)
 <br/>
 
 # Useful Links
@@ -12,7 +12,7 @@
 -   Docs: [docs.instaraise.io](https://docs.instaraise.io)
 -   Twitter: [twitter.com/@Instaraise](https://twitter.com/Instaraise)
 -   Email: [connect@instaraise.io](mailto:connect@instaraise.io)
--   Discord: [Instaraise](https://discord.gg/FCfyBSbCU5)
+-   Discord: [discord.gg/instaraise](https://discord.gg/FCfyBSbCU5)
     <br/>
 
 # Tech Stack
@@ -25,11 +25,12 @@
 
 # Getting Started
 
-Clone the repo using
+To clone the repository use the following commands:
 
 ```js
 git clone https://github.com/Instaraise/Instaraise-Frontend-UI.git
 cd Instaraise-Frontend-UI
+yarn install
 ```
 
 This project uses `node` and `yarn` as our default package manager would encourage you to use the same.
@@ -57,7 +58,7 @@ Your app is ready to be deployed!
 
 # Contributing
 
-We’re really happy to accept contributions from the community, that’s the main reason why we open-sourced it! There are many ways to contribute, even if you’re not a technical person.
+We're really happy to accept contributions from the community, that's the main reason why we open-sourced it! There are many ways to contribute, even if you're not a technical person.
 
 -   create an issue related to the problem you want to fix (good for traceability and cross-reference)
 -   fork the repository
