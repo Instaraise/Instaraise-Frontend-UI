@@ -3,7 +3,7 @@ import React from 'react';
 import { BACKERS_DATA } from '../../../config/HomeConfig/BackersConfig/config.backers';
 const Backers = () => {
     return (
-        <div className='container px-5'>
+        <div className='container-fluid'>
             <div className='d-flex py-4 justify-content-center mb-4'>
                 <h2 className='fs-1 text-aileron-bold text-insta-regular'>
                     &nbsp;Our
@@ -41,7 +41,7 @@ const Backers = () => {
                         );
                     })}
                 </div>
-                <div className='backers_content'>
+                <div className='backers_content mb-5'>
                     {[
                         ...BACKERS_DATA.slice(
                             BACKERS_DATA.length / 2,

@@ -9,9 +9,6 @@
     width: 300% !important;
     display: flex;
     animation: backers_card 80s linear infinite forwards;
-    &:hover {
-        animation-play-state: paused;
-    }
 }
 
 @keyframes backers_card {
