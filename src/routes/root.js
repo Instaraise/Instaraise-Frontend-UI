@@ -4,9 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 
 import '../style/index.scss';
 
-import HomeContainer from '../container/HOME';
-import Privacy from '../container/PRIVACY';
-import Terms from '../container/TERMS';
+import HomeContainer from '../container/home';
+import Privacy from '../container/privacy';
+import Terms from '../container/terms';
 const Root = () => {
     return (
         <BrowserRouter>
