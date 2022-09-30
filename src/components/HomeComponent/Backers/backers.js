@@ -2,7 +2,6 @@ import React from 'react';
 
 import { BACKERS_DATA } from '../../../config/HomeConfig/BackersConfig/config.backers';
 const Backers = () => {
-    console.log('hi');
     return (
         <div className='container-fluid'>
             <div className='d-flex py-4 justify-content-center mb-4'>
