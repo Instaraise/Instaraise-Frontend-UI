@@ -1,6 +1,6 @@
 /* eslint-disable */
-import Header from '../components/home/LandingPage/Header/header';
-import Footer from '../components/home/Footer/footer';
+import Header from '../../components/HomeComponent/LandingPage/Header/header';
+import Footer from '../../components/HomeComponent/Footer/footer';
 import React from 'react';
 
 const Terms = () => {
