@@ -11,7 +11,7 @@ const Footer = () => {
             <div className='container p-4'>
                 <div className='row'>
                     <div className=' col-lg-6 col-md-6 mb-4 mb-md-0 text-start'>
-                        <a className='navbar-brand' href='#'>
+                        <div className='navbar-brand'>
                             <img
                                 className='compLogo'
                                 src={instaLogo}
@@ -22,7 +22,7 @@ const Footer = () => {
                                 src={CompName}
                                 alt='insta-img'
                             />
-                        </a>
+                        </div>
                         <p className='mt-4 w-75 footer-font'>
                             Instaraise is building DeFi Universe on Tezos. We
                             support projects to raise fund, build communities
