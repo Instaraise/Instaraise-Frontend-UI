@@ -11,7 +11,7 @@ const TrendingNews = (props) => {
     }, []);
 
     return (
-        <div className='container my-5'>
+        <div className='container py-5'>
             <div className='d-flex pt-3 pb-5 justify-content-center'>
                 <h2 className='fs-1 text-aileron-bold text-insta-regular'>
                     &nbsp;Trending
@@ -115,11 +115,11 @@ const TrendingNews = (props) => {
                             dangerouslySetInnerHTML={{
                                 __html: elem.excerpt,
                             }}
-                            className='mb-4 lh-lg font-insta-regular text-justify lh-base trending-font-para'
+                            className='mb-4 lh-lg font-insta-regular text-justify lh-base trending-font-para trending-para-dark'
                         />
 
                         <div className='d-flex justify-content-between'>
-                            <h6 className='cardDate font-insta-regular'>
+                            <h6 className='cardDate font-insta-regular trending-para-dark'>
                                 {new Date(elem.date).toLocaleDateString()}
                             </h6>
                             <Link

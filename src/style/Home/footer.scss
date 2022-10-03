@@ -4,6 +4,9 @@
 .footer-section {
     background: var(--gradient-background);
 }
+.dark .footer-section {
+    background: var(--detail-card-background-color);
+}
 .footer-header-color {
     color: #ffffff;
 }

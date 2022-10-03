@@ -26,7 +26,7 @@ const Body = () => {
                     </div>
                 </React.Fragment>
             ))}
-            <button type='button' className=' btn btn-light btn-lg'>
+            <button type='button' className=' btn btn-color-mode btn-lg'>
                 <span className='font-insta-regular'>
                     Launch app
                     <img className='ml-1' src={upRight} alt='upright-img' />
@@ -52,7 +52,7 @@ const Body = () => {
                     </p>
                 </React.Fragment>
             ))}
-            <button type='button' className=' btn btn-light btn-lg mb-5'>
+            <button type='button' className=' btn btn-color-mode btn-lg mb-5'>
                 <span className='font-insta-regular'>
                     Launch app
                     <img className='ml-1' src={upRight} alt='upright-img' />

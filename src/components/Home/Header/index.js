@@ -8,11 +8,14 @@ import darkModeImg from '../../../assets/images/darkModeImg.svg';
 import darkmodelogo from '../../../assets/images/darkmodelogo.png';
 import instaLogo from '../../../assets/images/InstaLogo.svg';
 import CompName from '../../../assets/images/Instaraise.svg';
+import light_mode_img from '../../../assets/images/sun_img.svg';
 import { HEADER_SOCIAL_IMAGE } from '../../../config/HomeConfig/HeaderConfig/config.header';
 import { HEADER_SOCIAL_IMAGE2 } from '../../../config/HomeConfig/HeaderConfig/config.header';
 import { HEADER_DATA } from '../../../config/HomeConfig/HeaderConfig/config.header';
+import { ThemeContext } from '../../../routes/root';
 
 const Header = ({ except }) => {
+    const { theme, handleThemeChange } = React.useContext(ThemeContext);
     var show_dark_header_images = (
         <>
             <img className='compLogo' src={darkmodelogo} alt='insta-logo-img' />
@@ -30,7 +33,7 @@ const Header = ({ except }) => {
             <nav className='navbar navbar-expand-lg navbar-light'>
                 <div className='container my-4'>
                     <NavLink className='navbar-brand' to='/'>
-                        {except
+                        {theme && except
                             ? show_dark_header_images
                             : not_show_dark_header_images}
                     </NavLink>
@@ -81,11 +84,28 @@ const Header = ({ except }) => {
                             </ul>
                         </div>
                         <div className='homepage-navbar-social ml-auto text-end'>
-                            <img
-                                src={except ? dark_mode_img : darkModeImg}
-                                alt='dark-mode-img'
-                            />
-                            {except
+                            {theme &&
+                                (except ? (
+                                    <img
+                                        onClick={() => handleThemeChange()}
+                                        src={dark_mode_img}
+                                        alt='dark-mode-img'
+                                    />
+                                ) : (
+                                    <img
+                                        onClick={() => handleThemeChange()}
+                                        src={darkModeImg}
+                                        alt='dark-mode-img'
+                                    />
+                                ))}
+                            {!theme && (
+                                <img
+                                    onClick={() => handleThemeChange()}
+                                    src={light_mode_img}
+                                    alt='dark-mode-img'
+                                />
+                            )}
+                            {theme && except
                                 ? HEADER_SOCIAL_IMAGE2.map((elem, index) => (
                                       <Link
                                           key={index}
