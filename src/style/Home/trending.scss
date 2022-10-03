@@ -1,8 +1,14 @@
+.dark .section-5 {
+    background-color: #0d0729;
+}
 .hoverChange :hover {
     transition: all 0.4s ease;
     -webkit-transition: all 0.4s ease;
     border-radius: 0.5rem;
     background-color: #fafafa;
+}
+.dark .hoverChange :hover {
+    background-color: #4e5d78;
 }
 .imageEdit {
     border-radius: 1rem;
@@ -17,9 +23,18 @@
     font-family: font-SemiBold;
     color: #4e5d78;
 }
+.dark .trending-font {
+    color: #ffffff;
+}
 .trending-header-para {
     color: #607d8b;
     line-height: 1.8;
+}
+.dark .trending-header-para {
+    color: #b0b2b5;
+}
+.dark .trending-para-dark {
+    color: #b0b2b5;
 }
 .trending-font-para {
     color: #607d8b;
