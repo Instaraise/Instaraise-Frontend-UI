@@ -1,0 +1,39 @@
+.layout {
+    background-color: red;
+    position: relative;
+    height: 100vh;
+    .app-header {
+        margin-left: 300px;
+        padding: 0px 10px 0px 10px;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: 0;
+        width: 300px;
+        height: 100vh;
+        background-color: blue;
+    }
+
+    .children {
+        margin-left: 300px;
+        padding: 0px 10px 0px 10px;
+        background-color: orange;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .layout {
+        .app-header {
+            margin-left: 0px;
+        }
+
+        .sidebar {
+            display: none;
+        }
+
+        .children {
+            margin-left: 0px;
+        }
+    }
+}
