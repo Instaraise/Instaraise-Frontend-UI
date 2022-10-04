@@ -2,10 +2,7 @@
     color: var(--services-text-color);
 }
 .text-insta-regular {
-    color: #4e5d78;
-}
-.dark .text-insta-regular {
-    color: #ffffff;
+    color: var(--detail-card-text-color);
 }
 // .card-text-align{
 //     text-align: justify;

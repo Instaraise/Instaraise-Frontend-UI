@@ -1,0 +1,35 @@
+.dark {
+    background: var(--gradient-background);
+    --gradient-background: linear-gradient(
+        5.18deg,
+        #080421 4.34%,
+        #080421 95.96%
+    );
+    --button-background-color: linear-gradient(
+        107.8deg,
+        #5a1eab 9.32%,
+        #cb81e9 114.21%
+    );
+    --descPara-color: #ffffff;
+    --body-button-color: #fff;
+    --backers-background: linear-gradient(
+        5.18deg,
+        #080421 4.34%,
+        #080421 95.96%
+    );
+    --stats-background: linear-gradient(
+        79.97deg,
+        #1d1526 5.24%,
+        #210049 92.69%
+    );
+    --footer-background: linear-gradient(
+        79.97deg,
+        #1d1526 5.24%,
+        #210049 92.69%
+    );
+    --stats-name: #ffffff;
+    --detail-card-text-color: #ffffff;
+    --trending-background: #0d0729;
+    --trending-font-color: #ffffff;
+    --trending-para-color: #b0b2b5;
+}
