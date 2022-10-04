@@ -1,24 +1,53 @@
 .layout {
-    background-color: red;
+    background-color: #f9fafa;
     position: relative;
     height: 100vh;
     .app-header {
         margin-left: 300px;
         padding: 0px 10px 0px 10px;
+        height: 10vh;
     }
 
+    .hamburger {
+        display: none;
+    }
     .sidebar {
         position: fixed;
         left: 0;
         width: 300px;
         height: 100vh;
-        background-color: blue;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        border-right: 2px solid #f6f6f6;
+        .closeIcon {
+            display: none;
+        }
+        .sidebar-content {
+            background-color: #fff;
+            border-radius: 10px 10px 0px 0px;
+            height: 90vh;
+            width: 90%;
+        }
     }
 
     .children {
         margin-left: 300px;
-        padding: 0px 10px 0px 10px;
-        background-color: orange;
+        display: flex;
+        height: 90vh;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        .content-card {
+            height: 100%;
+            width: 95%;
+        }
+    }
+    .card_i {
+        border-radius: 10px;
+        background-color: #fff;
+        padding: 10px 14px 10px 14px;
     }
 }
 
@@ -27,9 +56,35 @@
         .app-header {
             margin-left: 0px;
         }
-
+        .hamburger {
+            display: inline;
+        }
         .sidebar {
-            display: none;
+            background-color: #f9fafa;
+            margin-left: -1200px;
+            width: 100%;
+            position: absolute;
+            border-right: none;
+            justify-content: space-between;
+
+            .closeIcon {
+                display: block;
+            }
+            .sidebar-content {
+                height: 90vh;
+                width: 90%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+
+        .is_sidebar_open {
+            margin-left: 0px;
+            transition: 0.5s all ease-in-out;
+        }
+        .is_sidebar_close {
+            margin-left: -1200px;
+            transition: 0.5s all ease-in-out;
         }
 
         .children {

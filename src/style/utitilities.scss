@@ -1,0 +1,16 @@
+.h-90 {
+    height: 90% !important;
+}
+.h-95 {
+    height: 95% !important;
+}
+
+.w-30 {
+    width: 30% !important;
+}
+
+@media screen and (max-width: 1000px) {
+    .w-30 {
+        width: 100% !important;
+    }
+}
