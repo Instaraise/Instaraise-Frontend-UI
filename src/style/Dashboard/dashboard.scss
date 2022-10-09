@@ -7,28 +7,49 @@
         padding: 0px 10px 0px 10px;
         height: 10vh;
     }
-
+    .header {
+        color: var(--services-text-color);
+    }
     .hamburger {
         display: none;
     }
+    .cursor-pointer {
+        cursor: pointer;
+    }
+    .text-toggle-selected {
+        color: #5e0ee2;
+        font-weight: 600;
+        font-size: 12px;
+    }
+    .text-toggle,
+    .text-toggle:hover {
+        color: #c4c4c4;
+        font-weight: 600;
+        font-size: 12px;
+    }
+    .graph-section-height {
+        height: 65vh;
+    }
+
     .sidebar {
         position: fixed;
         left: 0;
         width: 300px;
-        height: 100vh;
+        height: 95vh;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        align-items: flex-end;
+        align-items: center;
         border-right: 2px solid #f6f6f6;
         .closeIcon {
             display: none;
         }
         .sidebar-content {
             background-color: #fff;
-            border-radius: 10px 10px 0px 0px;
-            height: 90vh;
+            border-radius: 10px 10px 10px 14px;
+            height: 85vh;
             width: 90%;
+            margin-left: 2rem;
         }
     }
 
@@ -48,6 +69,9 @@
         border-radius: 10px;
         background-color: #fff;
         padding: 10px 14px 10px 14px;
+    }
+    .border-10 {
+        border-radius: 10px;
     }
 }
 

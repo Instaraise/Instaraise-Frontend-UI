@@ -19,6 +19,7 @@
 }
 .light .btn-color-mode {
     background-image: var(--light-button-background-color);
+    border: 1px solid var(--button-background-color);
 }
 .dark .btn-color-mode {
     background-image: var(--button-background-color);

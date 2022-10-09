@@ -1,21 +1,478 @@
 import React from 'react';
+import NumericLabel from 'react-pretty-numbers';
+import { connect } from 'react-redux';
+import {
+    Area,
+    AreaChart,
+    CartesianGrid,
+    ResponsiveContainer,
+    XAxis,
+    YAxis,
+} from 'recharts';
 
+import Burned from '../../assets/images/burned.svg';
+import Price from '../../assets/images/Icon.svg';
+import MarketCap from '../../assets/images/market.svg';
+import supply from '../../assets/images/supply.svg';
+import tvl from '../../assets/images/TVL.svg';
 import DashboardLayout from '../../components/dashboard/Layout';
+import { SERVICES_DATA } from '../../config/HomeConfig/ServicesConfig/config.services';
+import { SERVICES_DATA2 } from '../../config/HomeConfig/ServicesConfig/config.services';
+import {
+    graphType,
+    numberOfDays,
+    priceGraph,
+} from '../../redux/actions/graph.action';
+import { tokenInfo } from '../../redux/actions/stats.action';
+import { ThemeContext } from '../../routes/root';
 
-const Dashboard = () => {
+const Dashboard = (props) => {
+    const {
+        tokenData,
+        graphData,
+        noofDays,
+        graphtype,
+        changeDays,
+        changeGraphType,
+    } = props;
+    const { theme } = React.useContext(ThemeContext);
+    const refresh = () => {
+        const data = {
+            days: noofDays,
+            type: graphtype,
+        };
+        props.fetchPriceData(data);
+    };
+    React.useEffect(() => {
+        const interval = setInterval(function () {
+            refresh();
+        }, 60000);
+        return () => {
+            clearInterval(interval);
+        };
+    }, []);
+    React.useEffect(() => {
+        const data = {
+            days: noofDays,
+            type: graphtype,
+        };
+        props.fetchPriceData(data);
+        // eslint-disable-next-line
+    }, [noofDays, graphtype]);
+
+    React.useMemo(() => {
+        props.fetchTokenInfo();
+    }, []);
     return (
         <DashboardLayout>
             <div className='d-flex justify-content-between  flex-lg-row flex-column h-100 w-100 align-items-start'>
                 <div className='w-100 '>
-                    <div className='card_i shadow-sm '>s</div>
-                    <div className='card_i shadow-sm  mt-3'>s</div>
+                    <div className='card_i shadow-sm '>
+                        <div className='d-flex flex-column flex-lg-column justify-content-between'>
+                            <div className='className="card   col-12 col-lg-12"'>
+                                <div className='row alg'>
+                                    <div className='m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex'>
+                                        <div className='mr-2 mt-4'>
+                                            <img
+                                                src={Price}
+                                                alt='insta-stas-img-logos'
+                                                className='img-fluid'
+                                                width='20'
+                                                height='20'
+                                            />
+                                        </div>
+                                        <div className='text-left mt-4'>
+                                            <p className='font-weight-bold m-0 statsDesc'>
+                                                <span className=''>
+                                                    ${tokenData.price}
+                                                </span>
+                                            </p>
+                                            <p className='statsNames'>Price</p>
+                                        </div>
+                                    </div>
+                                    <div className='m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex'>
+                                        <div className='mr-2 mt-4'>
+                                            <img
+                                                src={MarketCap}
+                                                alt='insta-stas-img-logos'
+                                                className='img-fluid'
+                                                width='20'
+                                                height='20'
+                                            />
+                                        </div>
+                                        <div className='text-left mt-4'>
+                                            <p className='font-weight-bold m-0 statsDesc'>
+                                                <span className=''>
+                                                    $
+                                                    <NumericLabel>
+                                                        {tokenData.marketCap}
+                                                    </NumericLabel>
+                                                </span>
+                                            </p>
+                                            <p className='statsNames'>
+                                                Market&nbsp;cap
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className='m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex'>
+                                        <div className='mr-2 mt-4'>
+                                            <img
+                                                src={supply}
+                                                alt='insta-stas-img-logos'
+                                                className='img-fluid'
+                                                width='20'
+                                                height='20'
+                                            />
+                                        </div>
+                                        <div className='text-left mt-4'>
+                                            <p className='font-weight-bold m-0 statsDesc'>
+                                                <span className=''>
+                                                    <NumericLabel>
+                                                        {tokenData.supply}
+                                                    </NumericLabel>
+                                                </span>
+                                            </p>
+                                            <p className='statsNames'>Supply</p>
+                                        </div>
+                                    </div>
+                                    <div className='m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex'>
+                                        <div className='mr-2 mt-4'>
+                                            <img
+                                                src={Burned}
+                                                alt='insta-stas-img-logos'
+                                                className='img-fluid'
+                                                width='20'
+                                                height='20'
+                                            />
+                                        </div>
+                                        <div className='text-left mt-4'>
+                                            <p className='font-weight-bold m-0 statsDesc'>
+                                                <span className=''>
+                                                    ${tokenData.burned}
+                                                </span>
+                                            </p>
+                                            <p className='statsNames'>Burned</p>
+                                        </div>
+                                    </div>
+
+                                    <div className='m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex'>
+                                        <div className='mr-2 mt-4'>
+                                            <img
+                                                src={tvl}
+                                                alt='insta-stas-img-logos'
+                                                className='img-fluid'
+                                                width='20'
+                                                height='20'
+                                            />
+                                        </div>
+                                        <div className='text-left mt-4'>
+                                            <p className='font-weight-bold m-0 statsDesc'>
+                                                <span className=''>
+                                                    $
+                                                    <NumericLabel>
+                                                        {tokenData.tvl}
+                                                    </NumericLabel>
+                                                </span>
+                                            </p>
+                                            <p className='statsNames'>TVL</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='card_i shadow-sm  mt-3 graph-section-height'>
+                        <div className='text-center d-flex flex-column  flex-lg-row flex-sm-row flex-md-row justify-content-between align-items-center mt-3 mb-4'>
+                            <div className='d-flex order-2 order-lg-0 order-md-0 order-sm-0 my-2 my-lg-0 my-sm-0 my-md-0'>
+                                <div className=' cursor-pointer'>
+                                    <span
+                                        className={`
+                                                    px-1 border-right
+                                                    ${
+                                                        graphtype === 'price'
+                                                            ? 'text-toggle-selected'
+                                                            : 'text-toggle'
+                                                    }
+                                                    `}
+                                        onClick={() => {
+                                            changeGraphType('price');
+                                        }}
+                                    >
+                                        Price
+                                    </span>
+                                </div>
+                                <div className=' cursor-pointer'>
+                                    <span
+                                        className={
+                                            graphtype === 'volume'
+                                                ? 'text-toggle-selected px-1'
+                                                : 'text-toggle px-1'
+                                        }
+                                        onClick={() => {
+                                            changeGraphType('volume');
+                                        }}
+                                    >
+                                        Volume
+                                    </span>
+                                </div>
+                            </div>
+                            <h6 className='m-0 text-insta-regular'>
+                                $INSTA performance chart
+                            </h6>
+                            <div className='d-flex mt-2 mt-lg-0 mt-sm-0 mt-md-0'>
+                                <div className='cursor-pointer'>
+                                    <span
+                                        className={`
+                                                    px-1 border-right
+                                                    ${
+                                                        noofDays === 1
+                                                            ? 'text-toggle-selected'
+                                                            : 'text-toggle'
+                                                    }
+                                                    `}
+                                        onClick={() => {
+                                            changeDays(1);
+                                        }}
+                                    >
+                                        24h
+                                    </span>
+                                </div>
+                                <div className='cursor-pointer'>
+                                    <span
+                                        className={`
+                                                px-1 border-right
+                                                ${
+                                                    noofDays === 7
+                                                        ? 'text-toggle-selected'
+                                                        : 'text-toggle'
+                                                }
+                                                `}
+                                        onClick={() => {
+                                            changeDays(7);
+                                        }}
+                                    >
+                                        7d
+                                    </span>
+                                </div>
+                                <div className='cursor-pointer'>
+                                    <span
+                                        className={`
+                                                 px-1 border-right
+                                                 ${
+                                                     noofDays === 14
+                                                         ? 'text-toggle-selected'
+                                                         : 'text-toggle'
+                                                 }
+                                                 `}
+                                        onClick={() => {
+                                            changeDays(14);
+                                        }}
+                                    >
+                                        14d
+                                    </span>
+                                </div>
+                                <div className=' cursor-pointer'>
+                                    <span
+                                        className={
+                                            noofDays === 30
+                                                ? 'text-toggle-selected px-1'
+                                                : 'text-toggle px-1'
+                                        }
+                                        onClick={() => {
+                                            changeDays(30);
+                                        }}
+                                    >
+                                        30d
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style={{ width: '100%', height: 350 }}>
+                            <ResponsiveContainer>
+                                <AreaChart
+                                    width={50}
+                                    height={50}
+                                    data={
+                                        graphtype === 'price'
+                                            ? graphData.pricedata
+                                            : graphData.volumedata
+                                    }
+                                >
+                                    <CartesianGrid
+                                        horizontal={true}
+                                        vertical={false}
+                                        strokeDasharray='6 4'
+                                        stroke={theme ? '#BEB0C9' : '#717171'}
+                                    />
+                                    <XAxis
+                                        dataKey='name'
+                                        stroke={theme ? '#BEB0C9' : '#717171'}
+                                        tickMargin={10}
+                                        tickCount={15}
+                                        style={{
+                                            fontSize: '12px',
+                                        }}
+                                        tickFormatter={(value) => {
+                                            return `${value}`;
+                                        }}
+                                    />
+                                    <YAxis
+                                        stroke={theme ? '#BEB0C9' : '#717171'}
+                                        tickCount={17}
+                                        type='number'
+                                        domain={['dataMin', 'dataMax - 0.5']}
+                                        axisLine={false}
+                                        tickFormatter={(value) => {
+                                            return `$${
+                                                graphtype === 'price'
+                                                    ? value.toFixed(5)
+                                                    : value
+                                            }`;
+                                        }}
+                                        width={60}
+                                        style={{
+                                            fontSize: '12px',
+                                            margin: '10px',
+                                            border: 'none',
+                                        }}
+                                    />
+                                    {theme ? (
+                                        <defs>
+                                            <linearGradient
+                                                id='colorv'
+                                                x1='0'
+                                                y1='0'
+                                                x2='0'
+                                                y2='1'
+                                            >
+                                                <stop
+                                                    offset='5%'
+                                                    stopColor='#F3F0FF'
+                                                    stopOpacity={0.8}
+                                                />
+                                                <stop
+                                                    offset='95%'
+                                                    stopColor=' #f1edff'
+                                                    stopOpacity={0}
+                                                />
+                                            </linearGradient>
+                                        </defs>
+                                    ) : (
+                                        <defs>
+                                            <linearGradient
+                                                id='colorv'
+                                                x1='0'
+                                                y1='0'
+                                                x2='0'
+                                                y2='1'
+                                            >
+                                                <stop
+                                                    offset='5%'
+                                                    stopColor='#150335'
+                                                    stopOpacity={0.8}
+                                                />
+                                                <stop
+                                                    offset='95%'
+                                                    stopColor=' #150335'
+                                                    stopOpacity={0}
+                                                />
+                                            </linearGradient>
+                                        </defs>
+                                    )}
+                                    <Area
+                                        type='monotone'
+                                        dataKey='pv'
+                                        stroke={theme ? '#5E0EE2' : '#A761D5'}
+                                        strokeWidth={2}
+                                        fillOpacity={1}
+                                        fill='url(#colorv)'
+                                    />
+                                </AreaChart>
+                            </ResponsiveContainer>
+                        </div>
+                    </div>
                 </div>
+                {/* this is next section */}
                 <div className='card_i shadow-sm ms-lg-4 mt-3 mt-lg-0 w-30 h-95'>
-                    s
+                    <div className='row'>
+                        <div className='col-md-12 pb-3'>
+                            <div className='token-information d-flex p-3 border-10'>
+                                <div>
+                                    <h6 className='text-insta-regular lh-sm font-weight-bold'>
+                                        Our Services
+                                    </h6>
+                                    <div className='text-12 p-0 mb-3 text-second'>
+                                        Participate in the Initial Dex Offering
+                                    </div>
+                                </div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div className='col-md-12'>
+                            <div className='token-information border-10'>
+                                {SERVICES_DATA.map((elem, index) => (
+                                    <div key={index} className='d-flex pb-2'>
+                                        <img
+                                            className='ml-md-3'
+                                            src={elem.image}
+                                            alt='Services-card'
+                                            width='50'
+                                            height='32'
+                                        />
+                                        <div className='ml-3'>
+                                            <h6 className='text-insta-regular lh-sm font-weight-bold'>
+                                                {elem.heading}
+                                            </h6>
+                                            <p className='statsNames text-12 font-insta-regular'>
+                                                {elem.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className='col-md-12'>
+                            <div className='token-information border-10'>
+                                {SERVICES_DATA2.map((elem, index) => (
+                                    <div key={index} className='d-flex pt-2'>
+                                        <img
+                                            className='ml-md-3'
+                                            src={elem.image}
+                                            alt='Services-card'
+                                            width='50'
+                                            height='32'
+                                        />
+                                        <div className='ml-3'>
+                                            <h6 className='text-insta-regular lh-sm font-weight-bold'>
+                                                {elem.heading}
+                                            </h6>
+                                            <p className='statsNames text-12 font-insta-regular'>
+                                                {elem.description}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </DashboardLayout>
     );
 };
+const mapDispatchToProps = (dispatch) => ({
+    fetchTokenInfo: (payload) => dispatch(tokenInfo(payload)),
+    fetchPriceData: (payload) => dispatch(priceGraph(payload)),
+    changeGraphType: (payload) => dispatch(graphType(payload)),
+    changeDays: (payload) => dispatch(numberOfDays(payload)),
+});
 
-export default Dashboard;
+const mapStateToProps = (state) => ({
+    tokenData: state.tokenInfo,
+    graphData: state.priceGraph,
+    noofDays: state.selectedNoDays,
+    graphtype: state.selectedGraphType,
+});
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

@@ -1,9 +1,20 @@
 import React from 'react';
 
+import dark_mode_img from '../../../assets/images/dark_mode_img.svg';
+import plusSign from '../../../assets/images/plus-sign.svg';
 const AppHeader = ({ openSidebar }) => {
     return (
-        <div className='d-flex justify-content-between align-items-center app-header'>
-            <HamIcon onClick={openSidebar} />
+        <div className='app-header'>
+            <div className='d-flex justify-content-md-end justify-content-sm-between pt-3'>
+                <HamIcon onClick={openSidebar} />
+                <div className='d-block d-md-flex d-lg-flex'>
+                    <img className='mr-4' src={dark_mode_img} />
+                    <div className='btn shadow-none bg-light-secondary border-10 text-dark-to-light fw-bold'>
+                        <img className='mr-3' src={plusSign} />
+                        <span className='me-2'>Connect wallet</span>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
