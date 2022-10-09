@@ -5,7 +5,7 @@ export const ThemeContext = React.createContext();
 
 import '../style/index.scss';
 
-import Dashbaord from '../container/dashboard';
+import Dashbaord from '../container/Dashboard';
 import HomeContainer from '../container/home';
 import Privacy from '../container/privacy';
 import Terms from '../container/terms';
