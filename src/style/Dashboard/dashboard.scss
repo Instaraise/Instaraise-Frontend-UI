@@ -34,7 +34,6 @@
         background: var(--stats-background);
     }
     .sidebar {
-        background-color: var(--trending-background);
         position: fixed;
         left: 0;
         width: 300px;
@@ -43,11 +42,12 @@
         flex-direction: column;
         justify-content: flex-end;
         align-items: center;
-        border-right: 2px solid #f6f6f6;
+        border-right: 2px solid var(--sidebar-line);
         .closeIcon {
             display: none;
         }
         .sidebar-content {
+            background-color: var(--trending-background);
             border-radius: 10px 10px 10px 14px;
             height: 85vh;
             width: 90%;
