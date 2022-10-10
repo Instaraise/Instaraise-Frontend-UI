@@ -168,7 +168,8 @@ const Dashboard = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className='card_i shadow-sm  mt-3 graph-section-height'>
+                    {/* <div className='card_i shadow-sm  mt-3 graph-section-height'> */}
+                    <div className='card_i shadow-sm  mt-3'>
                         <div className='text-center d-flex flex-column  flex-lg-row flex-sm-row flex-md-row justify-content-between align-items-center mt-3 mb-4'>
                             <div className='d-flex order-2 order-lg-0 order-md-0 order-sm-0 my-2 my-lg-0 my-sm-0 my-md-0'>
                                 <div className=' cursor-pointer'>
@@ -249,12 +250,13 @@ const Dashboard = (props) => {
                             </div>
                         </div>
 
-                        <div
+                        {/* <div
                             className='recharts-responsive-container'
                             width='976.65625'
                             height='631.75'
                             style={{ width: '100%', height: '80%' }}
-                        >
+                        > */}
+                        <div style={{ width: '100%', height: 365 }}>
                             <ResponsiveContainer>
                                 <AreaChart
                                     width={50}

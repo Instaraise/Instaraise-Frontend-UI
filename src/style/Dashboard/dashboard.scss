@@ -86,7 +86,7 @@
             display: inline;
         }
         .sidebar {
-            background-color: #f9fafa;
+            background-color: var(--layout-background-color);
             margin-left: -1200px;
             position: absolute;
             height: 100vh;
