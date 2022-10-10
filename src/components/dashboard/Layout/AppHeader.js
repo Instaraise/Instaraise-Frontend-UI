@@ -9,7 +9,7 @@ import { ThemeContext } from '../../../routes/root';
 const AppHeader = ({ openSidebar }) => {
     const { theme, handleThemeChange } = React.useContext(ThemeContext);
     return (
-        <nav className='app-header navbar navbar-expand-lg d-flex justify-content-md-end justify-content-sm-between mr-3'>
+        <nav className='app-header navbar navbar-expand-lg d-flex justify-content-md-end justify-content-sm-between mr-md-3'>
             <HamIcon onClick={openSidebar} />
             <div className='d-block d-md-flex d-lg-flex d-flex'>
                 {theme ? (
@@ -53,8 +53,8 @@ export const HamIcon = ({ onClick }) => {
             xmlns='http://www.w3.org/2000/svg'
             width='16'
             height='16'
-            fill='#4F5E78'
-            className='bi bi-list hamburger'
+            fill='currentColor'
+            className='bi bi-list hamburger nav-svg-color'
             viewBox='0 0 16 16'
             role={'button'}
             onClick={() => onClick()}
