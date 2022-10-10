@@ -20,8 +20,19 @@
     color: #8a94a6;
 }
 .sidebar-content .nav-item a:hover {
-    background-color: #f8f9fa;
+    background-color: var(--navlink-color);
     font-weight: bold;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: var(--navlink-color);
+}
+.accordion-button:not(.collapsed) {
+    background-color: transparent;
+    box-shadow: none;
+}
+.accordion-button:focus {
+    box-shadow: none;
 }
 .sidebar-content ul a h6 {
     color: #8a94a6;
@@ -39,6 +50,9 @@
     color: var(--dashboard-text-color);
 }
 @media screen and (max-width: 1000px) {
+    .layout {
+        min-height: 200vh;
+    }
     .w-30 {
         width: 100% !important;
     }

@@ -1,4 +1,4 @@
-import { GRAPH_TYPE, Num_of_days, PRICE_GRAPH } from '../actions/index.action';
+import { NUM_OF_DAYS, PRICE_GRAPH } from '../actions/index.action';
 
 export const priceGraph = (
     intialState = { pricedata: [], volumedata: [] },
@@ -13,15 +13,7 @@ export const priceGraph = (
 };
 export const selectedNoDays = (intialState = 1, action) => {
     switch (action.type) {
-        case Num_of_days:
-            return action.payload;
-        default:
-            return intialState;
-    }
-};
-export const selectedGraphType = (intialState = 'price', action) => {
-    switch (action.type) {
-        case GRAPH_TYPE:
+        case NUM_OF_DAYS:
             return action.payload;
         default:
             return intialState;

@@ -102,7 +102,7 @@ const Header = ({ except }) => {
                                 <img
                                     onClick={() => handleThemeChange()}
                                     src={light_mode_img}
-                                    alt='dark-mode-img'
+                                    alt='light-mode-img'
                                 />
                             )}
                             {theme && except

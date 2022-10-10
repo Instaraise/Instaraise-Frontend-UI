@@ -6,25 +6,50 @@ import darkmodelogo from '../../../assets/images/darkmodelogo.png';
 import dashboard from '../../../assets/images/dashboard.svg';
 import dex from '../../../assets/images/dex.svg';
 import farm from '../../../assets/images/farm.svg';
+import instaLogo from '../../../assets/images/InstaLogo.svg';
+import CompName from '../../../assets/images/Instaraise.svg';
 import launchpad from '../../../assets/images/launchpad.svg';
 import pool from '../../../assets/images/pool.svg';
+import { ThemeContext } from '../../../routes/root';
 // import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
 const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
+    const { theme } = React.useContext(ThemeContext);
     return (
         <div className={`sidebar ${isSidebarOpen}`}>
-            <NavLink className='navbar-brand py-3 mx-3' to='/'>
-                <img
-                    className='compLogo'
-                    src={darkmodelogo}
-                    alt='insta-logo-img'
-                />
-                <img className='ml-2' src={dark_comp_name} alt='insta-img' />
-            </NavLink>
+            {theme ? (
+                <NavLink className='navbar-brand py-3 mx-3' to='/'>
+                    <img
+                        className='compLogo'
+                        src={darkmodelogo}
+                        alt='insta-logo-img'
+                    />
+                    <img
+                        className='ml-2'
+                        src={dark_comp_name}
+                        alt='insta-img'
+                    />
+                </NavLink>
+            ) : (
+                <NavLink className='navbar-brand py-3 mx-3' to='/'>
+                    <img
+                        className='compLogo'
+                        src={instaLogo}
+                        alt='insta-logo-img'
+                    />
+                    <img className='ml-2' src={CompName} alt='insta-img' />
+                </NavLink>
+            )}
+
             <CloseIcon onClick={closeSidebar} />
             <div className='sidebar-content shadow-sm'>
                 <ul className='nav nav-pills flex-column p-4'>
                     <li className='nav-item justify-content-center py-2'>
-                        <a className='text-sm-2 nav-link sidebar-links d-flex  sidebar-links-active'>
+                        <NavLink
+                            to='/dashboard'
+                            className=' text-sm nav-link sidebar-links d-flex '
+                            activeClassName='sidebar-links-active'
+                            aria-current='page'
+                        >
                             <div>
                                 <div className='dashboard-color'>
                                     {' '}
@@ -36,7 +61,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                     <span className=''>Dashboard</span>
                                 </div>
                             </div>
-                        </a>
+                        </NavLink>
                     </li>
                     <div className='nav-item justify-content-center py-2'>
                         <div className='accordion' id='accordion'>
@@ -47,7 +72,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                 >
                                     <NavLink
                                         to='/launchpad'
-                                        className='dashboard-color text-sm-2-2 nav-link sidebar-links d-flex  sidebar-links-active'
+                                        className='accordion-button dashboard-color text-sm-2-2 nav-link sidebar-links d-flex  sidebar-links-active'
                                         // type="button"
                                         data-bs-toggle='collapse'
                                         data-bs-target='#sidebar2'
@@ -75,7 +100,8 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                 className='nav-item  justify-content-center  w-100 ms-4 '
                                                 style={{
                                                     borderLeft:
-                                                        '2px solid #8a94a6',
+                                                        // #8a94a6
+                                                        '2px solid rgb(157, 133, 188)',
                                                 }}
                                             >
                                                 <NavLink
@@ -152,7 +178,12 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         </div>
                     </div>
                     <li className='nav-item justify-content-center py-2'>
-                        <a className=' text-sm-2 nav-link sidebar-links d-flex  sidebar-links-active'>
+                        <NavLink
+                            to='/farms'
+                            className=' text-sm nav-link sidebar-links d-flex '
+                            activeClassName='sidebar-links-active'
+                            aria-current='page'
+                        >
                             <div className='dashboard-color'>
                                 {' '}
                                 <img
@@ -162,7 +193,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                 />
                                 <span className=''>Farms</span>
                             </div>
-                        </a>
+                        </NavLink>
                     </li>
                     <div className='nav-item justify-content-center py-2'>
                         <div className='accordion' id='accordion'>
@@ -173,7 +204,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                 >
                                     <NavLink
                                         to='/launchpad'
-                                        className='dashboard-color text-sm-2 nav-link sidebar-links d-flex  sidebar-links-active'
+                                        className='accordion-button dashboard-color text-sm-2-2 nav-link sidebar-links d-flex  sidebar-links-active'
                                         // type="button"
                                         data-bs-toggle='collapse'
                                         data-bs-target='#sidebar2'
@@ -184,7 +215,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                         <img
                                             className='me-2'
                                             src={dex}
-                                            alt='dex-img'
+                                            alt='launchpad-img'
                                         />
                                         <span>Dex</span>
                                     </NavLink>
@@ -278,7 +309,12 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         </div>
                     </div>
                     <li className='nav-item justify-content-center py-2'>
-                        <a className='text-sm-2 nav-link sidebar-links d-flex  sidebar-links-active'>
+                        <NavLink
+                            to='/portfolio'
+                            className=' text-sm nav-link sidebar-links d-flex '
+                            activeClassName='sidebar-links-active'
+                            aria-current='page'
+                        >
                             <div>
                                 <div className='dashboard-color'>
                                     {' '}
@@ -290,7 +326,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                     <span className=''>Portfolio</span>
                                 </div>
                             </div>
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
                 {/* <div className='ms-3'>

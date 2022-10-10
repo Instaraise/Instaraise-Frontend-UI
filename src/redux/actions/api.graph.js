@@ -14,7 +14,7 @@ export const fetchGraphData = async ({ days }) => {
         if (days === 1) {
             pricedata = response.data.body.prices.map((item) => {
                 const data = {
-                    name: new Date(item[0]).getSeconds(),
+                    name: new Date(item[0]).getHours(),
                     pv: item[1],
                 };
                 return data;
@@ -28,18 +28,10 @@ export const fetchGraphData = async ({ days }) => {
                 return data;
             });
         }
-        const volumedata = response.data.body.total_volumes.map((item) => {
-            const data = {
-                name: new Date(item[0]).getDate(),
-                pv: item[1],
-            };
-            return data;
-        });
         return {
             success: true,
             data: {
                 pricedata: pricedata,
-                volumedata: volumedata,
             },
         };
     } catch (error) {
@@ -47,7 +39,6 @@ export const fetchGraphData = async ({ days }) => {
             success: true,
             data: {
                 pricedata: [],
-                volumedata: [],
             },
         };
     }

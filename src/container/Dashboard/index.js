@@ -6,6 +6,7 @@ import {
     AreaChart,
     CartesianGrid,
     ResponsiveContainer,
+    Tooltip,
     XAxis,
     YAxis,
 } from 'recharts';
@@ -16,30 +17,17 @@ import MarketCap from '../../assets/images/market.svg';
 import supply from '../../assets/images/supply.svg';
 import tvl from '../../assets/images/TVL.svg';
 import DashboardLayout from '../../components/dashboard/Layout';
-import { SERVICES_DATA } from '../../config/HomeConfig/ServicesConfig/config.services';
-import { SERVICES_DATA2 } from '../../config/HomeConfig/ServicesConfig/config.services';
-import {
-    graphType,
-    numberOfDays,
-    priceGraph,
-} from '../../redux/actions/graph.action';
+import { LAUNCHPAD_SERVICES_DATA } from '../../config/HomeConfig/ServicesConfig/config.services';
+import { numberOfDays, priceGraph } from '../../redux/actions/graph.action';
 import { tokenInfo } from '../../redux/actions/stats.action';
 import { ThemeContext } from '../../routes/root';
 
 const Dashboard = (props) => {
-    const {
-        tokenData,
-        graphData,
-        noofDays,
-        graphtype,
-        changeDays,
-        changeGraphType,
-    } = props;
+    const { tokenData, graphData, noofDays, changeDays } = props;
     const { theme } = React.useContext(ThemeContext);
     const refresh = () => {
         const data = {
             days: noofDays,
-            type: graphtype,
         };
         props.fetchPriceData(data);
     };
@@ -54,11 +42,10 @@ const Dashboard = (props) => {
     React.useEffect(() => {
         const data = {
             days: noofDays,
-            type: graphtype,
         };
         props.fetchPriceData(data);
         // eslint-disable-next-line
-    }, [noofDays, graphtype]);
+    }, [noofDays]);
 
     React.useMemo(() => {
         props.fetchTokenInfo();
@@ -66,8 +53,8 @@ const Dashboard = (props) => {
     return (
         <DashboardLayout>
             <div className='d-flex justify-content-between  flex-lg-row flex-column h-100 w-100 align-items-start'>
-                <div className='w-100 '>
-                    <div className='card_i shadow-sm '>
+                <div className='w-100'>
+                    <div className='card_i shadow-sm dashboard-stats-background'>
                         <div className='d-flex flex-column flex-lg-column justify-content-between'>
                             <div className='className="card   col-12 col-lg-12"'>
                                 <div className='row alg'>
@@ -185,34 +172,8 @@ const Dashboard = (props) => {
                         <div className='text-center d-flex flex-column  flex-lg-row flex-sm-row flex-md-row justify-content-between align-items-center mt-3 mb-4'>
                             <div className='d-flex order-2 order-lg-0 order-md-0 order-sm-0 my-2 my-lg-0 my-sm-0 my-md-0'>
                                 <div className=' cursor-pointer'>
-                                    <span
-                                        className={`
-                                                    px-1 border-right
-                                                    ${
-                                                        graphtype === 'price'
-                                                            ? 'text-toggle-selected'
-                                                            : 'text-toggle'
-                                                    }
-                                                    `}
-                                        onClick={() => {
-                                            changeGraphType('price');
-                                        }}
-                                    >
+                                    <span className='px-1 text-toggle-selected'>
                                         Price
-                                    </span>
-                                </div>
-                                <div className=' cursor-pointer'>
-                                    <span
-                                        className={
-                                            graphtype === 'volume'
-                                                ? 'text-toggle-selected px-1'
-                                                : 'text-toggle px-1'
-                                        }
-                                        onClick={() => {
-                                            changeGraphType('volume');
-                                        }}
-                                    >
-                                        Volume
                                     </span>
                                 </div>
                             </div>
@@ -288,16 +249,17 @@ const Dashboard = (props) => {
                             </div>
                         </div>
 
-                        <div style={{ width: '100%', height: 350 }}>
+                        <div
+                            className='recharts-responsive-container'
+                            width='976.65625'
+                            height='631.75'
+                            style={{ width: '100%', height: '80%' }}
+                        >
                             <ResponsiveContainer>
                                 <AreaChart
                                     width={50}
                                     height={50}
-                                    data={
-                                        graphtype === 'price'
-                                            ? graphData.pricedata
-                                            : graphData.volumedata
-                                    }
+                                    data={graphData.pricedata}
                                 >
                                     <CartesianGrid
                                         horizontal={true}
@@ -324,11 +286,7 @@ const Dashboard = (props) => {
                                         domain={['dataMin', 'dataMax - 0.5']}
                                         axisLine={false}
                                         tickFormatter={(value) => {
-                                            return `$${
-                                                graphtype === 'price'
-                                                    ? value.toFixed(5)
-                                                    : value
-                                            }`;
+                                            return `$${value.toFixed(5)}`;
                                         }}
                                         width={60}
                                         style={{
@@ -337,6 +295,7 @@ const Dashboard = (props) => {
                                             border: 'none',
                                         }}
                                     />
+                                    <Tooltip />
                                     {theme ? (
                                         <defs>
                                             <linearGradient
@@ -396,13 +355,13 @@ const Dashboard = (props) => {
                 {/* this is next section */}
                 <div className='card_i shadow-sm ms-lg-4 mt-3 mt-lg-0 w-30 h-95'>
                     <div className='row'>
-                        <div className='col-md-12 pb-3'>
+                        <div className='col-md-12'>
                             <div className='token-information d-flex p-3 border-10'>
                                 <div>
                                     <h6 className='text-insta-regular lh-sm font-weight-bold'>
                                         Our Services
                                     </h6>
-                                    <div className='text-12 p-0 mb-3 text-second'>
+                                    <div className='statsNames font-insta-regular text-12 p-0 mb-3'>
                                         Participate in the Initial Dex Offering
                                     </div>
                                 </div>
@@ -411,37 +370,14 @@ const Dashboard = (props) => {
                         </div>
                         <div className='col-md-12'>
                             <div className='token-information border-10'>
-                                {SERVICES_DATA.map((elem, index) => (
-                                    <div key={index} className='d-flex pb-2'>
-                                        <img
-                                            className='ml-md-3'
-                                            src={elem.image}
-                                            alt='Services-card'
-                                            width='50'
-                                            height='32'
-                                        />
-                                        <div className='ml-3'>
-                                            <h6 className='text-insta-regular lh-sm font-weight-bold'>
-                                                {elem.heading}
-                                            </h6>
-                                            <p className='statsNames text-12 font-insta-regular'>
-                                                {elem.description}
-                                            </p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        <div className='col-md-12'>
-                            <div className='token-information border-10'>
-                                {SERVICES_DATA2.map((elem, index) => (
+                                {LAUNCHPAD_SERVICES_DATA.map((elem, index) => (
                                     <div key={index} className='d-flex pt-2'>
                                         <img
                                             className='ml-md-3'
                                             src={elem.image}
                                             alt='Services-card'
-                                            width='50'
-                                            height='32'
+                                            width='40'
+                                            height='40'
                                         />
                                         <div className='ml-3'>
                                             <h6 className='text-insta-regular lh-sm font-weight-bold'>
@@ -453,7 +389,6 @@ const Dashboard = (props) => {
                                         </div>
                                     </div>
                                 ))}
-                                <div></div>
                             </div>
                         </div>
                     </div>
@@ -465,7 +400,6 @@ const Dashboard = (props) => {
 const mapDispatchToProps = (dispatch) => ({
     fetchTokenInfo: (payload) => dispatch(tokenInfo(payload)),
     fetchPriceData: (payload) => dispatch(priceGraph(payload)),
-    changeGraphType: (payload) => dispatch(graphType(payload)),
     changeDays: (payload) => dispatch(numberOfDays(payload)),
 });
 
@@ -473,6 +407,5 @@ const mapStateToProps = (state) => ({
     tokenData: state.tokenInfo,
     graphData: state.priceGraph,
     noofDays: state.selectedNoDays,
-    graphtype: state.selectedGraphType,
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

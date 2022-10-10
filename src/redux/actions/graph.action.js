@@ -1,5 +1,5 @@
 import { fetchGraphData } from './api.graph';
-import { GRAPH_TYPE, Num_of_days, PRICE_GRAPH } from './index.action';
+import { NUM_OF_DAYS, PRICE_GRAPH } from './index.action';
 export const priceGraph = (args) => {
     return async (dispatch) => {
         const API_RESP = await fetchGraphData(args);
@@ -18,13 +18,7 @@ export const priceGraph = (args) => {
 };
 export const numberOfDays = (payload) => {
     return {
-        type: Num_of_days,
-        payload: payload,
-    };
-};
-export const graphType = (payload) => {
-    return {
-        type: GRAPH_TYPE,
+        type: NUM_OF_DAYS,
         payload: payload,
     };
 };

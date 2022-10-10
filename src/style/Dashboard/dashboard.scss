@@ -1,5 +1,5 @@
 .layout {
-    background-color: #f9fafa;
+    background-color: var(--layout-background-color);
     position: relative;
     height: 100vh;
     .app-header {
@@ -17,7 +17,7 @@
         cursor: pointer;
     }
     .text-toggle-selected {
-        color: #5e0ee2;
+        color: var(--text-toggle);
         font-weight: 600;
         font-size: 12px;
     }
@@ -30,8 +30,11 @@
     .graph-section-height {
         height: 65vh;
     }
-
+    .dashboard-stats-background {
+        background: var(--stats-background);
+    }
     .sidebar {
+        background-color: var(--trending-background);
         position: fixed;
         left: 0;
         width: 300px;
@@ -45,7 +48,6 @@
             display: none;
         }
         .sidebar-content {
-            background-color: #fff;
             border-radius: 10px 10px 10px 14px;
             height: 85vh;
             width: 90%;
@@ -67,7 +69,7 @@
     }
     .card_i {
         border-radius: 10px;
-        background-color: #fff;
+        background-color: var(--trending-background);
         padding: 10px 14px 10px 14px;
     }
     .border-10 {
@@ -86,10 +88,12 @@
         .sidebar {
             background-color: #f9fafa;
             margin-left: -1200px;
-            width: 100%;
             position: absolute;
+            height: 100vh;
+            width: 285px;
             border-right: none;
             justify-content: space-between;
+            z-index: 10;
 
             .closeIcon {
                 display: block;
@@ -101,7 +105,6 @@
                 margin-left: auto;
             }
         }
-
         .is_sidebar_open {
             margin-left: 0px;
             transition: 0.5s all ease-in-out;

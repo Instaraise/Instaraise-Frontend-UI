@@ -3,9 +3,7 @@
 }
 .statsContainer {
     min-height: 15vh;
-}
-.dark .statsContainer {
-    background: var(--detail-card-background-color);
+    background: var(--stats-background);
 }
 .border-bottom {
     border-bottom: 1px solid rgba(44, 9, 11, 0.08);
@@ -29,11 +27,8 @@
     font-size: 15px;
     font-family: font-Regular;
 }
-.dark .statsNames {
-    color: #ffffff;
-}
 .statsNames {
-    color: #8a94a6;
+    color: var(--stats-name);
     font-size: 14px;
     font-weight: 500;
     font-family: font-Regular;

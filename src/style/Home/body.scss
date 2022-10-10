@@ -1,7 +1,7 @@
 .section-1 {
     min-height: 100vh;
 }
-.light .homepage-body {
+.homepage-body {
     background: url(../../assets/images/INSTA.svg),
         url(../../assets//images/RAISE.svg), var(--gradient-background);
     background-repeat: no-repeat;
@@ -9,19 +9,8 @@
     background-position-y: 28%, 60%;
     min-height: 85vh;
 }
-.dark .homepage-body {
-    background: url(../../assets/images/INSTA.svg),
-        url(../../assets//images/RAISE.svg), var(--theme-page-background);
-    background-repeat: no-repeat;
-    background-position: 60%, 70%;
-    background-position-y: 28%, 60%;
-    min-height: 85vh;
-}
-.light .btn-color-mode {
-    background-image: var(--light-button-background-color);
-    border: 1px solid var(--button-background-color);
-}
-.dark .btn-color-mode {
+
+.btn-color-mode {
     background-image: var(--button-background-color);
     border: 1px solid var(--button-background-color);
 }
@@ -51,11 +40,8 @@
 .font-insta-regular {
     font-family: font-Regular;
 }
-.light .descPara {
-    color: rgba(255, 255, 255, 0.34);
-}
-.dark .descPara {
-    color: #ffffff;
+.descPara {
+    color: var(--descPara-color);
 }
 .vlb {
     border-left: 3px solid #a97bed;
@@ -63,15 +49,8 @@
 .homepage-body-description .btn {
     padding: 8px 24px;
 }
-.light .homepage-body-description .btn span {
-    color: #6b16e2;
-    font-size: 18px;
-    font-weight: 550;
-    letter-spacing: 0.2px;
-    line-height: 130%;
-}
-.dark .homepage-body-description .btn span {
-    color: #fff;
+.homepage-body-description .btn span {
+    color: var(--body-button-color);
     font-size: 18px;
     font-weight: 550;
     letter-spacing: 0.2px;
