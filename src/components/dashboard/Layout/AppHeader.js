@@ -2,6 +2,7 @@ import React from 'react';
 
 import light_wallet_img from '../../../assets/images/connect_wallet.svg';
 import dark_mode_img from '../../../assets/images/dark_mode_img.svg';
+import dark_plus_sign from '../../../assets/images/dark_plus_sign.svg';
 import dark_wallet_img from '../../../assets/images/dark_wallet.svg';
 import plusSign from '../../../assets/images/plus-sign.svg';
 import light_mode_img from '../../../assets/images/sun_img.svg';
@@ -27,7 +28,11 @@ const AppHeader = ({ openSidebar }) => {
                 )}
 
                 <div className='d-none d-lg-block btn shadow-none bg-light-secondary border-10 text-dark-to-light fw-bold'>
-                    <img className='mr-3' src={plusSign} />
+                    {theme ? (
+                        <img className='mr-3' src={plusSign} />
+                    ) : (
+                        <img className='mr-3' src={dark_plus_sign} />
+                    )}
                     <span className='me-2'>Connect wallet</span>
                 </div>
                 <div className='d-lg-none'>
@@ -54,7 +59,7 @@ export const HamIcon = ({ onClick }) => {
             width='16'
             height='16'
             fill='currentColor'
-            className='bi bi-list hamburger nav-svg-color'
+            className='bi bi-list hamburger nav-svg-color ml-2'
             viewBox='0 0 16 16'
             role={'button'}
             onClick={() => onClick()}
