@@ -2,6 +2,9 @@
     background-color: var(--layout-background-color);
     position: relative;
     height: 100vh;
+    width: 100%;
+    border-radius: 25px 0 0 25px;
+    overflow-y: scroll;
     .app-header {
         margin-left: 300px;
         padding: 0px 10px 0px 10px;
@@ -15,6 +18,10 @@
     }
     .cursor-pointer {
         cursor: pointer;
+    }
+    .app-header .btn:hover {
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+        color: var(--detail-card-text-color);
     }
     .text-toggle-selected {
         color: var(--text-toggle);
@@ -75,13 +82,29 @@
     .border-10 {
         border-radius: 10px;
     }
+    .label {
+        font-size: 14px;
+    }
+    .label span {
+        color: #4e5d78;
+    }
+    .sidebar-content .nav-item a {
+        cursor: pointer;
+        color: var(--stats-name);
+    }
+    .sidebar-content .nav-item a:hover {
+        background-color: var(--navlink-color);
+    }
+    .dashboard-link-violet {
+        color: var(--dashboard-text-color);
+    }
 }
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
     .layout {
         .app-header {
             margin-left: 0px;
         }
+
         .hamburger {
             display: inline;
         }

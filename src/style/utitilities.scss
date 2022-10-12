@@ -4,31 +4,17 @@
 .h-95 {
     min-height: 95% !important;
 }
-
+.h-85 {
+    height: 85vh !important;
+}
 .w-30 {
     width: 30% !important;
 }
 .nav-svg-color {
     color: var(--navbar-svg-color);
 }
-.dark .dashboard-color span {
-    color: #ffffff;
-}
-.dashboard-color span {
-    color: #4e5d78;
-    font-weight: 600;
-    font-size: 15px;
-    font-family: font-Regular;
-}
 .bg-light-secondary {
     background-color: var(--app-theme-background-color);
-}
-.sidebar-content .nav-item a {
-    cursor: pointer;
-    color: var(--stats-name);
-}
-.sidebar-content .nav-item a:hover {
-    background-color: var(--navlink-color);
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
@@ -38,7 +24,15 @@
     background-color: transparent;
     box-shadow: none;
 }
-
+.dashboard-color span {
+    color: #4e5d78;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: font-Regular;
+}
+.dark .dashboard-color span {
+    color: #ffffff;
+}
 .accordion-button::after {
     width: 12px;
     height: 12px;
@@ -60,9 +54,7 @@
 .text-sm-2 {
     font-size: 14px;
 }
-.dashboard-link-violet {
-    color: var(--dashboard-text-color);
-}
+
 @media screen and (max-width: 1000px) {
     // .layout {
     //     min-height: 200vh;

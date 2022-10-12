@@ -22,17 +22,18 @@
         "sass": "^1.54.9",
         "sass-loader": "^13.0.2",
         "tailwindcss": "^3.1.8",
+        "truncate-middle": "^1.0.6",
         "web-vitals": "^2.1.4"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "react-app-rewired start",
         "dev": "react-scripts start",
-        "build": "react-scripts build",
+        "build": "react-app-rewired build",
         "lint": "npx eslint .",
         "lint:fix": "npx eslint --fix . && yarn format",
         "format": "prettier --write .",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
+        "test": "react-app-rewired test",
+        "eject": "react-app-rewired eject",
         "prepare": "husky install"
     },
     "eslintConfig": {
@@ -56,6 +57,9 @@
     "devDependencies": {
         "@commitlint/cli": "^17.1.2",
         "@commitlint/config-conventional": "^17.1.0",
+        "assert": "^2.0.0",
+        "buffer": "^6.0.3",
+        "crypto-browserify": "^3.12.0",
         "eslint": "^8.24.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-jsx-a11y": "^6.6.1",
@@ -63,9 +67,16 @@
         "eslint-plugin-react": "^7.31.8",
         "eslint-plugin-simple-import-sort": "^8.0.0",
         "eslint-plugin-unused-imports": "^2.0.0",
+        "https-browserify": "^1.0.0",
         "husky": "^8.0.0",
         "lint-staged": "^13.0.3",
-        "prettier": "^2.7.1"
+        "os-browserify": "^0.3.0",
+        "prettier": "^2.7.1",
+        "process": "^0.11.10",
+        "react-app-rewired": "^2.2.1",
+        "stream-browserify": "^3.0.0",
+        "stream-http": "^3.2.0",
+        "url": "^0.11.0"
     },
     "lint-staged": {
         "src/**/*.{js,jsx,ts,tsx,}": [

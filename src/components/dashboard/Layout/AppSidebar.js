@@ -16,34 +16,22 @@ import launchpad_dark from '../../../assets/images/launchpad_dark.svg';
 import pool from '../../../assets/images/pool.svg';
 import pool_dark from '../../../assets/images/pool_dark.svg';
 import { ThemeContext } from '../../../routes/root';
-// import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
 const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
     const { theme } = React.useContext(ThemeContext);
     return (
         <div className={`sidebar ${isSidebarOpen}`}>
-            {theme ? (
-                <NavLink className='navbar-brand py-3 mx-3' to='/'>
-                    <img
-                        className='compLogo'
-                        src={darkmodelogo}
-                        alt='insta-logo-img'
-                    />
-                    <img
-                        className='ml-2'
-                        src={dark_comp_name}
-                        alt='insta-img'
-                    />
-                </NavLink>
-            ) : (
-                <NavLink className='navbar-brand py-3 mx-3' to='/'>
-                    <img
-                        className='compLogo'
-                        src={instaLogo}
-                        alt='insta-logo-img'
-                    />
-                    <img className='ml-2' src={CompName} alt='insta-img' />
-                </NavLink>
-            )}
+            <NavLink className='navbar-brand py-3 mx-3' to='/'>
+                <img
+                    className='compLogo'
+                    src={theme ? darkmodelogo : instaLogo}
+                    alt='insta-logo-img'
+                />
+                <img
+                    className='ml-2'
+                    src={theme ? dark_comp_name : CompName}
+                    alt='insta-img'
+                />
+            </NavLink>
 
             <CloseIcon onClick={closeSidebar} />
             <div className='sidebar-content shadow-sm'>
@@ -57,28 +45,15 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         >
                             <div>
                                 <div className='dashboard-color'>
-                                    {theme ? (
-                                        <img
-                                            className='me-2'
-                                            src={dashboard}
-                                            alt='dashboard-img'
-                                            style={{
-                                                width: '1.3em',
-                                                height: '1.3em',
-                                            }}
-                                        />
-                                    ) : (
-                                        <img
-                                            className='me-2'
-                                            src={dashboard_dark}
-                                            alt='dashboard-dark-img'
-                                            style={{
-                                                width: '1.3em',
-                                                height: '1.3em',
-                                            }}
-                                        />
-                                    )}
-
+                                    <img
+                                        className='me-2'
+                                        src={theme ? dashboard : dashboard_dark}
+                                        alt='dashboard-img'
+                                        style={{
+                                            width: '1.3em',
+                                            height: '1.3em',
+                                        }}
+                                    />
                                     <span className=''>Dashboard</span>
                                 </div>
                             </div>
@@ -100,27 +75,16 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                     activeClassName='sidebar-links-active'
                                     aria-controls='collapseOne'
                                 >
-                                    {theme ? (
-                                        <img
-                                            className='me-2'
-                                            src={launchpad}
-                                            alt='launchpad-img'
-                                            style={{
-                                                width: '1.3em',
-                                                height: '1.3em',
-                                            }}
-                                        />
-                                    ) : (
-                                        <img
-                                            className='me-2'
-                                            src={launchpad_dark}
-                                            alt='launchpad-dark-img'
-                                            style={{
-                                                width: '1.3em',
-                                                height: '1.3em',
-                                            }}
-                                        />
-                                    )}
+                                    <img
+                                        className='me-2'
+                                        src={theme ? launchpad : launchpad_dark}
+                                        alt='launchpad-img'
+                                        style={{
+                                            width: '1.3em',
+                                            height: '1.3em',
+                                        }}
+                                    />
+
                                     <span>Launchpad</span>
                                 </NavLink>
                             </div>
@@ -175,24 +139,6 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                     </div>
                                                 </div>
                                             </NavLink>
-                                            {/* <Link
-                                                    to='#'
-                                                    onClick={() =>
-                                                        window.open(
-                                                            'https://forms.gle/KoR4ZftbjJyhUwCc8'
-                                                        )
-                                                    }
-                                                    className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
-                                                    activeClassName='sidebar-links-active'
-                                                    aria-current='page'
-                                                    data-parent='#sidebar2'
-                                                >
-                                                    <div className=''>
-                                                        <div className='transition-class'>
-                                                            Apply
-                                                        </div>
-                                                    </div>
-                                                </Link> */}
                                             <NavLink
                                                 to='/launchpad/faq'
                                                 className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
@@ -219,27 +165,16 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                 aria-current='page'
                             >
                                 <div className='dashboard-color'>
-                                    {theme ? (
-                                        <img
-                                            className='me-2'
-                                            src={farm}
-                                            alt='farm-img'
-                                            style={{
-                                                width: '1.3em',
-                                                height: '1.3em',
-                                            }}
-                                        />
-                                    ) : (
-                                        <img
-                                            className='me-2'
-                                            src={farm_dark}
-                                            alt='farm-dark-img'
-                                            style={{
-                                                width: '1.3em',
-                                                height: '1.3em',
-                                            }}
-                                        />
-                                    )}
+                                    <img
+                                        className='me-2'
+                                        src={theme ? farm : farm_dark}
+                                        alt='farm-img'
+                                        style={{
+                                            width: '1.3em',
+                                            height: '1.3em',
+                                        }}
+                                    />
+
                                     <span className=''>Farms</span>
                                 </div>
                             </NavLink>
@@ -260,27 +195,16 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                     activeClassName='sidebar-links-active'
                                     aria-controls='collapseTwo'
                                 >
-                                    {theme ? (
-                                        <img
-                                            className='me-2'
-                                            src={dex}
-                                            alt='dex-img'
-                                            style={{
-                                                width: '1.3em',
-                                                height: '1.3em',
-                                            }}
-                                        />
-                                    ) : (
-                                        <img
-                                            className='me-2'
-                                            src={dex_dark}
-                                            alt='dex-dark-img'
-                                            style={{
-                                                width: '1.3em',
-                                                height: '1.3em',
-                                            }}
-                                        />
-                                    )}
+                                    <img
+                                        className='me-2'
+                                        src={theme ? dex : dex_dark}
+                                        alt='dex-img'
+                                        style={{
+                                            width: '1.3em',
+                                            height: '1.3em',
+                                        }}
+                                    />
+
                                     <span>Dex</span>
                                 </NavLink>
                             </div>
@@ -381,27 +305,15 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                 <div>
                                     <div className='dashboard-color'>
                                         {' '}
-                                        {theme ? (
-                                            <img
-                                                className='me-2'
-                                                src={pool}
-                                                alt='pool-img'
-                                                style={{
-                                                    width: '1.3em',
-                                                    height: '1.3em',
-                                                }}
-                                            />
-                                        ) : (
-                                            <img
-                                                className='me-2'
-                                                src={pool_dark}
-                                                alt='pool-dark-img'
-                                                style={{
-                                                    width: '1.3em',
-                                                    height: '1.3em',
-                                                }}
-                                            />
-                                        )}
+                                        <img
+                                            className='me-2'
+                                            src={theme ? pool : pool_dark}
+                                            alt='pool-img'
+                                            style={{
+                                                width: '1.3em',
+                                                height: '1.3em',
+                                            }}
+                                        />
                                         <span className=''>Portfolio</span>
                                     </div>
                                 </div>
@@ -409,24 +321,6 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         </li>
                     </div>
                 </ul>
-                {/* <div className='ms-3'>
-                    {SOCIALS_DATA.map((elem, index) => (
-                        <Link
-                            key={index}
-                            to='/'
-                            target='_blank'
-                            onClick={() =>
-                                window.open(elem.footer_social_link, '_blank')
-                            }
-                        >
-                            <img
-                                className='pr-2'
-                                src={elem.footer_social_img}
-                                alt='insta-social-img'
-                            />
-                        </Link>
-                    ))}
-                </div> */}
             </div>
         </div>
     );

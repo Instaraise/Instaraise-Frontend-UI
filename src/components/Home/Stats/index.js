@@ -14,7 +14,6 @@ const Stats = (props) => {
     React.useMemo(() => {
         props.fetchTokenInfo();
     }, []);
-
     return (
         <section className='statsContainer shadow-sm'>
             <div className='container'>

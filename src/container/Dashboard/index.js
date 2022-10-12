@@ -22,6 +22,24 @@ import { numberOfDays, priceGraph } from '../../redux/actions/graph.action';
 import { tokenInfo } from '../../redux/actions/stats.action';
 import { ThemeContext } from '../../routes/root';
 
+const CustomTooltip = ({ active, payload, label }) => {
+    console.log(label);
+    let x = new Date(label).toDateString();
+    let y = new Date(label).toLocaleTimeString();
+    if (active && payload && payload.length) {
+        return (
+            <div className='custom-tooltip'>
+                <p className='label'>{`${x}` + ` ` + `${y}`}</p>
+                <p className='label'>
+                    <span className='fw-bold'>Price:</span> $
+                    {`${payload[0].value}`}
+                </p>
+            </div>
+        );
+    }
+
+    return null;
+};
 const Dashboard = (props) => {
     const { tokenData, graphData, noofDays, changeDays } = props;
     const { theme } = React.useContext(ThemeContext);
@@ -31,6 +49,7 @@ const Dashboard = (props) => {
         };
         props.fetchPriceData(data);
     };
+
     React.useEffect(() => {
         const interval = setInterval(function () {
             refresh();
@@ -168,8 +187,8 @@ const Dashboard = (props) => {
                             </div>
                         </div>
                     </div>
-                    {/* <div className='card_i shadow-sm  mt-3 graph-section-height'> */}
-                    <div className='card_i shadow-sm  mt-3'>
+                    <div className='card_i shadow-sm  mt-3 graph-section-height'>
+                        {/* <div className='card_i shadow-sm  mt-3'> */}
                         <div className='text-center d-flex flex-column  flex-lg-row flex-sm-row flex-md-row justify-content-between align-items-center mt-3 mb-4'>
                             <div className='d-flex order-2 order-lg-0 order-md-0 order-sm-0 my-2 my-lg-0 my-sm-0 my-md-0'>
                                 <div className=' cursor-pointer'>
@@ -256,7 +275,7 @@ const Dashboard = (props) => {
                             height='631.75'
                             style={{ width: '100%', height: '80%' }}
                         > */}
-                        <div style={{ width: '100%', height: 365 }}>
+                        <div style={{ width: '100%', height: '72%' }}>
                             <ResponsiveContainer>
                                 <AreaChart
                                     width={50}
@@ -278,7 +297,15 @@ const Dashboard = (props) => {
                                             fontSize: '12px',
                                         }}
                                         tickFormatter={(value) => {
-                                            return `${value}`;
+                                            const x = new Date(
+                                                value
+                                            ).getHours();
+                                            const y = new Date(value).getDate();
+                                            if (noofDays === 1) {
+                                                return `${x}`;
+                                            } else {
+                                                return `${y}`;
+                                            }
                                         }}
                                     />
                                     <YAxis
@@ -297,7 +324,14 @@ const Dashboard = (props) => {
                                             border: 'none',
                                         }}
                                     />
-                                    <Tooltip />
+                                    <Tooltip
+                                        wrapperStyle={{
+                                            backgroundColor: '#f3f3f3',
+                                            padding: '1rem 1rem 0rem 1rem',
+                                            border: '1px solid #5E0EE2',
+                                        }}
+                                        content={<CustomTooltip />}
+                                    />
                                     {theme ? (
                                         <defs>
                                             <linearGradient
@@ -355,7 +389,7 @@ const Dashboard = (props) => {
                     </div>
                 </div>
                 {/* this is next section */}
-                <div className='card_i shadow-sm ms-lg-4 mt-3 mt-lg-0 w-30 h-95'>
+                <div className='card_i shadow-sm ms-lg-4 mt-3 mt-lg-0 w-30 h-85'>
                     <div className='row'>
                         <div className='col-md-12'>
                             <div className='token-information d-flex p-3 border-10'>

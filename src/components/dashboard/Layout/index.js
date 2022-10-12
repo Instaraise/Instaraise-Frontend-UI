@@ -11,6 +11,7 @@ const DashboardLayout = ({ children }) => {
                 isSidebarOpen={isSidebarOpen}
                 closeSidebar={() => setSidebarPosition('is_sidebar_close')}
             />
+
             <AppHeader
                 openSidebar={() => setSidebarPosition('is_sidebar_open')}
             />
