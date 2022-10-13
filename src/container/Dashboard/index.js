@@ -71,8 +71,9 @@ const Dashboard = (props) => {
     }, []);
     return (
         <DashboardLayout>
-            <div className='d-flex justify-content-between  flex-lg-row flex-column h-100 w-100 align-items-start'>
-                <div className='w-100'>
+            {/* <div className='d-flex justify-content-between flex-lg-row flex-column h-100 w-100 align-items-start'> */}
+            <div className='row'>
+                <div className='col-12 col-md-12 col-lg-9 w-100'>
                     <div className='card_i shadow-sm dashboard-stats-background'>
                         <div className='d-flex flex-column flex-lg-column justify-content-between'>
                             <div className='className="card   col-12 col-lg-12"'>
@@ -82,7 +83,6 @@ const Dashboard = (props) => {
                                             <img
                                                 src={Price}
                                                 alt='insta-stas-img-logos'
-                                                className='img-fluid'
                                                 width='20'
                                                 height='20'
                                             />
@@ -101,7 +101,6 @@ const Dashboard = (props) => {
                                             <img
                                                 src={MarketCap}
                                                 alt='insta-stas-img-logos'
-                                                className='img-fluid'
                                                 width='20'
                                                 height='20'
                                             />
@@ -125,7 +124,6 @@ const Dashboard = (props) => {
                                             <img
                                                 src={supply}
                                                 alt='insta-stas-img-logos'
-                                                className='img-fluid'
                                                 width='20'
                                                 height='20'
                                             />
@@ -146,7 +144,6 @@ const Dashboard = (props) => {
                                             <img
                                                 src={Burned}
                                                 alt='insta-stas-img-logos'
-                                                className='img-fluid'
                                                 width='20'
                                                 height='20'
                                             />
@@ -166,7 +163,6 @@ const Dashboard = (props) => {
                                             <img
                                                 src={tvl}
                                                 alt='insta-stas-img-logos'
-                                                className='img-fluid'
                                                 width='20'
                                                 height='20'
                                             />
@@ -326,9 +322,11 @@ const Dashboard = (props) => {
                                     />
                                     <Tooltip
                                         wrapperStyle={{
-                                            backgroundColor: '#f3f3f3',
+                                            backgroundColor: '#fff',
                                             padding: '1rem 1rem 0rem 1rem',
-                                            border: '1px solid #5E0EE2',
+                                            borderRadius: '8px',
+                                            boxShadow:
+                                                '0 .125rem .25rem rgba(0,0,0,.075)',
                                         }}
                                         content={<CustomTooltip />}
                                     />
@@ -389,43 +387,53 @@ const Dashboard = (props) => {
                     </div>
                 </div>
                 {/* this is next section */}
-                <div className='card_i shadow-sm ms-lg-4 mt-3 mt-lg-0 w-30 h-85'>
-                    <div className='row'>
-                        <div className='col-md-12'>
-                            <div className='token-information d-flex p-3 border-10'>
-                                <div>
-                                    <h6 className='text-insta-regular lh-sm font-weight-bold'>
-                                        Our Services
-                                    </h6>
-                                    <div className='statsNames font-insta-regular text-12 p-0 mb-3'>
-                                        Participate in the Initial Dex Offering
-                                    </div>
-                                </div>
-                                <div></div>
-                            </div>
-                        </div>
-                        <div className='col-md-12'>
-                            <div className='token-information border-10'>
-                                {LAUNCHPAD_SERVICES_DATA.map((elem, index) => (
-                                    <div key={index} className='d-flex pt-2'>
-                                        <img
-                                            className='ml-md-3'
-                                            src={elem.image}
-                                            alt='Services-card'
-                                            width='40'
-                                            height='40'
-                                        />
-                                        <div className='ml-3'>
-                                            <h6 className='text-insta-regular lh-sm font-weight-bold'>
-                                                {elem.heading}
-                                            </h6>
-                                            <p className='statsNames text-12 font-insta-regular'>
-                                                {elem.description}
-                                            </p>
+                <div className='col-12 col-md-12 col-lg-3 heightadj'>
+                    <div className='card_i shadow-sm h-100'>
+                        <div className='row h-100 '>
+                            <div className='col-md-12'>
+                                <div className='token-information d-flex p-3 border-10'>
+                                    <div>
+                                        <h6 className='text-insta-regular lh-sm font-weight-bold'>
+                                            Our Services
+                                        </h6>
+                                        <div className='statsNames font-insta-regular text-12 p-0 mb-3'>
+                                            Participate in the Initial Dex
+                                            Offering
                                         </div>
                                     </div>
-                                ))}
+                                    <div></div>
+                                </div>
                             </div>
+                            {LAUNCHPAD_SERVICES_DATA.map((elem, index) => (
+                                <>
+                                    <div key={index} className='col-md-12'>
+                                        <div className='token-information border-10'>
+                                            <div className='d-flex pt-2'>
+                                                <img
+                                                    className='ml-md-3'
+                                                    src={elem.image}
+                                                    alt='Services-card'
+                                                    width='40'
+                                                    height='40'
+                                                />
+                                                <div className='ml-3'>
+                                                    <h6 className='text-insta-regular lh-sm font-weight-bold'>
+                                                        {elem.heading}
+                                                    </h6>
+                                                    <p className='statsNames text-12 font-insta-regular'>
+                                                        {elem.description}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {elem.id === 4 ? (
+                                        <div></div>
+                                    ) : (
+                                        <div className='connector-line'></div>
+                                    )}
+                                </>
+                            ))}
                         </div>
                     </div>
                 </div>

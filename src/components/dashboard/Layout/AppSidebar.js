@@ -277,18 +277,24 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                     </div>
                                                 </div>
                                             </Link>
-                                            <NavLink
-                                                to='/launchpad/faq'
+                                            <Link
+                                                to='#'
+                                                onClick={() =>
+                                                    window.open(
+                                                        'https://docs.instaraise.io/'
+                                                    )
+                                                }
                                                 className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
                                                 activeClassName='sidebar-links-active'
                                                 aria-current='page'
+                                                data-parent='#sidebar2'
                                             >
                                                 <div className=''>
                                                     <div className='transition-class'>
                                                         Docs
                                                     </div>
                                                 </div>
-                                            </NavLink>
+                                            </Link>
                                         </li>
                                     </div>
                                 </div>

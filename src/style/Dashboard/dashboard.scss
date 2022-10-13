@@ -47,7 +47,7 @@
         height: 95vh;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: space-around;
         align-items: center;
         border-right: 2px solid var(--sidebar-line);
         .closeIcon {
@@ -98,15 +98,31 @@
     .dashboard-link-violet {
         color: var(--dashboard-text-color);
     }
+    .connector-line {
+        border-left: 2px solid #bbc1cb;
+        min-height: 16%;
+        width: 0rem;
+        margin-top: -5rem;
+        margin-bottom: -1rem;
+        margin-left: 3rem;
+    }
+}
+@media screen and (max-width: 767px) {
+    .connector-line {
+        margin-left: 2rem !important;
+    }
 }
 @media screen and (max-width: 991px) {
     .layout {
         .app-header {
             margin-left: 0px;
         }
-
         .hamburger {
             display: inline;
+        }
+        .heightadj {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
         }
         .sidebar {
             background-color: var(--layout-background-color);

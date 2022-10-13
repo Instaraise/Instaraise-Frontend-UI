@@ -23,7 +23,7 @@ const AppHeader = (props) => {
         // eslint-disable-next-line
     }, []);
     return (
-        <nav className='app-header navbar navbar-expand-lg d-flex justify-content-lg-end justify-content-sm-between justify-content-md-between mr-md-3'>
+        <nav className='app-header navbar navbar-expand-lg d-flex justify-content-lg-end justify-content-sm-between justify-content-md-between mr-3'>
             <HamIcon onClick={openSidebar} />
             <div className='d-block d-md-flex d-lg-flex d-flex'>
                 <img
@@ -50,7 +50,7 @@ const AppHeader = (props) => {
                             </span>
                         </>
                     ) : (
-                        <span className='me-2'>
+                        <span className='me-2 fw-bolder'>
                             {truncateMiddle(wallet, 4, 4, '...')}
                         </span>
                     )}
