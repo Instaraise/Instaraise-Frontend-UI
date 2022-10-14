@@ -23,7 +23,6 @@ import { tokenInfo } from '../../redux/actions/stats.action';
 import { ThemeContext } from '../../routes/root';
 
 const CustomTooltip = ({ active, payload, label }) => {
-    console.log(label);
     let x = new Date(label).toDateString();
     let y = new Date(label).toLocaleTimeString();
     if (active && payload && payload.length) {
@@ -57,7 +56,7 @@ const Dashboard = (props) => {
         return () => {
             clearInterval(interval);
         };
-    }, []);
+    }, [noofDays]);
     React.useEffect(() => {
         const data = {
             days: noofDays,
@@ -66,7 +65,7 @@ const Dashboard = (props) => {
         // eslint-disable-next-line
     }, [noofDays]);
 
-    React.useMemo(() => {
+    React.useEffect(() => {
         props.fetchTokenInfo();
     }, []);
     return (
@@ -387,7 +386,7 @@ const Dashboard = (props) => {
                     </div>
                 </div>
                 {/* this is next section */}
-                <div className='col-12 col-md-12 col-lg-3 heightadj'>
+                <div className='col-12 col-md-12 col-lg-3 my-3 my-md-3 my-lg-0'>
                     <div className='card_i shadow-sm h-100'>
                         <div className='row h-100 '>
                             <div className='col-md-12'>
@@ -427,11 +426,6 @@ const Dashboard = (props) => {
                                             </div>
                                         </div>
                                     </div>
-                                    {elem.id === 4 ? (
-                                        <div></div>
-                                    ) : (
-                                        <div className='connector-line'></div>
-                                    )}
                                 </>
                             ))}
                         </div>

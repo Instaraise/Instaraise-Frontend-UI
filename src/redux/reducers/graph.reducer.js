@@ -1,9 +1,6 @@
 import { NUM_OF_DAYS, PRICE_GRAPH } from '../actions/index.action';
 
-export const priceGraph = (
-    intialState = { pricedata: [], volumedata: [] },
-    action
-) => {
+export const priceGraph = (intialState = { pricedata: [] }, action) => {
     switch (action.type) {
         case PRICE_GRAPH:
             return action.payload;

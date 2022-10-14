@@ -98,14 +98,6 @@
     .dashboard-link-violet {
         color: var(--dashboard-text-color);
     }
-    .connector-line {
-        border-left: 2px solid #bbc1cb;
-        min-height: 16%;
-        width: 0rem;
-        margin-top: -5rem;
-        margin-bottom: -1rem;
-        margin-left: 3rem;
-    }
 }
 @media screen and (max-width: 767px) {
     .connector-line {

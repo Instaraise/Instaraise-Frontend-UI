@@ -53,15 +53,15 @@ export const LAUNCHPAD_SERVICES_DATA = [
     },
     {
         id: 3,
-        heading: 'DEX',
-        description: 'Trade tokens in an instant with our unique DEX',
-        image: Services_DEX_Img,
-    },
-    {
-        id: 4,
         heading: 'Farm',
         description:
             'Users can then browse our platform and provide liquidity on the pairs/projects they may be interested about.',
         image: Services_FARM_Img,
+    },
+    {
+        id: 4,
+        heading: 'DEX',
+        description: 'Trade tokens in an instant with our unique DEX',
+        image: Services_DEX_Img,
     },
 ];

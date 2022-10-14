@@ -15,7 +15,6 @@ import {
 import { ThemeContext } from '../../../routes/root';
 const AppHeader = (props) => {
     const { connectWallet, openSidebar, getWallet, wallet } = props;
-    console.log(wallet);
     const { theme, handleThemeChange } = React.useContext(ThemeContext);
     React.useEffect(() => {
         getWallet();
