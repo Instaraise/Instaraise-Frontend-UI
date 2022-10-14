@@ -1,0 +1,25 @@
+.search-background-change {
+    background-color: var(--layout-background-color);
+}
+.image-background-color {
+    background-color: var(--token-background-color);
+}
+input {
+    border: none;
+    outline-style: none;
+    background-color: transparent;
+}
+.form-group-1 > label {
+    top: 16px;
+    left: 6px;
+    position: relative;
+    background-color: var(--layout-background-color);
+    padding: 0 5px;
+    font-size: 12px;
+}
+.btn-faucet {
+    outline: none;
+    border: none;
+    color: #fff;
+    background-image: var(--button-dashboard-background-color);
+}

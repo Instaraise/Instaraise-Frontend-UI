@@ -53,3 +53,29 @@ export const FetchWalletAPI = async () => {
         };
     }
 };
+export const SwitchAddressAPI = async ({ NETWORK }) => {
+    try {
+        const options = {
+            name: NAME,
+        };
+        const connectedNetwork = NETWORK.toLowerCase();
+        const wallet = new BeaconWallet(options);
+        let account = await wallet.client.getActiveAccount();
+        await wallet.client.requestPermissions({
+            network: {
+                type: connectedNetwork === 'testnet' ? 'ghostnet' : 'mainnet',
+            },
+        });
+        account = await wallet.client.getActiveAccount();
+        return {
+            success: true,
+            wallet: account.address,
+        };
+    } catch (error) {
+        return {
+            success: false,
+            wallet: null,
+            error,
+        };
+    }
+};

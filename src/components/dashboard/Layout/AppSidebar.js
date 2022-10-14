@@ -67,7 +67,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                             >
                                 <NavLink
                                     to='/launchpad'
-                                    className='accordion-button dashboard-color text-sm-2-2 nav-link sidebar-links d-flex  sidebar-links-active'
+                                    className='accordion-button dashboard-color text-sm-2-2 nav-link sidebar-links d-flex  sidebar-links-active collapsed'
                                     // type="button"
                                     data-bs-toggle='collapse'
                                     data-bs-target='#collapseOne'
@@ -90,8 +90,19 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                             </div>
                             <div
                                 id='collapseOne'
-                                className='accordion-collapse collapse show'
-                                aria-labelledby='headingOne'
+                                className={`accordion-collapse collapse ${
+                                    [
+                                        'projects',
+                                        'staking',
+                                        'tiers',
+                                        'faq',
+                                    ].includes(
+                                        window.location.pathname.split('/')[2]
+                                    )
+                                        ? 'show'
+                                        : ''
+                                }`}
+                                aria-labelledby='launchpad_id'
                                 data-bs-parent='#accordionExample'
                             >
                                 <div className='accordion-body'>
@@ -210,8 +221,19 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                             </div>
                             <div
                                 id='collapseTwo'
-                                className='accordion-collapse collapse'
-                                aria-labelledby='headingTwo'
+                                className={`accordion-collapse  bg-transparent ${
+                                    [
+                                        'projects',
+                                        'staking',
+                                        'tiers',
+                                        'faq',
+                                    ].includes(
+                                        window.location.pathname.split('/')[2]
+                                    )
+                                        ? 'collapse'
+                                        : 'show'
+                                }`}
+                                aria-labelledby='dex_id'
                                 data-bs-parent='#accordionExample'
                             >
                                 <div className='accordion-body'>
@@ -236,7 +258,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                 </div>
                                             </NavLink>
                                             <NavLink
-                                                to='/launchpad/staking'
+                                                to='/dex/trade'
                                                 className=' ms-2  mt-1  text-sm-2 nav-link sidebar-links d-flex '
                                                 activeClassName='sidebar-links-active'
                                                 aria-current='page'
@@ -259,13 +281,8 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                     </div>
                                                 </div>
                                             </NavLink>
-                                            <Link
-                                                to='#'
-                                                onClick={() =>
-                                                    window.open(
-                                                        'https://forms.gle/KoR4ZftbjJyhUwCc8'
-                                                    )
-                                                }
+                                            <NavLink
+                                                to='/dex/faucet'
                                                 className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
                                                 activeClassName='sidebar-links-active'
                                                 aria-current='page'
@@ -276,7 +293,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                         Faucet
                                                     </div>
                                                 </div>
-                                            </Link>
+                                            </NavLink>
                                             <Link
                                                 to='#'
                                                 onClick={() =>
@@ -292,6 +309,19 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                 <div className=''>
                                                     <div className='transition-class'>
                                                         Docs
+                                                        <svg
+                                                            className='ml-1'
+                                                            stroke='currentColor'
+                                                            fill='currentColor'
+                                                            strokeWidth='0'
+                                                            viewBox='0 0 24 24'
+                                                            height='1em'
+                                                            width='1em'
+                                                            xmlns='http://www.w3.org/2000/svg'
+                                                        >
+                                                            <path d='m13 3 3.293 3.293-7 7 1.414 1.414 7-7L21 11V3z'></path>
+                                                            <path d='M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z'></path>
+                                                        </svg>
                                                     </div>
                                                 </div>
                                             </Link>
