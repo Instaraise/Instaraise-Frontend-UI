@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import { selectNetwork } from './dex/dex.reducer';
+import { getTokenData, selectNetwork } from './dex/dex.reducer';
 import { priceGraph, selectedNoDays } from './graph.reducer';
 import { fetchAllTrendingNews } from './news.reducer';
 import { tokenInfo } from './stats.reducer';
@@ -12,6 +12,7 @@ const rootReducer = combineReducers({
     selectedNoDays: selectedNoDays,
     wallet: walletAddress,
     selectedNetwork: selectNetwork,
+    tokenStats: getTokenData,
 });
 
 export default rootReducer;

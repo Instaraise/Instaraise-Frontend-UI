@@ -1,14 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import TezoIcon from '../../../assets/images/tezos_icon.png';
-import { DEX_TOKEN_INFO } from '../../../config/DexConfig/dex.config';
+import { DEX_TOKEN_CONFIG } from '../../../config/DexConfig/dex.config';
+import { MINT_TOKENS } from '../../../redux/actions/dex/action.dex';
 import { switchAddress } from '../../../redux/actions/wallet/action.wallet';
 import { connectWallet } from '../../../redux/actions/wallet/action.wallet';
 import { ThemeContext } from '../../../routes/root';
+export const notify = (mesg) => toast(mesg);
 const Faucet = (props) => {
     const { wallet, selectedNetwork, switchAddress, connectWallet } = props;
     const { theme } = React.useContext(ThemeContext);
+    const mintTokens = async () => {
+        try {
+            const response = await props.mintTokens({
+                //this is an action
+                network: selectedNetwork, //testnet will go here
+            });
+            if (response.payload.status) {
+                notify('Tokens sent to your address');
+            } else {
+                throw new Error();
+            }
+        } catch (error) {
+            notify('Something went wrong, Please try again later');
+        }
+    };
     return (
         <div className='text-center w-100 text-dark-to-light p-3 d-flex justify-content-center'>
             <div>
@@ -35,7 +53,7 @@ const Faucet = (props) => {
                         marginBottom: '40px',
                     }}
                 >
-                    {DEX_TOKEN_INFO.map((item, index) => (
+                    {DEX_TOKEN_CONFIG.map((item, index) => (
                         <div
                             className='d-flex flex-column flex-lg-row my-3 justify-content-center align-items-center'
                             key={index}
@@ -121,9 +139,9 @@ const Faucet = (props) => {
                     )}
                     {wallet && (
                         <button
-                            // onClick={() => {
-                            //     mintTokens();
-                            // }}
+                            onClick={() => {
+                                mintTokens();
+                            }}
                             className='text-center button-primary btn-faucet w-100 py-1  rounded py-2 margin-auto'
                         >
                             Mint
@@ -137,6 +155,7 @@ const Faucet = (props) => {
 const mapDispatchToProps = (dispatch) => ({
     connectWallet: (payload) => dispatch(connectWallet(payload)),
     switchAddress: (payload) => dispatch(switchAddress(payload)),
+    mintTokens: (payload) => dispatch(MINT_TOKENS(payload)),
 });
 const mapStateToProps = (state) => ({
     wallet: state.wallet,

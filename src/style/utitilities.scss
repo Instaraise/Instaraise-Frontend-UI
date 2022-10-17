@@ -57,7 +57,13 @@
 .text-sm-2 {
     font-size: 14px;
 }
-
+.div-block {
+    height: 50px;
+}
+.h3,
+h3 {
+    font-size: calc(1.3rem + 0.6vw);
+}
 @media screen and (max-width: 1000px) {
     // .layout {
     //     min-height: 200vh;

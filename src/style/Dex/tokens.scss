@@ -9,6 +9,9 @@ input {
     outline-style: none;
     background-color: transparent;
 }
+table {
+    table-layout: fixed;
+}
 .form-group-1 > label {
     top: 16px;
     left: 6px;
@@ -22,4 +25,10 @@ input {
     border: none;
     color: #fff;
     background-image: var(--button-dashboard-background-color);
+}
+.trade-button {
+    background: #5e0ee2;
+    outline: none;
+    color: #fff;
+    font-weight: 600 !important;
 }

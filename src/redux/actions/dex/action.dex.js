@@ -1,4 +1,9 @@
-import { SELECT_NETWORK } from '../index.action';
+import { mintTokens } from './api.dex';
+import {
+    SELECT_NETWORK,
+    TOKENS_MINTED,
+    // TOKEN_STATS_DATA,
+} from '../index.action';
 
 export const SELECT_NETWORK_TYPE = (data) => {
     return async (dispatch) => {
@@ -6,5 +11,37 @@ export const SELECT_NETWORK_TYPE = (data) => {
             type: SELECT_NETWORK.toUpperCase(),
             payload: data,
         });
+    };
+};
+// export const TOKEN_STATS = (args) => {
+//     return async (dispatch) => {
+//         const API_RESP = await fetchTokenStats(args);
+//         if (API_RESP.success) {
+//             return dispatch({
+//                 type: TOKEN_STATS_DATA,
+//                 payload: API_RESP,
+//             });
+//         } else {
+//             return dispatch({
+//                 type: TOKEN_STATS_DATA,
+//                 payload: API_RESP,
+//             });
+//         }
+//     };
+// };
+export const MINT_TOKENS = (data) => {
+    return async (dispatch) => {
+        const API_RESP = await mintTokens(data);
+        if (API_RESP.success) {
+            return dispatch({
+                type: TOKENS_MINTED,
+                payload: API_RESP,
+            });
+        } else {
+            return dispatch({
+                type: TOKENS_MINTED,
+                payload: API_RESP,
+            });
+        }
     };
 };

@@ -1,5 +1,41 @@
 import React from 'react';
-const TokenTables = () => {
+import { connect } from 'react-redux';
+
+// import { DEX_DATA_REFRESH_TIME } from '../../../config/config';
+import { DEX_TOKEN_CONFIG } from '../../../config/DexConfig/dex.config';
+// import { TOKEN_STATS } from '../../../redux/actions/dex/action.dex';
+const TokenTables = (props) => {
+    const [allTokens, setAllTokens] = React.useState(DEX_TOKEN_CONFIG);
+    // React.useEffect(() => {
+    //     props.fetchTokenStats();
+    // }, [allTokens]);
+    // const refresh = () => {
+    //     props.fetchTokenStats();
+    // };
+    // React.useEffect(() => {
+    //     const interval = setInterval(function () {
+    //         refresh();
+    //     }, DEX_DATA_REFRESH_TIME);
+    //     return () => {
+    //         clearInterval(interval);
+    //     };
+    // }, []);
+    const filterTokens = (search) => {
+        if (search) {
+            const data = allTokens.filter((item) => {
+                return item.TOKEN_SYMBOL.toLowerCase().includes(
+                    search.toLowerCase()
+                );
+            });
+            setAllTokens(data);
+        } else {
+            setAllTokens(
+                props.selectedNetwork === 'TESTNET'
+                    ? DEX_TOKEN_CONFIG
+                    : DEX_TOKEN_CONFIG
+            );
+        }
+    };
     return (
         <div className='card_i shadow-sm '>
             <div className='p-4 d-flex text-dark-to-light justify-content-between align-item-center'>
@@ -20,11 +56,12 @@ const TokenTables = () => {
                     </svg>
                     <input
                         placeholder='Search your token'
+                        onChange={(e) => filterTokens(e.target.value)}
                         className='w-100  text-12 text-dark-to-light ms-2 text-start'
                     />
                 </div>
             </div>
-            <div className='table-responsive dex-card '>
+            <div className='table-responsive text-start'>
                 <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
                     <thead className='mx-3 font-12 fw-light'>
                         <tr
@@ -34,49 +71,35 @@ const TokenTables = () => {
                             }}
                             colSpan={2}
                         >
-                            {/* <th
+                            <th
                                 className=' image-background-color name-col-l'
                                 style={{
-                                    minWidth: '80px',
+                                    minWidth: '100px',
                                     position: 'sticky',
-
-                                    left: '0',
+                                    left: '0px',
                                     zIndex: '1',
                                 }}
                             >
                                 <div className='fw-500 d-flex align-items-center justify-content-start  my-2'>
                                     <div className='me-2 me-lg-4 text-dark-to-light cursor-pointer'>
-                                        {selected ? (
-                                            <RiShieldFlashFill
-                                                size={25}
-                                                onClick={() => {
-                                                    setAllTokens(
-                                                        props.selectedNetwork ===
-                                                            'TESTNET'
-                                                            ? TESTNET.DEX_TOKEN_CONFIG
-                                                            : MAINNET.DEX_TOKEN_CONFIG
-                                                    );
-                                                    setSelected(!selected);
-                                                }}
-                                            />
-                                        ) : (
-                                            <RiShieldFlashLine
-                                                size={25}
-                                                onClick={() =>
-                                                    allFavouriteTokens()
-                                                }
-                                            />
-                                        )}
+                                        <svg
+                                            stroke='currentColor'
+                                            fill='currentColor'
+                                            strokeWidth='0'
+                                            viewBox='0 0 24 24'
+                                            height='25'
+                                            width='25'
+                                            xmlns='http://www.w3.org/2000/svg'
+                                        >
+                                            <g>
+                                                <path
+                                                    fill='none'
+                                                    d='M0 0h24v24H0z'
+                                                ></path>
+                                                <path d='M3.783 2.826L12 1l8.217 1.826a1 1 0 0 1 .783.976v9.987a6 6 0 0 1-2.672 4.992L12 23l-6.328-4.219A6 6 0 0 1 3 13.79V3.802a1 1 0 0 1 .783-.976zM5 4.604v9.185a4 4 0 0 0 1.781 3.328L12 20.597l5.219-3.48A4 4 0 0 0 19 13.79V4.604L12 3.05 5 4.604zM13 10h3l-5 7v-5H8l5-7v5z'></path>
+                                            </g>
+                                        </svg>
                                     </div>
-                                    <div>&nbsp;Name</div>
-                                </div>
-                            </th> */}
-                            <th
-                                style={{
-                                    minWidth: '100px',
-                                }}
-                            >
-                                <div className='fw-500  text-center my-2 '>
                                     Name
                                 </div>
                             </th>
@@ -112,7 +135,7 @@ const TokenTables = () => {
                             </th>
                             <th
                                 style={{
-                                    minWidth: '180px',
+                                    minWidth: '120px',
                                 }}
                             >
                                 <div className='fw-500 my-2'>Last 7 days</div>
@@ -132,10 +155,125 @@ const TokenTables = () => {
                         <tr>
                             <td></td>
                         </tr>
+                        {allTokens.map((item, index) => (
+                            <TokenTrade
+                                key={index}
+                                item={item}
+                                tokenStats={props.tokenStats}
+                            />
+                        ))}
                     </tbody>
                 </table>
             </div>
         </div>
     );
 };
-export default TokenTables;
+// const mapDispatchToProps = (dispatch) => ({
+//     fetchTokenStats: (payload) => dispatch(TOKEN_STATS(payload)),
+// });
+const mapStateToProps = (state) => ({
+    tokenStats: state.tokenStats,
+});
+export default connect(mapStateToProps)(TokenTables);
+const TokenTrade = ({ item, index, tokenStats }) => {
+    const Data = () => {
+        if (!tokenStats.success) {
+            return {
+                token_name: null,
+                price: null,
+                change: null,
+                volume: null,
+                liquidity: null,
+                graph_data: [],
+            };
+        } else {
+            try {
+                const data = tokenStats.data.filter(
+                    (pool) =>
+                        pool.token_name.toLowerCase() ===
+                        item.TOKEN_NAME.toLowerCase()
+                )[0];
+                return {
+                    token_name: data.token_name,
+                    price: parseFloat(data.price),
+                    change: parseFloat(data.change),
+                    volume: new data.volume.multipliedBy(data.price).toNumber(),
+                    liquidity: parseFloat(data.liquidity),
+                    graph_data: data.last_week_change,
+                };
+            } catch (error) {
+                return {
+                    token_name: null,
+                    price: null,
+                    change: null,
+                    volume: null,
+                    liquidity: null,
+                    graph_data: [],
+                };
+            }
+        }
+    };
+    return (
+        <tr className=' name-col fw-500 hover-class '>
+            <td colSpan={1} className='col-sm-2 fixed-col name-col' scope='row'>
+                <div className='d-flex w-100 align-items-center justify-content-start div-block'>
+                    <div className='me-2 me-lg-4 text-dark-to-light cursor-pointer'>
+                        <svg
+                            stroke='currentColor'
+                            fill='currentColor'
+                            strokeWidth='0'
+                            viewBox='0 0 24 24'
+                            height='25'
+                            width='25'
+                            xmlns='http://www.w3.org/2000/svg'
+                        >
+                            <g>
+                                <path fill='none' d='M0 0h24v24H0z'></path>
+                                <path d='M3.783 2.826L12 1l8.217 1.826a1 1 0 0 1 .783.976v9.987a6 6 0 0 1-2.672 4.992L12 23l-6.328-4.219A6 6 0 0 1 3 13.79V3.802a1 1 0 0 1 .783-.976zM5 4.604v9.185a4 4 0 0 0 1.781 3.328L12 20.597l5.219-3.48A4 4 0 0 0 19 13.79V4.604L12 3.05 5 4.604zM13 10h3l-5 7v-5H8l5-7v5z'></path>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div
+                        key={index}
+                        className=' ms-2 p-2 image-background-color border-10'
+                    >
+                        <img
+                            src={item.TOKEN_LOGO}
+                            alt='token_logo'
+                            style={{
+                                borderRadius: '100%',
+                            }}
+                            width={30}
+                            height={30}
+                        />
+                    </div>
+                    <div className='ms-2'>
+                        {item.TOKEN_SYMBOL}
+                        <div className='text-mini '>{item.TOKEN_NAME}</div>
+                    </div>
+                </div>
+            </td>
+            <td
+                colSpan={1}
+                style={{
+                    minWidth: '180px',
+                }}
+            >
+                <div className='text-center justify-content-center d-flex align-items-center div-block'>
+                    {Data().price || '-'}
+                </div>
+            </td>
+            <td
+                colSpan={1}
+                style={{
+                    minWidth: '180px',
+                }}
+            >
+                <div className='d-flex align-items-center div-block'>
+                    {Data().change || '-'}
+                </div>
+            </td>
+        </tr>
+    );
+};
