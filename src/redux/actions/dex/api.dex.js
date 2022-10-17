@@ -1,33 +1,35 @@
 import { BeaconWallet } from '@taquito/beacon-wallet';
 import { TezosToolkit } from '@taquito/taquito';
+import axios from 'axios';
 
-// import axios from 'axios';
 import {
     DEX_ADDRESS,
     DEX_NETWORK,
     RPC_NODES,
-    // TOKEN_DATA_URL,
+    TOKEN_DATA_URL,
 } from '../../../config/config';
 import { DEX_TOKEN_CONFIG } from '../../../config/DexConfig/dex.config';
-// export const fetchTokenStats = async () => {
-//     try {
-//         const response = await axios.get(`${TOKEN_DATA_URL}/v1/tokens`);
-//         return response.data;
-//     } catch (error) {
-//         return {
-//             success: false,
-//             data: {
-//                 token_name: null,
-//                 price: null,
-//                 change: null,
-//                 volume: null,
-//                 liquidity: null,
-//                 graph_data: null,
-//             },
-//             error: error,
-//         };
-//     }
-// };
+
+export const fetchTokenStats = async () => {
+    try {
+        const response = await axios.get(`${TOKEN_DATA_URL}/v1/tokens`);
+        return response.data;
+    } catch (error) {
+        return {
+            success: false,
+            data: {
+                token_name: null,
+                price: null,
+                change: null,
+                volume: null,
+                liquidity: null,
+                graph_data: null,
+            },
+            error: error,
+        };
+    }
+};
+
 export const mintTokens = async (args) => {
     try {
         const NETWORK = args.network.toLowerCase();

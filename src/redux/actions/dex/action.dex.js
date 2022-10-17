@@ -1,8 +1,9 @@
-import { mintTokens } from './api.dex';
+// eslint-disable-next-line
+import { fetchTokenStats, mintTokens } from './api.dex';
 import {
     SELECT_NETWORK,
     TOKENS_MINTED,
-    // TOKEN_STATS_DATA,
+    TOKEN_STATS_DATA,
 } from '../index.action';
 
 export const SELECT_NETWORK_TYPE = (data) => {
@@ -13,22 +14,6 @@ export const SELECT_NETWORK_TYPE = (data) => {
         });
     };
 };
-// export const TOKEN_STATS = (args) => {
-//     return async (dispatch) => {
-//         const API_RESP = await fetchTokenStats(args);
-//         if (API_RESP.success) {
-//             return dispatch({
-//                 type: TOKEN_STATS_DATA,
-//                 payload: API_RESP,
-//             });
-//         } else {
-//             return dispatch({
-//                 type: TOKEN_STATS_DATA,
-//                 payload: API_RESP,
-//             });
-//         }
-//     };
-// };
 export const MINT_TOKENS = (data) => {
     return async (dispatch) => {
         const API_RESP = await mintTokens(data);
@@ -40,6 +25,22 @@ export const MINT_TOKENS = (data) => {
         } else {
             return dispatch({
                 type: TOKENS_MINTED,
+                payload: API_RESP,
+            });
+        }
+    };
+};
+export const TOKEN_STATS = () => {
+    return async (dispatch) => {
+        const API_RESP = await fetchTokenStats();
+        if (API_RESP.success) {
+            return dispatch({
+                type: TOKEN_STATS_DATA,
+                payload: API_RESP,
+            });
+        } else {
+            return dispatch({
+                type: TOKEN_STATS_DATA,
                 payload: API_RESP,
             });
         }

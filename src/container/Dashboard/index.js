@@ -17,6 +17,7 @@ import MarketCap from '../../assets/images/market.svg';
 import supply from '../../assets/images/supply.svg';
 import tvl from '../../assets/images/TVL.svg';
 import DashboardLayout from '../../components/dashboard/Layout';
+import { DEX_DATA_REFRESH_TIME } from '../../config/config';
 import { LAUNCHPAD_SERVICES_DATA } from '../../config/HomeConfig/ServicesConfig/config.services';
 import { numberOfDays, priceGraph } from '../../redux/actions/graph.action';
 import { tokenInfo } from '../../redux/actions/stats.action';
@@ -52,7 +53,7 @@ const Dashboard = (props) => {
     React.useEffect(() => {
         const interval = setInterval(function () {
             refresh();
-        }, 60000);
+        }, DEX_DATA_REFRESH_TIME);
         return () => {
             clearInterval(interval);
         };

@@ -2,7 +2,7 @@
     background-color: var(--layout-background-color);
 }
 .image-background-color {
-    background-color: var(--token-background-color);
+    background-color: var(--token-background-color) !important;
 }
 input {
     border: none;
@@ -31,4 +31,17 @@ table {
     outline: none;
     color: #fff;
     font-weight: 600 !important;
+}
+@media screen and (max-width: 1122px) {
+    table {
+        table-layout: auto;
+    }
+    .fixed-col {
+        min-width: 180px;
+        position: -webkit-sticky;
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        background-color: var(--trending-background) !important;
+    }
 }
