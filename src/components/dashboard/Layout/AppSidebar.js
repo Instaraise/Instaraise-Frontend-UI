@@ -270,7 +270,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                 </div>
                                             </NavLink>
                                             <NavLink
-                                                to='/launchpad/tiers'
+                                                to='/dex/liquidity'
                                                 className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
                                                 activeClassName='sidebar-links-active'
                                                 aria-current='page'

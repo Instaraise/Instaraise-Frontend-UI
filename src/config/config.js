@@ -4,6 +4,8 @@ export const COINGECKO_API_URL =
 export const WALLET_NETWORK = 'mainnet';
 export const NAME = 'Instaraise';
 export const DEX_NETWORK = testnetNetwork;
+export const LIQUIDITY_DATA_URL =
+    'https://lieyn21sp6.execute-api.us-east-2.amazonaws.com';
 export const TOKEN_DATA_URL =
     'https://01yilewb14.execute-api.us-east-2.amazonaws.com';
 export const DEX_DATA_REFRESH_TIME = 60000;

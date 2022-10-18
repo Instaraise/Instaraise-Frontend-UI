@@ -257,7 +257,7 @@ const TokenTrade = ({ item, index, tokenStats }) => {
 
                     <div
                         key={index}
-                        className=' ms-2 p-2 image-background-color border-10'
+                        className='p-2 image-background-color border-10'
                     >
                         <img
                             src={item.TOKEN_LOGO}
