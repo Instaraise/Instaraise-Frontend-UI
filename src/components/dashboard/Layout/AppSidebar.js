@@ -114,10 +114,8 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                 marginLeft: '27px',
                                             }}
                                         >
-                                            <NavLink
-                                                to='/launchpad/projects'
+                                            <a
                                                 className='ms-2  text-sm-2 nav-link sidebar-links d-flex '
-                                                activeClassName='sidebar-links-active'
                                                 aria-current='page'
                                             >
                                                 <div className=''>
@@ -125,11 +123,9 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                         Projects
                                                     </div>
                                                 </div>
-                                            </NavLink>
-                                            <NavLink
-                                                to='/launchpad/staking'
+                                            </a>
+                                            <a
                                                 className=' ms-2  mt-1  text-sm-2 nav-link sidebar-links d-flex '
-                                                activeClassName='sidebar-links-active'
                                                 aria-current='page'
                                             >
                                                 <div className=''>
@@ -137,11 +133,9 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                         Staking
                                                     </div>
                                                 </div>
-                                            </NavLink>
-                                            <NavLink
-                                                to='/launchpad/tiers'
+                                            </a>
+                                            <a
                                                 className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
-                                                activeClassName='sidebar-links-active'
                                                 aria-current='page'
                                             >
                                                 <div className=''>
@@ -149,11 +143,9 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                         Tiers
                                                     </div>
                                                 </div>
-                                            </NavLink>
-                                            <NavLink
-                                                to='/launchpad/faq'
+                                            </a>
+                                            <a
                                                 className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
-                                                activeClassName='sidebar-links-active'
                                                 aria-current='page'
                                             >
                                                 <div className=''>
@@ -161,7 +153,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                         FAQ
                                                     </div>
                                                 </div>
-                                            </NavLink>
+                                            </a>
                                         </li>
                                     </div>
                                 </div>
@@ -169,7 +161,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         </div>
 
                         <li className='nav-item justify-content-center pt-2'>
-                            <NavLink
+                            {/* <NavLink
                                 to='/farms'
                                 className=' text-sm nav-link sidebar-links d-flex '
                                 activeClassName='sidebar-links-active'
@@ -188,7 +180,25 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
 
                                     <span className=''>Farms</span>
                                 </div>
-                            </NavLink>
+                            </NavLink> */}
+                            <a
+                                className=' text-sm nav-link sidebar-links d-flex '
+                                aria-current='page'
+                            >
+                                <div className='dashboard-color'>
+                                    <img
+                                        className='me-2'
+                                        src={theme ? farm : farm_dark}
+                                        alt='farm-img'
+                                        style={{
+                                            width: '1.3em',
+                                            height: '1.3em',
+                                        }}
+                                    />
+
+                                    <span className=''>Farms</span>
+                                </div>
+                            </a>
                         </li>
 
                         <div className='accordion-item border-0 bg-transparent nav-item justify-content-center pt-2'>
@@ -245,10 +255,8 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                 marginLeft: '27px',
                                             }}
                                         >
-                                            <NavLink
-                                                to='/launchpad/projects'
+                                            <a
                                                 className='ms-2  text-sm-2 nav-link sidebar-links d-flex '
-                                                activeClassName='sidebar-links-active'
                                                 aria-current='page'
                                             >
                                                 <div className=''>
@@ -256,7 +264,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                         Swap
                                                     </div>
                                                 </div>
-                                            </NavLink>
+                                            </a>
                                             <NavLink
                                                 to='/dex/trade'
                                                 className=' ms-2  mt-1  text-sm-2 nav-link sidebar-links d-flex '
@@ -332,10 +340,8 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         </div>
 
                         <li className='nav-item justify-content-center pt-2'>
-                            <NavLink
-                                to='/portfolio'
+                            <a
                                 className=' text-sm nav-link sidebar-links d-flex '
-                                activeClassName='sidebar-links-active'
                                 aria-current='page'
                             >
                                 <div>
@@ -353,7 +359,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                         <span className=''>Portfolio</span>
                                     </div>
                                 </div>
-                            </NavLink>
+                            </a>
                         </li>
                     </div>
                 </ul>

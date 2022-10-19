@@ -16,7 +16,7 @@ const DashboardLayout = ({ children }) => {
                 openSidebar={() => setSidebarPosition('is_sidebar_open')}
             />
             <div className='children'>
-                <div className='content-card'>{children}</div>
+                <div className='content-card px-4'>{children}</div>
             </div>
         </div>
     );

@@ -235,11 +235,12 @@ const TokenTrade = ({ item, index, tokenStats, handleFavorite, tokenData }) => {
                     token_name: data.token_name,
                     price: parseFloat(data.price),
                     change: parseFloat(data.change),
-                    volume: data.volume,
+                    volume: data.volume * data.price,
                     liquidity: parseFloat(data.liquidity),
                     graph_data: data.last_week_change,
                 };
             } catch (error) {
+                console.log(error);
                 return {
                     token_name: null,
                     price: null,
