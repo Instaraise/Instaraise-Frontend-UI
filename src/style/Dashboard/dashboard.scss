@@ -63,6 +63,8 @@
     }
 
     .children {
+        overflow-y: auto;
+        padding-bottom: 10px;
         margin-left: 300px;
         display: flex;
         height: 90vh;

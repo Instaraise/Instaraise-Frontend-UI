@@ -4,6 +4,7 @@ import {
     HANDLE_TOKEN_VALUE_POOL,
     POOL_STATS_DATA,
     SET_LIQUIDITY_POOL_PAIR,
+    SET_STAKED_TOKEN_NAME,
 } from '../index.action';
 export const POOL_STATS = (args) => {
     return async (dispatch) => {
@@ -37,13 +38,13 @@ export const HANDLE_TOKEN_VALUE_POOLS = (data) => {
         });
     };
 };
-export const handle_pay_values_pools = (initialState = '', action) => {
-    switch (action.type) {
-        case 'HANDLE_TOKEN_VALUE_POOLS':
-            return action.payload;
-        default:
-            return initialState;
-    }
+export const SET_STAKED_TOKEN = (data) => {
+    return async (dispatch) => {
+        return dispatch({
+            type: SET_STAKED_TOKEN_NAME,
+            payload: data,
+        });
+    };
 };
 export const SET_CONVERTED_VALUE_EMPTY = () => {
     return async (dispatch) => {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { MdOutlineAddCircle } from 'react-icons/md';
 import { RiSwapFill } from 'react-icons/ri';
+import { RiShieldFlashFill, RiShieldFlashLine } from 'react-icons/ri';
 import { connect } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,10 +18,25 @@ const Liquidity = (props) => {
     const [allTokens, setAllTokens] = React.useState(
         DEX_LIQUIDITY_TOKEN_CONFIG
     );
+    const [tokenData, setTokenData] = React.useState([]);
+    const handleFavorite = (item) => {
+        if (tokenData.includes(item.DEX_ADDRESS)) {
+            const data = tokenData.filter(
+                (token) => token !== item.DEX_ADDRESS
+            );
+            localStorage.setItem('favouritePoolTokens', JSON.stringify(data));
+            setTokenData(data);
+        } else {
+            const data = [...tokenData, item.DEX_ADDRESS];
+            localStorage.setItem('favouritePoolTokens', JSON.stringify(data));
+            setTokenData([...tokenData, item.DEX_ADDRESS]);
+        }
+    };
     React.useEffect(() => {
+        const data = localStorage.getItem('favouritePoolTokens');
+        setTokenData(data ? JSON.parse(data) : []);
         props.fetchPoolStats();
-    }, []);
-
+    }, [allTokens]);
     //for fetching after every 1 min
     const refresh = () => {
         props.fetchPoolStats();
@@ -92,6 +108,8 @@ const Liquidity = (props) => {
                                     item={item}
                                     poolData={props.poolData}
                                     props={props}
+                                    handleFavorite={handleFavorite}
+                                    tokenData={tokenData}
                                 />
                             ))}
                         </tbody>
@@ -111,7 +129,21 @@ const mapStateToProps = (state) => ({
     poolData: state.poolData,
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Liquidity);
-const LiquidityTrade = ({ item, poolData, props }) => {
+const LiquidityTrade = ({
+    item,
+    poolData,
+    props,
+    handleFavorite,
+    tokenData,
+}) => {
+    const [isFavourite, setIsFavourite] = React.useState(false);
+    const fetchFavouriteTokens = () => {
+        const data = localStorage.getItem('favouritePoolTokens');
+        setIsFavourite(data ? data.includes(item.DEX_ADDRESS) : false);
+    };
+    React.useEffect(() => {
+        fetchFavouriteTokens();
+    }, [tokenData]);
     const navigate = useNavigate();
     const addLiquidity = (data, type) => {
         props.setLiquidityPoolPair(data);
@@ -153,20 +185,19 @@ const LiquidityTrade = ({ item, poolData, props }) => {
             <td colSpan={5} className='col-sm-2 fixed-col name-col' scope='row'>
                 <div className='d-flex w-100 align-items-center justify-content-start div-block'>
                     <div className='me-2 me-lg-4 text-dark-to-light cursor-pointer'>
-                        <svg
-                            stroke='currentColor'
-                            fill='currentColor'
-                            strokeWidth='0'
-                            viewBox='0 0 24 24'
-                            height='25'
-                            width='25'
-                            xmlns='http://www.w3.org/2000/svg'
-                        >
-                            <g>
-                                <path fill='none' d='M0 0h24v24H0z'></path>
-                                <path d='M3.783 2.826L12 1l8.217 1.826a1 1 0 0 1 .783.976v9.987a6 6 0 0 1-2.672 4.992L12 23l-6.328-4.219A6 6 0 0 1 3 13.79V3.802a1 1 0 0 1 .783-.976zM5 4.604v9.185a4 4 0 0 0 1.781 3.328L12 20.597l5.219-3.48A4 4 0 0 0 19 13.79V4.604L12 3.05 5 4.604zM13 10h3l-5 7v-5H8l5-7v5z'></path>
-                            </g>
-                        </svg>
+                        {isFavourite ? (
+                            <RiShieldFlashFill
+                                size={25}
+                                className='cursor-pointer'
+                                onClick={() => handleFavorite(item)}
+                            />
+                        ) : (
+                            <RiShieldFlashLine
+                                size={25}
+                                className='cursor-pointer'
+                                onClick={() => handleFavorite(item)}
+                            />
+                        )}
                     </div>
                     <div className='d-flex justify-content-center align-items-center p-2 image-background-color border-10'>
                         <img
@@ -204,7 +235,7 @@ const LiquidityTrade = ({ item, poolData, props }) => {
                     minWidth: '180px',
                 }}
             >
-                <div className='my-2 d-flex align-items-center  justify-content-center div-block'>
+                <div className='my-2 d-flex align-items-center  justify-content-center div-block text-dark-to-light '>
                     {Data().liquidity ? midusdformatter(Data().liquidity) : '-'}
                 </div>
             </td>
@@ -214,7 +245,7 @@ const LiquidityTrade = ({ item, poolData, props }) => {
                     minWidth: '180px',
                 }}
             >
-                <div className='my-2 d-flex align-items-center  justify-content-center div-block'>
+                <div className='my-2 d-flex align-items-center  justify-content-center div-block text-dark-to-light '>
                     <div>{'-'}</div>
                 </div>
             </td>
@@ -224,7 +255,7 @@ const LiquidityTrade = ({ item, poolData, props }) => {
                     minWidth: '180px',
                 }}
             >
-                <div className=' my-2 d-flex align-items-center justify-content-center div-block'>
+                <div className=' my-2 d-flex align-items-center justify-content-center div-block text-dark-to-light '>
                     {'-'}
                 </div>
             </td>
@@ -234,7 +265,7 @@ const LiquidityTrade = ({ item, poolData, props }) => {
                     minWidth: '180px',
                 }}
             >
-                <div className='my-2 d-flex align-items-center justify-content-center div-block'>
+                <div className='my-2 d-flex align-items-center justify-content-center div-block text-dark-to-light '>
                     {'-'}
                 </div>
             </td>
@@ -255,7 +286,7 @@ const LiquidityTrade = ({ item, poolData, props }) => {
                             </button>
                         </div>
                     </div>
-                    <div className='ms-2'>
+                    <div className='ms-3'>
                         <div className='my-2 d-flex align-items-center justify-content-center'>
                             <button
                                 // onClick={() => swapTokens(item)}

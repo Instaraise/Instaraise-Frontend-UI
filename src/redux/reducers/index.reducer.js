@@ -6,6 +6,7 @@ import {
     getPoolData,
     handle_pay_values_pools,
     setLiquidityPoolPair,
+    setStakedToken,
 } from './dex/liquidity.reducer';
 import { priceGraph, selectedNoDays } from './graph.reducer';
 import { fetchAllTrendingNews } from './news.reducer';
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
     liquidityPair: setLiquidityPoolPair,
     handle_staked_amount_pools: handle_pay_values_pools,
     convert_staked_amount_pool: convert_pay_values_pools,
+    stakedPair: setStakedToken,
 });
 
 export default rootReducer;

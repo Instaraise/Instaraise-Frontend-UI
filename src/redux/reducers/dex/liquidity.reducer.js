@@ -3,6 +3,7 @@ import {
     HANDLE_TOKEN_VALUE_POOL,
     POOL_STATS_DATA,
     SET_LIQUIDITY_POOL_PAIR,
+    SET_STAKED_TOKEN_NAME,
 } from '../../actions/index.action';
 import uUSD_Img from '../../../assets/dex/uUSD.png';
 import Insta_Img from '../../../assets/images/INSTA.png';
@@ -64,6 +65,15 @@ export const setLiquidityPoolPair = (
             return initialState;
     }
 };
+export const setStakedToken = (initialState = null, action) => {
+    switch (action.type) {
+        case SET_STAKED_TOKEN_NAME:
+            return action.payload;
+        default:
+            return initialState;
+    }
+};
+
 export const handle_pay_values_pools = (initialState = '', action) => {
     switch (action.type) {
         case HANDLE_TOKEN_VALUE_POOL:

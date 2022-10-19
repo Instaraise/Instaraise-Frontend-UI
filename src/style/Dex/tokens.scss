@@ -32,6 +32,13 @@ table {
     color: #fff;
     font-weight: 600 !important;
 }
+.bg-f9 {
+    background-color: var(--layout-background-color);
+}
+.dex {
+    border-radius: 20px !important;
+    width: 450px;
+}
 @media screen and (max-width: 1122px) {
     table {
         table-layout: auto;

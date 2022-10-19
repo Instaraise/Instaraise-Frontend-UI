@@ -1,4 +1,5 @@
 import React from 'react';
+import { BiLoaderAlt } from 'react-icons/bi';
 import { connect } from 'react-redux';
 import { toast } from 'react-toastify';
 
@@ -12,23 +13,41 @@ export const notify = (mesg) => toast(mesg);
 const Faucet = (props) => {
     const { wallet, selectedNetwork, switchAddress, connectWallet } = props;
     const { theme } = React.useContext(ThemeContext);
+    const [loading, setLoading] = React.useState(false);
     const mintTokens = async () => {
         try {
+            setLoading(true);
             const response = await props.mintTokens({
                 //this is an action
                 network: selectedNetwork, //testnet will go here
             });
             if (response.payload.status) {
+                setLoading(false);
                 notify('Tokens sent to your address');
             } else {
                 throw new Error();
             }
         } catch (error) {
             notify('Something went wrong, Please try again later');
+            setLoading(false);
         }
     };
     return (
         <div className='text-center w-100 text-dark-to-light p-3 d-flex justify-content-center'>
+            {/* <ToastContainer
+                position='bottom-right'
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                theme={!theme ? 'dark' : 'light'}
+                progressStyle={{
+                    backgroundColor: '#5a1eab',
+                }}
+                pauseOnHover
+            /> */}
             <div>
                 <div className='d-flex justify-content-center my-3'>
                     <img
@@ -137,7 +156,17 @@ const Faucet = (props) => {
                             Connect wallet
                         </button>
                     )}
-                    {wallet && (
+                    {loading && wallet && (
+                        <button className='d-flex align-items-center justify-content-center text-center btn-faucet w-100 rounded py-2 margin-auto'>
+                            <div className='rotate-2'>
+                                <BiLoaderAlt size={20} />{' '}
+                            </div>
+                            <span className='ml-1 text-14'>
+                                &nbsp;Adding tokens...
+                            </span>
+                        </button>
+                    )}
+                    {!loading && wallet && (
                         <button
                             onClick={() => {
                                 mintTokens();

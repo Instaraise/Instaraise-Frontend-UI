@@ -9,11 +9,11 @@ const AddLiquidityPage = () => {
     return (
         <AppLayout>
             <div className='d-flex mt-5 justify-content-center align-items-center'>
-                <div className='dex  p-2 token-information mx-3 shadow-sm'>
+                <div className='dex card_i shadow-sm p-2 token-information mx-3 shadow-sm'>
                     <div className='d-flex align-items-center justify-content-between px-2 py-2'>
                         <div className='d-flex justify-content-start py-2 '>
                             <div className=''>
-                                <span className='text-toggle-selected-2 text-16 me-2 text-dark-to-light'>
+                                <span className='fw-bold text-16 me-2 text-dark-to-light'>
                                     Configure liquidity
                                 </span>
                             </div>
@@ -32,12 +32,10 @@ const AddLiquidityPage = () => {
                         <div
                             style={{
                                 border: '0.2px solid #9e9e9e3d',
-
-                                backgroundColor: '#F9FAFA',
                             }}
-                            className=' w-100  cursor-pointer text-center py-2 border-10'
+                            className=' w-100  cursor-pointer text-center py-2 border-10 bg-f9'
                         >
-                            <span className='text-14 fw-500 '>
+                            <span className='text-14 fw-500 text-dark-to-light'>
                                 Add Liquidity
                             </span>
                         </div>

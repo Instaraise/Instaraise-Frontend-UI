@@ -22,50 +22,55 @@ const AppHeader = (props) => {
         // eslint-disable-next-line
     }, []);
     return (
-        <nav className='app-header navbar navbar-expand-lg d-flex justify-content-lg-end justify-content-sm-between justify-content-md-between mr-3'>
-            <HamIcon onClick={openSidebar} />
-            <div className='d-block d-md-flex d-lg-flex d-flex'>
-                <img
-                    className='mr-4 cursor-pointer'
-                    src={theme ? dark_mode_img : light_mode_img}
-                    onClick={() => handleThemeChange()}
-                />
+        <div className=''>
+            <nav className='app-header navbar navbar-expand-lg d-flex justify-content-lg-end justify-content-sm-between justify-content-md-between mr-3'>
+                <HamIcon onClick={openSidebar} />
+                <div className='d-block d-md-flex d-lg-flex d-flex'>
+                    <img
+                        className='mr-4 cursor-pointer'
+                        src={theme ? dark_mode_img : light_mode_img}
+                        onClick={() => handleThemeChange()}
+                    />
 
-                <div
-                    className='d-none d-lg-block btn bg-light-secondary border-10 text-dark-to-light fw-bold'
-                    onClick={() => connectWallet()}
-                >
-                    {!wallet ? (
-                        <>
-                            <img
-                                className='mr-3'
-                                src={theme ? plusSign : dark_plus_sign}
-                            />
-                            <span
-                                className='me-2'
-                                onClick={() => connectWallet()}
-                            >
-                                Connect wallet
+                    <div
+                        className='d-none d-lg-block btn bg-light-secondary border-10 text-dark-to-light fw-bold'
+                        onClick={() => connectWallet()}
+                    >
+                        {!wallet ? (
+                            <>
+                                <img
+                                    className='mr-3'
+                                    src={theme ? plusSign : dark_plus_sign}
+                                />
+                                <span
+                                    className='me-2'
+                                    onClick={() => connectWallet()}
+                                >
+                                    Connect wallet
+                                </span>
+                            </>
+                        ) : (
+                            <span className='me-2 fw-bolder'>
+                                {truncateMiddle(wallet, 4, 4, '...')}
                             </span>
-                        </>
-                    ) : (
-                        <span className='me-2 fw-bolder'>
-                            {truncateMiddle(wallet, 4, 4, '...')}
-                        </span>
-                    )}
+                        )}
+                    </div>
+                    <div className='d-lg-none' onClick={() => connectWallet()}>
+                        {theme ? (
+                            <img
+                                src={light_wallet_img}
+                                alt='ligh-mode-wallet-img'
+                            />
+                        ) : (
+                            <img
+                                src={dark_wallet_img}
+                                alt='dark-mode-wallet-img'
+                            />
+                        )}
+                    </div>
                 </div>
-                <div className='d-lg-none' onClick={() => connectWallet()}>
-                    {theme ? (
-                        <img
-                            src={light_wallet_img}
-                            alt='ligh-mode-wallet-img'
-                        />
-                    ) : (
-                        <img src={dark_wallet_img} alt='dark-mode-wallet-img' />
-                    )}
-                </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     );
 };
 const mapDispatchToProps = (dispatch) => ({
