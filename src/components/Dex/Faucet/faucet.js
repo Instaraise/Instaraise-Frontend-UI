@@ -1,7 +1,10 @@
+// eslint-disable-next-line
 import React from 'react';
 import { BiLoaderAlt } from 'react-icons/bi';
 import { connect } from 'react-redux';
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 import TezoIcon from '../../../assets/images/tezos_icon.png';
 import { DEX_TOKEN_CONFIG } from '../../../config/DexConfig/dex.config';
@@ -32,9 +35,10 @@ const Faucet = (props) => {
             setLoading(false);
         }
     };
+
     return (
         <div className='text-center w-100 text-dark-to-light p-3 d-flex justify-content-center'>
-            {/* <ToastContainer
+            <ToastContainer
                 position='bottom-right'
                 autoClose={5000}
                 hideProgressBar={false}
@@ -47,7 +51,7 @@ const Faucet = (props) => {
                     backgroundColor: '#5a1eab',
                 }}
                 pauseOnHover
-            /> */}
+            />
             <div>
                 <div className='d-flex justify-content-center my-3'>
                     <img
@@ -190,4 +194,5 @@ const mapStateToProps = (state) => ({
     wallet: state.wallet,
     selectedNetwork: state.selectedNetwork,
 });
+
 export default connect(mapStateToProps, mapDispatchToProps)(Faucet);
