@@ -66,6 +66,17 @@
 .div-block {
     height: 50px;
 }
+.fw-500 {
+    font-weight: 500 !important;
+}
+.rotate-2 {
+    animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
 .h3,
 h3 {
     font-size: calc(1.3rem + 0.6vw);
