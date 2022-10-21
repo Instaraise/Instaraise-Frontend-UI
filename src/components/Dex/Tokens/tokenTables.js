@@ -7,10 +7,17 @@ import Graph from './Graph';
 import { DEX_DATA_REFRESH_TIME } from '../../../config/config';
 import { DEX_TOKEN_CONFIG } from '../../../config/DexConfig/dex.config';
 import { TOKEN_STATS } from '../../../redux/actions/dex/action.dex';
+import { ThemeContext } from '../../../routes/root';
 import { midusdformatter } from '../../../utils/formatNumber';
 const TokenTables = (props) => {
-    const [allTokens, setAllTokens] = React.useState(DEX_TOKEN_CONFIG);
+    const [allTokens, setAllTokens] = React.useState(
+        props.selectedNetwork === 'TESTNET'
+            ? DEX_TOKEN_CONFIG
+            : DEX_TOKEN_CONFIG
+    );
+    const { theme } = React.useContext(ThemeContext);
     const [tokenData, setTokenData] = React.useState([]);
+    const [selected, setSelected] = React.useState(false);
     const handleFavorite = (item) => {
         if (tokenData.includes(item.TOKEN_SYMBOL)) {
             const data = tokenData.filter(
@@ -56,6 +63,18 @@ const TokenTables = (props) => {
                     ? DEX_TOKEN_CONFIG
                     : DEX_TOKEN_CONFIG
             );
+        }
+    };
+    const allFavouriteTokens = () => {
+        const tokens = localStorage.getItem('favouriteTokens');
+        if (JSON.parse(tokens).length > 0) {
+            const data = JSON.parse(tokens).map((item) => {
+                return allTokens.filter(
+                    (data) => data.TOKEN_SYMBOL === item
+                )[0];
+            });
+            setAllTokens(data);
+            setSelected(true);
         }
     };
     return (
@@ -105,23 +124,37 @@ const TokenTables = (props) => {
                                 >
                                     <div className='fw-500 d-flex align-items-center justify-content-start  my-2'>
                                         <div className='me-0 me-lg-3 me-md-3'>
-                                            <svg
-                                                stroke='currentColor'
-                                                fill='currentColor'
-                                                strokeWidth='0'
-                                                viewBox='0 0 24 24'
-                                                height='25'
-                                                width='25'
-                                                xmlns='http://www.w3.org/2000/svg'
-                                            >
-                                                <g>
-                                                    <path
-                                                        fill='none'
-                                                        d='M0 0h24v24H0z'
-                                                    ></path>
-                                                    <path d='M3.783 2.826L12 1l8.217 1.826a1 1 0 0 1 .783.976v9.987a6 6 0 0 1-2.672 4.992L12 23l-6.328-4.219A6 6 0 0 1 3 13.79V3.802a1 1 0 0 1 .783-.976zM5 4.604v9.185a4 4 0 0 0 1.781 3.328L12 20.597l5.219-3.48A4 4 0 0 0 19 13.79V4.604L12 3.05 5 4.604zM13 10h3l-5 7v-5H8l5-7v5z'></path>
-                                                </g>
-                                            </svg>
+                                            {selected ? (
+                                                <RiShieldFlashFill
+                                                    color={
+                                                        theme
+                                                            ? '#4e5d78'
+                                                            : '#ffffff'
+                                                    }
+                                                    size={25}
+                                                    onClick={() => {
+                                                        setAllTokens(
+                                                            props.selectedNetwork ===
+                                                                'TESTNET'
+                                                                ? DEX_TOKEN_CONFIG
+                                                                : DEX_TOKEN_CONFIG
+                                                        );
+                                                        setSelected(!selected);
+                                                    }}
+                                                />
+                                            ) : (
+                                                <RiShieldFlashLine
+                                                    color={
+                                                        theme
+                                                            ? '#4e5d78'
+                                                            : '#ffffff'
+                                                    }
+                                                    size={25}
+                                                    onClick={() =>
+                                                        allFavouriteTokens()
+                                                    }
+                                                />
+                                            )}
                                         </div>
                                         <div>Name</div>
                                     </div>
@@ -211,6 +244,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 const mapStateToProps = (state) => ({
     tokenStats: state.tokenStats,
+    selectedNetwork: state.selectedNetwork,
 });
 export default connect(mapStateToProps, mapDispatchToProps)(TokenTables);
 const TokenTrade = ({ item, index, tokenStats, handleFavorite, tokenData }) => {

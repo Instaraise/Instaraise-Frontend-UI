@@ -13,10 +13,13 @@ import {
     SELECT_POOL_PAIR,
     SET_CONVERTED_VALUE_EMPTY,
 } from '../../../redux/actions/dex/action.liquidity';
+import { ThemeContext } from '../../../routes/root';
 import { midusdformatter } from '../../../utils/formatNumber';
 const Liquidity = (props) => {
     const [allTokens, setAllTokens] = React.useState(
-        DEX_LIQUIDITY_TOKEN_CONFIG
+        props.selectedNetwork === 'TESTNET'
+            ? DEX_LIQUIDITY_TOKEN_CONFIG
+            : DEX_LIQUIDITY_TOKEN_CONFIG
     );
     const [tokenData, setTokenData] = React.useState([]);
     const handleFavorite = (item) => {
@@ -127,6 +130,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 const mapStateToProps = (state) => ({
     poolData: state.poolData,
+    selectedNetwork: state.selectedNetwork,
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Liquidity);
 const LiquidityTrade = ({
@@ -301,7 +305,19 @@ const LiquidityTrade = ({
         </tr>
     );
 };
-const TableHeader = () => {
+const TableHeader = ({ setAllTokens, allTokens, selectedNetwork }) => {
+    const [selected, setSelected] = React.useState(false);
+    const { theme } = React.useContext(ThemeContext);
+    const allFavouriteTokens = () => {
+        const tokens = localStorage.getItem('favouritePoolTokens');
+        if (tokens) {
+            const data = JSON.parse(tokens).map((item) => {
+                return allTokens.filter((data) => data.DEX_ADDRESS === item)[0];
+            });
+            setAllTokens(data);
+            setSelected(true);
+        }
+    };
     return (
         <thead className='mx-3 font-12 fw-light'>
             <tr
@@ -322,21 +338,28 @@ const TableHeader = () => {
                 >
                     <div className='fw-500 d-flex align-items-center justify-content-start  my-2'>
                         <div className='me-0 me-lg-3 me-md-3'>
-                            <svg
-                                stroke='currentColor'
-                                fill='#4e5d78'
-                                strokeWidth='0'
-                                viewBox='0 0 24 24'
-                                className='cursor-pointer'
-                                height='25'
-                                width='25'
-                                xmlns='http://www.w3.org/2000/svg'
-                            >
-                                <g>
-                                    <path fill='none' d='M0 0h24v24H0z'></path>
-                                    <path d='M3.783 2.826L12 1l8.217 1.826a1 1 0 0 1 .783.976v9.987a6 6 0 0 1-2.672 4.992L12 23l-6.328-4.219A6 6 0 0 1 3 13.79V3.802a1 1 0 0 1 .783-.976zM5 4.604v9.185a4 4 0 0 0 1.781 3.328L12 20.597l5.219-3.48A4 4 0 0 0 19 13.79V4.604L12 3.05 5 4.604zM13 10h3l-5 7v-5H8l5-7v5z'></path>
-                                </g>
-                            </svg>
+                            {selected ? (
+                                <RiShieldFlashFill
+                                    color={theme ? '#4e5d78' : '#ffffff'}
+                                    size={25}
+                                    className='cursor-pointer'
+                                    onClick={() => {
+                                        setAllTokens(
+                                            selectedNetwork === 'TESTNET'
+                                                ? DEX_LIQUIDITY_TOKEN_CONFIG
+                                                : DEX_LIQUIDITY_TOKEN_CONFIG
+                                        );
+                                        setSelected(!selected);
+                                    }}
+                                />
+                            ) : (
+                                <RiShieldFlashLine
+                                    color={theme ? '#4e5d78' : '#ffffff'}
+                                    size={25}
+                                    className='cursor-pointer'
+                                    onClick={() => allFavouriteTokens()}
+                                />
+                            )}
                         </div>
                         <div>&nbsp;Name</div>
                     </div>
