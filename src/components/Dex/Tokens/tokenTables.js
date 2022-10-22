@@ -67,7 +67,7 @@ const TokenTables = (props) => {
     };
     const allFavouriteTokens = () => {
         const tokens = localStorage.getItem('favouriteTokens');
-        if (JSON.parse(tokens).length > 0) {
+        if (JSON.parse(tokens).length >= 0) {
             const data = JSON.parse(tokens).map((item) => {
                 return allTokens.filter(
                     (data) => data.TOKEN_SYMBOL === item
@@ -132,6 +132,7 @@ const TokenTables = (props) => {
                                                             : '#ffffff'
                                                     }
                                                     size={25}
+                                                    className='cursor-pointer'
                                                     onClick={() => {
                                                         setAllTokens(
                                                             props.selectedNetwork ===
@@ -150,6 +151,7 @@ const TokenTables = (props) => {
                                                             : '#ffffff'
                                                     }
                                                     size={25}
+                                                    className='cursor-pointer'
                                                     onClick={() =>
                                                         allFavouriteTokens()
                                                     }
