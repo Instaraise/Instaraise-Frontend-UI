@@ -1,5 +1,6 @@
 import {
     CONVERT_TOKEN_VALUE_POOLS,
+    GET_TOKEN_BALANCE_TYPE,
     HANDLE_TOKEN_VALUE_POOL,
     POOL_STATS_DATA,
     SET_LIQUIDITY_POOL_PAIR,
@@ -95,5 +96,13 @@ export const convert_pay_values_pools = (
             return action.payload;
         default:
             return initialState;
+    }
+};
+export const tokenBalance = (initiailState = 0, action) => {
+    switch (action.type) {
+        case GET_TOKEN_BALANCE_TYPE:
+            return action.payload;
+        default:
+            return initiailState;
     }
 };

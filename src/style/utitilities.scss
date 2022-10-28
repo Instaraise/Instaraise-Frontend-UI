@@ -16,11 +16,26 @@
 .bg-light-secondary {
     background-color: var(--app-theme-background-color);
 }
+.text-10 {
+    font-size: 10px;
+}
+.text-12 {
+    font-size: 12px;
+}
 .text-14 {
     font-size: 14px;
 }
+
 .text-16 {
     font-size: 16px;
+}
+.spinner {
+    background-color: var(--spinner-bg-color) !important;
+    border: 0.4px solid hsla(0, 0%, 62%, 0.23921568627450981);
+}
+.btn:hover {
+    color: #ffffff;
+    text-decoration: none;
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
@@ -68,6 +83,9 @@
 }
 .fw-500 {
     font-weight: 500 !important;
+}
+.fw-600 {
+    font-weight: 600 !important;
 }
 .rotate-2 {
     animation: rotate 2s linear infinite;

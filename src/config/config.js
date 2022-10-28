@@ -6,12 +6,17 @@ export const NAME = 'Instaraise';
 export const DEX_NETWORK = testnetNetwork;
 export const LIQUIDITY_DATA_URL =
     'https://lieyn21sp6.execute-api.us-east-2.amazonaws.com';
+export const DEX_FEE = 1;
 export const TOKEN_DATA_URL =
     'https://01yilewb14.execute-api.us-east-2.amazonaws.com';
 export const DEX_DATA_REFRESH_TIME = 60000;
 export const RPC_NODES = {
     testnet: CONTRACT_CONFIG[testnetNetwork].RPC,
     mainnet: 'https://mainnet.smartpy.io',
+};
+export const TZKT_NODES = {
+    mainnet: 'https://api.tzkt.io',
+    testnet: CONTRACT_CONFIG[testnetNetwork].TZKT_NODE,
 };
 export const DEX_ADDRESS = CONTRACT_CONFIG[testnetNetwork].TOKEN_ADDRESS;
 export const STAKES = {

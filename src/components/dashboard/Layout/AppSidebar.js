@@ -255,7 +255,8 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                 marginLeft: '27px',
                                             }}
                                         >
-                                            <a
+                                            <NavLink
+                                                to='/dex/swap'
                                                 className='ms-2  text-sm-2 nav-link sidebar-links d-flex '
                                                 aria-current='page'
                                             >
@@ -264,7 +265,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                         Swap
                                                     </div>
                                                 </div>
-                                            </a>
+                                            </NavLink>
                                             <NavLink
                                                 to='/dex/trade'
                                                 className=' ms-2  mt-1  text-sm-2 nav-link sidebar-links d-flex '

@@ -71,52 +71,58 @@ const Liquidity = (props) => {
     return (
         <div className='pb-5'>
             <div className='card_i shadow-sm'>
-                <div className='p-4 d-flex text-dark-to-light justify-content-between align-item-center'>
-                    <h6 className='d-flex mt-1 flex-column justify-content-start p-0 text-dark-to-light fw-bold'>
-                        Pools
-                    </h6>
-                    <div className='py-2 d-flex align-items-center px-2 border-10 search-background-change'>
-                        <svg
-                            stroke='currentColor'
-                            fill='currentColor'
-                            strokeWidth='0'
-                            viewBox='0 0 24 24'
-                            height='1em'
-                            width='1em'
-                            xmlns='http://www.w3.org/2000/svg'
-                        >
-                            <path d='M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z'></path>
-                        </svg>
-                        <input
-                            placeholder='Search your Pair'
-                            onChange={(e) => filterTokens(e.target.value)}
-                            className='w-100  text-12 text-dark-to-light ms-2 text-start'
-                        />
+                <div style={{ height: '82vh', overflowY: 'hidden' }}>
+                    <div className='p-4 d-flex text-dark-to-light justify-content-between align-item-center'>
+                        <h6 className='d-flex mt-1 flex-column justify-content-start p-0 text-dark-to-light fw-bold'>
+                            Pools
+                        </h6>
+                        <div className='py-2 d-flex align-items-center px-2 border-10 search-background-change'>
+                            <svg
+                                stroke='currentColor'
+                                fill='currentColor'
+                                strokeWidth='0'
+                                viewBox='0 0 24 24'
+                                height='1em'
+                                width='1em'
+                                xmlns='http://www.w3.org/2000/svg'
+                            >
+                                <path d='M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z'></path>
+                            </svg>
+                            <input
+                                placeholder='Search your Pair'
+                                onChange={(e) => filterTokens(e.target.value)}
+                                className='w-100  text-12 text-dark-to-light ms-2 text-start'
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className='table-responsive text-start'>
-                    <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
-                        <TableHeader
-                            setAllTokens={setAllTokens}
-                            selectedNetwork={props.selectedNetwork}
-                            allTokens={allTokens}
-                        />
-                        <tbody className='text-14 position-relative '>
-                            <tr>
-                                <td></td>
-                            </tr>
-                            {allTokens.map((item, index) => (
-                                <LiquidityTrade
-                                    key={index}
-                                    item={item}
-                                    poolData={props.poolData}
-                                    props={props}
-                                    handleFavorite={handleFavorite}
-                                    tokenData={tokenData}
-                                />
-                            ))}
-                        </tbody>
-                    </table>
+                    <div className='table-responsive text-start'>
+                        <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
+                            <TableHeader
+                                setAllTokens={setAllTokens}
+                                selectedNetwork={props.selectedNetwork}
+                                allTokens={allTokens}
+                            />
+                        </table>
+                        <div style={{ height: '60vh', overflowY: 'scroll' }}>
+                            <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
+                                <tbody className='text-14 position-relative '>
+                                    <tr>
+                                        <td></td>
+                                    </tr>
+                                    {allTokens.map((item, index) => (
+                                        <LiquidityTrade
+                                            key={index}
+                                            item={item}
+                                            poolData={props.poolData}
+                                            props={props}
+                                            handleFavorite={handleFavorite}
+                                            tokenData={tokenData}
+                                        />
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -184,9 +190,15 @@ const LiquidityTrade = ({
             }
         }
     };
+    const swapTokens = (item) => {
+        // token swap to -> from which token
+        const url = `/dex/swap?to=${item.DEX_ADDRESS}_${item.DECIMALS}&from=${item.FIRST_TOKEN_SYMBOL}`;
+        navigate(url);
+    };
+
     return (
         <tr className=' name-col fw-500 hover-class '>
-            <td colSpan={5} className='col-sm-2 fixed-col name-col' scope='row'>
+            <td colSpan={1} className='col-sm-2 fixed-col name-col' scope='row'>
                 <div className='d-flex w-100 align-items-center justify-content-start div-block'>
                     <div className='me-2 me-lg-4 text-dark-to-light cursor-pointer'>
                         {isFavourite ? (
@@ -293,7 +305,7 @@ const LiquidityTrade = ({
                     <div className='ms-3'>
                         <div className='my-2 d-flex align-items-center justify-content-center'>
                             <button
-                                // onClick={() => swapTokens(item)}
+                                onClick={() => swapTokens(item)}
                                 className='shadow-sm ms-2 text-12 px-1 m-auto py-1 btn rounded btn-sm trade-button'
                             >
                                 <RiSwapFill size={20} />
@@ -310,7 +322,7 @@ const TableHeader = ({ setAllTokens, allTokens, selectedNetwork }) => {
     const { theme } = React.useContext(ThemeContext);
     const allFavouriteTokens = () => {
         const tokens = localStorage.getItem('favouritePoolTokens');
-        if (tokens) {
+        if (tokens && JSON.parse(tokens).length > 0) {
             const data = JSON.parse(tokens).map((item) => {
                 return allTokens.filter((data) => data.DEX_ADDRESS === item)[0];
             });
