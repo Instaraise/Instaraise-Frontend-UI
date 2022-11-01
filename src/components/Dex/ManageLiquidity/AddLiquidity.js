@@ -23,7 +23,7 @@ import {
 import { connectWallet } from '../../../redux/actions/wallet/action.wallet';
 import { ThemeContext } from '../../../routes/root';
 const AddLiquidity = (props) => {
-    const { currencyType } = props;
+    const { currencyType, setFlag } = props;
     const [transfer, setTransfer] = React.useState('to');
     const [loading, setLoading] = React.useState(false);
     const [modalState, setModalState] = React.useState(false);
@@ -295,6 +295,7 @@ const AddLiquidity = (props) => {
                     <div
                         className='d-flex bg-f9 py-1 px-3 border-20 cursor-pointer cursor-pointer align-items-center'
                         onClick={() => {
+                            setFlag(true);
                             setTransfer('from');
                             setModalState(!modalState);
                         }}

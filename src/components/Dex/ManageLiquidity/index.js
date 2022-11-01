@@ -1,5 +1,5 @@
 import React from 'react';
-import { IoClose } from 'react-icons/io5';
+import { IoArrowBackOutline, IoClose } from 'react-icons/io5';
 import { connect } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -21,6 +21,7 @@ const AddLiquidityPage = (props) => {
     const navigate = useNavigate();
     const { theme } = React.useContext(ThemeContext);
     const [currencyType] = React.useState('Coin');
+    const [flag, setFlag] = React.useState(false);
     const [selectedLiquidityState, setSelectedLiquidityState] =
         React.useState('add');
     const location = useLocation();
@@ -114,6 +115,16 @@ const AddLiquidityPage = (props) => {
             <div className='d-flex mt-5 justify-content-center align-items-center'>
                 <div className='dex card_i shadow-sm p-2 token-information mx-3 shadow-sm'>
                     <div className='d-flex align-items-center justify-content-between px-2 py-2'>
+                        {flag ? (
+                            <div className=' text-dark-to-light cursor-pointer'>
+                                <IoArrowBackOutline
+                                    size={25}
+                                    onClick={() => {
+                                        navigate(-1);
+                                    }}
+                                />
+                            </div>
+                        ) : null}
                         <div className='d-flex justify-content-start py-2 '>
                             <div className=''>
                                 <span className='fw-bold text-16 me-2 text-dark-to-light'>
@@ -121,11 +132,11 @@ const AddLiquidityPage = (props) => {
                                 </span>
                             </div>
                         </div>
-                        <div className='cursor-pointer d-flex align-items-center justify-content-center'>
+                        <div className='cursor-pointer d-flex align-items-center justify-content-center text-dark-to-light'>
                             <IoClose
                                 size={25}
                                 onClick={() => {
-                                    navigate(-1);
+                                    navigate('/dex/liquidity');
                                 }}
                             />
                         </div>
@@ -184,7 +195,10 @@ const AddLiquidityPage = (props) => {
                         ) : null}
                     </div>
                     {selectedLiquidityState === 'add' ? (
-                        <AddLiquidity currencyType={currencyType} />
+                        <AddLiquidity
+                            currencyType={currencyType}
+                            setFlag={setFlag}
+                        />
                     ) : (
                         <RemoveLiquidity
                             setSelectedLiquidityState={(val) =>
