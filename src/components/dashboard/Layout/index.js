@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import AppHeader from './AppHeader';
 import Sidebar from './AppSidebar';
 
-const DashboardLayout = ({ children }) => {
+const DashboardLayout = ({ children, change }) => {
     const [isSidebarOpen, setSidebarPosition] = useState('is_sidebar_close');
     return (
         <div className='layout'>
@@ -15,9 +15,15 @@ const DashboardLayout = ({ children }) => {
             <AppHeader
                 openSidebar={() => setSidebarPosition('is_sidebar_open')}
             />
-            <div className='children'>
-                <div className='content-card px-4'>{children}</div>
-            </div>
+            {change ? (
+                <div className='children' style={{ overflowY: 'scroll' }}>
+                    <div className='content-card px-4'>{children}</div>
+                </div>
+            ) : (
+                <div className='children' style={{ overflowY: 'hidden' }}>
+                    <div className='content-card px-4'>{children}</div>
+                </div>
+            )}
         </div>
     );
 };
