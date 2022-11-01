@@ -25,7 +25,9 @@
 .text-14 {
     font-size: 14px;
 }
-
+.text-dark-to-light {
+    color: var(--detail-card-text-color) !important;
+}
 .text-16 {
     font-size: 16px;
 }

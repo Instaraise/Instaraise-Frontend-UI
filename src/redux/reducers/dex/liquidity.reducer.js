@@ -2,9 +2,11 @@ import {
     CONVERT_TOKEN_VALUE_POOLS,
     GET_TOKEN_BALANCE_TYPE,
     HANDLE_TOKEN_VALUE_POOL,
+    POOL_NETWORK_TOKEN_LIMIT,
     POOL_STATS_DATA,
     SET_LIQUIDITY_POOL_PAIR,
     SET_STAKED_TOKEN_NAME,
+    USER_LIQUIDITY_POSITIONS,
 } from '../../actions/index.action';
 import uUSD_Img from '../../../assets/dex/uUSD.png';
 import Insta_Img from '../../../assets/images/INSTA.png';
@@ -104,5 +106,48 @@ export const tokenBalance = (initiailState = 0, action) => {
             return action.payload;
         default:
             return initiailState;
+    }
+};
+export const getUserLiquidityPositions = (
+    initiailState = {
+        networkToken: {
+            name: '',
+            logo: '',
+            addedLiquidity: 0,
+        },
+        baseToken: {
+            name: '',
+            logo: '',
+            addedLiquidity: 0,
+        },
+        positions: [],
+
+        dexAddress: '',
+    },
+    action
+) => {
+    switch (action.type) {
+        case USER_LIQUIDITY_POSITIONS:
+            return action.payload;
+        default:
+            return initiailState;
+    }
+};
+
+export const getNetworkTokenLimit = (
+    initialState = {
+        success: false,
+        data: {
+            limit: '-',
+        },
+        error: null,
+    },
+    action
+) => {
+    switch (action.type) {
+        case POOL_NETWORK_TOKEN_LIMIT:
+            return action.payload;
+        default:
+            return initialState;
     }
 };

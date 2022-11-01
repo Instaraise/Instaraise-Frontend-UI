@@ -15,6 +15,7 @@ import {
 } from '../../../redux/actions/dex/action.liquidity';
 import { ThemeContext } from '../../../routes/root';
 import { midusdformatter } from '../../../utils/formatNumber';
+
 const Liquidity = (props) => {
     const [allTokens, setAllTokens] = React.useState(
         props.selectedNetwork === 'TESTNET'
@@ -22,6 +23,7 @@ const Liquidity = (props) => {
             : DEX_LIQUIDITY_TOKEN_CONFIG
     );
     const [tokenData, setTokenData] = React.useState([]);
+    const [flag] = React.useState(false);
     const handleFavorite = (item) => {
         if (tokenData.includes(item.DEX_ADDRESS)) {
             const data = tokenData.filter(
@@ -35,6 +37,7 @@ const Liquidity = (props) => {
             setTokenData([...tokenData, item.DEX_ADDRESS]);
         }
     };
+
     React.useEffect(() => {
         const data = localStorage.getItem('favouritePoolTokens');
         setTokenData(data ? JSON.parse(data) : []);
@@ -68,10 +71,73 @@ const Liquidity = (props) => {
             );
         }
     };
+    var scrollDexSmallScreen = (
+        <>
+            <div className='table-responsive text-start'>
+                <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
+                    <TableHeader
+                        setAllTokens={setAllTokens}
+                        selectedNetwork={props.selectedNetwork}
+                        allTokens={allTokens}
+                    />
+                    <tbody className='text-14 position-relative'>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        {allTokens.map((item, index) => (
+                            <LiquidityTrade
+                                key={index}
+                                item={item}
+                                poolData={props.poolData}
+                                props={props}
+                                handleFavorite={handleFavorite}
+                                tokenData={tokenData}
+                                flag={flag}
+                            />
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </>
+    );
+
+    var scrollDexLargeScreen = (
+        <>
+            <div className='table-responsive text-start'>
+                <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
+                    <TableHeader
+                        setAllTokens={setAllTokens}
+                        selectedNetwork={props.selectedNetwork}
+                        allTokens={allTokens}
+                    />
+                </table>
+                <div style={{ height: '58vh', overflowY: 'scroll' }}>
+                    <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
+                        <tbody className='text-14 position-relative '>
+                            <tr>
+                                <td></td>
+                            </tr>
+                            {allTokens.map((item, index) => (
+                                <LiquidityTrade
+                                    key={index}
+                                    item={item}
+                                    poolData={props.poolData}
+                                    props={props}
+                                    handleFavorite={handleFavorite}
+                                    tokenData={tokenData}
+                                    flag={!flag}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </>
+    );
     return (
         <div className='pb-5'>
             <div className='card_i shadow-sm'>
-                <div style={{ height: '82vh', overflowY: 'hidden' }}>
+                <div style={{ height: '82vh', overflowY: 'scroll' }}>
                     <div className='p-4 d-flex text-dark-to-light justify-content-between align-item-center'>
                         <h6 className='d-flex mt-1 flex-column justify-content-start p-0 text-dark-to-light fw-bold'>
                             Pools
@@ -95,34 +161,10 @@ const Liquidity = (props) => {
                             />
                         </div>
                     </div>
-                    <div className='table-responsive text-start'>
-                        <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
-                            <TableHeader
-                                setAllTokens={setAllTokens}
-                                selectedNetwork={props.selectedNetwork}
-                                allTokens={allTokens}
-                            />
-                        </table>
-                        <div style={{ height: '60vh', overflowY: 'scroll' }}>
-                            <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
-                                <tbody className='text-14 position-relative '>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    {allTokens.map((item, index) => (
-                                        <LiquidityTrade
-                                            key={index}
-                                            item={item}
-                                            poolData={props.poolData}
-                                            props={props}
-                                            handleFavorite={handleFavorite}
-                                            tokenData={tokenData}
-                                        />
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
+                    <div className='d-none d-lg-block'>
+                        {scrollDexLargeScreen}
                     </div>
+                    <div className=' d-lg-none'>{scrollDexSmallScreen}</div>
                 </div>
             </div>
         </div>
@@ -145,6 +187,7 @@ const LiquidityTrade = ({
     props,
     handleFavorite,
     tokenData,
+    flag,
 }) => {
     const [isFavourite, setIsFavourite] = React.useState(false);
     const fetchFavouriteTokens = () => {
@@ -173,7 +216,7 @@ const LiquidityTrade = ({
             };
         } else {
             try {
-                const data = poolData.data[0][item.DEX_ADDRESS];
+                const data = poolData.data[0][item.DEX_ADDRESS2];
                 return {
                     liquidity: parseFloat(data.liquidity),
                     volume: parseFloat(data.volume),
@@ -195,10 +238,13 @@ const LiquidityTrade = ({
         const url = `/dex/swap?to=${item.DEX_ADDRESS}_${item.DECIMALS}&from=${item.FIRST_TOKEN_SYMBOL}`;
         navigate(url);
     };
-
     return (
         <tr className=' name-col fw-500 hover-class '>
-            <td colSpan={1} className='col-sm-2 fixed-col name-col' scope='row'>
+            <td
+                colSpan={flag ? 1 : 5}
+                className='col-sm-2 fixed-col name-col'
+                scope='row'
+            >
                 <div className='d-flex w-100 align-items-center justify-content-start div-block'>
                     <div className='me-2 me-lg-4 text-dark-to-light cursor-pointer'>
                         {isFavourite ? (
@@ -251,9 +297,22 @@ const LiquidityTrade = ({
                     minWidth: '180px',
                 }}
             >
-                <div className='my-2 d-flex align-items-center  justify-content-center div-block text-dark-to-light '>
-                    {Data().liquidity ? midusdformatter(Data().liquidity) : '-'}
-                </div>
+                {flag ? (
+                    <div
+                        className='my-2 d-flex align-items-center  justify-content-center div-block text-dark-to-light'
+                        style={{ marginLeft: '25%' }}
+                    >
+                        {Data().liquidity
+                            ? `$${midusdformatter(Data().liquidity)}`
+                            : '-'}
+                    </div>
+                ) : (
+                    <div className='my-2 d-flex align-items-center  justify-content-center div-block text-dark-to-light'>
+                        {Data().liquidity
+                            ? `$${midusdformatter(Data().liquidity)}`
+                            : '-'}
+                    </div>
+                )}
             </td>
             <td
                 colSpan={1}
@@ -261,9 +320,22 @@ const LiquidityTrade = ({
                     minWidth: '180px',
                 }}
             >
-                <div className='my-2 d-flex align-items-center  justify-content-center div-block text-dark-to-light '>
-                    <div>{'-'}</div>
-                </div>
+                {flag ? (
+                    <div
+                        className='my-2 d-flex align-items-center  justify-content-center div-block text-dark-to-light'
+                        style={{ marginLeft: '15%' }}
+                    >
+                        {Data().volume
+                            ? `$${midusdformatter(Data().volume)}`
+                            : '-'}
+                    </div>
+                ) : (
+                    <div className='my-2 d-flex align-items-center  justify-content-center div-block text-dark-to-light'>
+                        {Data().volume
+                            ? `$${midusdformatter(Data().volume)}`
+                            : '-'}
+                    </div>
+                )}
             </td>
             <td
                 colSpan={1}
@@ -271,9 +343,18 @@ const LiquidityTrade = ({
                     minWidth: '180px',
                 }}
             >
-                <div className=' my-2 d-flex align-items-center justify-content-center div-block text-dark-to-light '>
-                    {'-'}
-                </div>
+                {flag ? (
+                    <div
+                        className=' my-2 d-flex align-items-center justify-content-center div-block text-dark-to-light'
+                        style={{ marginRight: '10%' }}
+                    >
+                        {Data().fees || '-'}
+                    </div>
+                ) : (
+                    <div className=' my-2 d-flex align-items-center justify-content-center div-block text-dark-to-light'>
+                        {Data().fees || '-'}
+                    </div>
+                )}
             </td>
             <td
                 colSpan={2}
@@ -281,9 +362,18 @@ const LiquidityTrade = ({
                     minWidth: '180px',
                 }}
             >
-                <div className='my-2 d-flex align-items-center justify-content-center div-block text-dark-to-light '>
-                    {'-'}
-                </div>
+                {flag ? (
+                    <div
+                        className='my-2 d-flex align-items-center justify-content-center div-block text-dark-to-light'
+                        style={{ marginRight: '20%' }}
+                    >
+                        {Data().apr ? `${midusdformatter(Data().apr)}%` : '-'}
+                    </div>
+                ) : (
+                    <div className='my-2 d-flex align-items-center justify-content-center div-block text-dark-to-light'>
+                        {Data().apr ? `${midusdformatter(Data().apr)}%` : '-'}
+                    </div>
+                )}
             </td>
             <td
                 colSpan={1}

@@ -12,7 +12,9 @@ import {
 } from './dex/dex.reducer';
 import {
     convert_pay_values_pools,
+    getNetworkTokenLimit,
     getPoolData,
+    getUserLiquidityPositions,
     handle_pay_values_pools,
     setLiquidityPoolPair,
     setStakedToken,
@@ -41,6 +43,8 @@ const rootReducer = combineReducers({
     convert_pay_values_market: convert_pay_values,
     convertTokens: convert_tokens,
     priceimpact: getPriceImpact,
+    userLiquidityPositions: getUserLiquidityPositions,
+    network_token_limit: getNetworkTokenLimit,
 });
 
 export default rootReducer;

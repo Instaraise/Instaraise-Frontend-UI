@@ -22,6 +22,7 @@ const TokenTables = (props) => {
             : DEX_TOKEN_CONFIG
     );
     const { theme } = React.useContext(ThemeContext);
+    const [flag] = React.useState(false);
     const [tokenData, setTokenData] = React.useState([]);
     const [selected, setSelected] = React.useState(false);
     const handleFavorite = (item) => {
@@ -83,6 +84,292 @@ const TokenTables = (props) => {
             setSelected(true);
         }
     };
+    var scrollTokensMobileView = (
+        <>
+            <div className='table-responsive text-start'>
+                <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
+                    <thead className='mx-3 font-12 fw-light'>
+                        <tr
+                            className='margin-header image-background-color border-10'
+                            style={{
+                                color: '#b5b5c3',
+                            }}
+                            colSpan={2}
+                        >
+                            <th
+                                className=' image-background-color name-col-l'
+                                style={{
+                                    minWidth: '80px',
+                                    position: 'sticky',
+                                    left: '0px',
+                                    zIndex: '1',
+                                }}
+                            >
+                                <div className='fw-500 d-flex align-items-center justify-content-start  my-2'>
+                                    <div className='me-0 me-lg-3 me-md-3'>
+                                        {selected ? (
+                                            <RiShieldFlashFill
+                                                color={
+                                                    theme
+                                                        ? '#4e5d78'
+                                                        : '#ffffff'
+                                                }
+                                                size={25}
+                                                className='cursor-pointer'
+                                                onClick={() => {
+                                                    setAllTokens(
+                                                        props.selectedNetwork ===
+                                                            'TESTNET'
+                                                            ? DEX_TOKEN_CONFIG
+                                                            : DEX_TOKEN_CONFIG
+                                                    );
+                                                    setSelected(!selected);
+                                                }}
+                                            />
+                                        ) : (
+                                            <RiShieldFlashLine
+                                                color={
+                                                    theme
+                                                        ? '#4e5d78'
+                                                        : '#ffffff'
+                                                }
+                                                size={25}
+                                                className='cursor-pointer'
+                                                onClick={() =>
+                                                    allFavouriteTokens()
+                                                }
+                                            />
+                                        )}
+                                    </div>
+                                    <div>Name</div>
+                                </div>
+                            </th>
+                            <th
+                                style={{
+                                    minWidth: '100px',
+                                }}
+                            >
+                                <div className='fw-500  text-center my-2 '>
+                                    <div className='fw-500  text-center my-2 '>
+                                        Price
+                                    </div>
+                                </div>
+                            </th>
+                            <th
+                                style={{
+                                    minWidth: '120px',
+                                }}
+                            >
+                                <div className='fw-500 my-2'>
+                                    <div className='fw-500 my-2'>
+                                        24h Change
+                                    </div>
+                                </div>
+                            </th>
+                            <th
+                                style={{
+                                    minWidth: '120px',
+                                }}
+                            >
+                                <div className='fw-500 my-2'>
+                                    <div className='fw-500 my-2'>
+                                        24h Volume
+                                    </div>
+                                </div>
+                            </th>
+                            <th
+                                style={{
+                                    minWidth: '120px',
+                                }}
+                            >
+                                <div className='fw-500 my-2'>Liquidity</div>
+                            </th>
+                            <th
+                                style={{
+                                    minWidth: '120px',
+                                }}
+                            >
+                                <div className='fw-500 my-2'>Last 7 days</div>
+                            </th>
+                            <th
+                                className='col-sm-2 name-col-r'
+                                colSpan={0.5}
+                                style={{
+                                    minWidth: '100px',
+                                }}
+                            >
+                                <div className='px-3 my-2'></div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody className='text-14 position-relative'>
+                        <tr>
+                            <td></td>
+                        </tr>
+                        {allTokens.map((item, index) => (
+                            <TokenTrade
+                                key={index}
+                                item={item}
+                                tokenStats={props.tokenStats}
+                                handleFavorite={handleFavorite}
+                                tokenData={tokenData}
+                                changeMarketValue={props.changeMarketValue}
+                                flag={flag}
+                                convertMarketValueEmptyState={
+                                    props.convertMarketValueEmptyState
+                                }
+                            />
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </>
+    );
+    var scrollTokenLargeView = (
+        <>
+            <div className='table-responsive text-start'>
+                <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
+                    <thead className='mx-3 font-12 fw-light'>
+                        <tr
+                            className='margin-header image-background-color border-10'
+                            style={{
+                                color: '#b5b5c3',
+                            }}
+                            colSpan={2}
+                        >
+                            <th
+                                className=' image-background-color name-col-l'
+                                style={{
+                                    minWidth: '80px',
+                                    position: 'sticky',
+                                    left: '0px',
+                                    zIndex: '1',
+                                }}
+                            >
+                                <div className='fw-500 d-flex align-items-center justify-content-start  my-2'>
+                                    <div className='me-0 me-lg-3 me-md-3'>
+                                        {selected ? (
+                                            <RiShieldFlashFill
+                                                color={
+                                                    theme
+                                                        ? '#4e5d78'
+                                                        : '#ffffff'
+                                                }
+                                                size={25}
+                                                className='cursor-pointer'
+                                                onClick={() => {
+                                                    setAllTokens(
+                                                        props.selectedNetwork ===
+                                                            'TESTNET'
+                                                            ? DEX_TOKEN_CONFIG
+                                                            : DEX_TOKEN_CONFIG
+                                                    );
+                                                    setSelected(!selected);
+                                                }}
+                                            />
+                                        ) : (
+                                            <RiShieldFlashLine
+                                                color={
+                                                    theme
+                                                        ? '#4e5d78'
+                                                        : '#ffffff'
+                                                }
+                                                size={25}
+                                                className='cursor-pointer'
+                                                onClick={() =>
+                                                    allFavouriteTokens()
+                                                }
+                                            />
+                                        )}
+                                    </div>
+                                    <div>Name</div>
+                                </div>
+                            </th>
+                            <th
+                                style={{
+                                    minWidth: '100px',
+                                }}
+                            >
+                                <div className='fw-500  text-center my-2 '>
+                                    <div className='fw-500  text-center my-2 '>
+                                        Price
+                                    </div>
+                                </div>
+                            </th>
+                            <th
+                                style={{
+                                    minWidth: '120px',
+                                }}
+                            >
+                                <div className='fw-500 my-2'>
+                                    <div className='fw-500 my-2'>
+                                        24h Change
+                                    </div>
+                                </div>
+                            </th>
+                            <th
+                                style={{
+                                    minWidth: '120px',
+                                }}
+                            >
+                                <div className='fw-500 my-2'>
+                                    <div className='fw-500 my-2'>
+                                        24h Volume
+                                    </div>
+                                </div>
+                            </th>
+                            <th
+                                style={{
+                                    minWidth: '120px',
+                                }}
+                            >
+                                <div className='fw-500 my-2'>Liquidity</div>
+                            </th>
+                            <th
+                                style={{
+                                    minWidth: '120px',
+                                }}
+                            >
+                                <div className='fw-500 my-2'>Last 7 days</div>
+                            </th>
+                            <th
+                                className='col-sm-2 name-col-r'
+                                colSpan={0.5}
+                                style={{
+                                    minWidth: '100px',
+                                }}
+                            >
+                                <div className='px-3 my-2'></div>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+                <div style={{ height: '58vh', overflowY: 'scroll' }}>
+                    <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
+                        <tbody className='text-14 position-relative'>
+                            <tr>
+                                <td></td>
+                            </tr>
+                            {allTokens.map((item, index) => (
+                                <TokenTrade
+                                    key={index}
+                                    item={item}
+                                    tokenStats={props.tokenStats}
+                                    handleFavorite={handleFavorite}
+                                    tokenData={tokenData}
+                                    flag={!flag}
+                                    changeMarketValue={props.changeMarketValue}
+                                    convertMarketValueEmptyState={
+                                        props.convertMarketValueEmptyState
+                                    }
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </>
+    );
     return (
         <div className='pb-5'>
             <div className='card_i shadow-sm'>
@@ -110,154 +397,10 @@ const TokenTables = (props) => {
                             />
                         </div>
                     </div>
-                    <div className='table-responsive text-start'>
-                        <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
-                            <thead className='mx-3 font-12 fw-light'>
-                                <tr
-                                    className='margin-header image-background-color border-10'
-                                    style={{
-                                        color: '#b5b5c3',
-                                    }}
-                                    colSpan={2}
-                                >
-                                    <th
-                                        className=' image-background-color name-col-l'
-                                        style={{
-                                            minWidth: '80px',
-                                            position: 'sticky',
-                                            left: '0px',
-                                            zIndex: '1',
-                                        }}
-                                    >
-                                        <div className='fw-500 d-flex align-items-center justify-content-start  my-2'>
-                                            <div className='me-0 me-lg-3 me-md-3'>
-                                                {selected ? (
-                                                    <RiShieldFlashFill
-                                                        color={
-                                                            theme
-                                                                ? '#4e5d78'
-                                                                : '#ffffff'
-                                                        }
-                                                        size={25}
-                                                        className='cursor-pointer'
-                                                        onClick={() => {
-                                                            setAllTokens(
-                                                                props.selectedNetwork ===
-                                                                    'TESTNET'
-                                                                    ? DEX_TOKEN_CONFIG
-                                                                    : DEX_TOKEN_CONFIG
-                                                            );
-                                                            setSelected(
-                                                                !selected
-                                                            );
-                                                        }}
-                                                    />
-                                                ) : (
-                                                    <RiShieldFlashLine
-                                                        color={
-                                                            theme
-                                                                ? '#4e5d78'
-                                                                : '#ffffff'
-                                                        }
-                                                        size={25}
-                                                        className='cursor-pointer'
-                                                        onClick={() =>
-                                                            allFavouriteTokens()
-                                                        }
-                                                    />
-                                                )}
-                                            </div>
-                                            <div>Name</div>
-                                        </div>
-                                    </th>
-                                    <th
-                                        style={{
-                                            minWidth: '100px',
-                                        }}
-                                    >
-                                        <div className='fw-500  text-center my-2 '>
-                                            <div className='fw-500  text-center my-2 '>
-                                                Price
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <th
-                                        style={{
-                                            minWidth: '120px',
-                                        }}
-                                    >
-                                        <div className='fw-500 my-2'>
-                                            <div className='fw-500 my-2'>
-                                                24h Change
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <th
-                                        style={{
-                                            minWidth: '120px',
-                                        }}
-                                    >
-                                        <div className='fw-500 my-2'>
-                                            <div className='fw-500 my-2'>
-                                                24h Volume
-                                            </div>
-                                        </div>
-                                    </th>
-                                    <th
-                                        style={{
-                                            minWidth: '120px',
-                                        }}
-                                    >
-                                        <div className='fw-500 my-2'>
-                                            Liquidity
-                                        </div>
-                                    </th>
-                                    <th
-                                        style={{
-                                            minWidth: '120px',
-                                        }}
-                                    >
-                                        <div className='fw-500 my-2'>
-                                            Last 7 days
-                                        </div>
-                                    </th>
-                                    <th
-                                        className='col-sm-2 name-col-r'
-                                        colSpan={0.5}
-                                        style={{
-                                            minWidth: '100px',
-                                        }}
-                                    >
-                                        <div className='px-3 my-2'></div>
-                                    </th>
-                                </tr>
-                            </thead>
-                        </table>
-                        <div style={{ height: '60vh', overflowY: 'scroll' }}>
-                            <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
-                                <tbody className='text-14 position-relative'>
-                                    <tr>
-                                        <td></td>
-                                    </tr>
-                                    {allTokens.map((item, index) => (
-                                        <TokenTrade
-                                            key={index}
-                                            item={item}
-                                            tokenStats={props.tokenStats}
-                                            handleFavorite={handleFavorite}
-                                            tokenData={tokenData}
-                                            changeMarketValue={
-                                                props.changeMarketValue
-                                            }
-                                            convertMarketValueEmptyState={
-                                                props.convertMarketValueEmptyState
-                                            }
-                                        />
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
+                    <div className='d-none d-lg-block'>
+                        {scrollTokenLargeView}
                     </div>
+                    <div className=' d-lg-none'>{scrollTokensMobileView}</div>
                 </div>
             </div>
         </div>
@@ -277,6 +420,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(TokenTables);
 const TokenTrade = ({
     item,
     index,
+    flag,
     tokenStats,
     handleFavorite,
     tokenData,
@@ -381,8 +525,31 @@ const TokenTrade = ({
                     minWidth: '180px',
                 }}
             >
-                <div className='text-center text-dark-to-light justify-content-center d-flex align-items-center div-block ml-3'>
-                    {midusdformatter(Data().price) || '-'}
+                {flag ? (
+                    <div
+                        className='text-center text-dark-to-light justify-content-center d-flex align-items-center div-block'
+                        style={{ marginRight: '7%' }}
+                    >
+                        {Data().price
+                            ? `$${midusdformatter(Data().price)}`
+                            : '-'}
+                    </div>
+                ) : (
+                    <div className='text-center text-dark-to-light justify-content-center d-flex align-items-center div-block'>
+                        {Data().price
+                            ? `$${midusdformatter(Data().price)}`
+                            : '-'}
+                    </div>
+                )}
+            </td>
+            <td
+                colSpan={1}
+                style={{
+                    minWidth: '180px',
+                }}
+            >
+                <div className='d-flex align-items-center div-block text-dark-to-light'>
+                    {Data().change ? `${midusdformatter(Data().change)}%` : '-'}
                 </div>
             </td>
             <td
@@ -392,18 +559,7 @@ const TokenTrade = ({
                 }}
             >
                 <div className='d-flex align-items-center div-block text-dark-to-light'>
-                    {Data().change || '-'}
-                </div>
-            </td>
-            <td
-                colSpan={1}
-                style={{
-                    minWidth: '180px',
-                    overflowX: 'scroll',
-                }}
-            >
-                <div className='d-flex align-items-center div-block text-dark-to-light'>
-                    {Data().volume ? midusdformatter(Data().volume) : '-'}
+                    {Data().volume ? `$${midusdformatter(Data().volume)}` : '-'}
                 </div>
             </td>
             <td
@@ -414,7 +570,7 @@ const TokenTrade = ({
             >
                 <div className='d-flex align-items-center div-block text-dark-to-light'>
                     {Data().liquidity
-                        ? midusdformatter(Data().liquidity.toFixed(5))
+                        ? `$${midusdformatter(Data().liquidity)}`
                         : '-'}
                 </div>
             </td>

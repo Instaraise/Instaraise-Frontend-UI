@@ -876,7 +876,7 @@ const Swap_Dex = (props) => {
                                                     }
                                                     disabled={!props.wallet}
                                                     value={`${props.handle_pay_values_market}`}
-                                                    className='token-information text-sm text-end input-bar pb-4 pt-2 px-3 border-20'
+                                                    className='token-information text-14 text-end input-bar pb-4 pt-2 px-3 border-20'
                                                 />
                                             </div>
                                         </div>

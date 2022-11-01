@@ -20,7 +20,8 @@
         cursor: pointer;
     }
     .app-header .btn:hover {
-        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+        // box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+        box-shadow: 5px 5px 10px hsl(0deg 0% 50% / 30%);
         color: var(--detail-card-text-color);
     }
     .text-toggle-selected {
@@ -62,7 +63,7 @@
         }
     }
     .children {
-        overflow-y: auto;
+        overflow-y: hidden;
         padding-bottom: 10px;
         margin-left: 300px;
         display: flex;
