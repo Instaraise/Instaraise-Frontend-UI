@@ -348,11 +348,11 @@ const LiquidityTrade = ({
                         className=' my-2 d-flex align-items-center justify-content-center div-block text-dark-to-light'
                         style={{ marginRight: '10%' }}
                     >
-                        {Data().fees || '-'}
+                        {Data().fees ? `$${Data().fees}` : '-'}
                     </div>
                 ) : (
                     <div className=' my-2 d-flex align-items-center justify-content-center div-block text-dark-to-light'>
-                        {Data().fees || '-'}
+                        {Data().fees ? `$${Data().fees}` : '-'}
                     </div>
                 )}
             </td>

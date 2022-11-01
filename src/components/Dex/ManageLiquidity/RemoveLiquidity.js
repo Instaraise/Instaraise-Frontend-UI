@@ -224,7 +224,7 @@ const RemoveLiquidity = (props) => {
                     {removeLiquidityPair.name && (
                         <div className='px-2  mb-3 d-flex justify-content-between align-items-center'>
                             <div>
-                                <div className='text-sm mb-2 fw-500'>
+                                <div className='text-sm mb-2 fw-500 text-dark-to-light'>
                                     Provided Liquidity
                                 </div>
                                 <div className='d-flex cursor-pointer cursor-pointer align-items-center'>
@@ -238,7 +238,7 @@ const RemoveLiquidity = (props) => {
                                             height={35}
                                         />
                                     </div>
-                                    <div className='ms-2'>
+                                    <div className='ms-2 text-dark-to-light'>
                                         {removeLiquidityPair.name}
                                         {/* <span>
                                             <BiChevronDown />
@@ -272,7 +272,7 @@ const RemoveLiquidity = (props) => {
                                             });
                                         }}
                                         value={removeLiquidityPair.amount}
-                                        className='token-information text-sm text-end input-bar pb-3 pt-3 px-3 border-20'
+                                        className='token-information text-14 text-end input-bar pb-3 pt-3 px-3 border-20 text-dark-to-light'
                                     />
                                 </div>
                             </div>

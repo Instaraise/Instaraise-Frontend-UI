@@ -13,6 +13,7 @@ import {
 import { DEX_NETWORK } from '../../../config/config';
 import { DEX_LIQUIDITY_TOKEN_CONFIG } from '../../../config/DexConfig/dex.config';
 import { CONTRACT_CONFIG } from '../../../config/network.config';
+
 const coingecko = new CoinGecko();
 export const fetchPoolStats = async () => {
     try {
@@ -158,7 +159,6 @@ export const addBaseTokenLiquidity = async (
         const tokenContractInstance = await Tezos.wallet.at(tokenAddress);
 
         const tokenAmount = amount * Math.pow(10, decimal);
-
         let batch = null;
         if (tokenType === 'FA2') {
             batch = Tezos.wallet
@@ -513,13 +513,165 @@ export const getNetWorkTokenLimit = async (args) => {
             error: null,
         };
     } catch (err) {
-        console.log(err);
         return {
             success: false,
             data: {
                 limit: 0,
             },
             error: err,
+        };
+    }
+};
+export const getLiquidityPositions = async ({
+    tokenIndex,
+    baseTokenDecimal,
+    contractAddress,
+    NETWORK,
+}) => {
+    const tokenInfo = DEX_LIQUIDITY_TOKEN_CONFIG.filter(
+        (pool) => pool.id === tokenIndex
+    )[0];
+    try {
+        const options = {
+            name: NETWORK.toLowerCase(),
+        };
+        const wallet = new BeaconWallet(options);
+        let account = await wallet.client.getActiveAccount();
+        const rpcNode = RPC_NODES[NETWORK.toLowerCase()];
+        const address = account.address;
+        const url = `${rpcNode}/chains/main/blocks/head/context/contracts/${contractAddress}/storage`;
+        const response = await axios.get(url);
+        const data = response.data.args[0].args[2].map((item) => {
+            return item.args;
+        });
+        let positions;
+        if (data.length > 0) {
+            if (
+                data.filter((item) => {
+                    return item[0].string === address;
+                }).length > 0
+            ) {
+                positions = data.filter((item) => {
+                    return item[0].string === address;
+                })[0][1].args[1];
+            }
+        }
+        if (!positions) {
+            return {
+                success: true,
+                data: {
+                    networkToken: {
+                        name: tokenInfo.FIRST_TOKEN_SYMBOL,
+                        logo: tokenInfo.FIRST_TOKEN_LOGO,
+                        addedLiquidity: 0,
+                    },
+                    baseToken: {
+                        name: tokenInfo.SECOND_TOKEN_SYMBOL,
+                        logo: tokenInfo.SECOND_TOKEN_LOGO,
+                        addedLiquidity: 0,
+                    },
+                    dexAddress: tokenInfo.DEX_ADDRESS,
+                    tokenIndex: tokenIndex,
+                    liquidityProvided: 0,
+                    lpShare: 0,
+                    rewards: 0,
+                    APR: 0,
+                },
+            };
+        }
+        const liquidityProvidedToken = [].concat([
+            ...positions.map((item) => {
+                return {
+                    amount:
+                        parseInt(item.args[1].args[0].args[1].int) /
+                        Math.pow(
+                            10,
+                            item.args[1].args[2].int === '0'
+                                ? 9
+                                : baseTokenDecimal
+                        ),
+                    tokenId: item.args[1].args[2].int,
+                };
+            }),
+        ]);
+        let tokenLiquidity = [];
+        liquidityProvidedToken.map((item) => {
+            tokenLiquidity[parseInt(item.tokenId)] = tokenLiquidity[
+                parseInt(item.tokenId)
+            ]
+                ? tokenLiquidity[parseInt(item.tokenId)] + item.amount
+                : item.amount;
+        });
+        const liquidityProvided = liquidityProvidedToken.reduce((acc, curr) => {
+            return acc + curr.amount;
+        }, 0);
+        return {
+            success: true,
+            data: {
+                networkToken: {
+                    name: tokenInfo.FIRST_TOKEN_SYMBOL,
+                    logo: tokenInfo.FIRST_TOKEN_LOGO,
+                    addedLiquidity: tokenLiquidity[0] ? tokenLiquidity[0] : 0,
+                },
+                baseToken: {
+                    name: tokenInfo.SECOND_TOKEN_SYMBOL,
+                    logo: tokenInfo.SECOND_TOKEN_LOGO,
+                    addedLiquidity: tokenLiquidity[1] ? tokenLiquidity[1] : 0,
+                },
+                dexAddress: tokenInfo.DEX_ADDRESS,
+                // for apr in portfolio
+                dexAddress2: tokenInfo.DEX_ADDRESS2,
+                tokenIndex: tokenIndex,
+                liquidityProvided: liquidityProvided,
+                lpShare: 10,
+                rewards: 0,
+                APR: 0,
+            },
+        };
+    } catch (error) {
+        console.log(error);
+        return {
+            success: false,
+            data: {
+                networkToken: {
+                    name: tokenInfo.FIRST_TOKEN_SYMBOL,
+                    logo: tokenInfo.FIRST_TOKEN_LOGO,
+                    addedLiquidity: 0,
+                },
+                baseToken: {
+                    name: tokenInfo.SECOND_TOKEN_SYMBOL,
+                    logo: tokenInfo.SECOND_TOKEN_LOGO,
+                    addedLiquidity: 0,
+                },
+                dexAddress: tokenInfo.DEX_ADDRESS,
+                tokenIndex: tokenIndex,
+                liquidityProvided: 0,
+                lpShare: 0,
+                rewards: 0,
+                APR: 0,
+            },
+        };
+    }
+};
+export const getAllLiquidityPositions = async ({ NETWORK }) => {
+    try {
+        const poolPromise = DEX_LIQUIDITY_TOKEN_CONFIG.map(async (pool) => {
+            return await getLiquidityPositions({
+                tokenIndex: pool.id,
+                baseTokenDecimal: pool.DECIMAL_SECOND_TOKEN,
+                contractAddress: pool.DEX_ADDRESS,
+                NETWORK: NETWORK,
+            });
+        });
+        const result = await Promise.all(poolPromise);
+        return {
+            success: true,
+            data: result,
+        };
+    } catch (error) {
+        return {
+            success: false,
+            data: [],
         };
     }
 };

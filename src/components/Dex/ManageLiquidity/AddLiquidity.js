@@ -485,7 +485,7 @@ const AddLiquidity = (props) => {
                         <div className='text-12 text-end mt-1 text-dark-to-light'>
                             Token Limit :{' '}
                             {props.networkTokenLimit.success
-                                ? props.networkTokenLimit.data.limit
+                                ? props.networkTokenLimit.data.limit.toFixed(2)
                                 : '-'}
                         </div>
                     )}

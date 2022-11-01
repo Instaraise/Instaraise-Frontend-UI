@@ -16,6 +16,7 @@ import {
     getPoolData,
     getUserLiquidityPositions,
     handle_pay_values_pools,
+    liquidityPositions,
     setLiquidityPoolPair,
     setStakedToken,
     tokenBalance,
@@ -45,6 +46,7 @@ const rootReducer = combineReducers({
     priceimpact: getPriceImpact,
     userLiquidityPositions: getUserLiquidityPositions,
     network_token_limit: getNetworkTokenLimit,
+    liquidityPositions: liquidityPositions,
 });
 
 export default rootReducer;

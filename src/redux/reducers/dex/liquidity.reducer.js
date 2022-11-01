@@ -2,6 +2,7 @@ import {
     CONVERT_TOKEN_VALUE_POOLS,
     GET_TOKEN_BALANCE_TYPE,
     HANDLE_TOKEN_VALUE_POOL,
+    LIQUIDITY_POSITIONS,
     POOL_NETWORK_TOKEN_LIMIT,
     POOL_STATS_DATA,
     SET_LIQUIDITY_POOL_PAIR,
@@ -149,5 +150,13 @@ export const getNetworkTokenLimit = (
             return action.payload;
         default:
             return initialState;
+    }
+};
+export const liquidityPositions = (initiailState = [], action) => {
+    switch (action.type) {
+        case LIQUIDITY_POSITIONS:
+            return action.payload;
+        default:
+            return initiailState;
     }
 };

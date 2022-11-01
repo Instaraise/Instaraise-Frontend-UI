@@ -341,7 +341,8 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         </div>
 
                         <li className='nav-item justify-content-center pt-2'>
-                            <a
+                            <NavLink
+                                to='/portfolio'
                                 className=' text-sm nav-link sidebar-links d-flex '
                                 aria-current='page'
                             >
@@ -360,7 +361,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                         <span className=''>Portfolio</span>
                                     </div>
                                 </div>
-                            </a>
+                            </NavLink>
                         </li>
                     </div>
                 </ul>

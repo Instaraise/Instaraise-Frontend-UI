@@ -8,6 +8,7 @@ import {
     fetchPoolStats,
     fetchTokenPrice,
     fetchUserLiquidityPositions,
+    getAllLiquidityPositions,
     getNetWorkTokenLimit,
     removeLiquidity,
 } from './api.liquidity';
@@ -16,6 +17,7 @@ import {
     CONVERT_TOKEN_VALUE_POOLS,
     GET_TOKEN_BALANCE_TYPE,
     HANDLE_TOKEN_VALUE_POOL,
+    LIQUIDITY_POSITIONS,
     POOL_NETWORK_TOKEN_LIMIT,
     POOL_STATS_DATA,
     REMOVE_POOL_LIQUIDITY,
@@ -246,6 +248,29 @@ export const REMOVE_LIQUIDITY = (args) => {
             return dispatch({
                 type: REMOVE_POOL_LIQUIDITY,
                 payload: API_RESP,
+            });
+        }
+    };
+};
+export const GET_LIQUIDITY_POSITION = ({ NETWORK }) => {
+    return async (dispatch) => {
+        const API_RESP = await getAllLiquidityPositions({
+            NETWORK: NETWORK,
+        });
+        if (API_RESP.success) {
+            const data = API_RESP.data
+                .map((pool) => {
+                    return pool.success && pool.data;
+                })
+                .filter((data) => data !== false);
+            return dispatch({
+                type: LIQUIDITY_POSITIONS,
+                payload: data,
+            });
+        } else {
+            return dispatch({
+                type: LIQUIDITY_POSITIONS,
+                payload: [],
             });
         }
     };
