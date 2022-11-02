@@ -344,7 +344,10 @@ const TokenTables = (props) => {
                         </tr>
                     </thead>
                 </table>
-                <div style={{ height: '58vh', overflowY: 'scroll' }}>
+                <div
+                    className='scroller-style'
+                    style={{ height: '58vh', overflowY: 'scroll' }}
+                >
                     <table className='table text-12 table-hover-tokens table-borderless px-3 m-0'>
                         <tbody className='text-14 position-relative'>
                             <tr>
