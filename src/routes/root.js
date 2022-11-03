@@ -11,6 +11,7 @@ import LiquidityLayout from '../container/Dex/liquidity';
 import Portfolio from '../container/Dex/portfolio';
 import Swap from '../container/Dex/swap';
 import Trade from '../container/Dex/tokens';
+import Farms from '../container/Farms/farms';
 import HomeContainer from '../container/home';
 import Privacy from '../container/privacy';
 import Terms from '../container/terms';
@@ -19,6 +20,7 @@ import useLocalStorage from '../hooks/useLocalStorage';
 const Root = () => {
     const [theme, setTheme] = useLocalStorage();
     const themeclass = theme ? 'light' : 'dark';
+    const [flag] = React.useState(false);
     const handleThemeChange = () => {
         setTheme();
     };
@@ -32,7 +34,11 @@ const Root = () => {
                         <Route path='/' element={<HomeContainer />} />
                         <Route path='/terms' element={<Terms />} />
                         <Route path='/privacy' element={<Privacy />} />
-                        <Route path='/dashboard' element={<Dashbaord />} />
+                        <Route
+                            path='/dashboard'
+                            element={<Dashbaord flag={!flag} />}
+                        />
+                        <Route path='/farms' element={<Farms flag={!flag} />} />
                         <Route path='/dex/trade' element={<Trade />} />
                         <Route path='/dex/swap' element={<Swap />} />
                         <Route

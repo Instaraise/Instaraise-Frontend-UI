@@ -21,6 +21,15 @@ import {
     setStakedToken,
     tokenBalance,
 } from './dex/liquidity.reducer';
+//farms
+import {
+    fetchFarmDetails,
+    fetchFarmStakedData,
+    fetchInstaRewards,
+    fetchUserBalance,
+    stakeInstaFarms,
+    unstakeInstaFarms,
+} from './farms/farms.reducer';
 import { priceGraph, selectedNoDays } from './graph.reducer';
 import { fetchAllTrendingNews } from './news.reducer';
 import { tokenInfo } from './stats.reducer';
@@ -47,6 +56,13 @@ const rootReducer = combineReducers({
     userLiquidityPositions: getUserLiquidityPositions,
     network_token_limit: getNetworkTokenLimit,
     liquidityPositions: liquidityPositions,
+    //farms
+    farmData: fetchFarmDetails,
+    FarmStakedData: fetchFarmStakedData,
+    fetchInstaRewards: fetchInstaRewards,
+    fetchUserBalance: fetchUserBalance,
+    stakeInstaFarms: stakeInstaFarms,
+    unstakeInstaFarms: unstakeInstaFarms,
 });
 
 export default rootReducer;

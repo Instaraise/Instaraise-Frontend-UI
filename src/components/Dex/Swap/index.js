@@ -14,6 +14,7 @@ import { FaTools } from 'react-icons/fa';
 import { connect } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useDebouncedCallback } from 'use-debounce';
 
@@ -1282,7 +1283,7 @@ const Swap_Dex = (props) => {
                                             {props.wallet && !swapLoader && (
                                                 <button
                                                     type='submit'
-                                                    className='btn w-100  border-10 mb-2 shadow-none  btn-sm button-primary trade-button'
+                                                    className='btn w-100  border-10 mb-2 shadow-none btn-sm button-primary trade-button'
                                                     style={{
                                                         paddingTop: '12px',
                                                         paddingBottom: '12px',

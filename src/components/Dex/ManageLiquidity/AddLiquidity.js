@@ -506,7 +506,7 @@ const AddLiquidity = (props) => {
                             paddingTop: '12px',
                             paddingBottom: '12px',
                         }}
-                        className='btn w-100 mb-2 border-10 shadow-none  mt-2 btn-sm button-primary'
+                        className='text-center border-10 button-primary btn-faucet w-100 py-2 margin-auto my-2'
                     >
                         Connect wallet
                     </button>
@@ -533,7 +533,7 @@ const AddLiquidity = (props) => {
                             e.preventDefault();
                             addLiquidity();
                         }}
-                        className='text-center border-10 button-primary btn-faucet w-100 py-1  rounded py-2 margin-auto my-2'
+                        className='text-center border-10 button-primary btn-faucet w-100 py-2 margin-auto my-2'
                     >
                         Add Liquidity
                     </button>

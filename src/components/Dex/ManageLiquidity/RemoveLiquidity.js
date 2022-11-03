@@ -325,7 +325,7 @@ const RemoveLiquidity = (props) => {
                                     paddingTop: '12px',
                                     paddingBottom: '12px',
                                 }}
-                                className='text-center border-10 button-primary btn-faucet w-100 py-1  rounded py-2 margin-auto my-2'
+                                className='text-center border-10 button-primary btn-faucet w-100 py-2 margin-auto my-2'
                             >
                                 Remove Liquidity
                             </button>

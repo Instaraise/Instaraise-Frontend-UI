@@ -43,7 +43,6 @@ const CustomTooltip = ({ active, payload, label }) => {
 const Dashboard = (props) => {
     const { tokenData, graphData, noofDays, changeDays } = props;
     const { theme } = React.useContext(ThemeContext);
-    const [change] = React.useState(false);
     const refresh = () => {
         const data = {
             days: noofDays,
@@ -71,7 +70,7 @@ const Dashboard = (props) => {
         props.fetchTokenInfo();
     }, []);
     return (
-        <DashboardLayout change={!change}>
+        <DashboardLayout flag={props.flag}>
             {/* <div className='d-flex justify-content-between flex-lg-row flex-column h-100 w-100 align-items-start'> */}
             <div className='row'>
                 <div className='col-12 col-md-12 col-lg-9 w-100'>

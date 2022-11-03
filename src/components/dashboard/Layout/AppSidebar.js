@@ -181,7 +181,8 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                     <span className=''>Farms</span>
                                 </div>
                             </NavLink> */}
-                            <a
+                            <NavLink
+                                to='/farms'
                                 className=' text-sm nav-link sidebar-links d-flex '
                                 aria-current='page'
                             >
@@ -198,7 +199,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
 
                                     <span className=''>Farms</span>
                                 </div>
-                            </a>
+                            </NavLink>
                         </li>
 
                         <div className='accordion-item border-0 bg-transparent nav-item justify-content-center pt-2'>
