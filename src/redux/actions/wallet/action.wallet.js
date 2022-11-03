@@ -6,9 +6,9 @@ import {
 } from './api.wallet';
 import { WALLET_ADDRESS } from '../index.action';
 
-export const connectWallet = () => {
+export const connectWallet = ({ NETWORK }) => {
     return async (dispatch) => {
-        const WALLET_RESP = await ConnectWalletAPI();
+        const WALLET_RESP = await ConnectWalletAPI({ NETWORK: NETWORK });
         if (WALLET_RESP.success) {
             dispatch({
                 type: WALLET_ADDRESS,
@@ -22,9 +22,9 @@ export const connectWallet = () => {
         }
     };
 };
-export const getWallet = () => {
+export const getWallet = ({ NETWORK }) => {
     return async (dispatch) => {
-        const WALLET_RESP = await FetchWalletAPI();
+        const WALLET_RESP = await FetchWalletAPI({ NETWORK: NETWORK });
         if (WALLET_ADDRESS.success) {
             dispatch({
                 type: WALLET_ADDRESS,

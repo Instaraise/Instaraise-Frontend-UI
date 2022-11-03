@@ -39,11 +39,6 @@ const AppHeader = (props) => {
         }
         // eslint-disable-next-line
     }, []);
-    React.useEffect(() => {
-        getWallet();
-
-        // eslint-disable-next-line
-    }, []);
     return (
         <div className=''>
             <nav className='app-header navbar navbar-expand-lg d-flex justify-content-lg-end justify-content-sm-between justify-content-md-between mr-3'>
@@ -67,7 +62,13 @@ const AppHeader = (props) => {
                                 />
                                 <span
                                     className='me-2'
-                                    onClick={() => connectWallet()}
+                                    onClick={() =>
+                                        connectWallet({
+                                            NETWORK: isTestnet
+                                                ? 'testnet'
+                                                : 'mainnet',
+                                        })
+                                    }
                                 >
                                     Connect wallet
                                 </span>

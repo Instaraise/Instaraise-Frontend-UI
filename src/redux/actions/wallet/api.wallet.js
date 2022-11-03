@@ -1,19 +1,22 @@
 import { BeaconWallet } from '@taquito/beacon-wallet';
 
 import { NAME, WALLET_NETWORK } from '../../../config/config';
-export const ConnectWalletAPI = async () => {
+import { testnetNetwork } from '../../../config/network.config';
+const options = {
+    name: NAME,
+};
+export const ConnectWalletAPI = async ({ NETWORK }) => {
     try {
-        const network = {
-            type: WALLET_NETWORK,
-        };
-        const options = {
-            name: NAME,
-        };
         const wallet = new BeaconWallet(options);
         let account = await wallet.client.getActiveAccount();
         if (!account) {
             await wallet.client.requestPermissions({
-                network,
+                network: {
+                    type:
+                        NETWORK.toLowerCase() === 'testnet'
+                            ? testnetNetwork
+                            : WALLET_NETWORK,
+                },
             });
             account = await wallet.client.getActiveAccount();
         }
@@ -29,13 +32,23 @@ export const ConnectWalletAPI = async () => {
         };
     }
 };
-export const FetchWalletAPI = async () => {
+export const FetchWalletAPI = async ({ NETWORK }) => {
     try {
-        const options = {
-            name: NAME,
-        };
         const wallet = new BeaconWallet(options);
         let account = await wallet.client.getActiveAccount();
+        const connectedNetwork =
+            NETWORK.toLowerCase() === 'testnet'
+                ? testnetNetwork
+                : WALLET_NETWORK;
+        if (account.network.type !== connectedNetwork) {
+            await wallet.client.requestPermissions({
+                network: {
+                    type:
+                        NETWORK === 'testnet' ? testnetNetwork : WALLET_NETWORK,
+                },
+            });
+        }
+
         if (!account) {
             return {
                 success: false,
@@ -63,7 +76,10 @@ export const SwitchAddressAPI = async ({ NETWORK }) => {
         let account = await wallet.client.getActiveAccount();
         await wallet.client.requestPermissions({
             network: {
-                type: connectedNetwork === 'testnet' ? 'ghostnet' : 'mainnet',
+                type:
+                    connectedNetwork === 'testnet'
+                        ? 'ghostnet'
+                        : WALLET_NETWORK,
             },
         });
         account = await wallet.client.getActiveAccount();
