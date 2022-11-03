@@ -233,7 +233,7 @@ const FarmCard = (props) => {
                                         NETWORK: 'mainnet',
                                     })
                                 }
-                                className='text-center button-primary w-100 mt-2  py-1  rounded py-2 margin-auto'
+                                className='text-center button-primary btn-faucet w-100 mt-2 py-1 rounded py-2 margin-auto'
                             >
                                 + Connect Wallet
                             </button>
@@ -250,7 +250,7 @@ const FarmCard = (props) => {
                                 </div>
                                 <button
                                     onClick={() => setModalType('stake')}
-                                    className='text-center button-primary  px-2 py-2 ms-2 rounded py-2 margin-auto'
+                                    className='text-center button-primary px-2 py-2 ms-2 rounded py-2 margin-auto'
                                 >
                                     <svg
                                         xmlns='http://www.w3.org/2000/svg'
