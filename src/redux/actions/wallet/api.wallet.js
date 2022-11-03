@@ -79,3 +79,22 @@ export const SwitchAddressAPI = async ({ NETWORK }) => {
         };
     }
 };
+export const DisconnectWalletAPI = async ({ NETWORK }) => {
+    try {
+        const options = {
+            name: NETWORK.toLowerCase(),
+        };
+        const wallet = new BeaconWallet(options);
+        await wallet.disconnect();
+        return {
+            success: true,
+            wallet: null,
+        };
+    } catch (error) {
+        return {
+            success: false,
+            wallet: null,
+            error,
+        };
+    }
+};

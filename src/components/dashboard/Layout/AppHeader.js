@@ -1,7 +1,11 @@
+// eslint-disable-next-line
 import React from 'react';
+
 import { connect } from 'react-redux';
 import truncateMiddle from 'truncate-middle';
 
+import { useLocation } from 'react-router-dom';
+import { FaPowerOff } from 'react-icons/fa';
 import light_wallet_img from '../../../assets/images/connect_wallet.svg';
 import dark_mode_img from '../../../assets/images/dark_mode_img.svg';
 import dark_plus_sign from '../../../assets/images/dark_plus_sign.svg';
@@ -10,12 +14,31 @@ import plusSign from '../../../assets/images/plus-sign.svg';
 import light_mode_img from '../../../assets/images/sun_img.svg';
 import {
     connectWallet,
+    disconnectWallet,
     getWallet,
 } from '../../../redux/actions/wallet/action.wallet';
 import { ThemeContext } from '../../../routes/root';
 const AppHeader = (props) => {
-    const { connectWallet, openSidebar, getWallet, wallet } = props;
+    const { connectWallet, disconnectWallet, openSidebar, getWallet, wallet } =
+        props;
     const { theme, handleThemeChange } = React.useContext(ThemeContext);
+    const location = useLocation();
+    const isTestnet = location.pathname.includes('dex')
+        ? location.pathname.includes('dex')
+        : location.pathname.includes('portfolio');
+
+    React.useEffect(() => {
+        if (!location.pathname.includes('dashboard')) {
+            getWallet({
+                NETWORK: isTestnet ? 'testnet' : 'mainnet',
+            });
+        } else {
+            getWallet({
+                NETWORK: 'mainnet',
+            });
+        }
+        // eslint-disable-next-line
+    }, []);
     React.useEffect(() => {
         getWallet();
 
@@ -50,9 +73,26 @@ const AppHeader = (props) => {
                                 </span>
                             </>
                         ) : (
-                            <span className='me-2 fw-bolder'>
-                                {truncateMiddle(wallet, 4, 4, '...')}
-                            </span>
+                            <>
+                                <span className='me-2 fw-bolder'>
+                                    {truncateMiddle(wallet, 4, 4, '...')}
+                                </span>
+                                <span
+                                    data-for='custom-color-no-arrow'
+                                    data-tip='Disconnect wallet'
+                                    className='cursor-pointer'
+                                >
+                                    <FaPowerOff
+                                        onClick={() => {
+                                            disconnectWallet({
+                                                NETWORK: isTestnet
+                                                    ? 'testnet'
+                                                    : 'mainnet',
+                                            });
+                                        }}
+                                    />
+                                </span>
+                            </>
                         )}
                     </div>
                     <div className='d-lg-none' onClick={() => connectWallet()}>
@@ -76,6 +116,7 @@ const AppHeader = (props) => {
 const mapDispatchToProps = (dispatch) => ({
     connectWallet: (payload) => dispatch(connectWallet(payload)),
     getWallet: (payload) => dispatch(getWallet(payload)),
+    disconnectWallet: (payload) => dispatch(disconnectWallet(payload)),
 });
 
 const mapStateToProps = (state) => ({

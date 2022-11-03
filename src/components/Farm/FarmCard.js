@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 
 import MainModal from '../Modals';
 import VariableWidthToolTip from '../Tooltip';
+import { connectWallet } from '../../redux/actions/wallet/action.wallet';
 import {
     CLAIM_FARMS_REWARDS,
     FARM_STAKE_BAL_RESPONSE,
@@ -382,6 +383,7 @@ const FarmCard = (props) => {
     );
 };
 const mapDispatchToProps = (dispatch) => ({
+    connectWallet: (payload) => dispatch(connectWallet(payload)),
     fetchFarmDetails: (payload) => dispatch(FetchFarmsData(payload)),
     FetchUserBalance: (payload) =>
         dispatch(FARM_USER_BALANCE_RESPONSE(payload)),

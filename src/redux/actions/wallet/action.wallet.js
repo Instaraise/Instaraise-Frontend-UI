@@ -1,5 +1,6 @@
 import {
     ConnectWalletAPI,
+    DisconnectWalletAPI,
     FetchWalletAPI,
     SwitchAddressAPI,
 } from './api.wallet';
@@ -46,6 +47,17 @@ export const switchAddress = ({ NETWORK }) => {
                 payload: WALLET_RESP.wallet,
             });
         } else {
+            dispatch({
+                type: WALLET_ADDRESS,
+                payload: null,
+            });
+        }
+    };
+};
+export const disconnectWallet = ({ NETWORK }) => {
+    return async (dispatch) => {
+        const WALLET_RESP = await DisconnectWalletAPI({ NETWORK });
+        if (WALLET_RESP.success) {
             dispatch({
                 type: WALLET_ADDRESS,
                 payload: null,
