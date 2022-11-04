@@ -533,15 +533,11 @@ const TokenTrade = ({
                         className='text-center text-dark-to-light justify-content-center d-flex align-items-center div-block'
                         style={{ marginRight: '7%' }}
                     >
-                        {Data().price
-                            ? `$${midusdformatter(Data().price)}`
-                            : '-'}
+                        {Data().price ? `$${Data().price.toFixed(4)}` : '-'}
                     </div>
                 ) : (
                     <div className='text-center text-dark-to-light justify-content-center d-flex align-items-center div-block'>
-                        {Data().price
-                            ? `$${midusdformatter(Data().price)}`
-                            : '-'}
+                        {Data().price ? `$${Data().price.toFixed(4)}` : '-'}
                     </div>
                 )}
             </td>

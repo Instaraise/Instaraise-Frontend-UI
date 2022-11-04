@@ -48,6 +48,8 @@ const Dashboard = (props) => {
             days: noofDays,
         };
         props.fetchPriceData(data);
+        //fetching token stats after every 1 min
+        props.fetchTokenInfo();
     };
 
     React.useEffect(() => {

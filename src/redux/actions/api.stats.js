@@ -6,7 +6,7 @@ export const tokenInfoAPI = async () => {
     try {
         const response = await axios.get(API_URL);
         if (response.data.success) {
-            const price = response.data.body.insta_stats.price.toFixed(3);
+            const price = response.data.body.insta_stats.price;
             const marketCap = Math.round(
                 response.data.body.insta_stats.marketcap
             );
