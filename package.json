@@ -14,6 +14,7 @@
         "bignumber.js": "^9.1.0",
         "coingecko-api": "^1.0.10",
         "conseiljs": "^5.2.3",
+        "copy-to-clipboard": "^3.3.2",
         "i": "^0.3.7",
         "npm": "^8.19.2",
         "react": "^18.2.0",

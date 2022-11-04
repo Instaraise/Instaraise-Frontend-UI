@@ -1,11 +1,15 @@
 // eslint-disable-next-line
-import React from 'react';
+import React, { useRef } from 'react';
 
 import { connect } from 'react-redux';
 import truncateMiddle from 'truncate-middle';
 
+import copy from 'copy-to-clipboard';
+import Fade from '@mui/material/Fade';
+import { IoEllipsisVertical, IoSettingsSharp } from 'react-icons/io5';
 import { useLocation } from 'react-router-dom';
 import { FaPowerOff } from 'react-icons/fa';
+import { BsBoxArrowInUpRight, BsFiles } from 'react-icons/bs';
 import light_wallet_img from '../../../assets/images/connect_wallet.svg';
 import dark_mode_img from '../../../assets/images/dark_mode_img.svg';
 import dark_plus_sign from '../../../assets/images/dark_plus_sign.svg';
@@ -21,12 +25,38 @@ import { ThemeContext } from '../../../routes/root';
 const AppHeader = (props) => {
     const { connectWallet, disconnectWallet, openSidebar, getWallet, wallet } =
         props;
+    const [openAccountModal, setOpenAccountModal] = React.useState(false);
     const { theme, handleThemeChange } = React.useContext(ThemeContext);
+    const [copySuccess, SetCopySuccess] = React.useState(false);
     const location = useLocation();
+    const ref = useRef();
     const isTestnet = location.pathname.includes('dex')
         ? location.pathname.includes('dex')
         : location.pathname.includes('portfolio');
 
+    React.useEffect(() => {
+        const checkIfClickedOutside = (e) => {
+            if (
+                openAccountModal &&
+                ref.current &&
+                !e.target.classList.contains('menu-icon') &&
+                !ref.current.contains(e.target)
+            ) {
+                setOpenAccountModal(!openAccountModal);
+            }
+        };
+        document.addEventListener('mousedown', checkIfClickedOutside);
+        return () => {
+            document.removeEventListener('mousedown', checkIfClickedOutside);
+        };
+    }, [openAccountModal]);
+    const CopyText = () => {
+        copy(wallet);
+        SetCopySuccess(true);
+        setTimeout(() => {
+            SetCopySuccess(false);
+        }, 30000);
+    };
     React.useEffect(() => {
         if (!location.pathname.includes('dashboard')) {
             getWallet({
@@ -76,19 +106,19 @@ const AppHeader = (props) => {
                                     data-tip='Disconnect wallet'
                                     className='cursor-pointer'
                                 >
-                                    <FaPowerOff
+                                    <IoSettingsSharp
                                         onClick={() => {
-                                            disconnectWallet({
-                                                NETWORK: isTestnet
-                                                    ? 'testnet'
-                                                    : 'mainnet',
-                                            });
+                                            setOpenAccountModal(
+                                                !openAccountModal
+                                            );
                                         }}
                                     />
                                 </span>
                             </>
                         )}
                     </div>
+
+                    {/* for mobile views */}
                     <div
                         className='d-lg-none'
                         onClick={() =>
@@ -115,18 +145,88 @@ const AppHeader = (props) => {
                                 data-tip='Disconnect wallet'
                                 className='cursor-pointer text-dark-to-light'
                             >
-                                <FaPowerOff
+                                <span
+                                    className='menu-icon cursor-pointer hide-navbar text-dark-to-light material-icons'
                                     onClick={() => {
-                                        disconnectWallet({
-                                            NETWORK: isTestnet
-                                                ? 'testnet'
-                                                : 'mainnet',
-                                        });
+                                        setOpenAccountModal(!openAccountModal);
                                     }}
-                                />
+                                >
+                                    <IoEllipsisVertical />
+                                </span>
                             </span>
                         )}
                     </div>
+                    <Fade appear={true} ref={ref} in={openAccountModal}>
+                        <div
+                            style={{
+                                width: '250px',
+                            }}
+                            className='text-dark-to-light extra-div p-3 fade-in position-absolute me-2 border-10 shadow-sm token-information'
+                        >
+                            <div className='d-flex justify-content-between align-items-center text-dark-to-light'>
+                                <h6>Account</h6>
+                                <span
+                                    data-for='custom-color-no-arrow'
+                                    data-tip='Disconnect wallet'
+                                    className='cursor-pointer'
+                                >
+                                    <FaPowerOff
+                                        onClick={() => {
+                                            disconnectWallet({
+                                                NETWORK: isTestnet
+                                                    ? 'testnet'
+                                                    : 'mainnet',
+                                            });
+                                            setOpenAccountModal(false);
+                                        }}
+                                    />
+                                </span>
+                            </div>
+                            <div className='mt-1 d-flex justify-content-start align-items-center'>
+                                <div>
+                                    <div className='d-flex justify-content-start align-items-center'>
+                                        <div
+                                            className=' text-sm cursor-pointer'
+                                            id='wallet-address'
+                                        >
+                                            {truncateMiddle(
+                                                wallet,
+                                                4,
+                                                4,
+                                                '...'
+                                            )}
+                                        </div>
+
+                                        <BsBoxArrowInUpRight
+                                            className='text-sm router-l ms-2 me-2'
+                                            role={'button'}
+                                            onClick={() => {
+                                                window.open(
+                                                    `https://tzkt.io/${wallet}`
+                                                );
+                                            }}
+                                        />
+
+                                        <BsFiles
+                                            role={'button'}
+                                            className='text-sm text-dark-to-light'
+                                            onClick={() => CopyText()}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className=''>
+                                {copySuccess ? (
+                                    <p className='address-copied'>
+                                        Wallet address copied to clipboard!
+                                    </p>
+                                ) : (
+                                    ''
+                                )}
+                            </div>
+                            <hr className='' />
+                        </div>
+                    </Fade>
                 </div>
             </nav>
         </div>

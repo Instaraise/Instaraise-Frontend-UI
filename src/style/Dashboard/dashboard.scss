@@ -99,6 +99,21 @@
     .dashboard-link-violet {
         color: var(--dashboard-text-color);
     }
+    .extra-div {
+        top: 9vh;
+        z-index: 10;
+        position: absolute;
+        right: 0;
+    }
+    .address-copied {
+        color: #4e5d78;
+        font-size: 12px;
+        font-weight: 600;
+        background-color: #f9fafa;
+        padding: 4px 12px;
+        margin-top: 10px;
+        border-radius: 4px;
+    }
 }
 @media screen and (max-width: 767px) {
     .connector-line {

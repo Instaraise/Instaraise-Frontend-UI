@@ -20,20 +20,22 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
     const { theme } = React.useContext(ThemeContext);
     return (
         <div className={`sidebar ${isSidebarOpen}`}>
-            <NavLink className='navbar-brand py-3 mx-3' to='/'>
-                <img
-                    className='compLogo'
-                    src={theme ? darkmodelogo : instaLogo}
-                    alt='insta-logo-img'
-                />
-                <img
-                    className='ml-2'
-                    src={theme ? dark_comp_name : CompName}
-                    alt='insta-img'
-                />
-            </NavLink>
-
-            <CloseIcon onClick={closeSidebar} />
+            <div className='d-flex mr-5 mr-md-5 mr-lg-0 pt-2 pt-md-4 pt-lg-0'>
+                {/* d-flex mr-5 mr-md-0 mr-lg-0 */}
+                <CloseIcon onClick={closeSidebar} theme={theme} />
+                <NavLink className='navbar-brand py-3 mx-3' to='/'>
+                    <img
+                        className='compLogo'
+                        src={theme ? darkmodelogo : instaLogo}
+                        alt='insta-logo-img'
+                    />
+                    <img
+                        className='ml-2'
+                        src={theme ? dark_comp_name : CompName}
+                        alt='insta-img'
+                    />
+                </NavLink>
+            </div>
             <div className='sidebar-content shadow-sm'>
                 <ul className='nav nav-pills flex-column p-4'>
                     <li className='nav-item justify-content-center pt-2'>
@@ -360,13 +362,13 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
 
 export default Sidebar;
 
-export const CloseIcon = ({ onClick }) => {
+export const CloseIcon = ({ onClick, theme }) => {
     return (
         <svg
             xmlns='http://www.w3.org/2000/svg'
             width='32'
             height='32'
-            fill='#4F5E78'
+            fill={theme ? '#4E5D78' : '#FFFFFF'}
             className='bi bi-x closeIcon mt-3 me-2'
             viewBox='0 0 16 16'
             role={'button'}
