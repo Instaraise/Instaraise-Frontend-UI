@@ -629,7 +629,6 @@ export const getLiquidityPositions = async ({
             },
         };
     } catch (error) {
-        console.log(error);
         return {
             success: false,
             data: {

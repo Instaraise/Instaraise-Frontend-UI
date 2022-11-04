@@ -186,7 +186,7 @@ const AppHeader = (props) => {
                                 <div>
                                     <div className='d-flex justify-content-start align-items-center'>
                                         <div
-                                            className=' text-sm cursor-pointer'
+                                            className=' text-14 cursor-pointer'
                                             id='wallet-address'
                                         >
                                             {truncateMiddle(
