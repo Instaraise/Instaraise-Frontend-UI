@@ -42,7 +42,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         <NavLink
                             to='/dashboard'
                             className=' text-sm nav-link sidebar-links d-flex '
-                            activeClassName='sidebar-links-active'
+                            activeclassname='sidebar-links-active'
                             aria-current='page'
                         >
                             <div>
@@ -74,7 +74,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                     data-bs-toggle='collapse'
                                     data-bs-target='#collapseOne'
                                     aria-expanded='true'
-                                    activeClassName='sidebar-links-active'
+                                    activeclassname='sidebar-links-active'
                                     aria-controls='collapseOne'
                                 >
                                     <img
@@ -216,7 +216,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                     data-bs-toggle='collapse'
                                     data-bs-target='#collapseTwo'
                                     aria-expanded='false'
-                                    activeClassName='sidebar-links-active'
+                                    activeclassname='sidebar-links-active'
                                     aria-controls='collapseTwo'
                                 >
                                     <img
@@ -272,7 +272,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                             <NavLink
                                                 to='/dex/trade'
                                                 className=' ms-2  mt-1  text-sm-2 nav-link sidebar-links d-flex '
-                                                activeClassName='sidebar-links-active'
+                                                activeclassname='sidebar-links-active'
                                                 aria-current='page'
                                             >
                                                 <div className=''>
@@ -284,7 +284,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                             <NavLink
                                                 to='/dex/liquidity'
                                                 className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
-                                                activeClassName='sidebar-links-active'
+                                                activeclassname='sidebar-links-active'
                                                 aria-current='page'
                                             >
                                                 <div className=''>
@@ -301,7 +301,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                     )
                                                 }
                                                 className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
-                                                activeClassName='sidebar-links-active'
+                                                activeclassname='sidebar-links-active'
                                                 aria-current='page'
                                                 data-parent='#sidebar2'
                                             >

@@ -104,7 +104,7 @@ const AppHeader = (props) => {
                                 <span
                                     data-for='custom-color-no-arrow'
                                     data-tip='Disconnect wallet'
-                                    className='cursor-pointer'
+                                    className='menu-icon cursor-pointer'
                                 >
                                     <IoSettingsSharp
                                         onClick={() => {

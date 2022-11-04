@@ -407,29 +407,27 @@ const Dashboard = (props) => {
                                 </div>
                             </div>
                             {LAUNCHPAD_SERVICES_DATA.map((elem, index) => (
-                                <>
-                                    <div key={index} className='col-md-12'>
-                                        <div className='token-information border-10'>
-                                            <div className='d-flex pt-2'>
-                                                <img
-                                                    className='ml-md-3'
-                                                    src={elem.image}
-                                                    alt='Services-card'
-                                                    width='40'
-                                                    height='40'
-                                                />
-                                                <div className='ml-3'>
-                                                    <h6 className='text-insta-regular lh-sm font-weight-bold'>
-                                                        {elem.heading}
-                                                    </h6>
-                                                    <p className='statsNames text-12 font-insta-regular'>
-                                                        {elem.description}
-                                                    </p>
-                                                </div>
+                                <div key={index} className='col-md-12'>
+                                    <div className='token-information border-10'>
+                                        <div className='d-flex pt-2'>
+                                            <img
+                                                className='ml-md-3'
+                                                src={elem.image}
+                                                alt='Services-card'
+                                                width='40'
+                                                height='40'
+                                            />
+                                            <div className='ml-3'>
+                                                <h6 className='text-insta-regular lh-sm font-weight-bold'>
+                                                    {elem.heading}
+                                                </h6>
+                                                <p className='statsNames text-12 font-insta-regular'>
+                                                    {elem.description}
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
-                                </>
+                                </div>
                             ))}
                         </div>
                     </div>

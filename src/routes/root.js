@@ -24,6 +24,11 @@ const Root = () => {
     const handleThemeChange = () => {
         setTheme();
     };
+    console.log(
+        '%cInstaraise',
+        'color: #7111e2; font-family: sans-serif; font-size: 4.5em; font-weight: bolder; text-shadow: #000 1px 1px;'
+    );
+    console.log = console.warn = console.error = () => {};
     return (
         <ThemeContext.Provider
             value={{ theme, handleThemeChange: handleThemeChange }}

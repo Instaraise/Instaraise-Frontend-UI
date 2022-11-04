@@ -37,16 +37,17 @@ const LiquidityPositionTable = (props) => {
                             <tr>
                                 <td></td>
                             </tr>
-                            {props.liquidityPositions.map(
-                                (item) =>
-                                    item.liquidityProvided !== 0 && (
+                            {props.liquidityPositions.map((item, index) => (
+                                <React.Fragment key={index}>
+                                    {item.liquidityProvided !== 0 && (
                                         <LiquidityPosition
                                             key={item.id}
                                             item={item}
                                             props={props}
                                         />
-                                    )
-                            )}
+                                    )}
+                                </React.Fragment>
+                            ))}
                         </tbody>
                     </table>
                 </div>
