@@ -1179,8 +1179,13 @@ const Swap_Dex = (props) => {
                                             <Fade in={openStats}>
                                                 <div className='text-12 my-2 rounded-lg py-1 border-20  px-2 d-flex align-items-center justify-content-between'>
                                                     <div>
-                                                        <div>
-                                                            Minimum received{' '}
+                                                        <div className='d-flex'>
+                                                            <div>
+                                                                Minimum received{' '}
+                                                            </div>
+                                                            <div className='ms-2'>
+                                                                <VariableWidthToolTip text='The minimum amount you are guaranteed to receive. if the price slips any further, your transaction will revert' />
+                                                            </div>
                                                         </div>
                                                         <div className='mt-2 d-flex align-items-center justify-content-start'>
                                                             <div>

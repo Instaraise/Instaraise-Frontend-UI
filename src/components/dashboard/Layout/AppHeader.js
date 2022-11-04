@@ -52,7 +52,11 @@ const AppHeader = (props) => {
 
                     <div
                         className='d-none d-lg-block btn bg-light-secondary border-10 text-dark-to-light fw-bold'
-                        onClick={() => connectWallet()}
+                        onClick={() =>
+                            connectWallet({
+                                NETWORK: isTestnet ? 'testnet' : 'mainnet',
+                            })
+                        }
                     >
                         {!wallet ? (
                             <>
@@ -60,18 +64,7 @@ const AppHeader = (props) => {
                                     className='mr-3'
                                     src={theme ? plusSign : dark_plus_sign}
                                 />
-                                <span
-                                    className='me-2'
-                                    onClick={() =>
-                                        connectWallet({
-                                            NETWORK: isTestnet
-                                                ? 'testnet'
-                                                : 'mainnet',
-                                        })
-                                    }
-                                >
-                                    Connect wallet
-                                </span>
+                                <span className='me-2'>Connect wallet</span>
                             </>
                         ) : (
                             <>
@@ -96,17 +89,42 @@ const AppHeader = (props) => {
                             </>
                         )}
                     </div>
-                    <div className='d-lg-none' onClick={() => connectWallet()}>
-                        {theme ? (
-                            <img
-                                src={light_wallet_img}
-                                alt='ligh-mode-wallet-img'
-                            />
+                    <div
+                        className='d-lg-none'
+                        onClick={() =>
+                            connectWallet({
+                                NETWORK: isTestnet ? 'testnet' : 'mainnet',
+                            })
+                        }
+                    >
+                        {!wallet ? (
+                            theme ? (
+                                <img
+                                    src={light_wallet_img}
+                                    alt='ligh-mode-wallet-img'
+                                />
+                            ) : (
+                                <img
+                                    src={dark_wallet_img}
+                                    alt='dark-mode-wallet-img'
+                                />
+                            )
                         ) : (
-                            <img
-                                src={dark_wallet_img}
-                                alt='dark-mode-wallet-img'
-                            />
+                            <span
+                                data-for='custom-color-no-arrow'
+                                data-tip='Disconnect wallet'
+                                className='cursor-pointer text-dark-to-light'
+                            >
+                                <FaPowerOff
+                                    onClick={() => {
+                                        disconnectWallet({
+                                            NETWORK: isTestnet
+                                                ? 'testnet'
+                                                : 'mainnet',
+                                        });
+                                    }}
+                                />
+                            </span>
                         )}
                     </div>
                 </div>

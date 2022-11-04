@@ -74,18 +74,44 @@ const WithdrawModal = (props) => {
                             <table className='table table-bordered'>
                                 <thead className='text-center'>
                                     <tr>
-                                        <td className='text-14 text-dark-to-light'>
+                                        <td
+                                            className='text-14 '
+                                            style={{
+                                                color: theme
+                                                    ? '#4E5D78'
+                                                    : '#FFFFFF',
+                                            }}
+                                        >
                                             Stake duration
                                         </td>
-                                        <td className='text-14 text-dark-to-light'>
+                                        <td
+                                            className='text-14'
+                                            style={{
+                                                color: theme
+                                                    ? '#4E5D78'
+                                                    : '#FFFFFF',
+                                            }}
+                                        >
                                             Block count
                                         </td>
-                                        <td className='text-14 text-dark-to-light'>
+                                        <td
+                                            className='text-14'
+                                            style={{
+                                                color: theme
+                                                    ? '#4E5D78'
+                                                    : '#FFFFFF',
+                                            }}
+                                        >
                                             Withdrawal fee
                                         </td>
                                     </tr>
                                 </thead>
-                                <tbody className='text-center'>
+                                <tbody
+                                    className='text-center'
+                                    style={{
+                                        color: theme ? '#4E5D78' : '#FFFFFF',
+                                    }}
+                                >
                                     {withdrawarray.map((item, index) => (
                                         <tr key={index}>
                                             <td>{item.STAKE_DURATION}</td>
