@@ -82,11 +82,15 @@ const AppHeader = (props) => {
 
                     <div
                         className='d-none d-lg-block btn bg-light-secondary border-10 text-dark-to-light fw-bold'
-                        onClick={() =>
-                            connectWallet({
-                                NETWORK: isTestnet ? 'testnet' : 'mainnet',
-                            })
-                        }
+                        onClick={() => {
+                            !wallet
+                                ? connectWallet({
+                                      NETWORK: isTestnet
+                                          ? 'testnet'
+                                          : 'mainnet',
+                                  })
+                                : setOpenAccountModal(!openAccountModal);
+                        }}
                     >
                         {!wallet ? (
                             <>
@@ -101,18 +105,8 @@ const AppHeader = (props) => {
                                 <span className='me-2 fw-bolder'>
                                     {truncateMiddle(wallet, 4, 4, '...')}
                                 </span>
-                                <span
-                                    data-for='custom-color-no-arrow'
-                                    data-tip='Disconnect wallet'
-                                    className='menu-icon cursor-pointer'
-                                >
-                                    <IoSettingsSharp
-                                        onClick={() => {
-                                            setOpenAccountModal(
-                                                !openAccountModal
-                                            );
-                                        }}
-                                    />
+                                <span className='menu-icon cursor-pointer'>
+                                    <IoSettingsSharp />
                                 </span>
                             </>
                         )}
