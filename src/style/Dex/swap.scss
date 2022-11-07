@@ -119,3 +119,12 @@ input[type='number'] {
 .dex .rotate {
     transition: all 0.3s ease-in-out;
 }
+.dex .badge-button {
+    border: 0.4px solid hsla(0, 0%, 62%, 0.23921568627450981);
+    padding-left: 15px;
+    color: var(--detail-card-text-color);
+    padding-right: 15px;
+}
+.dex .badge-button:hover {
+    color: var(--detail-card-text-color);
+}

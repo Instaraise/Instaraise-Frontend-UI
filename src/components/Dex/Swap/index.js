@@ -500,7 +500,13 @@ const Swap_Dex = (props) => {
                         <div className='dex p-2 token-information position-relative w-100 shadow-sm'>
                             <Fade appear={true} ref={ref} in={isSettingsOpen}>
                                 <div
-                                    className='p-3 token-information border-l'
+                                    className='p-3 token-information border-l settings-icon'
+                                    onClick={() => {
+                                        dispatch({
+                                            type: 'settings',
+                                            value: !isSettingsOpen,
+                                        });
+                                    }}
                                     style={{
                                         position: 'absolute',
                                         top: '50px',
@@ -514,12 +520,21 @@ const Swap_Dex = (props) => {
                                     <p className='text-sm fw-600 m-0 my-2'>
                                         Transaction settings
                                     </p>
-                                    <p className='text-12 m-0'>
+                                    <p className='text-12 m-0 d-flex'>
                                         Slippage tolerance
+                                        <div className=' ml-2'>
+                                            <VariableWidthToolTip text='Your transaction will revert if the price changes unfavorably by more than this percentage' />
+                                        </div>
                                     </p>
                                     <div className='d-flex justify-content-end align-items-center mb-1 mt-2'>
                                         <div>
                                             <button
+                                                onClick={() => {
+                                                    dispatch({
+                                                        type: 'slippage',
+                                                        value: 1,
+                                                    });
+                                                }}
                                                 className={`
                                                              badge-button-selected
                                                      py-1 fw-600  text-12 me-2  my-1 shadow-none btn btn-sm`}
@@ -527,6 +542,7 @@ const Swap_Dex = (props) => {
                                                 Auto
                                             </button>
                                         </div>
+
                                         <input
                                             onChange={handleSlippage}
                                             value={slippage}
@@ -536,6 +552,10 @@ const Swap_Dex = (props) => {
                                             className='py-1 fw-600 text-12 me-2 badge-button my-1 shadow-none text-end border-10 '
                                             placeholder='Enter...'
                                         />
+
+                                        <p className='py-1 fw-600 text-12 me-2 my-1 shadow-none text-end border-10'>
+                                            %
+                                        </p>
                                     </div>{' '}
                                     <div className='d-flex justify-content-end align-items-center my-1'>
                                         {[1, 2, 3].map((item, index) => (
@@ -659,20 +679,7 @@ const Swap_Dex = (props) => {
                             <div className='d-flex align-items-center justify-content-between px-2'>
                                 <div className='d-flex justify-content-start py-2 '>
                                     <div className='p-1 cursor-pointer text-14'>
-                                        <span
-                                            className='text-toggle-selected-2 text-16 me-2 fw-bold'
-                                            // className={
-                                            //     stakeState === 'market'
-                                            //         ? 'text-toggle-selected-2 text-16 me-2'
-                                            //         : 'text-toggle text-16 me-2'
-                                            // }
-                                            // onClick={() => {
-                                            //     dispatch({
-                                            //         type: 'stakestate',
-                                            //         value: 'market',
-                                            //     });
-                                            // }}
-                                        >
+                                        <span className='text-toggle-selected-2 text-16 me-2 fw-bold'>
                                             Market
                                         </span>
                                     </div>
@@ -689,7 +696,7 @@ const Swap_Dex = (props) => {
                                 >
                                     <FaTools
                                         size={20}
-                                        className='settings-icon text-dark-to-light cursor-pointer material-icons'
+                                        className='text-dark-to-light cursor-pointer material-icons'
                                     />
                                 </div>
                             </div>

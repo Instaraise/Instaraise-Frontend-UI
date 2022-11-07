@@ -7,7 +7,7 @@ import truncateMiddle from 'truncate-middle';
 import copy from 'copy-to-clipboard';
 import Fade from '@mui/material/Fade';
 import { IoEllipsisVertical, IoSettingsSharp } from 'react-icons/io5';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { FaPowerOff } from 'react-icons/fa';
 import { BsBoxArrowInUpRight, BsFiles } from 'react-icons/bs';
 import light_wallet_img from '../../../assets/images/connect_wallet.svg';
@@ -225,6 +225,51 @@ const AppHeader = (props) => {
                                 )}
                             </div>
                             <hr className='' />
+                            <div className='text-14 text-dark-to-light fw-normal mb-1'>
+                                Buy INSTA
+                            </div>
+                            <ul className='px-2'>
+                                <li className='list-style-none'>
+                                    {/* <img
+                                        src={Quipu}
+                                        width={30}
+                                        height={30}
+                                        className='gray-scale'
+                                    /> */}
+                                    <Link
+                                        to='#'
+                                        onClick={() =>
+                                            window.open(
+                                                'https://quipuswap.com/swap?to=KT19y6R8x53uDKiM46ahgguS6Tjqhdj2rSzZ_0&from=tez'
+                                            )
+                                        }
+                                        className='router-l ms-2 text-14'
+                                    >
+                                        Quipuswap&nbsp;
+                                        <BsBoxArrowInUpRight />
+                                    </Link>
+                                </li>
+                                <li className='list-style-none '>
+                                    {/* <img
+                                        src={Mexc}
+                                        width={30}
+                                        height={30}
+                                        className='gray-scale'
+                                    /> */}
+                                    <Link
+                                        to='#'
+                                        onClick={() =>
+                                            window.open(
+                                                'https://www.mexc.com/exchange/INSTA_USDT'
+                                            )
+                                        }
+                                        className='router-l ms-2 text-14'
+                                    >
+                                        Mexc&nbsp;
+                                        <BsBoxArrowInUpRight />
+                                    </Link>
+                                </li>
+                            </ul>
                         </div>
                     </Fade>
                 </div>
