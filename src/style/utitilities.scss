@@ -98,6 +98,9 @@
 .rotate-2 {
     animation: rotate 2s linear infinite;
 }
+.cursor-help {
+    cursor: help;
+}
 @keyframes rotate {
     to {
         transform: rotate(360deg);

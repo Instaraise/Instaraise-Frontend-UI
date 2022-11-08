@@ -21,6 +21,7 @@ import { useDebouncedCallback } from 'use-debounce';
 import DexModal from '../../Modals/DexModals/DexModal';
 import MainModal from '../../Modals/index';
 import VariableWidthToolTip from '../../Tooltip';
+import VariableToolTip from '../../Tooltip2';
 import { DEX_DATA_REFRESH_TIME } from '../../../config/config';
 import { DEX_FEE } from '../../../config/config';
 import { DEX_TOKEN_CONFIG } from '../../../config/DexConfig/dex.config';
@@ -1191,7 +1192,7 @@ const Swap_Dex = (props) => {
                                                                 Minimum received{' '}
                                                             </div>
                                                             <div className='ms-2'>
-                                                                <VariableWidthToolTip text='The minimum amount you are guaranteed to receive. if the price slips any further, your transaction will revert' />
+                                                                <VariableToolTip text='The minimum amount you are guaranteed to receive. if the price slips any further, your transaction will revert' />
                                                             </div>
                                                         </div>
                                                         <div className='mt-2 d-flex align-items-center justify-content-start'>
@@ -1199,13 +1200,13 @@ const Swap_Dex = (props) => {
                                                                 Price impact
                                                             </div>{' '}
                                                             <div className='ms-2'>
-                                                                <VariableWidthToolTip text='The difference between the market price and estimated price due to trade size' />
+                                                                <VariableToolTip text='The difference between the market price and estimated price due to trade size' />
                                                             </div>
                                                         </div>
                                                         <div className='mt-2 d-flex align-items-center justify-content-start'>
                                                             <div>Fee</div>{' '}
                                                             <div className='ms-2'>
-                                                                <VariableWidthToolTip text='A portion of each trade (0.05%) goes to liquidity providers as a protocol incentive' />
+                                                                <VariableToolTip text='A portion of each trade (0.05%) goes to liquidity providers as a protocol incentive' />
                                                             </div>
                                                         </div>
                                                     </div>
