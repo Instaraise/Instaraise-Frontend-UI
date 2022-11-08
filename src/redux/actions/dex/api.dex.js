@@ -380,7 +380,6 @@ export const convertTokenAPI = async (args) => {
             }
         }
     } catch (error) {
-        console.log(error);
         return {
             status: false,
             operationId: null,

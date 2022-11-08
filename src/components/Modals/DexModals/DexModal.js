@@ -7,7 +7,7 @@ import * as React from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { MdClose } from 'react-icons/md';
 import { connect } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { DEX_TOKEN_CONFIG } from '../../../config/DexConfig/dex.config';
 import {
@@ -254,14 +254,6 @@ function DexModal(props) {
                                             >
                                                 New!
                                             </div>
-                                            <Link
-                                                to={'/dex/faucet'}
-                                                target='_blank'
-                                                rel='noreferrer'
-                                                className='router-l  text-12'
-                                            >
-                                                Mint {token.TOKEN_SYMBOL}
-                                            </Link>
                                         </div>
                                     )}
                                 </div>

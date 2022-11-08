@@ -81,7 +81,7 @@ const AppHeader = (props) => {
                     />
 
                     <div
-                        className='d-none d-lg-block btn bg-light-secondary border-10 text-dark-to-light fw-bold'
+                        className='d-none d-lg-block btn bg-light-secondary border-10 text-dark-to-light fw-bold menu-icon'
                         onClick={() => {
                             !wallet
                                 ? connectWallet({
@@ -134,11 +134,7 @@ const AppHeader = (props) => {
                                 />
                             )
                         ) : (
-                            <span
-                                data-for='custom-color-no-arrow'
-                                data-tip='Disconnect wallet'
-                                className='cursor-pointer text-dark-to-light'
-                            >
+                            <span className='cursor-pointer text-dark-to-light'>
                                 <span
                                     className='menu-icon cursor-pointer hide-navbar text-dark-to-light material-icons'
                                     onClick={() => {

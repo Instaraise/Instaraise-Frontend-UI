@@ -180,7 +180,12 @@ const LiquidityPosition = ({ item, props }) => {
                 }}
                 colSpan={2}
             >
-                <div className='my-2 d-flex justify-content-center align-items-center div-block text-dark-to-light'>
+                <div
+                    data-bs-toggle='tooltip'
+                    data-bs-placement='top'
+                    title={`Current APR : ${Data(item).apr}`}
+                    className='cursor-pointer my-2 d-flex justify-content-center align-items-center div-block text-dark-to-light'
+                >
                     {Data(item).apr ? midusdformatter(Data(item).apr) : '-'}
                 </div>
             </td>
