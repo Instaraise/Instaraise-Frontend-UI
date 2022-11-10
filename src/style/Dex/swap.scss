@@ -72,7 +72,7 @@ input[type='number'] {
     border-radius: 20px;
 }
 .token-information {
-    background-color: var(--dashboard-header-color);
+    background-color: var(--dashboard-header-color) !important;
     text-align: start;
 }
 .dex .badge-button-selected {

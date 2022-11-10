@@ -109,6 +109,9 @@
 .rotate-2 {
     animation: rotate 2s linear infinite;
 }
+input.form-calender-cursor::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
 .cursor-help {
     cursor: help;
 }
