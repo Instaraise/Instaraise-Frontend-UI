@@ -58,4 +58,7 @@ tr td:first-child {
         z-index: 2;
         background-color: var(--trending-background) !important;
     }
+    .fixed-col:hover {
+        background-color: var(--hover-class-dex) !important;
+    }
 }
