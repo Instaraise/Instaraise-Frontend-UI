@@ -77,7 +77,7 @@ const CreateCrowdSale = () => {
                                 </label>
                                 <textarea
                                     type='text'
-                                    style={{ height: '18vh' }}
+                                    style={{ height: '19vh' }}
                                     placeholder="Collection's Description"
                                     className='text-dark-to-light token-information input-bar form-control'
                                     id='validationServer02'
