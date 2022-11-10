@@ -343,7 +343,15 @@ const CreateCrowdSale = () => {
                         <button
                             disabled={!name}
                             type='submit'
-                            className='text-center border-10 button-primary btn-faucet w-15 py-2 margin-auto my-2'
+                            className={`text-center border-10  btn-faucet w-15 py-2 margin-auto my-2 ${
+                                name ||
+                                description ||
+                                presalePrice ||
+                                publicsalePrice ||
+                                templatePath
+                                    ? 'button-primary '
+                                    : 'disable-b'
+                            }`}
                         >
                             Create
                         </button>
