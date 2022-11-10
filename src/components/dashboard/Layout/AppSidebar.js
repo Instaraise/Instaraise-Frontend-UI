@@ -116,16 +116,17 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                 marginLeft: '27px',
                                             }}
                                         >
-                                            <a
+                                            <NavLink
+                                                to='/launchpad/create-crowdsale'
                                                 className='ms-2  text-sm-2 nav-link sidebar-links d-flex '
                                                 aria-current='page'
                                             >
                                                 <div className=''>
                                                     <div className='transition-class'>
-                                                        Projects
+                                                        Create&nbsp;CrowdSale
                                                     </div>
                                                 </div>
-                                            </a>
+                                            </NavLink>
                                             <a
                                                 className=' ms-2  mt-1  text-sm-2 nav-link sidebar-links d-flex '
                                                 aria-current='page'

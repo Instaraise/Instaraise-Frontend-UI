@@ -7,11 +7,22 @@
 .h-85 {
     height: 85vh !important;
 }
+.w-15 {
+    width: 15% !important;
+}
 .w-30 {
     width: 30% !important;
 }
 .w-48 {
     width: 48% !important;
+}
+.form-label:after {
+    content: ' *';
+    color: red;
+    font-weight: 500;
+}
+.form-header {
+    font-family: font-Medium;
 }
 .nav-svg-color {
     color: var(--navbar-svg-color);

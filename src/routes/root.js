@@ -13,6 +13,7 @@ import Swap from '../container/Dex/swap';
 import Trade from '../container/Dex/tokens';
 import Farms from '../container/Farms/farms';
 import HomeContainer from '../container/home';
+import CrowdSale from '../container/Launchpad/crowdsale';
 import Privacy from '../container/privacy';
 import Terms from '../container/terms';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -41,6 +42,10 @@ const Root = () => {
                         <Route
                             path='/dashboard'
                             element={<Dashbaord flag={!flag} />}
+                        />
+                        <Route
+                            path='/launchpad/create-crowdsale'
+                            element={<CrowdSale flag={!flag} />}
                         />
                         <Route path='/farms' element={<Farms flag={!flag} />} />
                         <Route path='/dex/trade' element={<Trade />} />
