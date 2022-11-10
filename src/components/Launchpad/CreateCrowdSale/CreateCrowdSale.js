@@ -341,6 +341,7 @@ const CreateCrowdSale = () => {
                     </div>
                     <div className='col-12 py-2'>
                         <button
+                            disabled={!name}
                             type='submit'
                             className='text-center border-10 button-primary btn-faucet w-15 py-2 margin-auto my-2'
                         >
