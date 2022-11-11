@@ -101,7 +101,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                         window.location.pathname.split('/')[2]
                                     )
                                         ? 'show'
-                                        : ''
+                                        : 'collapse'
                                 }`}
                                 aria-labelledby='launchpad_id'
                                 data-bs-parent='#accordionExample'
