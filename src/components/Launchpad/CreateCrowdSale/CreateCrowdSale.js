@@ -37,13 +37,6 @@ const CreateCrowdSale = () => {
             );
         });
     })();
-    // const InputData = [
-    //     {
-    //         label_name: 'Name of Collection',
-    //         label_type: 'text',
-    //         label_placeholder: "Collection's name",
-    //     },
-    // ];
     return (
         <div className='pb-3'>
             <div className='row row-cols-1 text-dark-to-light my-3 my-lg-0 my-md-0 mx-0 mx-lg-3 mx-md-3 text-sm-start'>
@@ -59,24 +52,6 @@ const CreateCrowdSale = () => {
                         <div className='col-md-4'>
                             <div className='row'>
                                 <div className='col-md-12 pb-3'>
-                                    {/* <label
-                                        htmlFor='validationServer01'
-                                        className='form-label text-dark-to-light'
-                                    >
-                                        Name of Collection
-                                    </label>
-                                    <input
-                                        type='text'
-                                        placeholder="Collection's name"
-                                        className='text-dark-to-light token-information input-bar form-control'
-                                        id='validationServer01'
-                                        name='name'
-                                        value={name}
-                                        onChange={(e) =>
-                                            setName(e.target.value)
-                                        }
-                                        required
-                                    /> */}
                                     <div className='form-group-2 text-start'>
                                         <label
                                             htmlFor='validationServer01'
