@@ -65,12 +65,11 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         <div className='accordion-item border-0 bg-transparent nav-item justify-content-center pt-2'>
                             <div
                                 className='px-0 accordion-header bg-transparent'
-                                id='headingOne'
+                                id='launchpad_id'
                             >
                                 <NavLink
                                     to='/launchpad'
                                     className='accordion-button dashboard-color text-sm-2-2 nav-link sidebar-links d-flex  sidebar-links-active collapsed'
-                                    // type="button"
                                     data-bs-toggle='collapse'
                                     data-bs-target='#collapseOne'
                                     aria-expanded='true'
@@ -94,7 +93,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                 id='collapseOne'
                                 className={`accordion-collapse collapse ${
                                     [
-                                        'projects',
+                                        'create-crowdsale',
                                         'staking',
                                         'tiers',
                                         'faq',
@@ -164,26 +163,6 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         </div>
 
                         <li className='nav-item justify-content-center pt-2'>
-                            {/* <NavLink
-                                to='/farms'
-                                className=' text-sm nav-link sidebar-links d-flex '
-                                activeClassName='sidebar-links-active'
-                                aria-current='page'
-                            >
-                                <div className='dashboard-color'>
-                                    <img
-                                        className='me-2'
-                                        src={theme ? farm : farm_dark}
-                                        alt='farm-img'
-                                        style={{
-                                            width: '1.3em',
-                                            height: '1.3em',
-                                        }}
-                                    />
-
-                                    <span className=''>Farms</span>
-                                </div>
-                            </NavLink> */}
                             <NavLink
                                 to='/farms'
                                 className=' text-sm nav-link sidebar-links d-flex '
@@ -208,12 +187,11 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         <div className='accordion-item border-0 bg-transparent nav-item justify-content-center pt-2'>
                             <div
                                 className='px-0 accordion-header bg-transparent'
-                                id='headingTwo'
+                                id='dex_id'
                             >
                                 <NavLink
-                                    to='/launchpad'
-                                    className='accordion-button collapsed dashboard-color text-sm-2-2 nav-link sidebar-links d-flex  sidebar-links-active'
-                                    // type="button"
+                                    to='/dex'
+                                    className='accordion-button collapsed dashboard-color text-sm-2-2 nav-link sidebar-links d-flex sidebar-links-active'
                                     data-bs-toggle='collapse'
                                     data-bs-target='#collapseTwo'
                                     aria-expanded='false'
@@ -237,7 +215,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                 id='collapseTwo'
                                 className={`accordion-collapse  bg-transparent ${
                                     [
-                                        'projects',
+                                        'create-crowdsale',
                                         'staking',
                                         'tiers',
                                         'faq',
