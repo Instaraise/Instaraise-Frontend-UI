@@ -8,7 +8,7 @@ import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.foo
 const Footer = () => {
     return (
         <footer className='footer-section'>
-            <div className='container p-4'>
+            <div className='container pt-4 px-4'>
                 <div className='row'>
                     <div className=' col-lg-6 col-md-6 mb-4 mb-md-0 text-start'>
                         <div className='navbar-brand'>
@@ -135,7 +135,7 @@ const Footer = () => {
                 </div>
                 <div className='row'>
                     <div className='col-md-12 py-2'>
-                        <p className='footer-font text-center footer-copyright-section py-2'>
+                        <p className='footer-font text-center footer-copyright-section pt-4'>
                             ©COPYRIGHT - INSTARAISE - 2022
                         </p>
                     </div>
