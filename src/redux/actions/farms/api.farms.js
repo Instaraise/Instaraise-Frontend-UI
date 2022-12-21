@@ -32,9 +32,10 @@ const fetchStorageOfStakingContract = async (
             (rewardRate * 1051200 * priceOfInstaInUSD) /
             (totalSupply * priceOfStakeTokenInUsd);
 
-        APR = (APR * 100).toFixed(2);
-
-        let totalLiquidty = (totalSupply * priceOfStakeTokenInUsd).toFixed(2);
+        APR = (APR * 100).PrecisionMaker(2);
+        let totalLiquidty = (
+            totalSupply * priceOfStakeTokenInUsd
+        ).PrecisionMaker(2);
 
         return {
             success: true,

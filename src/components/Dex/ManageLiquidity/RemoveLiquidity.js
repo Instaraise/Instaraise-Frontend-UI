@@ -13,7 +13,7 @@ import { connectWallet } from '../../../redux/actions/wallet/action.wallet';
 import { ThemeContext } from '../../../routes/root';
 const RemoveLiquidity = (props) => {
     const { currencyType } = props;
-    const [liquidityLoader] = React.useState(false);
+    const [liquidityLoader, setLiquidityLoader] = React.useState(false);
     const [modalType, setModalType] = React.useState(null);
     const [operationId, setOperationId] = React.useState('');
     const { theme } = React.useContext(ThemeContext);
@@ -32,49 +32,56 @@ const RemoveLiquidity = (props) => {
         setModalState(false);
     };
     const removeLiquidity = async () => {
-        setModalType('transfer');
-        const request = await props.removeLiquidity({
-            positionId: removeLiquidityPair.positionId,
-            selectedNetwork: props.selectedNetwork,
-            contractAddress: props.liquidityPair.DEX_ADDRESS,
-            tokenAddress: removeLiquidityPair.tokenAddress,
-            tokenId: removeLiquidityPair.tokenId,
-            tokenType: removeLiquidityPair.tokenType,
-            portion:
-                Number(removeLiquidityPair.amount) /
-                Number(removeLiquidityPair.initialAmount),
-        });
-        if (request.payload.success) {
-            setModalType('success');
-            setOperationId(request.payload.operationId);
-            props.getUserLiquidityPositions({
-                tokenIndex: props.liquidityPair.id,
-                baseTokenDecimal: props.liquidityPair.DECIMAL_SECOND_TOKEN,
+        try {
+            setLiquidityLoader(true);
+            setModalType('transfer');
+            const request = await props.removeLiquidity({
+                positionId: removeLiquidityPair.positionId,
+                selectedNetwork: props.selectedNetwork,
                 contractAddress: props.liquidityPair.DEX_ADDRESS,
-                NETWORK: props.selectedNetwork,
+                tokenAddress: removeLiquidityPair.tokenAddress,
+                tokenId: removeLiquidityPair.tokenId,
+                tokenType: removeLiquidityPair.tokenType,
+                portion:
+                    Number(removeLiquidityPair.amount) /
+                    Number(removeLiquidityPair.initialAmount),
             });
-            setRemoveLiquidityPair({
-                name: null,
-                logo: null,
-                positionId: null,
-                tokenAddress: null,
-                tokenId: null,
-                amount: null,
-                initialAmount: null,
-                tokenType: null,
-            });
-        } else {
-            setModalType('error');
-            setRemoveLiquidityPair({
-                name: null,
-                logo: null,
-                positionId: null,
-                tokenAddress: null,
-                tokenId: null,
-                amount: null,
-                initialAmount: null,
-                tokenType: null,
-            });
+            if (request.payload.success) {
+                setModalType('success');
+                setOperationId(request.payload.operationId);
+                setLiquidityLoader(false);
+                props.getUserLiquidityPositions({
+                    tokenIndex: props.liquidityPair.id,
+                    baseTokenDecimal: props.liquidityPair.DECIMAL_SECOND_TOKEN,
+                    contractAddress: props.liquidityPair.DEX_ADDRESS,
+                    NETWORK: props.selectedNetwork,
+                });
+                setRemoveLiquidityPair({
+                    name: null,
+                    logo: null,
+                    positionId: null,
+                    tokenAddress: null,
+                    tokenId: null,
+                    amount: null,
+                    initialAmount: null,
+                    tokenType: null,
+                });
+            } else {
+                setModalType('error');
+                setLiquidityLoader(false);
+                setRemoveLiquidityPair({
+                    name: null,
+                    logo: null,
+                    positionId: null,
+                    tokenAddress: null,
+                    tokenId: null,
+                    amount: null,
+                    initialAmount: null,
+                    tokenType: null,
+                });
+            }
+        } catch (error) {
+            setLiquidityLoader(false);
         }
     };
     return (
@@ -305,7 +312,7 @@ const RemoveLiquidity = (props) => {
                                     paddingTop: '12px',
                                     paddingBottom: '12px',
                                 }}
-                                className='btn w-100 mb-2 border-10 shadow-none  mt-2 btn-sm button-primary'
+                                className='text-center border-10 button-primary btn-faucet w-100 py-2 margin-auto my-2'
                             >
                                 <div className='rotate-2'>
                                     <BiLoaderAlt size={20} />

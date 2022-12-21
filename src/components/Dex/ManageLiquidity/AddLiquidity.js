@@ -405,11 +405,11 @@ const AddLiquidity = (props) => {
                                 }}
                                 className='text-12 text-end mb-1 text-dark-to-light'
                             >
-                                Max Balance : {props.tokenBalance.toFixed(2)}
+                                Max Balance : {props.tokenBalance}
                             </div>
                         ) : (
                             <div className='text-12 text-end mb-1 text-dark-to-light'>
-                                Balance : {props.tokenBalance.toFixed(2)}
+                                Balance : {props.tokenBalance}
                             </div>
                         )}
                         {loading && (
@@ -457,9 +457,7 @@ const AddLiquidity = (props) => {
                             >
                                 {currencyType === 'Coin' && '~$'}
                                 {props.convert_staked_amount_pool.value
-                                    ? props.convert_staked_amount_pool.value.toFixed(
-                                          4
-                                      )
+                                    ? props.convert_staked_amount_pool.value
                                     : null}
                                 &nbsp;
                                 {currencyType === 'USD' &&
@@ -486,7 +484,7 @@ const AddLiquidity = (props) => {
                         <div className='text-12 text-end mt-1 text-dark-to-light'>
                             Token Limit :{' '}
                             {props.networkTokenLimit.success
-                                ? props.networkTokenLimit.data.limit.toFixed(2)
+                                ? props.networkTokenLimit.data.limit
                                 : '-'}
                         </div>
                     )}
@@ -519,7 +517,7 @@ const AddLiquidity = (props) => {
                             paddingTop: '12px',
                             paddingBottom: '12px',
                         }}
-                        className='btn w-100 mb-2 border-10 shadow-none  mt-2 btn-sm button-primary'
+                        className='text-center border-10 button-primary btn-faucet w-100 py-2 margin-auto my-2'
                     >
                         <div className='rotate-2'>
                             <BiLoaderAlt size={20} />

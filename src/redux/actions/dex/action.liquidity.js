@@ -91,10 +91,11 @@ export const CONVERT_TOKEN_VALUES_POOLS = (data) => {
                 type: CONVERT_TOKEN_VALUE_POOLS,
                 payload: {
                     value: data.status
-                        ? token_price_dollar
-                        : token_price_in_insta,
-                    token_price_in_insta: token_price_in_insta,
-                    token_price_dollar: token_price_dollar,
+                        ? token_price_dollar.PrecisionMaker(4)
+                        : token_price_in_insta.PrecisionMaker(4),
+                    token_price_in_insta:
+                        token_price_in_insta.PrecisionMaker(4),
+                    token_price_dollar: token_price_dollar.PrecisionMaker(4),
                 },
             });
         } else {

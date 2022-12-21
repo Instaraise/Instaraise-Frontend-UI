@@ -504,7 +504,7 @@ export const getNetWorkTokenLimit = async (args) => {
 
         const limit =
             (converterBalance * poolRate.n + (poolRate.n - 1)) / poolRate.d;
-        const finalLimit = limit / 10 ** 18;
+        const finalLimit = (limit / 10 ** 18).PrecisionMaker(2);
         return {
             success: true,
             data: {

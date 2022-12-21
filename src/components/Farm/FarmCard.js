@@ -22,7 +22,9 @@ const FarmCard = (props) => {
     const { APR, totalLiquidty, rewardRate } = props.farmData;
     const { balance, singularStakes, currentBlockLevel } = props.FarmStakedData;
     const { totalRewards } = props.getRewards;
-    const APY = ((Math.pow(1 + APR / 100 / 365, 365) - 1) * 100).toFixed(0);
+    const APY = ((Math.pow(1 + APR / 100 / 365, 365) - 1) * 100).PrecisionMaker(
+        0
+    );
     const [isOpen, setisOpen] = useState(false);
     const [modalType, setModalType] = useState(null);
     const [operationId, setOperationId] = useState(null);

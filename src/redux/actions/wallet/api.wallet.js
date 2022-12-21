@@ -101,7 +101,7 @@ export const DisconnectWalletAPI = async ({ NETWORK }) => {
             name: NETWORK.toLowerCase(),
         };
         const wallet = new BeaconWallet(options);
-        await wallet.disconnect();
+        await wallet.clearActiveAccount();
         return {
             success: true,
             wallet: null,

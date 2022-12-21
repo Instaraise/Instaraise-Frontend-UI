@@ -15,7 +15,7 @@ export const tokenInfoAPI = async () => {
             );
             const burned = (
                 response.data.body.insta_stats.total_burned / 10000000000
-            ).toFixed(2);
+            ).PrecisionMaker(2);
             const tvl = Math.round(response.data.body.tvl);
             return {
                 success: true,

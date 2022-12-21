@@ -102,11 +102,11 @@ const AppHeader = (props) => {
                             </>
                         ) : (
                             <>
-                                <span className='me-2 fw-bolder'>
+                                <span className='me-2 fw-bolder menu-icon'>
                                     {truncateMiddle(wallet, 4, 4, '...')}
                                 </span>
-                                <span className='menu-icon cursor-pointer'>
-                                    <IoSettingsSharp />
+                                <span className='menu-icon cursor-pointer menu-icon'>
+                                    <IoSettingsSharp className='menu-icon' />
                                 </span>
                             </>
                         )}

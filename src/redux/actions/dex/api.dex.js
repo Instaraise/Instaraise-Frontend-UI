@@ -85,7 +85,7 @@ export const getBalance = async (tokenId, tokenType, NETWORK, decimal) => {
                 ? Number(response.data.args[1].int)
                 : Number(response.data.int);
         balance = balance / Math.pow(10, Number(decimal));
-        return balance;
+        return balance.PrecisionMaker(2);
     } catch (error) {
         return 0;
     }
@@ -879,7 +879,7 @@ export const fetchPriceImpact = async ({
                 (networkTokenBalance - parseInt(tokenAmount));
             const change = Math.abs(
                 ((initialPrice - finalPrice) / initialPrice) * 100
-            );
+            ).PrecisionMaker(5);
             return {
                 success: true,
                 value: change,
@@ -916,7 +916,7 @@ export const fetchPriceImpact = async ({
         );
         return {
             success: true,
-            value: change,
+            value: change.PrecisionMaker(3),
         };
     } catch (error) {
         return {

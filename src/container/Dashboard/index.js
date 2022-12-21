@@ -313,7 +313,9 @@ const Dashboard = (props) => {
                                         domain={['dataMin', 'dataMax - 0.5']}
                                         axisLine={false}
                                         tickFormatter={(value) => {
-                                            return `$${value.toFixed(5)}`;
+                                            return `$${value.PrecisionMaker(
+                                                5
+                                            )}`;
                                         }}
                                         width={60}
                                         style={{

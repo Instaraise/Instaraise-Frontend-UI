@@ -46,6 +46,7 @@ import {
 const Swap_Dex = (props) => {
     const { theme } = React.useContext(ThemeContext);
     const notify = (errorMessage) => toast(errorMessage);
+    const [isSettingsOpen, setIsSettingsOpen] = React.useState(false);
     const navigate = useNavigate();
     const location = useLocation();
     function reducer(state, action) {
@@ -68,8 +69,6 @@ const Swap_Dex = (props) => {
                 return { ...state, showAnalytics: !state.showAnalytics };
             case 'transfer':
                 return { ...state, transfer: action.value };
-            case 'settings':
-                return { ...state, isSettingsOpen: !state.isSettingsOpen };
             case 'openstats':
                 return { ...state, openStats: action.value };
             case 'modaltype':
@@ -88,7 +87,6 @@ const Swap_Dex = (props) => {
         modalState: false,
         showAnalytics: false,
         transfer: 'to',
-        isSettingsOpen: false,
         openStats: false,
         modalType: null,
     });
@@ -97,7 +95,6 @@ const Swap_Dex = (props) => {
         currencyType,
         slippage,
         showAnalytics,
-        isSettingsOpen,
         stakeState,
         swapLoader,
         modalState,
@@ -354,10 +351,7 @@ const Swap_Dex = (props) => {
                 !e.target.classList.contains('settings-icon') &&
                 !ref.current.contains(e.target)
             ) {
-                dispatch({
-                    type: 'settings',
-                    value: false,
-                });
+                setIsSettingsOpen(false);
             }
         };
         document.addEventListener('mousedown', checkIfClickedOutside);
@@ -503,10 +497,7 @@ const Swap_Dex = (props) => {
                                 <div
                                     className='p-3 token-information border-l settings-icon'
                                     onClick={() => {
-                                        dispatch({
-                                            type: 'settings',
-                                            value: !isSettingsOpen,
-                                        });
+                                        setIsSettingsOpen(true);
                                     }}
                                     style={{
                                         position: 'absolute',
@@ -518,12 +509,12 @@ const Swap_Dex = (props) => {
                                         borderRadius: '20px',
                                     }}
                                 >
-                                    <p className='text-sm fw-600 m-0 my-2'>
+                                    <p className='text-sm fw-600 m-0 my-2 settings-icon'>
                                         Transaction settings
                                     </p>
-                                    <p className='text-12 m-0 d-flex'>
+                                    <p className='text-12 m-0 d-flex settings-icon'>
                                         Slippage tolerance
-                                        <div className=' ml-2'>
+                                        <div className=' ml-2 '>
                                             <VariableWidthToolTip text='Your transaction will revert if the price changes unfavorably by more than this percentage' />
                                         </div>
                                     </p>
@@ -538,7 +529,7 @@ const Swap_Dex = (props) => {
                                                 }}
                                                 className={`
                                                              badge-button-selected
-                                                     py-1 fw-600  text-12 me-2  my-1 shadow-none btn btn-sm`}
+                                                     py-1 fw-600 settings-icon text-12 me-2  my-1 shadow-none btn btn-sm`}
                                             >
                                                 Auto
                                             </button>
@@ -550,15 +541,15 @@ const Swap_Dex = (props) => {
                                             style={{
                                                 width: '80%',
                                             }}
-                                            className='py-1 fw-600 text-12 me-2 badge-button my-1 shadow-none text-end border-10 '
+                                            className='settings-icon py-1 fw-600 text-12 me-2 badge-button my-1 shadow-none text-end border-10 '
                                             placeholder='Enter...'
                                         />
 
-                                        <p className='py-1 fw-600 text-12 me-2 my-1 shadow-none text-end border-10'>
+                                        <p className='settings-icon py-1 fw-600 text-12 me-2 my-1 shadow-none text-end border-10'>
                                             %
                                         </p>
                                     </div>{' '}
-                                    <div className='d-flex justify-content-end align-items-center my-1'>
+                                    <div className='settings-icon d-flex justify-content-end align-items-center my-1'>
                                         {[1, 2, 3].map((item, index) => (
                                             <div key={index}>
                                                 <button
@@ -572,18 +563,18 @@ const Swap_Dex = (props) => {
                                                         item === slippage
                                                             ? 'badge-button-selected'
                                                             : 'badge-button'
-                                                    } fw-600  text-mini me-2  shadow-none border-10 btn btn-sm`}
+                                                    } fw-600  settings-icon text-mini me-2  shadow-none border-10 btn btn-sm`}
                                                 >
                                                     {item}%
                                                 </button>
                                             </div>
                                         ))}
                                     </div>{' '}
-                                    <p className='text-sm fw-600 m-0 my-2'>
+                                    <p className='settings-icon text-sm fw-600 m-0 my-2'>
                                         Interface settings
                                     </p>
                                     <div className='d-flex justify-content-between align-items-center'>
-                                        <p className='text-12 m-0 d-flex align-items-center'>
+                                        <p className='settings-icon text-12 m-0 d-flex align-items-center'>
                                             Analytics &nbsp;
                                             <VariableWidthToolTip text='Coming soon' />
                                         </p>
@@ -647,7 +638,7 @@ const Swap_Dex = (props) => {
                                                 />
                                                 <span className='slider round'></span>
                                             </label>
-                                            <div className='text-12 fw-bold'>
+                                            <div className='text-12 fw-bold settings-icon'>
                                                 <svg
                                                     viewBox='0 0 24 24'
                                                     width='24px'
@@ -687,10 +678,7 @@ const Swap_Dex = (props) => {
                                 </div>
                                 <div
                                     onClick={() => {
-                                        dispatch({
-                                            type: 'settings',
-                                            value: !isSettingsOpen,
-                                        });
+                                        setIsSettingsOpen(!isSettingsOpen);
                                     }}
                                     ref={ref}
                                     className='settings-icon'
@@ -767,16 +755,12 @@ const Swap_Dex = (props) => {
                                                         className='text-12 text-end mb-1'
                                                     >
                                                         Max Balance :{' '}
-                                                        {props.tokenBalance.toFixed(
-                                                            2
-                                                        )}
+                                                        {props.tokenBalance}
                                                     </div>
                                                 ) : (
                                                     <div className='text-12 text-end mb-1'>
                                                         Balance :{' '}
-                                                        {props.tokenBalance.toFixed(
-                                                            2
-                                                        )}
+                                                        {props.tokenBalance}
                                                     </div>
                                                 )}
                                                 {loading ? (
@@ -843,7 +827,7 @@ const Swap_Dex = (props) => {
                                                                         .convert_pay_values_market
                                                                         .data
                                                                         .token1_price
-                                                                        ? props.convert_pay_values_market.data.token1_price.toFixed(
+                                                                        ? props.convert_pay_values_market.data.token1_price.PrecisionMaker(
                                                                               4
                                                                           )
                                                                         : props
@@ -1020,7 +1004,7 @@ const Swap_Dex = (props) => {
                                                                         .convert_pay_values_market
                                                                         .data
                                                                         .token2_price
-                                                                        ? props.convert_pay_values_market.data.token2_price.toFixed(
+                                                                        ? props.convert_pay_values_market.data.token2_price.PrecisionMaker(
                                                                               4
                                                                           )
                                                                         : props
@@ -1103,8 +1087,8 @@ const Swap_Dex = (props) => {
                                                                                           )
                                                                                   )
                                                                                   .toNumber()
-                                                                                  .toFixed(
-                                                                                      8
+                                                                                  .PrecisionMaker(
+                                                                                      (8).toString()
                                                                                   )
                                                                     }
                                                                 />
@@ -1147,7 +1131,7 @@ const Swap_Dex = (props) => {
                                                                 height={16}
                                                             />
                                                         ) : (
-                                                            props.convert_pay_values_market.data.rate.toFixed(
+                                                            props.convert_pay_values_market.data.rate.PrecisionMaker(
                                                                 4
                                                             )
                                                         )}
@@ -1251,9 +1235,9 @@ const Swap_Dex = (props) => {
                                                             </div>
                                                         ) : (
                                                             <div className='text-end mt-2'>
-                                                                {props.priceimpact.toFixed(
-                                                                    6
-                                                                )}
+                                                                {
+                                                                    props.priceimpact
+                                                                }
                                                                 %
                                                             </div>
                                                         )}
@@ -1274,11 +1258,15 @@ const Swap_Dex = (props) => {
                                                                 />
                                                             ) : (
                                                                 <div>
-                                                                    {(parseInt(
-                                                                        props.handle_pay_values_market
-                                                                    ) *
-                                                                        DEX_FEE) /
-                                                                        100}
+                                                                    {(
+                                                                        (parseInt(
+                                                                            props.handle_pay_values_market
+                                                                        ) *
+                                                                            DEX_FEE) /
+                                                                        100
+                                                                    ).PrecisionMaker(
+                                                                        5
+                                                                    )}
                                                                     &nbsp;
                                                                     {
                                                                         selectedToken
