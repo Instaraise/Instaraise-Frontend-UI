@@ -253,7 +253,7 @@ const FarmCard = (props) => {
                                 </div>
                                 <button
                                     onClick={() => setModalType('stake')}
-                                    className='text-center button-primary px-2 py-2 ms-2 rounded py-2 margin-auto'
+                                    className='text-center btn-faucet px-2 py-2 ms-2 rounded py-2 margin-auto'
                                 >
                                     <svg
                                         xmlns='http://www.w3.org/2000/svg'
@@ -266,10 +266,9 @@ const FarmCard = (props) => {
                                         <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z' />
                                     </svg>
                                 </button>
-
                                 <button
                                     onClick={() => setModalType('unstake')}
-                                    className='text-center button-primary  px-2 py-2  ms-2 rounded py-2 margin-auto'
+                                    className='text-center btn-faucet px-2 py-2  ms-2 rounded py-2 margin-auto'
                                 >
                                     <svg
                                         xmlns='http://www.w3.org/2000/svg'

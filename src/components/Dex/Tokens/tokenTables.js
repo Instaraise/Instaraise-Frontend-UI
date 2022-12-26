@@ -548,7 +548,17 @@ const TokenTrade = ({
                 }}
             >
                 <div className='d-flex align-items-center div-block text-dark-to-light'>
-                    {Data().change ? `${midusdformatter(Data().change)}%` : '-'}
+                    <div
+                        className={
+                            Data().change >= 0
+                                ? 'greenColorChange'
+                                : 'redColorChange'
+                        }
+                    >
+                        {Data().change
+                            ? `${midusdformatter(Data().change)}%`
+                            : '-'}
+                    </div>
                 </div>
             </td>
             <td
