@@ -9,7 +9,6 @@ const TrendingNews = (props) => {
     React.useEffect(() => {
         props.fetchAllTrendingNews();
     }, []);
-
     return (
         <div className='container py-5'>
             <div className='d-flex pt-3 pb-5 justify-content-center'>
@@ -38,7 +37,7 @@ const TrendingNews = (props) => {
                         </div>
                     )}
                 </div>
-                <div className='col-md-6 py-1 d-none d-lg-block'>
+                <div className='col-md-6 py-1 d-none d-lg-block anchor-tag-hover'>
                     {props.allTrendingNews.length > 0 ? (
                         <h5
                             dangerouslySetInnerHTML={{
@@ -55,9 +54,9 @@ const TrendingNews = (props) => {
                     {props.allTrendingNews.length > 0 ? (
                         <p
                             dangerouslySetInnerHTML={{
-                                __html: props.allTrendingNews[0].excerpt,
+                                __html: props.allTrendingNews[0].content,
                             }}
-                            className='my-3 trending-header-para text-justify font-insta-regular'
+                            className='my-3 trending-header-para text-justify font-insta-regular line-clamp'
                         />
                     ) : (
                         <p className='my-3 trending-header-para text-justify font-insta-regular'>
@@ -87,7 +86,7 @@ const TrendingNews = (props) => {
                     )}
                 </div>
             </div>
-            <div className='row py-md-4 hoverChange'>
+            <div className='row py-md-4 hoverChange anchor-tag-hover'>
                 {props.allTrendingNews.map((elem, index) => (
                     <div
                         key={index}

@@ -208,7 +208,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                         }}
                                     />
 
-                                    <span>Dex</span>
+                                    <span>Trade</span>
                                 </NavLink>
                             </div>
                             <div

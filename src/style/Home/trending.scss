@@ -23,6 +23,9 @@
     font-family: font-SemiBold;
     color: var(--trending-font-color);
 }
+.anchor-tag-hover a:hover {
+    color: var(--trending-font-color);
+}
 .trending-header-para {
     color: var(--trending-para-color);
     line-height: 1.8;
@@ -47,4 +50,10 @@
     min-height: 2.6rem;
     overflow: hidden;
     word-break: break-word;
+}
+.line-clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }

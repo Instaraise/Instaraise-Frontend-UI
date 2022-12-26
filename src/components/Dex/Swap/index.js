@@ -1,9 +1,8 @@
 // eslint-disable-next-line
-import React, { useRef } from 'react';
+import React, { useRef, useReducer } from 'react';
 import { Fade } from '@mui/material';
 import Skeleton from '@mui/material/Skeleton';
 import BigNumber from 'bignumber.js';
-import { useReducer } from 'react';
 import {
     BiChevronDown,
     BiChevronUp,
@@ -11,10 +10,12 @@ import {
     BiRefresh,
 } from 'react-icons/bi';
 import { FaTools } from 'react-icons/fa';
+import AnalyticsGraph from './AnalyticsGraph';
 import { connect } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { AiOutlineClose } from 'react-icons/ai';
 
 import { useDebouncedCallback } from 'use-debounce';
 
@@ -43,6 +44,7 @@ import {
     checkValidTokenAddress,
     getTokenData,
 } from '../../../utils/getTokenData';
+
 const Swap_Dex = (props) => {
     const { theme } = React.useContext(ThemeContext);
     const notify = (errorMessage) => toast(errorMessage);
@@ -65,8 +67,7 @@ const Swap_Dex = (props) => {
                 return { ...state, stakeState: action.value };
             case 'modalstate':
                 return { ...state, modalState: action.value };
-            case 'analytics':
-                return { ...state, showAnalytics: !state.showAnalytics };
+
             case 'transfer':
                 return { ...state, transfer: action.value };
             case 'openstats':
@@ -85,7 +86,6 @@ const Swap_Dex = (props) => {
         swapLoader: false,
         stakeState: 'market',
         modalState: false,
-        showAnalytics: false,
         transfer: 'to',
         openStats: false,
         modalType: null,
@@ -94,7 +94,6 @@ const Swap_Dex = (props) => {
         loading,
         currencyType,
         slippage,
-        showAnalytics,
         stakeState,
         swapLoader,
         modalState,
@@ -484,13 +483,1881 @@ const Swap_Dex = (props) => {
                 pauseOnHover
             />
             <div className='container text-dark-to-light'>
-                <div className='row px-0 mt-5 d-flex justify-content-center'>
+                <div className='d-none d-lg-block'>
+                    <div className='row px-0 mt-5 d-flex justify-content-center'>
+                        {!props.showAnalytics ? (
+                            <div
+                                style={{
+                                    marginTop: '60px',
+                                    marginBottom: '30px',
+                                }}
+                                className='col-sm p-0 col-lg-4  mt-lg-0  d-flex justify-content-center  align-items-center mx-0 mx-lg-2'
+                            >
+                                <div className='dex p-2 token-information position-relative w-100 shadow-sm'>
+                                    <Fade
+                                        appear={true}
+                                        ref={ref}
+                                        in={isSettingsOpen}
+                                    >
+                                        <div
+                                            className='p-3 token-information border-l settings-icon'
+                                            onClick={() => {
+                                                setIsSettingsOpen(true);
+                                            }}
+                                            style={{
+                                                position: 'absolute',
+                                                top: '50px',
+                                                border: '1px solid #e6e6e6',
+                                                width: '280px',
+                                                right: '18px',
+                                                zIndex: '10',
+                                                borderRadius: '20px',
+                                            }}
+                                        >
+                                            <p className='text-sm fw-600 m-0 my-2 settings-icon'>
+                                                Transaction settings
+                                            </p>
+                                            <p className='text-12 m-0 d-flex settings-icon'>
+                                                Slippage tolerance
+                                                <div className=' ml-2 '>
+                                                    <VariableWidthToolTip text='Your transaction will revert if the price changes unfavorably by more than this percentage' />
+                                                </div>
+                                            </p>
+                                            <div className='d-flex justify-content-end align-items-center mb-1 mt-2'>
+                                                <div>
+                                                    <button
+                                                        onClick={() => {
+                                                            dispatch({
+                                                                type: 'slippage',
+                                                                value: 1,
+                                                            });
+                                                        }}
+                                                        className={`
+                                                             badge-button-selected
+                                                     py-1 fw-600 settings-icon text-12 me-2  my-1 shadow-none btn btn-sm`}
+                                                    >
+                                                        Auto
+                                                    </button>
+                                                </div>
+
+                                                <input
+                                                    onChange={handleSlippage}
+                                                    value={slippage}
+                                                    style={{
+                                                        width: '80%',
+                                                    }}
+                                                    className='settings-icon py-1 fw-600 text-12 me-2 badge-button my-1 shadow-none text-end border-10 '
+                                                    placeholder='Enter...'
+                                                />
+
+                                                <p className='settings-icon py-1 fw-600 text-12 me-2 my-1 shadow-none text-end border-10'>
+                                                    %
+                                                </p>
+                                            </div>{' '}
+                                            <div className='settings-icon d-flex justify-content-end align-items-center my-1'>
+                                                {[1, 2, 3].map(
+                                                    (item, index) => (
+                                                        <div key={index}>
+                                                            <button
+                                                                onClick={() => {
+                                                                    dispatch({
+                                                                        type: 'slippage',
+                                                                        value: item,
+                                                                    });
+                                                                }}
+                                                                className={`${
+                                                                    item ===
+                                                                    slippage
+                                                                        ? 'badge-button-selected'
+                                                                        : 'badge-button'
+                                                                } fw-600  settings-icon text-mini me-2  shadow-none border-10 btn btn-sm`}
+                                                            >
+                                                                {item}%
+                                                            </button>
+                                                        </div>
+                                                    )
+                                                )}
+                                            </div>{' '}
+                                            <p className='settings-icon text-sm fw-600 m-0 my-2'>
+                                                Interface settings
+                                            </p>
+                                            <div className='d-flex justify-content-between align-items-center'>
+                                                <p className='settings-icon text-12 m-0 d-flex align-items-center'>
+                                                    Analytics &nbsp;
+                                                    <VariableWidthToolTip text='Coming soon' />
+                                                </p>
+
+                                                <div className='d-flex align-items-center justify-content-start'>
+                                                    <div className='text-12 fw-bold'>
+                                                        <svg
+                                                            viewBox='0 0 23 22'
+                                                            color={
+                                                                !theme
+                                                                    ? '#fff'
+                                                                    : '#4e5d78'
+                                                            }
+                                                            width='20px'
+                                                            xmlns='http://www.w3.org/2000/svg'
+                                                            className='sc-bdvvtL EyabU'
+                                                        >
+                                                            <path
+                                                                d='M21.5 1l-20 20'
+                                                                strokeWidth='2'
+                                                                stroke={
+                                                                    !theme
+                                                                        ? '#fff'
+                                                                        : '#4e5d78'
+                                                                }
+                                                                strokeLinecap='round'
+                                                            ></path>
+                                                            <path
+                                                                fillRule='evenodd'
+                                                                clipRule='evenodd'
+                                                                fill={
+                                                                    !theme
+                                                                        ? '#fff'
+                                                                        : '#4e5d78'
+                                                                }
+                                                                d='M7.033 19H19.5a1 1 0 100-2H9.033l-2 2zm3-3H18.5a1 1 0 001-1V6.533l-2 2V14h-2v-3.467l-2 2V14h-1.467l-2 2zm.936-8H10.5a1 1 0 00-1 1v.469L10.969 8zm-2 2L5.5 13.469V11a1 1 0 011-1h2.469zM4.5 14.469l-2 2V6a1 1 0 012 0v8.469z'
+                                                            ></path>
+                                                        </svg>
+                                                    </div>
+                                                    <label className='switch mx-1 my-1'>
+                                                        <input
+                                                            type='checkbox'
+                                                            checked={
+                                                                props.showAnalytics
+                                                            }
+                                                            style={{
+                                                                cursor: 'not-allowed',
+                                                            }}
+                                                            onChange={(e) => {
+                                                                if (
+                                                                    e.target
+                                                                        .checked
+                                                                ) {
+                                                                    props.setShowAnalytics(
+                                                                        true
+                                                                    );
+                                                                } else {
+                                                                    props.setShowAnalytics(
+                                                                        false
+                                                                    );
+                                                                }
+                                                            }}
+                                                        />
+                                                        <span className='slider round settings-icon'></span>
+                                                    </label>
+                                                    <div className='text-12 fw-bold settings-icon'>
+                                                        <svg
+                                                            viewBox='0 0 24 24'
+                                                            width='24px'
+                                                            fill={
+                                                                !theme
+                                                                    ? '#fff'
+                                                                    : '#4e5d78'
+                                                            }
+                                                            color='textSubtle'
+                                                            xmlns='http://www.w3.org/2000/svg'
+                                                            className='sc-bdvvtL EyabU'
+                                                        >
+                                                            <path d='M5 7C5 6.44772 4.55228 6 4 6C3.44772 6 3 6.44772 3 7V18C3 19.1046 3.89543 20 5 20H20C20.5523 20 21 19.5523 21 19C21 18.4477 20.5523 18 20 18H5V7Z'></path>
+                                                            <path
+                                                                fillRule='evenodd'
+                                                                clipRule='evenodd'
+                                                                fill={
+                                                                    !theme
+                                                                        ? '#fff'
+                                                                        : '#4e5d78'
+                                                                }
+                                                                d='M19 17H7C6.44772 17 6 16.5523 6 16V12C6 11.4477 6.44772 11 7 11H10V10C10 9.44772 10.4477 9 11 9H14V7C14 6.44772 14.4477 6 15 6H19C19.5523 6 20 6.44772 20 7V16C20 16.5523 19.5523 17 19 17ZM16 8H18V15H16V8ZM12 15H14V11H12V15ZM10 13H8V15H10V13Z'
+                                                            ></path>
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </Fade>
+                                    <div className='d-flex align-items-center justify-content-between px-2'>
+                                        <div className='d-flex justify-content-start py-2 '>
+                                            <div className='p-1 cursor-pointer text-14'>
+                                                <span className='text-toggle-selected-2 text-16 me-2 fw-bold'>
+                                                    Market
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div
+                                            onClick={() => {
+                                                setIsSettingsOpen(
+                                                    !isSettingsOpen
+                                                );
+                                            }}
+                                            ref={ref}
+                                            className='settings-icon'
+                                        >
+                                            <FaTools
+                                                size={20}
+                                                className='settings-icon text-dark-to-light cursor-pointer material-icons'
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className='divider px-0'></div>
+                                    {stakeState === 'market' && (
+                                        <form
+                                            id='#market'
+                                            className='w-100'
+                                            onSubmit={(e) => {
+                                                e.preventDefault();
+                                                swapTokens();
+                                            }}
+                                        >
+                                            <div className='px-3 mt-3 d-flex justify-content-between align-items-center'>
+                                                <div>
+                                                    <div className='text-sm mb-2 fw-500'>
+                                                        You Pay
+                                                    </div>
+                                                    <div
+                                                        className='d-flex cursor-pointer cursor-pointer align-items-center'
+                                                        style={{
+                                                            width: '120px',
+                                                        }}
+                                                        onClick={() => {
+                                                            dispatch({
+                                                                type: 'transfer',
+                                                                value: 'from',
+                                                            });
+                                                            dispatch({
+                                                                type: 'modalstate',
+                                                                value: !modalState,
+                                                            });
+                                                        }}
+                                                    >
+                                                        <div>
+                                                            <img
+                                                                src={
+                                                                    selectedToken
+                                                                        .from
+                                                                        .TOKEN_LOGO
+                                                                }
+                                                                style={{
+                                                                    borderRadius:
+                                                                        '100%',
+                                                                }}
+                                                                width={35}
+                                                                height={35}
+                                                            />
+                                                        </div>
+                                                        <div className='ms-2'>
+                                                            {
+                                                                selectedToken
+                                                                    .from
+                                                                    .TOKEN_SYMBOL
+                                                            }
+                                                            <span>
+                                                                <BiChevronDown />
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className='w-80'>
+                                                    <div className='position-relative'>
+                                                        {limit ? (
+                                                            <div
+                                                                style={{
+                                                                    color: 'red',
+                                                                }}
+                                                                className='text-12 text-end mb-1'
+                                                            >
+                                                                Max Balance :{' '}
+                                                                {
+                                                                    props.tokenBalance
+                                                                }
+                                                            </div>
+                                                        ) : (
+                                                            <div className='text-12 text-end mb-1'>
+                                                                Balance :{' '}
+                                                                {
+                                                                    props.tokenBalance
+                                                                }
+                                                            </div>
+                                                        )}
+                                                        {loading ? (
+                                                            <label
+                                                                htmlFor='market_from'
+                                                                className='text-10 fw-600 position-absolute pe-3'
+                                                                style={{
+                                                                    right: '0px',
+                                                                    bottom: '8px',
+                                                                }}
+                                                            >
+                                                                <Skeleton
+                                                                    variant='rectangular'
+                                                                    style={{
+                                                                        borderRadius:
+                                                                            '20px',
+                                                                        backgroundColor:
+                                                                            !theme
+                                                                                ? '#15202B'
+                                                                                : 'none',
+                                                                    }}
+                                                                    width={100}
+                                                                    height={11}
+                                                                />
+                                                            </label>
+                                                        ) : (
+                                                            <label
+                                                                htmlFor='market_from'
+                                                                className='text-12 fw-600 position-absolute pe-3'
+                                                                style={{
+                                                                    right: '0px',
+
+                                                                    bottom: '0px',
+                                                                }}
+                                                            >
+                                                                {limit ? (
+                                                                    <span
+                                                                        className='fw-bold'
+                                                                        style={{
+                                                                            color: 'red',
+                                                                        }}
+                                                                    >
+                                                                        Insufficient{' '}
+                                                                        {
+                                                                            selectedToken
+                                                                                .from
+                                                                                .TOKEN_NAME
+                                                                        }
+                                                                    </span>
+                                                                ) : (
+                                                                    <>
+                                                                        {currencyType ===
+                                                                            'Coin' && (
+                                                                            <span
+                                                                                style={{
+                                                                                    fontSize: 12,
+                                                                                }}
+                                                                            >
+                                                                                ~$
+                                                                            </span>
+                                                                        )}
+                                                                        <span>
+                                                                            {props
+                                                                                .convert_pay_values_market
+                                                                                .data
+                                                                                .token1_price
+                                                                                ? props.convert_pay_values_market.data.token1_price.PrecisionMaker(
+                                                                                      4
+                                                                                  )
+                                                                                : props
+                                                                                      .convert_pay_values_market
+                                                                                      .data
+                                                                                      .token1_price}
+                                                                        </span>
+                                                                        &nbsp;
+                                                                        {currencyType ===
+                                                                            'USD' &&
+                                                                            `${selectedToken.from.TOKEN_SYMBOL}`}
+                                                                    </>
+                                                                )}
+                                                            </label>
+                                                        )}
+                                                        <input
+                                                            id='market_from'
+                                                            placeholder={`${
+                                                                currencyType ===
+                                                                'USD'
+                                                                    ? '~$0.00'
+                                                                    : '0'
+                                                            }`}
+                                                            style={{
+                                                                color: !theme
+                                                                    ? '#fff'
+                                                                    : '#4e5d78',
+                                                                border:
+                                                                    limit &&
+                                                                    '1px solid red',
+                                                                cursor: props.wallet
+                                                                    ? 'auto'
+                                                                    : 'not-allowed',
+                                                            }}
+                                                            type='number'
+                                                            onChange={(e) =>
+                                                                handleChange(
+                                                                    e.target
+                                                                        .value
+                                                                )
+                                                            }
+                                                            disabled={
+                                                                !props.wallet
+                                                            }
+                                                            value={`${props.handle_pay_values_market}`}
+                                                            className='token-information text-14 text-end input-bar pb-4 pt-2 px-3 border-20'
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                className='inner bg-f9 px-2 mb-1 mt-4'
+                                                style={{
+                                                    border: '0.2px solid #9e9e9e3d',
+                                                }}
+                                            >
+                                                <div
+                                                    className='spinner  cursor-pointer mx-auto rounded-circle d-flex align-items-center justify-content-center'
+                                                    style={{
+                                                        width: '32px',
+                                                        marginTop: '-15px',
+                                                    }}
+                                                    onClick={() =>
+                                                        changeValues()
+                                                    }
+                                                >
+                                                    <BiRefresh
+                                                        size={32}
+                                                        color={'#fff'}
+                                                        className='rotate'
+                                                    />
+                                                </div>
+                                                <div className='px-2 my-3 pb-2 d-flex justify-content-between align-items-center'>
+                                                    <div className=''>
+                                                        <div className='text-sm mb-2 fw-500'>
+                                                            You Receive
+                                                        </div>
+                                                        <div
+                                                            className='d-flex cursor-pointer align-items-center'
+                                                            style={{
+                                                                width: isFromSelected
+                                                                    ? '120px'
+                                                                    : '100%',
+                                                            }}
+                                                            onClick={() => {
+                                                                dispatch({
+                                                                    type: 'transfer',
+                                                                    value: 'to',
+                                                                });
+                                                                dispatch({
+                                                                    type: 'modalstate',
+                                                                    value: !modalState,
+                                                                });
+                                                            }}
+                                                        >
+                                                            {' '}
+                                                            <div>
+                                                                {isFromSelected && (
+                                                                    <img
+                                                                        src={
+                                                                            selectedToken
+                                                                                .to
+                                                                                .TOKEN_LOGO
+                                                                        }
+                                                                        style={{
+                                                                            borderRadius:
+                                                                                '100%',
+                                                                        }}
+                                                                        width={
+                                                                            35
+                                                                        }
+                                                                        height={
+                                                                            35
+                                                                        }
+                                                                    />
+                                                                )}
+                                                            </div>
+                                                            <div
+                                                                className={`${
+                                                                    isFromSelected
+                                                                        ? 'ms-2'
+                                                                        : 'my-2'
+                                                                }`}
+                                                            >
+                                                                {isFromSelected ? (
+                                                                    `${selectedToken.to.TOKEN_SYMBOL}`
+                                                                ) : (
+                                                                    <span className='text-16 fw-bold'>
+                                                                        Select
+                                                                        your
+                                                                        token
+                                                                    </span>
+                                                                )}
+                                                                <BiChevronDown />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {isFromSelected && (
+                                                        <div className='w-80'>
+                                                            <div className='mt-2 position-relative'>
+                                                                {loading ? (
+                                                                    <label
+                                                                        htmlFor='market_from'
+                                                                        className='text-10 fw-600 position-absolute pe-3'
+                                                                        style={{
+                                                                            right: '0px',
+                                                                            bottom: '0px',
+                                                                        }}
+                                                                    >
+                                                                        <Skeleton
+                                                                            variant='rectangular'
+                                                                            style={{
+                                                                                borderRadius:
+                                                                                    '20px',
+                                                                                backgroundColor:
+                                                                                    !theme
+                                                                                        ? '#15202B'
+                                                                                        : 'none',
+                                                                            }}
+                                                                            width={
+                                                                                60
+                                                                            }
+                                                                            height={
+                                                                                11
+                                                                            }
+                                                                        />
+                                                                    </label>
+                                                                ) : (
+                                                                    <label
+                                                                        htmlFor='market_from'
+                                                                        className='text-12 fw-600 position-absolute pe-3'
+                                                                        style={{
+                                                                            right: '0px',
+                                                                            bottom: '0px',
+                                                                        }}
+                                                                    >
+                                                                        {currencyType ===
+                                                                            'Coin' && (
+                                                                            <span
+                                                                                style={{
+                                                                                    fontSize: 12,
+                                                                                }}
+                                                                            >
+                                                                                ~$
+                                                                            </span>
+                                                                        )}
+                                                                        <span>
+                                                                            {props
+                                                                                .convert_pay_values_market
+                                                                                .data
+                                                                                .token2_price
+                                                                                ? props.convert_pay_values_market.data.token2_price.PrecisionMaker(
+                                                                                      4
+                                                                                  )
+                                                                                : props
+                                                                                      .convert_pay_values_market
+                                                                                      .data
+                                                                                      .token2_price}
+                                                                        </span>
+                                                                        &nbsp;
+                                                                        {currencyType ===
+                                                                            'USD' &&
+                                                                            `${selectedToken.to.TOKEN_SYMBOL}`}
+                                                                    </label>
+                                                                )}
+                                                                <div className='token-information text-sm  text-end input-bar pb-4 pt-2 px-3 border-20'>
+                                                                    {loading ? (
+                                                                        <div className='d-flex justify-content-end'>
+                                                                            <Skeleton
+                                                                                variant='rectangular'
+                                                                                style={{
+                                                                                    borderRadius:
+                                                                                        '20px',
+                                                                                    backgroundColor:
+                                                                                        !theme
+                                                                                            ? '#15202B'
+                                                                                            : 'none',
+                                                                                }}
+                                                                                width={
+                                                                                    100
+                                                                                }
+                                                                                height={
+                                                                                    16
+                                                                                }
+                                                                            />
+                                                                        </div>
+                                                                    ) : (
+                                                                        <input
+                                                                            id='market_from'
+                                                                            placeholder={`${
+                                                                                currencyType ===
+                                                                                'USD'
+                                                                                    ? '~$0.00'
+                                                                                    : '0'
+                                                                            }`}
+                                                                            style={{
+                                                                                color: !theme
+                                                                                    ? '#fff'
+                                                                                    : '#4e5d78',
+                                                                            }}
+                                                                            className='text-end w-100 text-14'
+                                                                            type='number'
+                                                                            disabled={
+                                                                                true
+                                                                            }
+                                                                            onChange={(
+                                                                                e
+                                                                            ) =>
+                                                                                handleChange(
+                                                                                    e
+                                                                                        .target
+                                                                                        .value
+                                                                                )
+                                                                            }
+                                                                            value={
+                                                                                currencyType ===
+                                                                                    'USD' ||
+                                                                                !props.handle_pay_values_market
+                                                                                    ? props
+                                                                                          .convert_pay_values_market
+                                                                                          .data
+                                                                                          .convertedValue
+                                                                                    : new BigNumber(
+                                                                                          props.convert_pay_values_market.data.convertedValue
+                                                                                      )
+                                                                                          .multipliedBy(
+                                                                                              1 -
+                                                                                                  new BigNumber(
+                                                                                                      DEX_FEE
+                                                                                                  ).dividedBy(
+                                                                                                      100
+                                                                                                  )
+                                                                                          )
+                                                                                          .toNumber()
+                                                                                          .PrecisionMaker(
+                                                                                              (8).toString()
+                                                                                          )
+                                                                            }
+                                                                        />
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    )}
+                                                </div>
+                                                {props.convert_pay_values_market
+                                                    .data.rate ? (
+                                                    <div className='w-100'>
+                                                        <div
+                                                            className='d-flex align-items-center justify-content-between cursor-pointer w-100   border-10 shadow-none mb-2 btn-sm  text-start'
+                                                            style={{
+                                                                paddingTop:
+                                                                    '5px',
+                                                                paddingBottom:
+                                                                    '5px',
+                                                            }}
+                                                        >
+                                                            <div className='d-flex align-items-center'>
+                                                                {' '}
+                                                                1{' '}
+                                                                {
+                                                                    selectedToken
+                                                                        .from
+                                                                        .TOKEN_SYMBOL
+                                                                }{' '}
+                                                                = &nbsp;
+                                                                {loading ? (
+                                                                    <Skeleton
+                                                                        variant='rectangular'
+                                                                        style={{
+                                                                            borderRadius:
+                                                                                '20px',
+                                                                            backgroundColor:
+                                                                                !theme
+                                                                                    ? '#15202B'
+                                                                                    : 'none',
+                                                                        }}
+                                                                        width={
+                                                                            60
+                                                                        }
+                                                                        height={
+                                                                            16
+                                                                        }
+                                                                    />
+                                                                ) : (
+                                                                    props.convert_pay_values_market.data.rate.PrecisionMaker(
+                                                                        4
+                                                                    )
+                                                                )}
+                                                                &nbsp;
+                                                                {
+                                                                    selectedToken
+                                                                        .to
+                                                                        .TOKEN_SYMBOL
+                                                                }
+                                                            </div>
+                                                            <div>
+                                                                {openStats ? (
+                                                                    <BiChevronUp
+                                                                        size={
+                                                                            25
+                                                                        }
+                                                                        onClick={() => {
+                                                                            dispatch(
+                                                                                {
+                                                                                    type: 'openstats',
+                                                                                    value: !openStats,
+                                                                                }
+                                                                            );
+                                                                        }}
+                                                                    />
+                                                                ) : (
+                                                                    <BiChevronDown
+                                                                        size={
+                                                                            25
+                                                                        }
+                                                                        onClick={() => {
+                                                                            dispatch(
+                                                                                {
+                                                                                    type: 'openstats',
+                                                                                    value: !openStats,
+                                                                                }
+                                                                            );
+                                                                        }}
+                                                                    />
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ) : null}
+                                                {openStats && (
+                                                    <Fade in={openStats}>
+                                                        <div className='text-12 my-2 rounded-lg py-1 border-20  px-2 d-flex align-items-center justify-content-between'>
+                                                            <div>
+                                                                <div className='d-flex'>
+                                                                    <div>
+                                                                        Minimum
+                                                                        received{' '}
+                                                                    </div>
+                                                                    <div className='ms-2'>
+                                                                        <VariableToolTip text='The minimum amount you are guaranteed to receive. if the price slips any further, your transaction will revert' />
+                                                                    </div>
+                                                                </div>
+                                                                <div className='mt-2 d-flex align-items-center justify-content-start'>
+                                                                    <div>
+                                                                        Price
+                                                                        impact
+                                                                    </div>{' '}
+                                                                    <div className='ms-2'>
+                                                                        <VariableToolTip text='The difference between the market price and estimated price due to trade size' />
+                                                                    </div>
+                                                                </div>
+                                                                <div className='mt-2 d-flex align-items-center justify-content-start'>
+                                                                    <div>
+                                                                        Fee
+                                                                    </div>{' '}
+                                                                    <div className='ms-2'>
+                                                                        <VariableToolTip text='A portion of each trade (0.05%) goes to liquidity providers as a protocol incentive' />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div>
+                                                                {loading ? (
+                                                                    <Skeleton
+                                                                        variant='rectangular'
+                                                                        style={{
+                                                                            borderRadius:
+                                                                                '20px',
+                                                                            backgroundColor:
+                                                                                !theme
+                                                                                    ? '#15202B'
+                                                                                    : 'none',
+                                                                        }}
+                                                                        width={
+                                                                            100
+                                                                        }
+                                                                        height={
+                                                                            11
+                                                                        }
+                                                                    />
+                                                                ) : (
+                                                                    <div className='text-end'>
+                                                                        {
+                                                                            minimumReceived
+                                                                        }
+                                                                    </div>
+                                                                )}
+                                                                {loading ? (
+                                                                    <div className='d-flex justify-content-end'>
+                                                                        <Skeleton
+                                                                            variant='rectangular'
+                                                                            className='text-end mt-2'
+                                                                            style={{
+                                                                                borderRadius:
+                                                                                    '20px',
+                                                                                backgroundColor:
+                                                                                    !theme
+                                                                                        ? '#15202B'
+                                                                                        : 'none',
+                                                                            }}
+                                                                            width={
+                                                                                50
+                                                                            }
+                                                                            height={
+                                                                                9
+                                                                            }
+                                                                        />
+                                                                    </div>
+                                                                ) : (
+                                                                    <div className='text-end mt-2'>
+                                                                        {
+                                                                            props.priceimpact
+                                                                        }
+                                                                        %
+                                                                    </div>
+                                                                )}
+                                                                <div className='text-end mt-2'>
+                                                                    {loading ? (
+                                                                        <Skeleton
+                                                                            variant='rectangular'
+                                                                            style={{
+                                                                                borderRadius:
+                                                                                    '20px',
+                                                                                backgroundColor:
+                                                                                    !theme
+                                                                                        ? '#15202B'
+                                                                                        : 'none',
+                                                                            }}
+                                                                            width={
+                                                                                100
+                                                                            }
+                                                                            height={
+                                                                                11
+                                                                            }
+                                                                        />
+                                                                    ) : (
+                                                                        <div>
+                                                                            {(
+                                                                                (parseInt(
+                                                                                    props.handle_pay_values_market
+                                                                                ) *
+                                                                                    DEX_FEE) /
+                                                                                100
+                                                                            ).PrecisionMaker(
+                                                                                5
+                                                                            )}
+                                                                            &nbsp;
+                                                                            {
+                                                                                selectedToken
+                                                                                    .to
+                                                                                    .TOKEN_SYMBOL
+                                                                            }
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </Fade>
+                                                )}
+                                                <div className='w-100'>
+                                                    {props.wallet &&
+                                                        !swapLoader && (
+                                                            <button
+                                                                type='submit'
+                                                                className='btn w-100  border-10 mb-2 shadow-none btn-sm button-primary trade-button'
+                                                                style={{
+                                                                    paddingTop:
+                                                                        '12px',
+                                                                    paddingBottom:
+                                                                        '12px',
+                                                                }}
+                                                            >
+                                                                {props.handle_pay_values_market
+                                                                    ? 'Swap'
+                                                                    : 'Enter amount'}
+                                                            </button>
+                                                        )}
+                                                    {swapLoader &&
+                                                        props.wallet && (
+                                                            <button
+                                                                type='button'
+                                                                className='btn w-100   border-10 mb-2 shadow-none  btn-sm button-primary trade-button'
+                                                                style={{
+                                                                    paddingTop:
+                                                                        '12px',
+                                                                    paddingBottom:
+                                                                        '12px',
+                                                                }}
+                                                            >
+                                                                <div className='rotate-2'>
+                                                                    <BiLoaderAlt
+                                                                        size={
+                                                                            20
+                                                                        }
+                                                                    />
+                                                                </div>
+                                                            </button>
+                                                        )}
+                                                    {!props.wallet && (
+                                                        <button
+                                                            type='button'
+                                                            onClick={() => {
+                                                                props.switchAddress(
+                                                                    {
+                                                                        NETWORK:
+                                                                            props.selectedNetwork,
+                                                                    }
+                                                                );
+                                                            }}
+                                                            className='btn w-100  border-10 mb-2 shadow-none  btn-sm button-primary trade-button'
+                                                            style={{
+                                                                paddingTop:
+                                                                    '12px',
+                                                                paddingBottom:
+                                                                    '12px',
+                                                            }}
+                                                        >
+                                                            Connect wallet
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </form>
+                                    )}
+                                </div>
+                            </div>
+                        ) : (
+                            <>
+                                <div className='col-sm col-md-7 col-lg-5 p-0 mt-lg-0  d-flex justify-content-center  align-items-center  mx-md-4 mx-lg-4'>
+                                    <AnalyticsGraph />
+                                </div>
+                                <div className='col-sm col-md-4 col-lg-4 p-0  mt-lg-0  d-flex justify-content-center  align-items-center mx-lg-4'>
+                                    <div className='dex p-2 token-information position-relative w-100 mb-5 shadow-sm'>
+                                        <Fade
+                                            appear={true}
+                                            ref={ref}
+                                            in={isSettingsOpen}
+                                        >
+                                            <div
+                                                className='p-3 token-information border-l settings-icon'
+                                                onClick={() => {
+                                                    setIsSettingsOpen(true);
+                                                }}
+                                                style={{
+                                                    position: 'absolute',
+                                                    top: '50px',
+                                                    border: '1px solid #e6e6e6',
+                                                    width: '280px',
+                                                    right: '18px',
+                                                    zIndex: '10',
+                                                    borderRadius: '20px',
+                                                }}
+                                            >
+                                                <p className='text-sm fw-600 m-0 my-2 settings-icon'>
+                                                    Transaction settings
+                                                </p>
+                                                <p className='text-12 m-0 d-flex settings-icon'>
+                                                    Slippage tolerance
+                                                    <div className=' ml-2 '>
+                                                        <VariableWidthToolTip text='Your transaction will revert if the price changes unfavorably by more than this percentage' />
+                                                    </div>
+                                                </p>
+                                                <div className='d-flex justify-content-end align-items-center mb-1 mt-2'>
+                                                    <div>
+                                                        <button
+                                                            onClick={() => {
+                                                                dispatch({
+                                                                    type: 'slippage',
+                                                                    value: 1,
+                                                                });
+                                                            }}
+                                                            className={`
+                                                             badge-button-selected
+                                                     py-1 fw-600 settings-icon text-12 me-2  my-1 shadow-none btn btn-sm`}
+                                                        >
+                                                            Auto
+                                                        </button>
+                                                    </div>
+
+                                                    <input
+                                                        onChange={
+                                                            handleSlippage
+                                                        }
+                                                        value={slippage}
+                                                        style={{
+                                                            width: '80%',
+                                                        }}
+                                                        className='settings-icon py-1 fw-600 text-12 me-2 badge-button my-1 shadow-none text-end border-10 '
+                                                        placeholder='Enter...'
+                                                    />
+
+                                                    <p className='settings-icon py-1 fw-600 text-12 me-2 my-1 shadow-none text-end border-10'>
+                                                        %
+                                                    </p>
+                                                </div>{' '}
+                                                <div className='settings-icon d-flex justify-content-end align-items-center my-1'>
+                                                    {[1, 2, 3].map(
+                                                        (item, index) => (
+                                                            <div key={index}>
+                                                                <button
+                                                                    onClick={() => {
+                                                                        dispatch(
+                                                                            {
+                                                                                type: 'slippage',
+                                                                                value: item,
+                                                                            }
+                                                                        );
+                                                                    }}
+                                                                    className={`${
+                                                                        item ===
+                                                                        slippage
+                                                                            ? 'badge-button-selected'
+                                                                            : 'badge-button'
+                                                                    } fw-600  settings-icon text-mini me-2  shadow-none border-10 btn btn-sm`}
+                                                                >
+                                                                    {item}%
+                                                                </button>
+                                                            </div>
+                                                        )
+                                                    )}
+                                                </div>{' '}
+                                                <p className='settings-icon text-sm fw-600 m-0 my-2'>
+                                                    Interface settings
+                                                </p>
+                                                <div className='d-flex justify-content-between align-items-center'>
+                                                    <p className='settings-icon text-12 m-0 d-flex align-items-center'>
+                                                        Analytics &nbsp;
+                                                    </p>
+
+                                                    <div className='d-flex align-items-center justify-content-start'>
+                                                        <div className='text-12 fw-bold'>
+                                                            <svg
+                                                                viewBox='0 0 23 22'
+                                                                color={
+                                                                    !theme
+                                                                        ? '#fff'
+                                                                        : '#4e5d78'
+                                                                }
+                                                                width='20px'
+                                                                xmlns='http://www.w3.org/2000/svg'
+                                                                className='sc-bdvvtL EyabU'
+                                                            >
+                                                                <path
+                                                                    d='M21.5 1l-20 20'
+                                                                    strokeWidth='2'
+                                                                    stroke={
+                                                                        !theme
+                                                                            ? '#fff'
+                                                                            : '#4e5d78'
+                                                                    }
+                                                                    strokeLinecap='round'
+                                                                ></path>
+                                                                <path
+                                                                    fillRule='evenodd'
+                                                                    clipRule='evenodd'
+                                                                    fill={
+                                                                        !theme
+                                                                            ? '#fff'
+                                                                            : '#4e5d78'
+                                                                    }
+                                                                    d='M7.033 19H19.5a1 1 0 100-2H9.033l-2 2zm3-3H18.5a1 1 0 001-1V6.533l-2 2V14h-2v-3.467l-2 2V14h-1.467l-2 2zm.936-8H10.5a1 1 0 00-1 1v.469L10.969 8zm-2 2L5.5 13.469V11a1 1 0 011-1h2.469zM4.5 14.469l-2 2V6a1 1 0 012 0v8.469z'
+                                                                ></path>
+                                                            </svg>
+                                                        </div>
+                                                        <label className='switch mx-1 my-1'>
+                                                            <input
+                                                                type='checkbox'
+                                                                checked={
+                                                                    props.showAnalytics
+                                                                }
+                                                                style={{
+                                                                    cursor: 'not-allowed',
+                                                                }}
+                                                                onChange={(
+                                                                    e
+                                                                ) => {
+                                                                    if (
+                                                                        e.target
+                                                                            .checked
+                                                                    ) {
+                                                                        props.setShowAnalytics(
+                                                                            true
+                                                                        );
+                                                                    } else {
+                                                                        props.setShowAnalytics(
+                                                                            false
+                                                                        );
+                                                                    }
+                                                                }}
+                                                            />
+                                                            <span className='slider round settings-icon'></span>
+                                                        </label>
+                                                        <div className='text-12 fw-bold settings-icon'>
+                                                            <svg
+                                                                viewBox='0 0 24 24'
+                                                                width='24px'
+                                                                fill={
+                                                                    !theme
+                                                                        ? '#fff'
+                                                                        : '#4e5d78'
+                                                                }
+                                                                color='textSubtle'
+                                                                xmlns='http://www.w3.org/2000/svg'
+                                                                className='sc-bdvvtL EyabU'
+                                                            >
+                                                                <path d='M5 7C5 6.44772 4.55228 6 4 6C3.44772 6 3 6.44772 3 7V18C3 19.1046 3.89543 20 5 20H20C20.5523 20 21 19.5523 21 19C21 18.4477 20.5523 18 20 18H5V7Z'></path>
+                                                                <path
+                                                                    fillRule='evenodd'
+                                                                    clipRule='evenodd'
+                                                                    fill={
+                                                                        !theme
+                                                                            ? '#fff'
+                                                                            : '#4e5d78'
+                                                                    }
+                                                                    d='M19 17H7C6.44772 17 6 16.5523 6 16V12C6 11.4477 6.44772 11 7 11H10V10C10 9.44772 10.4477 9 11 9H14V7C14 6.44772 14.4477 6 15 6H19C19.5523 6 20 6.44772 20 7V16C20 16.5523 19.5523 17 19 17ZM16 8H18V15H16V8ZM12 15H14V11H12V15ZM10 13H8V15H10V13Z'
+                                                                ></path>
+                                                            </svg>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </Fade>
+                                        <div className='d-flex align-items-center justify-content-between px-2'>
+                                            <div className='d-flex justify-content-start py-2 '>
+                                                <div className='p-1 cursor-pointer text-14'>
+                                                    <span className='text-toggle-selected-2 text-16 me-2 fw-bold'>
+                                                        Market
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div
+                                                onClick={() => {
+                                                    setIsSettingsOpen(
+                                                        !isSettingsOpen
+                                                    );
+                                                }}
+                                                ref={ref}
+                                                className='settings-icon'
+                                            >
+                                                <FaTools
+                                                    size={20}
+                                                    className='settings-icon text-dark-to-light cursor-pointer material-icons'
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className='divider px-0'></div>
+                                        {stakeState === 'market' && (
+                                            <form
+                                                id='#market'
+                                                className='w-100'
+                                                onSubmit={(e) => {
+                                                    e.preventDefault();
+                                                    swapTokens();
+                                                }}
+                                            >
+                                                <div className='px-3 mt-3 d-flex justify-content-between align-items-center'>
+                                                    <div>
+                                                        <div className='text-sm mb-2 fw-500'>
+                                                            You Pay
+                                                        </div>
+                                                        <div
+                                                            className='d-flex cursor-pointer cursor-pointer align-items-center'
+                                                            style={{
+                                                                width: '120px',
+                                                            }}
+                                                            onClick={() => {
+                                                                dispatch({
+                                                                    type: 'transfer',
+                                                                    value: 'from',
+                                                                });
+                                                                dispatch({
+                                                                    type: 'modalstate',
+                                                                    value: !modalState,
+                                                                });
+                                                            }}
+                                                        >
+                                                            <div>
+                                                                <img
+                                                                    src={
+                                                                        selectedToken
+                                                                            .from
+                                                                            .TOKEN_LOGO
+                                                                    }
+                                                                    style={{
+                                                                        borderRadius:
+                                                                            '100%',
+                                                                    }}
+                                                                    width={35}
+                                                                    height={35}
+                                                                />
+                                                            </div>
+                                                            <div className='ms-2'>
+                                                                {
+                                                                    selectedToken
+                                                                        .from
+                                                                        .TOKEN_SYMBOL
+                                                                }
+                                                                <span>
+                                                                    <BiChevronDown />
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className='w-80'>
+                                                        <div className='position-relative'>
+                                                            {limit ? (
+                                                                <div
+                                                                    style={{
+                                                                        color: 'red',
+                                                                    }}
+                                                                    className='text-12 text-end mb-1'
+                                                                >
+                                                                    Max Balance
+                                                                    :{' '}
+                                                                    {
+                                                                        props.tokenBalance
+                                                                    }
+                                                                </div>
+                                                            ) : (
+                                                                <div className='text-12 text-end mb-1'>
+                                                                    Balance :{' '}
+                                                                    {
+                                                                        props.tokenBalance
+                                                                    }
+                                                                </div>
+                                                            )}
+                                                            {loading ? (
+                                                                <label
+                                                                    htmlFor='market_from'
+                                                                    className='text-10 fw-600 position-absolute pe-3'
+                                                                    style={{
+                                                                        right: '0px',
+                                                                        bottom: '8px',
+                                                                    }}
+                                                                >
+                                                                    <Skeleton
+                                                                        variant='rectangular'
+                                                                        style={{
+                                                                            borderRadius:
+                                                                                '20px',
+                                                                            backgroundColor:
+                                                                                !theme
+                                                                                    ? '#15202B'
+                                                                                    : 'none',
+                                                                        }}
+                                                                        width={
+                                                                            100
+                                                                        }
+                                                                        height={
+                                                                            11
+                                                                        }
+                                                                    />
+                                                                </label>
+                                                            ) : (
+                                                                <label
+                                                                    htmlFor='market_from'
+                                                                    className='text-12 fw-600 position-absolute pe-3'
+                                                                    style={{
+                                                                        right: '0px',
+
+                                                                        bottom: '0px',
+                                                                    }}
+                                                                >
+                                                                    {limit ? (
+                                                                        <span
+                                                                            className='fw-bold'
+                                                                            style={{
+                                                                                color: 'red',
+                                                                            }}
+                                                                        >
+                                                                            Insufficient{' '}
+                                                                            {
+                                                                                selectedToken
+                                                                                    .from
+                                                                                    .TOKEN_NAME
+                                                                            }
+                                                                        </span>
+                                                                    ) : (
+                                                                        <>
+                                                                            {currencyType ===
+                                                                                'Coin' && (
+                                                                                <span
+                                                                                    style={{
+                                                                                        fontSize: 12,
+                                                                                    }}
+                                                                                >
+                                                                                    ~$
+                                                                                </span>
+                                                                            )}
+                                                                            <span>
+                                                                                {props
+                                                                                    .convert_pay_values_market
+                                                                                    .data
+                                                                                    .token1_price
+                                                                                    ? props.convert_pay_values_market.data.token1_price.PrecisionMaker(
+                                                                                          4
+                                                                                      )
+                                                                                    : props
+                                                                                          .convert_pay_values_market
+                                                                                          .data
+                                                                                          .token1_price}
+                                                                            </span>
+                                                                            &nbsp;
+                                                                            {currencyType ===
+                                                                                'USD' &&
+                                                                                `${selectedToken.from.TOKEN_SYMBOL}`}
+                                                                        </>
+                                                                    )}
+                                                                </label>
+                                                            )}
+                                                            <input
+                                                                id='market_from'
+                                                                placeholder={`${
+                                                                    currencyType ===
+                                                                    'USD'
+                                                                        ? '~$0.00'
+                                                                        : '0'
+                                                                }`}
+                                                                style={{
+                                                                    color: !theme
+                                                                        ? '#fff'
+                                                                        : '#4e5d78',
+                                                                    border:
+                                                                        limit &&
+                                                                        '1px solid red',
+                                                                    cursor: props.wallet
+                                                                        ? 'auto'
+                                                                        : 'not-allowed',
+                                                                }}
+                                                                type='number'
+                                                                onChange={(e) =>
+                                                                    handleChange(
+                                                                        e.target
+                                                                            .value
+                                                                    )
+                                                                }
+                                                                disabled={
+                                                                    !props.wallet
+                                                                }
+                                                                value={`${props.handle_pay_values_market}`}
+                                                                className='token-information text-14 text-end input-bar pb-4 pt-2 px-3 border-20'
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div
+                                                    className='inner bg-f9 px-2 mb-1 mt-4'
+                                                    style={{
+                                                        border: '0.2px solid #9e9e9e3d',
+                                                    }}
+                                                >
+                                                    <div
+                                                        className='spinner  cursor-pointer mx-auto rounded-circle d-flex align-items-center justify-content-center'
+                                                        style={{
+                                                            width: '32px',
+                                                            marginTop: '-15px',
+                                                        }}
+                                                        onClick={() =>
+                                                            changeValues()
+                                                        }
+                                                    >
+                                                        <BiRefresh
+                                                            size={32}
+                                                            color={'#fff'}
+                                                            className='rotate'
+                                                        />
+                                                    </div>
+                                                    <div className='px-2 my-3 pb-2 d-flex justify-content-between align-items-center'>
+                                                        <div className=''>
+                                                            <div className='text-sm mb-2 fw-500'>
+                                                                You Receive
+                                                            </div>
+                                                            <div
+                                                                className='d-flex cursor-pointer align-items-center'
+                                                                style={{
+                                                                    width: isFromSelected
+                                                                        ? '120px'
+                                                                        : '100%',
+                                                                }}
+                                                                onClick={() => {
+                                                                    dispatch({
+                                                                        type: 'transfer',
+                                                                        value: 'to',
+                                                                    });
+                                                                    dispatch({
+                                                                        type: 'modalstate',
+                                                                        value: !modalState,
+                                                                    });
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                <div>
+                                                                    {isFromSelected && (
+                                                                        <img
+                                                                            src={
+                                                                                selectedToken
+                                                                                    .to
+                                                                                    .TOKEN_LOGO
+                                                                            }
+                                                                            style={{
+                                                                                borderRadius:
+                                                                                    '100%',
+                                                                            }}
+                                                                            width={
+                                                                                35
+                                                                            }
+                                                                            height={
+                                                                                35
+                                                                            }
+                                                                        />
+                                                                    )}
+                                                                </div>
+                                                                <div
+                                                                    className={`${
+                                                                        isFromSelected
+                                                                            ? 'ms-2'
+                                                                            : 'my-2'
+                                                                    }`}
+                                                                >
+                                                                    {isFromSelected ? (
+                                                                        `${selectedToken.to.TOKEN_SYMBOL}`
+                                                                    ) : (
+                                                                        <span className='text-16 fw-bold'>
+                                                                            Select
+                                                                            your
+                                                                            token
+                                                                        </span>
+                                                                    )}
+                                                                    <BiChevronDown />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {isFromSelected && (
+                                                            <div className='w-80'>
+                                                                <div className='mt-2 position-relative'>
+                                                                    {loading ? (
+                                                                        <label
+                                                                            htmlFor='market_from'
+                                                                            className='text-10 fw-600 position-absolute pe-3'
+                                                                            style={{
+                                                                                right: '0px',
+                                                                                bottom: '0px',
+                                                                            }}
+                                                                        >
+                                                                            <Skeleton
+                                                                                variant='rectangular'
+                                                                                style={{
+                                                                                    borderRadius:
+                                                                                        '20px',
+                                                                                    backgroundColor:
+                                                                                        !theme
+                                                                                            ? '#15202B'
+                                                                                            : 'none',
+                                                                                }}
+                                                                                width={
+                                                                                    60
+                                                                                }
+                                                                                height={
+                                                                                    11
+                                                                                }
+                                                                            />
+                                                                        </label>
+                                                                    ) : (
+                                                                        <label
+                                                                            htmlFor='market_from'
+                                                                            className='text-12 fw-600 position-absolute pe-3'
+                                                                            style={{
+                                                                                right: '0px',
+                                                                                bottom: '0px',
+                                                                            }}
+                                                                        >
+                                                                            {currencyType ===
+                                                                                'Coin' && (
+                                                                                <span
+                                                                                    style={{
+                                                                                        fontSize: 12,
+                                                                                    }}
+                                                                                >
+                                                                                    ~$
+                                                                                </span>
+                                                                            )}
+                                                                            <span>
+                                                                                {props
+                                                                                    .convert_pay_values_market
+                                                                                    .data
+                                                                                    .token2_price
+                                                                                    ? props.convert_pay_values_market.data.token2_price.PrecisionMaker(
+                                                                                          4
+                                                                                      )
+                                                                                    : props
+                                                                                          .convert_pay_values_market
+                                                                                          .data
+                                                                                          .token2_price}
+                                                                            </span>
+                                                                            &nbsp;
+                                                                            {currencyType ===
+                                                                                'USD' &&
+                                                                                `${selectedToken.to.TOKEN_SYMBOL}`}
+                                                                        </label>
+                                                                    )}
+                                                                    <div className='token-information text-sm  text-end input-bar pb-4 pt-2 px-3 border-20'>
+                                                                        {loading ? (
+                                                                            <div className='d-flex justify-content-end'>
+                                                                                <Skeleton
+                                                                                    variant='rectangular'
+                                                                                    style={{
+                                                                                        borderRadius:
+                                                                                            '20px',
+                                                                                        backgroundColor:
+                                                                                            !theme
+                                                                                                ? '#15202B'
+                                                                                                : 'none',
+                                                                                    }}
+                                                                                    width={
+                                                                                        100
+                                                                                    }
+                                                                                    height={
+                                                                                        16
+                                                                                    }
+                                                                                />
+                                                                            </div>
+                                                                        ) : (
+                                                                            <input
+                                                                                id='market_from'
+                                                                                placeholder={`${
+                                                                                    currencyType ===
+                                                                                    'USD'
+                                                                                        ? '~$0.00'
+                                                                                        : '0'
+                                                                                }`}
+                                                                                style={{
+                                                                                    color: !theme
+                                                                                        ? '#fff'
+                                                                                        : '#4e5d78',
+                                                                                }}
+                                                                                className='text-end w-100 text-14'
+                                                                                type='number'
+                                                                                disabled={
+                                                                                    true
+                                                                                }
+                                                                                onChange={(
+                                                                                    e
+                                                                                ) =>
+                                                                                    handleChange(
+                                                                                        e
+                                                                                            .target
+                                                                                            .value
+                                                                                    )
+                                                                                }
+                                                                                value={
+                                                                                    currencyType ===
+                                                                                        'USD' ||
+                                                                                    !props.handle_pay_values_market
+                                                                                        ? props
+                                                                                              .convert_pay_values_market
+                                                                                              .data
+                                                                                              .convertedValue
+                                                                                        : new BigNumber(
+                                                                                              props.convert_pay_values_market.data.convertedValue
+                                                                                          )
+                                                                                              .multipliedBy(
+                                                                                                  1 -
+                                                                                                      new BigNumber(
+                                                                                                          DEX_FEE
+                                                                                                      ).dividedBy(
+                                                                                                          100
+                                                                                                      )
+                                                                                              )
+                                                                                              .toNumber()
+                                                                                              .PrecisionMaker(
+                                                                                                  (8).toString()
+                                                                                              )
+                                                                                }
+                                                                            />
+                                                                        )}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                    {props
+                                                        .convert_pay_values_market
+                                                        .data.rate ? (
+                                                        <div className='w-100'>
+                                                            <div
+                                                                className='d-flex align-items-center justify-content-between cursor-pointer w-100   border-10 shadow-none mb-2 btn-sm  text-start'
+                                                                style={{
+                                                                    paddingTop:
+                                                                        '5px',
+                                                                    paddingBottom:
+                                                                        '5px',
+                                                                }}
+                                                            >
+                                                                <div className='d-flex align-items-center'>
+                                                                    {' '}
+                                                                    1{' '}
+                                                                    {
+                                                                        selectedToken
+                                                                            .from
+                                                                            .TOKEN_SYMBOL
+                                                                    }{' '}
+                                                                    = &nbsp;
+                                                                    {loading ? (
+                                                                        <Skeleton
+                                                                            variant='rectangular'
+                                                                            style={{
+                                                                                borderRadius:
+                                                                                    '20px',
+                                                                                backgroundColor:
+                                                                                    !theme
+                                                                                        ? '#15202B'
+                                                                                        : 'none',
+                                                                            }}
+                                                                            width={
+                                                                                60
+                                                                            }
+                                                                            height={
+                                                                                16
+                                                                            }
+                                                                        />
+                                                                    ) : (
+                                                                        props.convert_pay_values_market.data.rate.PrecisionMaker(
+                                                                            4
+                                                                        )
+                                                                    )}
+                                                                    &nbsp;
+                                                                    {
+                                                                        selectedToken
+                                                                            .to
+                                                                            .TOKEN_SYMBOL
+                                                                    }
+                                                                </div>
+                                                                <div>
+                                                                    {openStats ? (
+                                                                        <BiChevronUp
+                                                                            size={
+                                                                                25
+                                                                            }
+                                                                            onClick={() => {
+                                                                                dispatch(
+                                                                                    {
+                                                                                        type: 'openstats',
+                                                                                        value: !openStats,
+                                                                                    }
+                                                                                );
+                                                                            }}
+                                                                        />
+                                                                    ) : (
+                                                                        <BiChevronDown
+                                                                            size={
+                                                                                25
+                                                                            }
+                                                                            onClick={() => {
+                                                                                dispatch(
+                                                                                    {
+                                                                                        type: 'openstats',
+                                                                                        value: !openStats,
+                                                                                    }
+                                                                                );
+                                                                            }}
+                                                                        />
+                                                                    )}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    ) : null}
+                                                    {openStats && (
+                                                        <Fade in={openStats}>
+                                                            <div className='text-12 my-2 rounded-lg py-1 border-20  px-2 d-flex align-items-center justify-content-between'>
+                                                                <div>
+                                                                    <div className='d-flex'>
+                                                                        <div>
+                                                                            Minimum
+                                                                            received{' '}
+                                                                        </div>
+                                                                        <div className='ms-2'>
+                                                                            <VariableToolTip text='The minimum amount you are guaranteed to receive. if the price slips any further, your transaction will revert' />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className='mt-2 d-flex align-items-center justify-content-start'>
+                                                                        <div>
+                                                                            Price
+                                                                            impact
+                                                                        </div>{' '}
+                                                                        <div className='ms-2'>
+                                                                            <VariableToolTip text='The difference between the market price and estimated price due to trade size' />
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className='mt-2 d-flex align-items-center justify-content-start'>
+                                                                        <div>
+                                                                            Fee
+                                                                        </div>{' '}
+                                                                        <div className='ms-2'>
+                                                                            <VariableToolTip text='A portion of each trade (0.05%) goes to liquidity providers as a protocol incentive' />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    {loading ? (
+                                                                        <Skeleton
+                                                                            variant='rectangular'
+                                                                            style={{
+                                                                                borderRadius:
+                                                                                    '20px',
+                                                                                backgroundColor:
+                                                                                    !theme
+                                                                                        ? '#15202B'
+                                                                                        : 'none',
+                                                                            }}
+                                                                            width={
+                                                                                100
+                                                                            }
+                                                                            height={
+                                                                                11
+                                                                            }
+                                                                        />
+                                                                    ) : (
+                                                                        <div className='text-end'>
+                                                                            {
+                                                                                minimumReceived
+                                                                            }
+                                                                        </div>
+                                                                    )}
+                                                                    {loading ? (
+                                                                        <div className='d-flex justify-content-end'>
+                                                                            <Skeleton
+                                                                                variant='rectangular'
+                                                                                className='text-end mt-2'
+                                                                                style={{
+                                                                                    borderRadius:
+                                                                                        '20px',
+                                                                                    backgroundColor:
+                                                                                        !theme
+                                                                                            ? '#15202B'
+                                                                                            : 'none',
+                                                                                }}
+                                                                                width={
+                                                                                    50
+                                                                                }
+                                                                                height={
+                                                                                    9
+                                                                                }
+                                                                            />
+                                                                        </div>
+                                                                    ) : (
+                                                                        <div className='text-end mt-2'>
+                                                                            {
+                                                                                props.priceimpact
+                                                                            }
+                                                                            %
+                                                                        </div>
+                                                                    )}
+                                                                    <div className='text-end mt-2'>
+                                                                        {loading ? (
+                                                                            <Skeleton
+                                                                                variant='rectangular'
+                                                                                style={{
+                                                                                    borderRadius:
+                                                                                        '20px',
+                                                                                    backgroundColor:
+                                                                                        !theme
+                                                                                            ? '#15202B'
+                                                                                            : 'none',
+                                                                                }}
+                                                                                width={
+                                                                                    100
+                                                                                }
+                                                                                height={
+                                                                                    11
+                                                                                }
+                                                                            />
+                                                                        ) : (
+                                                                            <div>
+                                                                                {(
+                                                                                    (parseInt(
+                                                                                        props.handle_pay_values_market
+                                                                                    ) *
+                                                                                        DEX_FEE) /
+                                                                                    100
+                                                                                ).PrecisionMaker(
+                                                                                    5
+                                                                                )}
+                                                                                &nbsp;
+                                                                                {
+                                                                                    selectedToken
+                                                                                        .to
+                                                                                        .TOKEN_SYMBOL
+                                                                                }
+                                                                            </div>
+                                                                        )}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </Fade>
+                                                    )}
+                                                    <div className='w-100'>
+                                                        {props.wallet &&
+                                                            !swapLoader && (
+                                                                <button
+                                                                    type='submit'
+                                                                    className='btn w-100  border-10 mb-2 shadow-none btn-sm button-primary trade-button'
+                                                                    style={{
+                                                                        paddingTop:
+                                                                            '12px',
+                                                                        paddingBottom:
+                                                                            '12px',
+                                                                    }}
+                                                                >
+                                                                    {props.handle_pay_values_market
+                                                                        ? 'Swap'
+                                                                        : 'Enter amount'}
+                                                                </button>
+                                                            )}
+                                                        {swapLoader &&
+                                                            props.wallet && (
+                                                                <button
+                                                                    type='button'
+                                                                    className='btn w-100   border-10 mb-2 shadow-none  btn-sm button-primary trade-button'
+                                                                    style={{
+                                                                        paddingTop:
+                                                                            '12px',
+                                                                        paddingBottom:
+                                                                            '12px',
+                                                                    }}
+                                                                >
+                                                                    <div className='rotate-2'>
+                                                                        <BiLoaderAlt
+                                                                            size={
+                                                                                20
+                                                                            }
+                                                                        />
+                                                                    </div>
+                                                                </button>
+                                                            )}
+                                                        {!props.wallet && (
+                                                            <button
+                                                                type='button'
+                                                                onClick={() => {
+                                                                    props.switchAddress(
+                                                                        {
+                                                                            NETWORK:
+                                                                                props.selectedNetwork,
+                                                                        }
+                                                                    );
+                                                                }}
+                                                                className='btn w-100  border-10 mb-2 shadow-none  btn-sm button-primary trade-button'
+                                                                style={{
+                                                                    paddingTop:
+                                                                        '12px',
+                                                                    paddingBottom:
+                                                                        '12px',
+                                                                }}
+                                                            >
+                                                                Connect wallet
+                                                            </button>
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        )}
+                                    </div>
+                                </div>
+                            </>
+                        )}
+                    </div>
+                </div>
+                <div className='d-lg-none'>
                     <div
                         style={{
                             marginTop: '60px',
                             marginBottom: '30px',
                         }}
-                        className='col-sm p-0 col-lg-4  mt-lg-0  d-flex justify-content-center  align-items-center mx-0 mx-lg-2'
                     >
                         <div className='dex p-2 token-information position-relative w-100 shadow-sm'>
                             <Fade appear={true} ref={ref} in={isSettingsOpen}>
@@ -614,29 +2481,28 @@ const Swap_Dex = (props) => {
                                                     ></path>
                                                 </svg>
                                             </div>
-                                            <label className='switch mx-1'>
+                                            <label className='switch mx-1 my-1'>
                                                 <input
                                                     type='checkbox'
-                                                    checked={showAnalytics}
-                                                    disabled={true}
+                                                    checked={
+                                                        props.showAnalytics
+                                                    }
                                                     style={{
                                                         cursor: 'not-allowed',
                                                     }}
                                                     onChange={(e) => {
                                                         if (e.target.checked) {
-                                                            dispatch({
-                                                                type: 'analytics',
-                                                                value: true,
-                                                            });
+                                                            props.setShowAnalytics(
+                                                                true
+                                                            );
                                                         } else {
-                                                            dispatch({
-                                                                type: 'analytics',
-                                                                value: false,
-                                                            });
+                                                            props.setShowAnalytics(
+                                                                false
+                                                            );
                                                         }
                                                     }}
                                                 />
-                                                <span className='slider round'></span>
+                                                <span className='slider round settings-icon'></span>
                                             </label>
                                             <div className='text-12 fw-bold settings-icon'>
                                                 <svg
@@ -685,7 +2551,7 @@ const Swap_Dex = (props) => {
                                 >
                                     <FaTools
                                         size={20}
-                                        className='text-dark-to-light cursor-pointer material-icons'
+                                        className='settings-icon text-dark-to-light cursor-pointer material-icons'
                                     />
                                 </div>
                             </div>
@@ -1335,6 +3201,20 @@ const Swap_Dex = (props) => {
                             )}
                         </div>
                     </div>
+                    {props.showAnalytics ? (
+                        <div className='popup-modal shadow-sm mt-3'>
+                            <button
+                                className='popup-close-btn'
+                                onClick={() => {
+                                    props.setShowAnalytics(false);
+                                }}
+                            >
+                                <AiOutlineClose size={20} />
+                            </button>
+
+                            <AnalyticsGraph />
+                        </div>
+                    ) : null}
                 </div>
             </div>
         </>

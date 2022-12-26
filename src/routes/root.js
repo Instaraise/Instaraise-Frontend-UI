@@ -18,6 +18,14 @@ import Privacy from '../container/privacy';
 import Terms from '../container/terms';
 import useLocalStorage from '../hooks/useLocalStorage';
 
+const getLocalData = () => {
+    let selected = localStorage.getItem('selectedAnalytics');
+    if (selected) {
+        return JSON.parse(localStorage.getItem('selectedAnalytics'));
+    } else {
+        return '';
+    }
+};
 const Root = () => {
     const [theme, setTheme] = useLocalStorage();
     const themeclass = theme ? 'light' : 'dark';
@@ -25,6 +33,13 @@ const Root = () => {
     const handleThemeChange = () => {
         setTheme();
     };
+    const [showAnalytics, setShowAnalytics] = React.useState(getLocalData());
+    React.useEffect(() => {
+        localStorage.setItem(
+            'selectedAnalytics',
+            JSON.stringify(showAnalytics)
+        );
+    }, [showAnalytics]);
     console.log(
         '%cInstaraise',
         'color: #7111e2; font-family: sans-serif; font-size: 4.5em; font-weight: bolder; text-shadow: #000 1px 1px;'
@@ -49,7 +64,15 @@ const Root = () => {
                         />
                         <Route path='/farms' element={<Farms flag={!flag} />} />
                         <Route path='/dex/trade' element={<Trade />} />
-                        <Route path='/dex/swap' element={<Swap />} />
+                        <Route
+                            path='/dex/swap'
+                            element={
+                                <Swap
+                                    showAnalytics={showAnalytics}
+                                    setShowAnalytics={setShowAnalytics}
+                                />
+                            }
+                        />
                         <Route
                             path='/dex/liquidity'
                             element={<LiquidityLayout />}

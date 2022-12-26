@@ -12,10 +12,14 @@ import {
 } from 'recharts';
 
 import Burned from '../../assets/images/burned.svg';
+import BurnedDark from '../../assets/images/burned_dark.svg';
 import Price from '../../assets/images/Icon.svg';
 import MarketCap from '../../assets/images/market.svg';
+import MarketCap_dark from '../../assets/images/market_dark.svg';
 import supply from '../../assets/images/supply.svg';
+import supplyDark from '../../assets/images/supply_dark.svg';
 import tvl from '../../assets/images/TVL.svg';
+import tvl_dark from '../../assets/images/TVL_dark.svg';
 import DashboardLayout from '../../components/dashboard/Layout';
 import { DEX_DATA_REFRESH_TIME } from '../../config/config';
 import { LAUNCHPAD_SERVICES_DATA } from '../../config/HomeConfig/ServicesConfig/config.services';
@@ -101,7 +105,11 @@ const Dashboard = (props) => {
                                     <div className='m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex'>
                                         <div className='mr-2 mt-4'>
                                             <img
-                                                src={MarketCap}
+                                                src={
+                                                    theme
+                                                        ? MarketCap
+                                                        : MarketCap_dark
+                                                }
                                                 alt='insta-stas-img-logos'
                                                 width='20'
                                                 height='20'
@@ -124,7 +132,9 @@ const Dashboard = (props) => {
                                     <div className='m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex'>
                                         <div className='mr-2 mt-4'>
                                             <img
-                                                src={supply}
+                                                src={
+                                                    theme ? supply : supplyDark
+                                                }
                                                 alt='insta-stas-img-logos'
                                                 width='20'
                                                 height='20'
@@ -144,7 +154,9 @@ const Dashboard = (props) => {
                                     <div className='m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex'>
                                         <div className='mr-2 mt-4'>
                                             <img
-                                                src={Burned}
+                                                src={
+                                                    theme ? Burned : BurnedDark
+                                                }
                                                 alt='insta-stas-img-logos'
                                                 width='20'
                                                 height='20'
@@ -163,7 +175,7 @@ const Dashboard = (props) => {
                                     <div className='m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex'>
                                         <div className='mr-2 mt-4'>
                                             <img
-                                                src={tvl}
+                                                src={theme ? tvl : tvl_dark}
                                                 alt='insta-stas-img-logos'
                                                 width='20'
                                                 height='20'
@@ -178,7 +190,7 @@ const Dashboard = (props) => {
                                                     </NumericLabel>
                                                 </span>
                                             </p>
-                                            <p className='statsNames'>TVL</p>
+                                            <p className='statsNames'>TVP</p>
                                         </div>
                                     </div>
                                 </div>
@@ -298,6 +310,7 @@ const Dashboard = (props) => {
                                             const x = new Date(
                                                 value
                                             ).getHours();
+
                                             const y = new Date(value).getDate();
                                             if (noofDays === 1) {
                                                 return `${x}`;
@@ -395,7 +408,7 @@ const Dashboard = (props) => {
                     <div className='card_i shadow-sm h-100'>
                         <div className='row h-100 '>
                             <div className='col-md-12'>
-                                <div className='token-information d-flex p-3 border-10'>
+                                <div className='d-flex p-3 border-10'>
                                     <div>
                                         <h6 className='text-insta-regular lh-sm font-weight-bold'>
                                             Our Services
@@ -410,11 +423,15 @@ const Dashboard = (props) => {
                             </div>
                             {LAUNCHPAD_SERVICES_DATA.map((elem, index) => (
                                 <div key={index} className='col-md-12'>
-                                    <div className='token-information border-10'>
+                                    <div className='border-10'>
                                         <div className='d-flex pt-2'>
                                             <img
                                                 className='ml-md-3'
-                                                src={elem.image}
+                                                src={
+                                                    theme
+                                                        ? elem.image
+                                                        : elem.image_dark
+                                                }
                                                 alt='Services-card'
                                                 width='40'
                                                 height='40'
