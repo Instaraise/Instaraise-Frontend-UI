@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 
 import Header from '../Header';
 import upRight from '../../../assets/images/arrow-up-right.svg';
+import upRight_dark from '../../../assets/images/arrow-up-right_light.svg';
 import { DESC_DATA } from '../../../config/HomeConfig/BodyConfig/config.body';
 import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
-
+import { ThemeContext } from '../../../routes/root';
 const Body = () => {
+    const { theme } = React.useContext(ThemeContext);
     var HomePageDesElem = (
         <>
             {DESC_DATA.map((elem, index) => (
@@ -33,7 +35,11 @@ const Body = () => {
             >
                 <span className='font-insta-regular'>
                     Launch app
-                    <img className='ml-1' src={upRight} alt='upright-img' />
+                    <img
+                        className='ml-1'
+                        src={theme ? upRight : upRight_dark}
+                        alt='upright-img'
+                    />
                 </span>
             </Link>
         </>
@@ -63,7 +69,11 @@ const Body = () => {
             >
                 <span className='font-insta-regular'>
                     Launch app
-                    <img className='ml-1' src={upRight} alt='upright-img' />
+                    <img
+                        className='ml-1'
+                        src={theme ? upRight : upRight_dark}
+                        alt='upright-img'
+                    />
                 </span>
             </Link>
         </>

@@ -15,6 +15,7 @@ import launchpad from '../../../assets/images/launchpad.svg';
 import launchpad_dark from '../../../assets/images/launchpad_dark.svg';
 import pool from '../../../assets/images/pool.svg';
 import pool_dark from '../../../assets/images/pool_dark.svg';
+import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
 import { ThemeContext } from '../../../routes/root';
 const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
     const { theme } = React.useContext(ThemeContext);
@@ -37,7 +38,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                 </NavLink>
             </div>
             <div className='sidebar-content shadow-sm'>
-                <ul className='nav nav-pills flex-column p-4'>
+                <ul className='nav nav-pills flex-column p-4 h-90'>
                     <li className='nav-item justify-content-center pt-2'>
                         <NavLink
                             to='/dashboard'
@@ -93,10 +94,10 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                 id='collapseOne'
                                 className={`accordion-collapse collapse ${
                                     [
+                                        'IDO',
                                         'create-crowdsale',
                                         'staking',
                                         'tiers',
-                                        'faq',
                                     ].includes(
                                         window.location.pathname.split('/')[2]
                                     )
@@ -116,6 +117,17 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                             }}
                                         >
                                             <NavLink
+                                                to='/launchpad/IDO'
+                                                className='ms-2 mb-1 text-sm-2 nav-link sidebar-links d-flex '
+                                                aria-current='page'
+                                            >
+                                                <div className=''>
+                                                    <div className='transition-class'>
+                                                        IDO
+                                                    </div>
+                                                </div>
+                                            </NavLink>
+                                            <NavLink
                                                 to='/launchpad/create-crowdsale'
                                                 className='ms-2  text-sm-2 nav-link sidebar-links d-flex '
                                                 aria-current='page'
@@ -126,7 +138,8 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                     </div>
                                                 </div>
                                             </NavLink>
-                                            <a
+                                            <NavLink
+                                                to='/launchpad/staking'
                                                 className=' ms-2  mt-1  text-sm-2 nav-link sidebar-links d-flex '
                                                 aria-current='page'
                                             >
@@ -135,7 +148,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                         Staking
                                                     </div>
                                                 </div>
-                                            </a>
+                                            </NavLink>
                                             <a
                                                 className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
                                                 aria-current='page'
@@ -143,16 +156,6 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                 <div className=''>
                                                     <div className='transition-class'>
                                                         Tiers
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a
-                                                className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
-                                                aria-current='page'
-                                            >
-                                                <div className=''>
-                                                    <div className='transition-class'>
-                                                        FAQ
                                                     </div>
                                                 </div>
                                             </a>
@@ -215,10 +218,10 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                 id='collapseTwo'
                                 className={`accordion-collapse  bg-transparent ${
                                     [
+                                        'IDO',
                                         'create-crowdsale',
                                         'staking',
                                         'tiers',
-                                        'faq',
                                     ].includes(
                                         window.location.pathname.split('/')[2]
                                     )
@@ -334,6 +337,35 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         </li>
                     </div>
                 </ul>
+                <div
+                    className='ms-3 d-flex align-items-end pl-5 py-2'
+                    style={{ height: '8%' }}
+                >
+                    {SOCIALS_DATA.map((elem, index) => (
+                        <React.Fragment key={index}>
+                            <Link
+                                className='ms-3'
+                                to='/'
+                                target='_blank'
+                                onClick={() =>
+                                    window.open(
+                                        elem.footer_social_link,
+                                        '_blank'
+                                    )
+                                }
+                            >
+                                <img
+                                    className={
+                                        theme ? 'sidebar-filter-socials' : null
+                                    }
+                                    src={elem.footer_social_img}
+                                    alt='social-img'
+                                />
+                            </Link>
+                            <br />
+                        </React.Fragment>
+                    ))}
+                </div>
             </div>
         </div>
     );

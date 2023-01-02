@@ -15,6 +15,10 @@
         #8b2be2 107.11%
     );
     --project-text-color: #4e5d78;
+    --project-text-color-2: #fff;
+    --stepper-button-color: #4e5d78;
+    --project-card-background: linear-gradient(180deg, #5e0ee2, #5e0ee2);
+    // --project-card-background: linear-gradient(107.8deg,#000 9.32%,#000 114.21%);
     --dashboard-header-color: #fff;
     --spinner-bg-color: #4e5d78;
     --button-dashboard-background-color: linear-gradient(
@@ -22,6 +26,7 @@
         #5e0ee2,
         #5e0ee2
     );
+    --secondary-font-color: #4e5d78;
     --text-gradient-v: linear-gradient(0, #5e0ee2, #5e0ee2 0);
     --hover-class-dex: #f4f6f9;
     --navbar-svg-color: #4e5d78;
@@ -42,4 +47,5 @@
     --trending-background: #fff;
     --trending-font-color: #4e5d78;
     --trending-para-color: #607d8b;
+    --stepper-background-color: hsla(0, 0%, 80%, 0.8);
 }

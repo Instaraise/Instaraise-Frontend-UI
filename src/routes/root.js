@@ -14,6 +14,9 @@ import Trade from '../container/Dex/tokens';
 import Farms from '../container/Farms/farms';
 import HomeContainer from '../container/home';
 import CrowdSale from '../container/Launchpad/crowdsale';
+import Ido from '../container/Launchpad/Ido';
+import IdoProjects from '../container/Launchpad/IdoProjects';
+import Staking from '../container/Launchpad/Staking';
 import Privacy from '../container/privacy';
 import Terms from '../container/terms';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -59,9 +62,23 @@ const Root = () => {
                             element={<Dashbaord flag={!flag} />}
                         />
                         <Route
+                            exact
+                            path='/launchpad/IDO/:name'
+                            element={<IdoProjects flag={!flag} />}
+                        />
+                        <Route
+                            path='/launchpad/IDO'
+                            element={<Ido flag={!flag} />}
+                        />
+
+                        <Route
                             path='/launchpad/create-crowdsale'
                             element={<CrowdSale flag={!flag} />}
                         />
+                        <Route
+                            path='/launchpad/staking'
+                            element={<Staking flag={!flag} />}
+                        ></Route>
                         <Route path='/farms' element={<Farms flag={!flag} />} />
                         <Route path='/dex/trade' element={<Trade />} />
                         <Route

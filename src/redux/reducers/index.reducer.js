@@ -21,6 +21,10 @@ import {
     setStakedToken,
     tokenBalance,
 } from './dex/liquidity.reducer';
+import {
+    fetchSaleData,
+    participateInSaleData,
+} from './projects/projects.reducer';
 //farms
 import {
     fetchFarmDetails,
@@ -30,6 +34,16 @@ import {
     stakeInstaFarms,
     unstakeInstaFarms,
 } from './farms/farms.reducer';
+//staking
+import {
+    claimInstaRewards,
+    fetchBalanceDetails,
+    getHarvestValue,
+    stakeInsta,
+    stakingDetails,
+    unstakeInsta,
+} from './staking/staking.reducer';
+import { KYC_PROCESS, stepperData } from './common/common.reducer';
 import { priceGraph, selectedNoDays } from './graph.reducer';
 import { fetchAllTrendingNews } from './news.reducer';
 import { tokenInfo } from './stats.reducer';
@@ -46,6 +60,7 @@ const rootReducer = combineReducers({
     liquidityPair: setLiquidityPoolPair,
     handle_staked_amount_pools: handle_pay_values_pools,
     convert_staked_amount_pool: convert_pay_values_pools,
+    kycProcess: KYC_PROCESS,
     stakedPair: setStakedToken,
     selectedToken: selectedTokenDex,
     handle_pay_values_market: handle_pay_values,
@@ -63,6 +78,18 @@ const rootReducer = combineReducers({
     fetchUserBalance: fetchUserBalance,
     stakeInstaFarms: stakeInstaFarms,
     unstakeInstaFarms: unstakeInstaFarms,
+    //Stepper
+    getSteps: stepperData,
+    // project API
+    fetchSaleData: fetchSaleData,
+    participateInSaleData: participateInSaleData,
+    //staking
+    unstakeInsta: unstakeInsta,
+    stakeInsta: stakeInsta,
+    getHarvestValue: getHarvestValue,
+    fetchBalanceDetails: fetchBalanceDetails,
+    stakingDetails: stakingDetails,
+    claimInstaRewards: claimInstaRewards,
 });
 
 export default rootReducer;

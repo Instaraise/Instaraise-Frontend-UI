@@ -15,6 +15,9 @@ export const RPC_NODES = {
     testnet: CONTRACT_CONFIG[testnetNetwork].RPC,
     mainnet: 'https://mainnet.smartpy.io',
 };
+export const WHITELISTING_API_URL =
+    'https://okszprsix3.execute-api.us-east-2.amazonaws.com/v1/launchpad?';
+export const ENROLL_USER_API_URL = `https://a6m9yseuzl.execute-api.us-east-2.amazonaws.com`;
 export const TZKT_NODES = {
     mainnet: 'https://api.tzkt.io',
     testnet: CONTRACT_CONFIG[testnetNetwork].TZKT_NODE,

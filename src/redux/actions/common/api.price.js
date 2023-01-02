@@ -1,0 +1,68 @@
+import { BeaconWallet } from '@taquito/beacon-wallet';
+import axios from 'axios';
+
+import { NAME, WHITELISTING_API_URL } from '../../../config/config';
+export const kycProcessAPI = async (args) => {
+    try {
+        const { projectName } = args;
+        // const response = await axios.get(
+        //     `${WHITELISTING_API_URL}userAddress=tz1Kov5QTgC5hya8zA51ThkAcQXAJ9xCNW3U&projectName=aqarchain`
+        // );
+        const options = {
+            name: NAME,
+        };
+        const wallet = new BeaconWallet(options);
+        let account = await wallet.client.getActiveAccount();
+
+        const response = await axios.get(
+            `${WHITELISTING_API_URL}userAddress=${account.address}&projectName=${projectName}`
+        );
+
+        if (response.data.success) {
+            let isWhitelisted = response.data.IS_KYC_DONE;
+            let hasStaked = response.data.INSTA_STAKE.status;
+            let isErolled = response.data.INSTA_ENROLL.enrolled;
+
+            let currentStep = 1;
+
+            if (isWhitelisted && !hasStaked && !isErolled) {
+                currentStep = 2;
+            }
+            if (isWhitelisted && hasStaked) {
+                currentStep = 3;
+            }
+            if (isWhitelisted && hasStaked && isErolled) {
+                currentStep = 4;
+            }
+            return {
+                success: true,
+                data: {
+                    isWhitelisted: isWhitelisted,
+                    hasStaked: hasStaked,
+                    isEnrolled: isErolled,
+                    currentStep: currentStep,
+                },
+            };
+        } else {
+            return {
+                success: false,
+                data: {
+                    isWhitelisted: false,
+                    hasStaked: false,
+                    isEnrolled: false,
+                    currentStep: 1,
+                },
+            };
+        }
+    } catch (error) {
+        return {
+            success: false,
+            data: {
+                isWhitelisted: false,
+                hasStaked: false,
+                isEnrolled: false,
+                currentStep: 1,
+            },
+        };
+    }
+};

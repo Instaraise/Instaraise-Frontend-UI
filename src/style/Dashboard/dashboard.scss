@@ -114,6 +114,10 @@
         margin-top: 10px;
         border-radius: 4px;
     }
+    .sidebar-filter-socials {
+        filter: invert(55%) sepia(14%) saturate(330%) hue-rotate(170deg)
+            brightness(95%) contrast(80%);
+    }
 }
 @media screen and (max-width: 767px) {
     .connector-line {

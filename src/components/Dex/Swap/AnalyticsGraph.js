@@ -39,7 +39,7 @@ const AnalyticsGraph = (props) => {
                 const data = props.tokenStats.data.filter(
                     (pool) =>
                         pool.token_name.toLowerCase() ===
-                        props.selectedToken.from.TOKEN_SYMBOL.toLowerCase()
+                        props.selectedToken.to.TOKEN_SYMBOL.toLowerCase()
                 )[0];
                 return {
                     token_name: data.token_name,
@@ -96,7 +96,7 @@ const AnalyticsGraph = (props) => {
     }, []);
     return (
         <div className='h-100 w-100'>
-            <div className='text-center d-flex flex-column flex-lg-row flex-sm-row flex-md-row justify-content-between align-items-center my-3 p-md-3 p-lg-0'>
+            <div className='text-center d-flex flex-column flex-lg-row flex-sm-row flex-md-row justify-content-between align-items-center my-3 my-md-4 p-md-3 p-lg-0'>
                 <div className='d-flex order-2 order-lg-0 order-md-0 order-sm-0 my-2 my-lg-0 my-sm-0 my-md-0'>
                     <div className=' cursor-pointer'>
                         <span className='px-1 text-toggle-selected'>Price</span>
@@ -171,15 +171,7 @@ const AnalyticsGraph = (props) => {
             </div>
             <div className='d-flex pb-lg-3 pb-xl-3 p-3 p-lg-0 p-xl-0'>
                 <div className='pr-2 '>{Data().price}</div>
-                <div
-                    className={
-                        Data().change >= 0
-                            ? 'greenColorChange'
-                            : 'redColorChange'
-                    }
-                >
-                    {Data().change}%
-                </div>
+                <div style={{ color: '#5e0ee2' }}>{Data().change}%</div>
             </div>
             <div
                 className='p-3 p-lg-0 p-xl-0'

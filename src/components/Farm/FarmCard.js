@@ -339,7 +339,7 @@ const FarmCard = (props) => {
                         </div>
                         <div className='d-flex justify-content-around my-3 my-lg-0 my-md-0'>
                             <div className='me-4'>
-                                <h5 className='mb-0 d-inline-block card-title text-12  text-center'>
+                                <h5 className='mb-0 d-inline-block card-title text-sm  text-center'>
                                     Deposit fee{' '}
                                 </h5>
                                 <div className='my-2 d-flex align-items-center justify-content-start'>
@@ -348,7 +348,7 @@ const FarmCard = (props) => {
                                 </div>
                             </div>
                             <div>
-                                <h5 className='mb-0 d-inline-block card-title text-12 text-center'>
+                                <h5 className='mb-0 d-inline-block card-title text-sm text-center'>
                                     Withdrawal fee
                                 </h5>
 

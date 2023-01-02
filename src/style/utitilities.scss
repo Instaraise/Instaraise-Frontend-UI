@@ -10,6 +10,9 @@
 .h-85 {
     height: 85vh !important;
 }
+.w-100 {
+    width: 100% !important;
+}
 .w-15 {
     width: 15% !important;
 }
@@ -47,6 +50,9 @@
 }
 .text-16 {
     font-size: 16px;
+}
+.text-18 {
+    font-size: 18px;
 }
 .list-style-none {
     list-style: none;
@@ -111,12 +117,6 @@
 }
 .rotate-2 {
     animation: rotate 2s linear infinite;
-}
-.greenColorChange {
-    color: green;
-}
-.redColorChange {
-    color: red;
 }
 .width-media {
     width: 15% !important;

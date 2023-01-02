@@ -16,6 +16,7 @@ import BurnedDark from '../../assets/images/burned_dark.svg';
 import Price from '../../assets/images/Icon.svg';
 import MarketCap from '../../assets/images/market.svg';
 import MarketCap_dark from '../../assets/images/market_dark.svg';
+import Price_dark_Img from '../../assets/images/Price_dark_img.svg';
 import supply from '../../assets/images/supply.svg';
 import supplyDark from '../../assets/images/supply_dark.svg';
 import tvl from '../../assets/images/TVL.svg';
@@ -87,7 +88,11 @@ const Dashboard = (props) => {
                                     <div className='m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex'>
                                         <div className='mr-2 mt-4'>
                                             <img
-                                                src={Price}
+                                                src={
+                                                    theme
+                                                        ? Price
+                                                        : Price_dark_Img
+                                                }
                                                 alt='insta-stas-img-logos'
                                                 width='20'
                                                 height='20'

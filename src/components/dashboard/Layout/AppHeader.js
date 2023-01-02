@@ -141,7 +141,7 @@ const AppHeader = (props) => {
                                         setOpenAccountModal(!openAccountModal);
                                     }}
                                 >
-                                    <IoEllipsisVertical />
+                                    <IoEllipsisVertical className='menu-icon' />
                                 </span>
                             </span>
                         )}
