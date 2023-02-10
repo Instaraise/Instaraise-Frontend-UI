@@ -8,7 +8,7 @@ import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.foo
 const Footer = () => {
     return (
         <footer className='footer-section'>
-            <div className='container p-4'>
+            <div className='container pt-4 px-4'>
                 <div className='row'>
                     <div className=' col-lg-6 col-md-6 mb-4 mb-md-0 text-start'>
                         <div className='navbar-brand'>
@@ -24,9 +24,10 @@ const Footer = () => {
                             />
                         </div>
                         <p className='mt-4 w-75 footer-font'>
-                            Instaraise is building DeFi Universe on Tezos. We
-                            support projects to raise fund, build communities
-                            and turn their ideas into products.
+                            Welcome to Instaraise,
+                            <br />
+                            Your Web3 Investment Stack to Invest, Trade, Farm
+                            and Manage all your tokens in one place.
                         </p>
 
                         <div className='my-2'>
@@ -135,7 +136,7 @@ const Footer = () => {
                 </div>
                 <div className='row'>
                     <div className='col-md-12 py-2'>
-                        <p className='footer-font text-center footer-copyright-section py-2'>
+                        <p className='footer-font text-center footer-copyright-section pt-4'>
                             ©COPYRIGHT - INSTARAISE - 2022
                         </p>
                     </div>

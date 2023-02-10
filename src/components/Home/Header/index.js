@@ -66,19 +66,24 @@ const Header = ({ except }) => {
                         id='navbarSupportedContent'
                     >
                         <div className='homepage-navbar-menu mx-auto'>
-                            <ul className='navbar-nav mt-2'>
+                            <ul className='navbar-nav mt-2 mr-xl-3'>
                                 {HEADER_DATA.map((elem, index) => (
                                     <li key={index} className='nav-item px-2'>
-                                        <Link
-                                            className='nav-link text-end'
-                                            to={elem.LinkTo || '/'}
-                                            spy={true}
-                                            smooth={true}
-                                            offset={10}
-                                            duration={400}
-                                        >
-                                            <span>{elem.headerNav}</span>{' '}
-                                        </Link>
+                                        {elem.id !== 4 ? (
+                                            <Link
+                                                className='nav-link text-end'
+                                                to={elem.LinkTo || '/'}
+                                            >
+                                                <span>{elem.headerNav}</span>{' '}
+                                            </Link>
+                                        ) : (
+                                            <NavLink
+                                                className='nav-link text-end'
+                                                to={elem.LinkTo || '/'}
+                                            >
+                                                <span>{elem.headerNav}</span>{' '}
+                                            </NavLink>
+                                        )}
                                     </li>
                                 ))}
                             </ul>
@@ -102,7 +107,7 @@ const Header = ({ except }) => {
                                 <img
                                     onClick={() => handleThemeChange()}
                                     src={light_mode_img}
-                                    alt='dark-mode-img'
+                                    alt='light-mode-img'
                                 />
                             )}
                             {theme && except

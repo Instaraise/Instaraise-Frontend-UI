@@ -1,12 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import Header from '../Header';
 import upRight from '../../../assets/images/arrow-up-right.svg';
+import upRight_dark from '../../../assets/images/arrow-up-right_light.svg';
 import { DESC_DATA } from '../../../config/HomeConfig/BodyConfig/config.body';
 import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
-
+import { ThemeContext } from '../../../routes/root';
 const Body = () => {
+    const { theme } = React.useContext(ThemeContext);
     var HomePageDesElem = (
         <>
             {DESC_DATA.map((elem, index) => (
@@ -26,12 +28,33 @@ const Body = () => {
                     </div>
                 </React.Fragment>
             ))}
-            <button type='button' className=' btn btn-color-mode btn-lg'>
+            <Link
+                to={'/dashboard'}
+                type='button'
+                className=' btn btn-color-mode btn-lg'
+            >
                 <span className='font-insta-regular'>
                     Launch app
-                    <img className='ml-1' src={upRight} alt='upright-img' />
+                    <img
+                        className='ml-1'
+                        src={theme ? upRight : upRight_dark}
+                        alt='upright-img'
+                    />
                 </span>
-            </button>
+            </Link>
+            <NavLink
+                to='/'
+                target='_blank'
+                onClick={() =>
+                    window.open(DESC_DATA[0].BUY_INSTA_LINK, '_blank')
+                }
+                style={{
+                    color: '#ffff',
+                    paddingLeft: '15px',
+                }}
+            >
+                Buy $INSTA
+            </NavLink>
         </>
     );
     var HomePageDesElemMobile = (
@@ -52,12 +75,20 @@ const Body = () => {
                     </p>
                 </React.Fragment>
             ))}
-            <button type='button' className=' btn btn-color-mode btn-lg mb-5'>
+            <Link
+                to='/dashboard'
+                type='button'
+                className='btn btn-light btn-lg mb-5'
+            >
                 <span className='font-insta-regular'>
                     Launch app
-                    <img className='ml-1' src={upRight} alt='upright-img' />
+                    <img
+                        className='ml-1'
+                        src={theme ? upRight : upRight_dark}
+                        alt='upright-img'
+                    />
                 </span>
-            </button>
+            </Link>
         </>
     );
     return (

@@ -1,0 +1,159 @@
+.h-100 {
+    height: 100% !important;
+}
+.h-90 {
+    height: 90% !important;
+}
+.h-95 {
+    min-height: 95% !important;
+}
+.h-85 {
+    height: 85vh !important;
+}
+.w-100 {
+    width: 100% !important;
+}
+.w-15 {
+    width: 15% !important;
+}
+.w-30 {
+    width: 30% !important;
+}
+.w-48 {
+    width: 48% !important;
+}
+.form-label:after {
+    content: ' *';
+    color: red;
+    font-weight: 700;
+}
+.form-header {
+    font-family: font-Medium;
+}
+.nav-svg-color {
+    color: var(--navbar-svg-color);
+}
+.bg-light-secondary {
+    background-color: var(--app-theme-background-color);
+}
+.text-10 {
+    font-size: 10px;
+}
+.text-12 {
+    font-size: 12px;
+}
+.text-14 {
+    font-size: 14px;
+}
+.text-dark-to-light {
+    color: var(--detail-card-text-color) !important;
+}
+.text-16 {
+    font-size: 16px;
+}
+.text-18 {
+    font-size: 18px;
+}
+.list-style-none {
+    list-style: none;
+}
+.spinner {
+    background-color: var(--spinner-bg-color) !important;
+    border: 0.4px solid hsla(0, 0%, 62%, 0.23921568627450981);
+}
+.btn:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: var(--navlink-color);
+}
+.accordion-button:not(.collapsed) {
+    background-color: transparent;
+    box-shadow: none;
+}
+.dashboard-color span {
+    color: #4e5d78;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: font-Regular;
+}
+.dark .dashboard-color span {
+    color: #ffffff;
+}
+.accordion-button::after {
+    width: 12px;
+    height: 12px;
+    background-size: 12px;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+.border-10 {
+    border-radius: 10px !important;
+}
+.sidebar-content ul a h6 {
+    color: #8a94a6;
+}
+.text-mini {
+    font-size: 10px;
+}
+.text-12 {
+    font-size: 12px;
+}
+.text-sm-2 {
+    font-size: 14px;
+}
+.div-block {
+    height: 50px;
+}
+.fw-500 {
+    font-weight: 500 !important;
+}
+.fw-600 {
+    font-weight: 600 !important;
+}
+.rotate-2 {
+    animation: rotate 2s linear infinite;
+}
+.width-media {
+    width: 15% !important;
+}
+input.form-calender-cursor::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+.cursor-help {
+    cursor: help;
+}
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+.h3,
+h3 {
+    font-size: calc(1.3rem + 0.6vw);
+}
+@media screen and (max-width: 1000px) {
+    // .layout {
+    //     min-height: 200vh;
+    // }
+    .w-30 {
+        width: 100% !important;
+    }
+}
+@media (min-width: 176px) {
+    .justify-content-sm-between {
+        justify-content: space-between;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .w-50 {
+        width: 100% !important;
+    }
+    .width-media {
+        width: 100% !important;
+    }
+}

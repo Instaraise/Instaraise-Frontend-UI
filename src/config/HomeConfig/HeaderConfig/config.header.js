@@ -5,22 +5,23 @@ import shareDocs from '../../../assets/images/shareDocs.svg';
 export const HEADER_DATA = [
     {
         id: 1,
-        headerNav: 'Services',
+        headerNav: 'Products',
         LinkTo: 'section-2',
     },
     {
         id: 2,
-        headerNav: 'Roadmap',
-    },
-    {
-        id: 3,
-        headerNav: 'Partner',
+        headerNav: 'Backers',
         LinkTo: 'section-3',
     },
     {
-        id: 4,
+        id: 3,
         headerNav: 'News',
         LinkTo: 'section-5',
+    },
+    {
+        id: 4,
+        headerNav: 'Fundraise',
+        LinkTo: '/launchpad/create-crowdsale',
     },
 ];
 export const HEADER_SOCIAL_IMAGE = [
