@@ -17,7 +17,7 @@ export const fetchAllTrendingNews = async () => {
                     date: elem.date,
                 };
             })
-            .slice(0, 3);
+            .slice(0, 4);
         return {
             status: true,
             data: formattedData,

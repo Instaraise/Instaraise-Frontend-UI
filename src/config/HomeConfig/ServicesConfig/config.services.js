@@ -12,7 +12,7 @@ export const SERVICES_DATA = [
         id: 1,
         heading: 'Launchpad',
         description:
-            'Decentralised launchpad for new projects on Tezos platform.',
+            'Raise funds to turn your startup ideas into real products with self-hosted IDO platform.',
         image: Services_LAUNCH_Img,
         image_dark: Services_LAUNCH_Img_dark,
     },
@@ -30,7 +30,7 @@ export const SERVICES_DATA2 = [
     {
         id: 1,
         heading: 'DEX',
-        description: 'Trade tokens in an instant with our unique DEX',
+        description: 'Trade tokens with confidence with Insta DEX.',
         image: Services_DEX_Img,
         image_dark: Services_DEX_Img_dark,
     },
@@ -38,7 +38,7 @@ export const SERVICES_DATA2 = [
         id: 2,
         heading: 'Farm',
         description:
-            'Users can then browse our platform and provide liquidity on the pairs/projects they may be interested about.',
+            'Stake tokens and get rewarded to support your favorite project without worrying of impermanent loss ever again.',
         image: Services_FARM_Img,
         image_dark: Services_FARM_Img_dark,
     },

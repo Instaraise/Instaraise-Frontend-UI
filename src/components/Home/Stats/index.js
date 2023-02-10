@@ -137,7 +137,7 @@ const Stats = (props) => {
                                     <NumericLabel>{tokenData.tvl}</NumericLabel>
                                 </span>
                             </p>
-                            <p className='statsNames'>TVP</p>
+                            <p className='statsNames'>Liquidity processed</p>
                         </div>
                     </div>
                 </div>

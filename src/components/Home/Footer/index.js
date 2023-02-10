@@ -24,9 +24,10 @@ const Footer = () => {
                             />
                         </div>
                         <p className='mt-4 w-75 footer-font'>
-                            Instaraise is building DeFi Universe on Tezos. We
-                            support projects to raise fund, build communities
-                            and turn their ideas into products.
+                            Welcome to Instaraise,
+                            <br />
+                            Your Web3 Investment Stack to Invest, Trade, Farm
+                            and Manage all your tokens in one place.
                         </p>
 
                         <div className='my-2'>

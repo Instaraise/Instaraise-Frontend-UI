@@ -14,7 +14,7 @@ const Services = () => {
                             Our
                         </h1>
                         <h1 className='text-aileron-bold services-text'>
-                            Services
+                            Products
                         </h1>
                     </div>
 

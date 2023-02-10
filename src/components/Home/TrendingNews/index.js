@@ -87,54 +87,58 @@ const TrendingNews = (props) => {
                 </div>
             </div>
             <div className='row py-md-4 hoverChange anchor-tag-hover'>
-                {props.allTrendingNews.map((elem, index) => (
-                    <div
-                        key={index}
-                        className='col-md-4 p-3'
-                        role={'link'}
-                        style={{
-                            cursor: 'pointer',
-                        }}
-                        onClick={() => window.open(elem.link)}
-                    >
-                        <img
-                            className='cardEditImg img-fluid'
-                            src={elem.image_url}
-                            alt='descImage'
-                        />
-
-                        <h5
-                            dangerouslySetInnerHTML={{
-                                __html: elem.title,
+                {props.allTrendingNews.map((elem, index) =>
+                    index !== 0 ? (
+                        <div
+                            key={index}
+                            className='col-md-4 p-3'
+                            role={'link'}
+                            style={{
+                                cursor: 'pointer',
                             }}
-                            className='cards-display my-4 trending-font'
-                        />
+                            onClick={() => window.open(elem.link)}
+                        >
+                            <img
+                                className='cardEditImg img-fluid'
+                                src={elem.image_url}
+                                alt='descImage'
+                            />
 
-                        <p
-                            dangerouslySetInnerHTML={{
-                                __html: elem.excerpt,
-                            }}
-                            className='mb-4 lh-lg font-insta-regular text-justify lh-base trending-font-para trending-para-dark'
-                        />
-
-                        <div className='d-flex justify-content-between'>
-                            <h6 className='cardDate font-insta-regular trending-para-dark'>
-                                {new Date(elem.date).toLocaleDateString()}
-                            </h6>
-                            <Link
-                                href={elem.link}
-                                onClick={() => {
-                                    window.open(elem.link);
+                            <h5
+                                dangerouslySetInnerHTML={{
+                                    __html: elem.title,
                                 }}
-                                className='trending-font text-decoration-none'
-                                to='/'
-                            >
-                                Read More
-                                <img src={Rightarrow} alt='chevron' />
-                            </Link>
+                                className='cards-display my-4 trending-font'
+                            />
+
+                            <p
+                                dangerouslySetInnerHTML={{
+                                    __html: elem.excerpt,
+                                }}
+                                className='mb-4 lh-lg font-insta-regular text-justify lh-base trending-font-para trending-para-dark'
+                            />
+
+                            <div className='d-flex justify-content-between'>
+                                <h6 className='cardDate font-insta-regular trending-para-dark'>
+                                    {new Date(elem.date).toLocaleDateString()}
+                                </h6>
+                                <Link
+                                    href={elem.link}
+                                    onClick={() => {
+                                        window.open(elem.link);
+                                    }}
+                                    className='trending-font text-decoration-none'
+                                    to='/'
+                                >
+                                    Read More
+                                    <img src={Rightarrow} alt='chevron' />
+                                </Link>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ) : (
+                        ''
+                    )
+                )}
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import Header from '../Header';
 import upRight from '../../../assets/images/arrow-up-right.svg';
@@ -42,6 +42,19 @@ const Body = () => {
                     />
                 </span>
             </Link>
+            <NavLink
+                to='/'
+                target='_blank'
+                onClick={() =>
+                    window.open(DESC_DATA[0].BUY_INSTA_LINK, '_blank')
+                }
+                style={{
+                    color: '#ffff',
+                    paddingLeft: '15px',
+                }}
+            >
+                Buy $INSTA
+            </NavLink>
         </>
     );
     var HomePageDesElemMobile = (
