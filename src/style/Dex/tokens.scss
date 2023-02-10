@@ -1,0 +1,64 @@
+.search-background-change {
+    background-color: var(--layout-background-color);
+}
+.image-background-color {
+    background-color: var(--token-background-color) !important;
+}
+input {
+    border: none;
+    outline-style: none;
+    background-color: transparent;
+}
+table {
+    table-layout: fixed;
+}
+.form-group-1 > label {
+    top: 17px;
+    left: 6px;
+    position: relative;
+    background-color: var(--dashboard-header-color);
+    padding: 0 5px;
+    font-size: 12px;
+}
+.btn-faucet {
+    outline: none;
+    border: none;
+    color: #fff;
+    background-image: var(--button-dashboard-background-color);
+}
+.trade-button {
+    background: #5e0ee2;
+    outline: none;
+    color: #fff;
+    font-weight: 600 !important;
+}
+.bg-f9 {
+    background-color: var(--layout-background-color);
+}
+.dex {
+    border-radius: 20px !important;
+    width: 450px;
+}
+.hover-class:hover {
+    background-color: var(--hover-class-dex);
+}
+tr td:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+@media screen and (max-width: 1122px) {
+    table {
+        table-layout: auto;
+    }
+    .fixed-col {
+        min-width: 180px;
+        position: -webkit-sticky;
+        position: sticky;
+        left: 0;
+        z-index: 2;
+        background-color: var(--trending-background) !important;
+    }
+    .fixed-col:hover {
+        background-color: var(--hover-class-dex) !important;
+    }
+}

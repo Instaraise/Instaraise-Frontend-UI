@@ -66,7 +66,7 @@ const Header = ({ except }) => {
                         id='navbarSupportedContent'
                     >
                         <div className='homepage-navbar-menu mx-auto'>
-                            <ul className='navbar-nav mt-2'>
+                            <ul className='navbar-nav mt-2 mr-xl-3'>
                                 {HEADER_DATA.map((elem, index) => (
                                     <li key={index} className='nav-item px-2'>
                                         <Link
@@ -102,7 +102,7 @@ const Header = ({ except }) => {
                                 <img
                                     onClick={() => handleThemeChange()}
                                     src={light_mode_img}
-                                    alt='dark-mode-img'
+                                    alt='light-mode-img'
                                 />
                             )}
                             {theme && except

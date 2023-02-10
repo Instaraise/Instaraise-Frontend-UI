@@ -32,25 +32,12 @@
     src: url(../../assets//fonts/Aileron-Thin.otf);
 }
 :root {
-    --gradient-background: linear-gradient(
-        65.25deg,
-        #5105e1 -32.71%,
-        #8b2be2 107.11%
-    );
-    --theme-page-background: linear-gradient(
-        5.18deg,
-        #080421 4.34%,
-        #080421 95.96%
-    );
-    --ecoSystem-background: #f9fbfc;
     --button-text-color: linear-gradient(180deg, #5f22ae, #b16bdb);
     --button-background-color: linear-gradient(
         107.8deg,
         #5a1eab 9.32%,
         #cb81e9 114.21%
     );
-    --light-button-background-color: linear-gradient(180deg, #fff, #fff);
-    --detail-card-text-color: #4e5d78;
     --detail-card-background-color: linear-gradient(
         79.97deg,
         #1d1526 5.24%,
@@ -58,9 +45,6 @@
     );
     --services-text-color: #5e0ee2;
     --footer-dark-mode-color: #321b4b;
-}
-.dark {
-    background: var(--theme-page-background);
 }
 .homepage-navbar .homepage-navbar-menu ul li a span {
     color: #ffffff;

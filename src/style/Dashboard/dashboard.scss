@@ -1,0 +1,172 @@
+.layout {
+    background-color: var(--layout-background-color);
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    border-radius: 25px 0 0 25px;
+    overflow-y: scroll;
+    .app-header {
+        margin-left: 300px;
+        padding: 0px 10px 0px 10px;
+        height: 10vh;
+    }
+    .header {
+        color: var(--services-text-color);
+    }
+    .hamburger {
+        display: none;
+    }
+    .cursor-pointer {
+        cursor: pointer;
+    }
+    .app-header .btn:hover {
+        // box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+        box-shadow: 5px 5px 10px hsl(0deg 0% 50% / 30%);
+        color: var(--detail-card-text-color);
+    }
+    .text-toggle-selected {
+        color: var(--text-toggle);
+        font-weight: 600;
+        font-size: 12px;
+    }
+    .text-toggle,
+    .text-toggle:hover {
+        color: #c4c4c4;
+        font-weight: 600;
+        font-size: 12px;
+    }
+    .graph-section-height {
+        height: 65vh;
+    }
+    .dashboard-stats-background {
+        background: var(--trending-background);
+    }
+    .sidebar {
+        position: fixed;
+        left: 0;
+        width: 300px;
+        height: 95vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        border-right: 2px solid var(--sidebar-line);
+        .closeIcon {
+            display: none;
+        }
+        .sidebar-content {
+            background-color: var(--trending-background);
+            border-radius: 10px 10px 10px 14px;
+            height: 85vh;
+            width: 90%;
+            margin-left: 2rem;
+        }
+    }
+    .children {
+        padding-bottom: 10px;
+        margin-left: 300px;
+        display: flex;
+        height: 90vh;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        .content-card {
+            height: 100%;
+            width: 100%;
+        }
+    }
+    .card_i {
+        border-radius: 10px;
+        background-color: var(--trending-background);
+        padding: 10px 14px 10px 14px;
+    }
+    .border-10 {
+        border-radius: 10px;
+    }
+    .label {
+        font-size: 14px;
+    }
+    .label span {
+        color: #4e5d78;
+    }
+    .sidebar-content .nav-item a {
+        cursor: pointer;
+        color: var(--stats-name);
+    }
+    .sidebar-content .nav-item a:hover {
+        background-color: var(--navlink-color);
+    }
+    .dashboard-link-violet {
+        color: var(--dashboard-text-color);
+    }
+    .extra-div {
+        top: 9vh;
+        z-index: 10;
+        position: absolute;
+        right: 0;
+    }
+    .address-copied {
+        color: #4e5d78;
+        font-size: 12px;
+        font-weight: 600;
+        background-color: #f9fafa;
+        padding: 4px 12px;
+        margin-top: 10px;
+        border-radius: 4px;
+    }
+    .sidebar-filter-socials {
+        filter: invert(55%) sepia(14%) saturate(330%) hue-rotate(170deg)
+            brightness(95%) contrast(80%);
+    }
+}
+@media screen and (max-width: 767px) {
+    .connector-line {
+        margin-left: 2rem !important;
+    }
+}
+@media screen and (max-width: 991px) {
+    .layout {
+        .app-header {
+            margin-left: 0px;
+        }
+        .hamburger {
+            display: inline;
+        }
+        .heightadj {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .sidebar {
+            background-color: var(--layout-background-color);
+            margin-left: -1200px;
+            position: absolute;
+            height: 100vh;
+            width: 285px;
+            border-right: none;
+            justify-content: space-between;
+            z-index: 10;
+
+            .closeIcon {
+                display: block;
+            }
+            .sidebar-content {
+                height: 90vh;
+                width: 90%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+        .is_sidebar_open {
+            margin-left: 0px;
+            transition: 0.5s all ease-in-out;
+        }
+        .is_sidebar_close {
+            margin-left: -1200px;
+            transition: 0.5s all ease-in-out;
+        }
+
+        .children {
+            margin-left: 0px;
+        }
+    }
+}

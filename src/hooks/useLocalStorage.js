@@ -28,5 +28,4 @@ const useLocalStorage = () => {
     }, []);
     return [theme, setTheme];
 };
-
 export default useLocalStorage;

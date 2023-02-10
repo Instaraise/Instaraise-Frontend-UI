@@ -2,7 +2,9 @@ import React from 'react';
 
 import { SERVICES_DATA } from '../../../config/HomeConfig/ServicesConfig/config.services';
 import { SERVICES_DATA2 } from '../../../config/HomeConfig/ServicesConfig/config.services';
+import { ThemeContext } from '../../../routes/root';
 const Services = () => {
+    const { theme } = React.useContext(ThemeContext);
     return (
         <section className='services_section py-5 py-lg-none py-md-none py-sm-none'>
             <div className='container'>
@@ -23,7 +25,11 @@ const Services = () => {
                                     <div key={index} className=''>
                                         <img
                                             className='ml-md-3'
-                                            src={elem.image}
+                                            src={
+                                                theme
+                                                    ? elem.image
+                                                    : elem.image_dark
+                                            }
                                             alt='Services-card'
                                             width='50'
                                             height='52'
@@ -44,7 +50,11 @@ const Services = () => {
                                     <div key={index} className=''>
                                         <img
                                             className='ml-md-3'
-                                            src={elem.image}
+                                            src={
+                                                theme
+                                                    ? elem.image
+                                                    : elem.image_dark
+                                            }
                                             alt='Services-card'
                                             width='50'
                                             height='52'

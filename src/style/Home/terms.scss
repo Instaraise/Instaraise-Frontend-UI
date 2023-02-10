@@ -1,9 +1,3 @@
-.text-dark-to-light {
-    color: var(--detail-card-text-color);
-}
-.dark .text-dark-to-light {
-    color: #ffffff;
-}
 .terms .description {
     font-size: 14px;
 }
@@ -13,9 +7,6 @@
 }
 .header_nav_routes .homepage-navbar .homepage-navbar-menu ul li a span {
     color: var(--detail-card-text-color);
-}
-.dark .header_nav_routes .homepage-navbar .homepage-navbar-menu ul li a span {
-    color: #ffffff;
 }
 .header_nav_routes .navbar-menu-icon svg {
     color: var(--detail-card-text-color);

@@ -1,0 +1,61 @@
+.farm-card {
+    background-color: var(--dashboard-header-color);
+    color: var(--project-text-color) !important;
+    border-radius: 10px !important;
+    border: 0.2px solid hsla(0, 0%, 62%, 0.23921568627450981) !important;
+}
+.farm-card .card-body {
+    padding: 1rem !important;
+}
+.farm-card .farm-badge {
+    background: rgba(80, 13, 190, 0.5098039215686274);
+    border-radius: 5px;
+    color: #fff !important;
+}
+.bg-light-secondary {
+    background-color: var(--token-background-color) !important;
+}
+.form-group-2 > label,
+.tiers .teir-card {
+    position: relative;
+    background-color: var(--dashboard-header-color);
+}
+.form-group-2 > label {
+    top: 16px;
+    left: 6px;
+    padding: 0 5px;
+    font-size: 12px;
+}
+.gradient-text-v {
+    background-image: var(--text-gradient-v);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.disable-b,
+.disable-b:hover {
+    color: #5f0ee2;
+    background: #dfcaff;
+}
+
+.disable-b {
+    cursor: not-allowed !important;
+    border: none;
+    outline: none;
+}
+.rounded {
+    border-radius: 0.25rem !important;
+}
+.button-grey {
+    background-color: #4e5d78;
+}
+.error {
+    color: #d00000;
+    font-size: 12px;
+    font-weight: 600;
+}
+@media (max-width: 992px) {
+    .text-sm-start {
+        text-align: center !important;
+    }
+}

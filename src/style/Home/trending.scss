@@ -1,5 +1,5 @@
-.dark .section-5 {
-    background-color: #0d0729;
+.section-5 {
+    background-color: var(--trending-background);
 }
 .hoverChange :hover {
     transition: all 0.4s ease;
@@ -21,23 +21,17 @@
 }
 .trending-font {
     font-family: font-SemiBold;
-    color: #4e5d78;
+    color: var(--trending-font-color);
 }
-.dark .trending-font {
-    color: #ffffff;
+.anchor-tag-hover a:hover {
+    color: var(--trending-font-color);
 }
 .trending-header-para {
-    color: #607d8b;
+    color: var(--trending-para-color);
     line-height: 1.8;
 }
-.dark .trending-header-para {
-    color: #b0b2b5;
-}
-.dark .trending-para-dark {
-    color: #b0b2b5;
-}
 .trending-font-para {
-    color: #607d8b;
+    color: var(--trending-para-color);
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     display: -webkit-box;
@@ -46,7 +40,7 @@
     word-break: break-word;
 }
 .cardDate {
-    color: #4e5d78;
+    color: var(--trending-font-color);
     font-size: 14px;
 }
 .cards-display {
@@ -56,4 +50,10 @@
     min-height: 2.6rem;
     overflow: hidden;
     word-break: break-word;
+}
+.line-clamp {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
