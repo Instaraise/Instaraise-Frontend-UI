@@ -29,18 +29,18 @@ export const SERVICES_DATA = [
 export const SERVICES_DATA2 = [
     {
         id: 1,
-        heading: 'DEX',
-        description: 'Trade tokens with confidence with Insta DEX.',
-        image: Services_DEX_Img,
-        image_dark: Services_DEX_Img_dark,
-    },
-    {
-        id: 2,
         heading: 'Farm',
         description:
             'Stake tokens and get rewarded to support your favorite project without worrying of impermanent loss ever again.',
         image: Services_FARM_Img,
         image_dark: Services_FARM_Img_dark,
+    },
+    {
+        id: 2,
+        heading: 'DEX',
+        description: 'Trade tokens with confidence with Insta DEX.',
+        image: Services_DEX_Img,
+        image_dark: Services_DEX_Img_dark,
     },
 ];
 export const LAUNCHPAD_SERVICES_DATA = [
