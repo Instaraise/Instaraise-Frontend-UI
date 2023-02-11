@@ -168,16 +168,6 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                     </div>
                                                 </div>
                                             </NavLink>
-                                            <a
-                                                className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
-                                                aria-current='page'
-                                            >
-                                                <div className=''>
-                                                    <div className='transition-class'>
-                                                        Tiers
-                                                    </div>
-                                                </div>
-                                            </a>
                                         </li>
                                     </div>
                                 </div>
