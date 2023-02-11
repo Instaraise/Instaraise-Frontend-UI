@@ -170,7 +170,7 @@ const Dashboard = (props) => {
                                         </div>
                                     </div>
                                     <div className='m-sm-auto col-xl-3 col-md-4 col-sm-6 col-6 d-flex'>
-                                        <div className='mr-2 mt-4 ml-2'>
+                                        <div className='mr-2 mt-4 ml-lg-3'>
                                             <img
                                                 src={
                                                     theme ? Burned : BurnedDark
@@ -186,7 +186,7 @@ const Dashboard = (props) => {
                                                     <NumericLabel
                                                         params={option}
                                                     >
-                                                        {tokenData.burned}
+                                                        {tokenData.burned || 0}
                                                     </NumericLabel>
                                                     &nbsp;INSTA
                                                 </span>
