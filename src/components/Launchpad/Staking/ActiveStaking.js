@@ -247,7 +247,7 @@ const ActiveStaking = (props) => {
                                     </NumericLabel>
                                 </div>
                             </div>
-                            <div className='py-3 w-100 d-flex justify-content-center'>
+                            <div className='py-3 w-100 d-flex justify-content-between'>
                                 {wallet && stakings.length > 0 && (
                                     <>
                                         <div
@@ -258,40 +258,42 @@ const ActiveStaking = (props) => {
                                         >
                                             {stakedamount}
                                         </div>
-                                        <button
-                                            onClick={() =>
-                                                setModalType('stake')
-                                            }
-                                            className='text-center w-100 button-primary  px-3 py-2  btn-faucet rounded py-2 margin-auto'
-                                        >
-                                            <svg
-                                                xmlns='http://www.w3.org/2000/svg'
-                                                width='25'
-                                                height='25'
-                                                fill='currentColor'
-                                                className='bi bi-plus'
-                                                viewBox='0 0 16 16'
+                                        <div className='d-flex ps-2 justify-content-between'>
+                                            <button
+                                                onClick={() =>
+                                                    setModalType('stake')
+                                                }
+                                                className='text-center button-primary px-2 py-2  btn-faucet rounded py-2 margin-auto'
                                             >
-                                                <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z' />
-                                            </svg>
-                                        </button>
-                                        <button
-                                            onClick={() =>
-                                                setModalType('unstake')
-                                            }
-                                            className='text-center button-primary  px-2 py-2  ms-2 rounded py-2 margin-auto'
-                                        >
-                                            <svg
-                                                xmlns='http://www.w3.org/2000/svg'
-                                                width='25'
-                                                height='25'
-                                                fill='currentColor'
-                                                className='bi bi-dash'
-                                                viewBox='0 0 16 16'
+                                                <svg
+                                                    xmlns='http://www.w3.org/2000/svg'
+                                                    width='25'
+                                                    height='25'
+                                                    fill='currentColor'
+                                                    className='bi bi-plus'
+                                                    viewBox='0 0 16 16'
+                                                >
+                                                    <path d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z' />
+                                                </svg>
+                                            </button>
+                                            <button
+                                                onClick={() =>
+                                                    setModalType('stake')
+                                                }
+                                                className='text-center ms-1  button-primary px-2 py-2  btn-faucet rounded py-2 margin-auto'
                                             >
-                                                <path d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z' />
-                                            </svg>
-                                        </button>
+                                                <svg
+                                                    xmlns='http://www.w3.org/2000/svg'
+                                                    width='25'
+                                                    height='25'
+                                                    fill='currentColor'
+                                                    className='bi bi-dash'
+                                                    viewBox='0 0 16 16'
+                                                >
+                                                    <path d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z' />
+                                                </svg>
+                                            </button>
+                                        </div>
                                     </>
                                 )}
                                 {wallet && stakings.length <= 0 && (
@@ -356,11 +358,11 @@ const ActiveStaking = (props) => {
                                                     withdraw();
                                                 }
                                             }}
-                                            className={`text-center shadow-none ${
+                                            className={`text-center ${
                                                 wallet && stakings.length > 0
                                                     ? 'button-primary'
                                                     : 'disable-b'
-                                            }  px-3 py-2 ms-2 rounded py-2 margin-auto`}
+                                            }  ms-2 w-100   px-0 py-2  btn-faucet rounded py-2 margin-auto`}
                                         >
                                             Harvest
                                         </button>
