@@ -15,7 +15,7 @@ import launchpad from '../../../assets/images/launchpad.svg';
 import launchpad_dark from '../../../assets/images/launchpad_dark.svg';
 import pool from '../../../assets/images/pool.svg';
 import pool_dark from '../../../assets/images/pool_dark.svg';
-import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
+import { SOCIALS_DATA_DASHBOARD } from '../../../config/HomeConfig/FooterConfig/config.footer';
 import { ThemeContext } from '../../../routes/root';
 const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
     const { theme } = React.useContext(ThemeContext);
@@ -341,7 +341,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                     className='ms-3 d-flex align-items-end pl-5 py-2'
                     style={{ height: '8%' }}
                 >
-                    {SOCIALS_DATA.map((elem, index) => (
+                    {SOCIALS_DATA_DASHBOARD.map((elem, index) => (
                         <React.Fragment key={index}>
                             <Link
                                 className='ms-3'

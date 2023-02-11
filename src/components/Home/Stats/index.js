@@ -115,7 +115,9 @@ const Stats = (props) => {
                         </div>
                         <div className='text-left mt-4'>
                             <p className='font-weight-bold m-0 statsDesc'>
-                                <span className=''>${tokenData.burned}</span>
+                                <span className=''>
+                                    {tokenData.burned} INSTA
+                                </span>
                             </p>
                             <p className='statsNames'>Burned</p>
                         </div>
@@ -133,8 +135,7 @@ const Stats = (props) => {
                         <div className='text-left mt-4'>
                             <p className='font-weight-bold m-0 statsDesc'>
                                 <span className=''>
-                                    $
-                                    <NumericLabel>{tokenData.tvl}</NumericLabel>
+                                    $<NumericLabel>237000</NumericLabel>
                                 </span>
                             </p>
                             <p className='statsNames'>Liquidity processed</p>

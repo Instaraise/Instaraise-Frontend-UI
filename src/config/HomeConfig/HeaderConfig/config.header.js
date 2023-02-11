@@ -10,7 +10,7 @@ export const HEADER_DATA = [
     },
     {
         id: 2,
-        headerNav: 'Backers',
+        headerNav: 'Partners',
         LinkTo: 'section-3',
     },
     {

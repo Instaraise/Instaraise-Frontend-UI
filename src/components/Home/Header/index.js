@@ -65,8 +65,8 @@ const Header = ({ except }) => {
                         className='collapse navbar-collapse'
                         id='navbarSupportedContent'
                     >
-                        <div className='homepage-navbar-menu mx-auto'>
-                            <ul className='navbar-nav mt-2 mr-xl-3'>
+                        <div className='homepage-navbar-menu mx-auto '>
+                            <ul className='navbar-nav mt-2 mr-xl-3 ml-2'>
                                 {HEADER_DATA.map((elem, index) => (
                                     <li key={index} className='nav-item px-2'>
                                         {elem.id !== 4 ? (

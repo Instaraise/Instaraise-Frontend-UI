@@ -6,10 +6,10 @@ const Backers = () => {
         <div className='container-fluid'>
             <div className='d-flex py-4 justify-content-center mb-4'>
                 <h2 className='fs-1 text-aileron-bold text-insta-regular'>
-                    &nbsp;Our
+                    &nbsp;Investors &
                 </h2>
                 <h2 className='fs-1 text-aileron-bold services-text'>
-                    &nbsp;Backers
+                    &nbsp;Partners
                 </h2>
             </div>
             <div className='backers-scroll'>

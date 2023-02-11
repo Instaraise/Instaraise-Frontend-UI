@@ -170,7 +170,7 @@ const Dashboard = (props) => {
                                         <div className='text-left mt-4'>
                                             <p className='font-weight-bold m-0 statsDesc'>
                                                 <span className=''>
-                                                    ${tokenData.burned}
+                                                    {tokenData.burned} INSTA
                                                 </span>
                                             </p>
                                             <p className='statsNames'>Burned</p>
@@ -191,7 +191,7 @@ const Dashboard = (props) => {
                                                 <span className=''>
                                                     $
                                                     <NumericLabel>
-                                                        {tokenData.tvl}
+                                                        237000
                                                     </NumericLabel>
                                                 </span>
                                             </p>
@@ -412,11 +412,11 @@ const Dashboard = (props) => {
                 <div className='col-12 col-md-12 col-lg-3 my-3 my-md-3 my-lg-0'>
                     <div className='card_i shadow-sm h-100'>
                         <div className='row h-100 '>
-                            <div className='col-md-12'>
+                            <div className='col-md-12 pb-1'>
                                 <div className='d-flex p-3 border-10'>
                                     <div>
                                         <h6 className='text-insta-regular lh-sm font-weight-bold'>
-                                            Our Services
+                                            Our Products
                                         </h6>
                                         <div className='statsNames font-insta-regular text-12 p-0 mb-3'>
                                             Participate in the Initial Dex
@@ -429,7 +429,7 @@ const Dashboard = (props) => {
                             {LAUNCHPAD_SERVICES_DATA.map((elem, index) => (
                                 <div key={index} className='col-md-12'>
                                     <div className='border-10'>
-                                        <div className='d-flex pt-2'>
+                                        <div className='d-flex pt-1'>
                                             <img
                                                 className='ml-md-3'
                                                 src={
