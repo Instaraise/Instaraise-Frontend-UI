@@ -1,5 +1,5 @@
 import linkedinLogo from '../../../assets/images/socials/linkedin.svg';
-// import telegramLogoDashboard from '../../../assets/images/socials/Telegram_dashboard.svg';
+import telegramLogoDashboard from '../../../assets/images/socials/Telegram_dashboard.svg';
 import telegramLogo from '../../../assets/images/socials/telegram-icon.svg';
 import twitterLogo from '../../../assets/images/socials/twitter.svg';
 
@@ -18,7 +18,7 @@ export const FOOTER_DATA = [
 export const SOCIALS_DATA = [
     {
         id: 1,
-        footer_social_img: telegramLogo,
+        footer_social_img: telegramLogoDashboard,
         footer_social_link: 'https://telegram.me/Instaraise',
     },
     {
