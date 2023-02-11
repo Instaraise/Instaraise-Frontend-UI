@@ -13,7 +13,6 @@ import Swap from '../container/Dex/swap';
 import Trade from '../container/Dex/tokens';
 import Farms from '../container/Farms/farms';
 import HomeContainer from '../container/home';
-import CrowdSale from '../container/Launchpad/crowdsale';
 import Ido from '../container/Launchpad/Ido';
 import IdoProjects from '../container/Launchpad/IdoProjects';
 import Staking from '../container/Launchpad/Staking';
@@ -71,10 +70,6 @@ const Root = () => {
                             element={<Ido flag={!flag} />}
                         />
 
-                        <Route
-                            path='/launchpad/create-crowdsale'
-                            element={<CrowdSale flag={!flag} />}
-                        />
                         <Route
                             path='/launchpad/staking'
                             element={<Staking flag={!flag} />}

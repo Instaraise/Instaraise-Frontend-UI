@@ -7,7 +7,7 @@ const CreateCrowdSale = () => {
             <div className='row row-cols-1 text-dark-to-light my-3 my-lg-0 my-md-0 mx-0 mx-lg-3 mx-md-3 text-sm-start'>
                 <div className='d-flex bg-red flex-column flex-lg-row text-lg-start justify-content-between align-items-center p-0'>
                     <div className='col'>
-                        <h4 className='fw-600 '>Create CrowdSale</h4>
+                        <h4 className='fw-600 '>Create Crowdsale</h4>
                     </div>
                 </div>
             </div>

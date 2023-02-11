@@ -38,7 +38,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                 </NavLink>
             </div>
             <div className='sidebar-content shadow-sm'>
-                <ul className='nav nav-pills flex-column p-4 h-90'>
+                <ul className='nav nav-pills flex-column py-4 px-3 h-90'>
                     <li className='nav-item justify-content-center pt-2'>
                         <NavLink
                             to='/dashboard'
@@ -129,12 +129,31 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                             </NavLink>
                                             <NavLink
                                                 to='/launchpad/create-crowdsale'
+                                                aria-disabled={true}
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                }}
                                                 className='ms-2  text-sm-2 nav-link sidebar-links d-flex '
                                                 aria-current='page'
                                             >
-                                                <div className=''>
+                                                <div className='d-flex justify-center align-items-center'>
                                                     <div className='transition-class'>
-                                                        Create&nbsp;CrowdSale
+                                                        Crowdsale
+                                                    </div>
+                                                    <div
+                                                        style={{
+                                                            fontSize: 9,
+                                                            marginLeft: 5,
+                                                            border: '2px solid #f3f5f6',
+                                                            borderRadius:
+                                                                '20px',
+                                                            paddingLeft: 6,
+                                                            paddingRight: 6,
+                                                            paddingTop: 4,
+                                                            paddingBottom: 4,
+                                                        }}
+                                                    >
+                                                        Coming&nbsp;soon
                                                     </div>
                                                 </div>
                                             </NavLink>
@@ -211,7 +230,32 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                         }}
                                     />
 
-                                    <span>Trade</span>
+                                    <div className='d-flex align-items-center justify-center'>
+                                        <div
+                                            className='dashboard-color'
+                                            style={{
+                                                fontSize: '15px',
+                                                color: '#4e5d78',
+                                            }}
+                                        >
+                                            Trade
+                                        </div>
+
+                                        <div
+                                            style={{
+                                                fontSize: 12,
+                                                marginLeft: 5,
+                                                border: '2px solid #f3f5f6',
+                                                borderRadius: '20px',
+                                                paddingLeft: 10,
+                                                paddingRight: 10,
+                                                paddingTop: 4,
+                                                paddingBottom: 4,
+                                            }}
+                                        >
+                                            Testnet
+                                        </div>
+                                    </div>
                                 </NavLink>
                             </div>
                             <div
