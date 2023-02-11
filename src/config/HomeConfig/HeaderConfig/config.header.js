@@ -21,7 +21,7 @@ export const HEADER_DATA = [
     {
         id: 4,
         headerNav: 'Fundraise',
-        LinkTo: '/launchpad/create-crowdsale',
+        LinkTo: '/launchpad/IDO',
     },
 ];
 export const HEADER_SOCIAL_IMAGE = [
