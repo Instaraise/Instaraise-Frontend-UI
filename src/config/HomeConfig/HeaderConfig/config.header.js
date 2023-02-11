@@ -28,7 +28,7 @@ export const HEADER_SOCIAL_IMAGE = [
     {
         id: 1,
         ShareImg: GithubImg,
-        linkTo: `https://github.com/Instaraise/Instaraise-Launchpad-UI`,
+        linkTo: `https://github.com/Instaraise/Instaraise-Frontend-UI`,
     },
     {
         id: 2,
@@ -40,7 +40,7 @@ export const HEADER_SOCIAL_IMAGE2 = [
     {
         id: 1,
         ShareImg: dark_mode_github_img,
-        linkTo: `https://github.com/Instaraise/Instaraise-Launchpad-UI`,
+        linkTo: `https://github.com/Instaraise/Instaraise-Frontend-UI`,
     },
     {
         id: 2,
