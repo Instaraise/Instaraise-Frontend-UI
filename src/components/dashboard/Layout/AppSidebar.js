@@ -15,6 +15,7 @@ import launchpad from '../../../assets/images/launchpad.svg';
 import launchpad_dark from '../../../assets/images/launchpad_dark.svg';
 import pool from '../../../assets/images/pool.svg';
 import pool_dark from '../../../assets/images/pool_dark.svg';
+import telegramLogoDashboard from '../../../assets/images/socials/Telegram_dashboard.svg';
 import { SOCIALS_DATA_DASHBOARD } from '../../../config/HomeConfig/FooterConfig/config.footer';
 import { ThemeContext } from '../../../routes/root';
 const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
@@ -228,7 +229,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                 color: '#4e5d78',
                                             }}
                                         >
-                                            Trade
+                                            <span>Trade</span>
                                         </div>
 
                                         <div
@@ -375,6 +376,24 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                     className='ms-3 d-flex align-items-end pl-5 py-2'
                     style={{ height: '8%' }}
                 >
+                    <Link
+                        className='ms-3'
+                        to='/'
+                        target='_blank'
+                        onClick={() =>
+                            window.open(
+                                'https://telegram.me/Instaraise',
+                                '_blank'
+                            )
+                        }
+                    >
+                        <img
+                            className={theme ? 'sidebar-filter-socials' : null}
+                            height='28'
+                            src={telegramLogoDashboard}
+                            alt='social-img'
+                        />
+                    </Link>
                     {SOCIALS_DATA_DASHBOARD.map((elem, index) => (
                         <React.Fragment key={index}>
                             <Link
