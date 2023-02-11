@@ -6,8 +6,8 @@ import twitterLogo from '../../../assets/images/socials/twitter.svg';
 export const FOOTER_DATA = [
     {
         id: 1,
-        footer_links: 'Get Alerts',
-        footer_external_link: 'https://telegram.me/Instaraise_Ann',
+        footer_links: 'Reach us',
+        footer_external_link: 'mailto:connect@instaraise.io',
     },
     {
         id: 2,
