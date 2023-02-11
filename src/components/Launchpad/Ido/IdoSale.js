@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import IdoCard from './IdoCard';
 import Stepper from '../../Stepper/Stepper';
@@ -19,30 +18,6 @@ export const IdoSale = (props) => {
                                 tokens
                             </p>
                         </div>
-                    </div>
-                    <div
-                        className='p-2  text-center d-flex flex-row justify-content-center'
-                        style={{
-                            width: '150px',
-                        }}
-                    >
-                        <Link
-                            to='#'
-                            onClick={() =>
-                                window.open(
-                                    'https://forms.gle/KoR4ZftbjJyhUwCc8'
-                                )
-                            }
-                            className='router-l'
-                            aria-current='page'
-                            data-parent='#sidebar2'
-                        >
-                            <div className=''>
-                                <div className=''>
-                                    Apply for <span>IDO</span>
-                                </div>
-                            </div>
-                        </Link>
                     </div>
                 </div>
             </div>
