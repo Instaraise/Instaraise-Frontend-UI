@@ -27,7 +27,7 @@ const LiquidityPositionTable = (props) => {
             <div className='card_i shadow-sm'>
                 <div className='p-4 d-flex text-dark-to-light justify-content-between align-item-center '>
                     <h6 className='d-flex mt-1 flex-column justify-content-start p-0 text-dark-to-light fw-600 '>
-                        Your Holdings
+                        Your LP Holdings
                     </h6>
                 </div>
                 <div className='table-responsive dex-card '>
