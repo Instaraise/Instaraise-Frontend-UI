@@ -3,7 +3,7 @@
 ![Instaraise](https://lit-assets.s3.us-east-2.amazonaws.com/image/og_image.jpg)
 <br/>
 
-[Instaraise](https://instaraise.io/) is building a DeFi Universe on Tezos. At Instaraise, we help projects to design and execute their idea to project journey on Tezos. With 360 degree product studio, launchpad, Decentralized exchange and everything in-between we are helping young entrepreneurs to turn their ideas into reality. To partner with us reach us out at [connect@instaraise.io](mailto:connect@instaraise.io)
+[Instaraise](https://instaraise.io/) is building a Web3 Investment Stack. At Instaraise, we help projects to design and execute their idea to project journey on web3. With a 360 degree product studio, launchpad, Decentralized exchange and everything in-between we are helping young entrepreneurs to turn their ideas into reality. To partner with us reach us out at [connect@instaraise.io](mailto:connect@instaraise.io)
 <br/>
 
 # Useful Links
