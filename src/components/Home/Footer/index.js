@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import instaLogo from '../../../assets/images/InstaLogo.svg';
 import CompName from '../../../assets/images/Instaraise.svg';
+import telegramLogoDashboard from '../../../assets/images/socials/Telegram_dashboard.svg';
 import { FOOTER_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
 import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
 const Footer = () => {
@@ -31,6 +32,23 @@ const Footer = () => {
                         </p>
 
                         <div className='my-2'>
+                            <Link
+                                to='/'
+                                target='_blank'
+                                onClick={() =>
+                                    window.open(
+                                        'https://telegram.me/Instaraise',
+                                        '_blank'
+                                    )
+                                }
+                            >
+                                <img
+                                    height='28'
+                                    className='pr-2'
+                                    src={telegramLogoDashboard}
+                                    alt='insta-social-img'
+                                />
+                            </Link>
                             {SOCIALS_DATA.map((elem, index) => (
                                 <Link
                                     key={index}
