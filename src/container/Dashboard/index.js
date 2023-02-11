@@ -76,6 +76,19 @@ const Dashboard = (props) => {
     React.useEffect(() => {
         props.fetchTokenInfo();
     }, []);
+    const option = {
+        justification: 'L',
+        locales: 'en-AU',
+        currency: false,
+        currencyIndicator: 'AUD',
+        percentage: false,
+        precision: 0,
+        wholenumber: null,
+        commafy: true,
+        shortFormat: false,
+        title: false,
+        cssClass: ['class1', 'class2'],
+    };
     return (
         <DashboardLayout flag={props.flag}>
             {/* <div className='d-flex justify-content-between flex-lg-row flex-column h-100 w-100 align-items-start'> */}
@@ -156,8 +169,8 @@ const Dashboard = (props) => {
                                             <p className='statsNames'>Supply</p>
                                         </div>
                                     </div>
-                                    <div className='m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex'>
-                                        <div className='mr-2 mt-4'>
+                                    <div className='m-sm-auto col-xl-3 col-md-4 col-sm-6 col-6 d-flex'>
+                                        <div className='mr-2 mt-4 ml-2'>
                                             <img
                                                 src={
                                                     theme ? Burned : BurnedDark
@@ -170,14 +183,18 @@ const Dashboard = (props) => {
                                         <div className='text-left mt-4'>
                                             <p className='font-weight-bold m-0 statsDesc'>
                                                 <span className=''>
-                                                    {tokenData.burned} INSTA
+                                                    <NumericLabel
+                                                        params={option}
+                                                    >
+                                                        {tokenData.burned}
+                                                    </NumericLabel>
+                                                    &nbsp;INSTA
                                                 </span>
                                             </p>
                                             <p className='statsNames'>Burned</p>
                                         </div>
                                     </div>
-
-                                    <div className='m-sm-auto col-xl-2 col-md-4 col-sm-6 col-6 d-flex'>
+                                    <div className='m-sm-auto col-xl-3 col-md-4 col-sm-6 col-6 d-flex'>
                                         <div className='mr-2 mt-4'>
                                             <img
                                                 src={theme ? tvl : tvl_dark}
@@ -195,7 +212,9 @@ const Dashboard = (props) => {
                                                     </NumericLabel>
                                                 </span>
                                             </p>
-                                            <p className='statsNames'>TVP</p>
+                                            <p className='statsNames'>
+                                                Liquidity processed
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -445,7 +464,7 @@ const Dashboard = (props) => {
                                                 <h6 className='text-insta-regular lh-sm font-weight-bold'>
                                                     {elem.heading}
                                                 </h6>
-                                                <p className='statsNames text-12 font-insta-regular'>
+                                                <p className='statsNames text-12 font-insta-regular '>
                                                     {elem.description}
                                                 </p>
                                             </div>

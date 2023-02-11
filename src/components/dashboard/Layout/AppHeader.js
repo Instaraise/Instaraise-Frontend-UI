@@ -230,32 +230,12 @@ const AppHeader = (props) => {
                                         to='#'
                                         onClick={() =>
                                             window.open(
-                                                'https://quipuswap.com/swap?to=KT19y6R8x53uDKiM46ahgguS6Tjqhdj2rSzZ_0&from=tez'
+                                                'https://quipuswap.com/swap/tez-KT19y6R8x53uDKiM46ahgguS6Tjqhdj2rSzZ_0'
                                             )
                                         }
                                         className='router-l ms-2 text-14'
                                     >
                                         Quipuswap&nbsp;
-                                        <BsBoxArrowInUpRight />
-                                    </Link>
-                                </li>
-                                <li className='list-style-none '>
-                                    {/* <img
-                                        src={Mexc}
-                                        width={30}
-                                        height={30}
-                                        className='gray-scale'
-                                    /> */}
-                                    <Link
-                                        to='#'
-                                        onClick={() =>
-                                            window.open(
-                                                'https://www.mexc.com/exchange/INSTA_USDT'
-                                            )
-                                        }
-                                        className='router-l ms-2 text-14'
-                                    >
-                                        Mexc&nbsp;
                                         <BsBoxArrowInUpRight />
                                     </Link>
                                 </li>
