@@ -79,7 +79,7 @@ const Body = () => {
             <Link
                 to='/dashboard'
                 type='button'
-                className='btn btn-light btn-lg mb-5'
+                className='btn btn-color-mode btn-lg mb-5'
             >
                 <span className='font-insta-regular'>
                     Launch app
