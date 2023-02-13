@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Header from '../Header';
 import upRight from '../../../assets/images/arrow-up-right.svg';
 import upRight_dark from '../../../assets/images/arrow-up-right_light.svg';
+import telegramLogoDashboard from '../../../assets/images/socials/Telegram_dashboard.svg';
 import { DESC_DATA } from '../../../config/HomeConfig/BodyConfig/config.body';
 import { SOCIALS_DATA } from '../../../config/HomeConfig/FooterConfig/config.footer';
 import { ThemeContext } from '../../../routes/root';
@@ -99,26 +100,43 @@ const Body = () => {
                     <div className='col-md-2 d-none d-lg-block'>
                         <div className='vl'></div>
                         <div className='homepage-body-socials'>
-                            {SOCIALS_DATA.map((elem, index) => (
-                                <React.Fragment key={index}>
-                                    <Link
-                                        to='/'
-                                        target='_blank'
-                                        onClick={() =>
-                                            window.open(
-                                                elem.footer_social_link,
-                                                '_blank'
-                                            )
-                                        }
-                                    >
-                                        <img
-                                            src={elem.footer_social_img}
-                                            alt='social-img'
-                                        />
-                                    </Link>
-                                    <br />
-                                </React.Fragment>
-                            ))}
+                            <Link
+                                target='_blank'
+                                onClick={() =>
+                                    window.open(
+                                        'https://telegram.me/Instaraise',
+                                        '_blank'
+                                    )
+                                }
+                            >
+                                <img
+                                    src={telegramLogoDashboard}
+                                    alt='telegram-icon'
+                                    style={{ marginLeft: '-10px' }}
+                                />
+                            </Link>
+                            <div>
+                                {SOCIALS_DATA.map((elem, index) => (
+                                    <React.Fragment key={index}>
+                                        <Link
+                                            to='/'
+                                            target='_blank'
+                                            onClick={() =>
+                                                window.open(
+                                                    elem.footer_social_link,
+                                                    '_blank'
+                                                )
+                                            }
+                                        >
+                                            <img
+                                                src={elem.footer_social_img}
+                                                alt='social-img'
+                                            />
+                                        </Link>
+                                        <br />
+                                    </React.Fragment>
+                                ))}
+                            </div>
                         </div>
                         <div className='vl'></div>
                     </div>
