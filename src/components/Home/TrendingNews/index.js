@@ -54,7 +54,7 @@ const TrendingNews = (props) => {
                     {props.allTrendingNews.length > 0 ? (
                         <p
                             dangerouslySetInnerHTML={{
-                                __html: props.allTrendingNews[0].content,
+                                __html: props.allTrendingNews[0].excerpt,
                             }}
                             className='my-3 trending-header-para text-justify font-insta-regular line-clamp'
                         />
