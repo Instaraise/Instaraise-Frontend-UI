@@ -129,7 +129,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                 </div>
                                             </NavLink>
                                             <NavLink
-                                                to='/launchpad/create-crowdsale'
+                                                to='/launchpad'
                                                 aria-disabled={true}
                                                 onClick={(e) => {
                                                     e.preventDefault();
