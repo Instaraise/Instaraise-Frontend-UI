@@ -62,6 +62,11 @@ const Root = () => {
                         />
                         <Route
                             exact
+                            path='/launchpad'
+                            element={<Ido flag={!flag} />}
+                        />
+                        <Route
+                            exact
                             path='/launchpad/IDO/:name'
                             element={<IdoProjects flag={!flag} />}
                         />
@@ -76,6 +81,15 @@ const Root = () => {
                         ></Route>
                         <Route path='/farms' element={<Farms flag={!flag} />} />
                         <Route path='/dex/trade' element={<Trade />} />
+                        <Route
+                            path='/dex'
+                            element={
+                                <Swap
+                                    showAnalytics={showAnalytics}
+                                    setShowAnalytics={setShowAnalytics}
+                                />
+                            }
+                        />
                         <Route
                             path='/dex/swap'
                             element={

@@ -125,7 +125,7 @@ const AppHeader = (props) => {
                             theme ? (
                                 <img
                                     src={light_wallet_img}
-                                    alt='ligh-mode-wallet-img'
+                                    alt='light-mode-wallet-img'
                                 />
                             ) : (
                                 <img

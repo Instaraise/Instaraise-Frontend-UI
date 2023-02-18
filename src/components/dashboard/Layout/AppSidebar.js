@@ -236,7 +236,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                             style={{
                                                 fontSize: 12,
                                                 marginLeft: 5,
-                                                border: '2px solid #f3f5f6',
+                                                border: '2px solid #d4d9db',
                                                 borderRadius: '20px',
                                                 paddingLeft: 10,
                                                 paddingRight: 10,
