@@ -16,6 +16,7 @@ import HomeContainer from '../container/home';
 import Ido from '../container/Launchpad/Ido';
 import IdoProjects from '../container/Launchpad/IdoProjects';
 import Staking from '../container/Launchpad/Staking';
+import NotFound from '../container/NotFound/NotFound';
 import Privacy from '../container/privacy';
 import Terms from '../container/terms';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -108,6 +109,7 @@ const Root = () => {
                             path='/dex/liquidity/configure-liquidity/'
                             element={<AddLiquidityPage />}
                         />
+                        <Route path='*' element={<NotFound />} />
                     </Routes>
                 </BrowserRouter>
             </div>
