@@ -79,7 +79,7 @@ const Body = () => {
             <Link
                 to='/dashboard'
                 type='button'
-                className='btn btn-color-mode btn-lg mb-5'
+                className='btn btn-color-mode btn-lg'
             >
                 <span className='font-insta-regular'>
                     Launch app
@@ -90,6 +90,21 @@ const Body = () => {
                     />
                 </span>
             </Link>
+            <div className='py-3'>
+                <NavLink
+                    to='/'
+                    target='_blank'
+                    onClick={() =>
+                        window.open(DESC_DATA[0].BUY_INSTA_LINK, '_blank')
+                    }
+                    style={{
+                        color: '#ffff',
+                        paddingLeft: '15px',
+                    }}
+                >
+                    Buy $INSTA
+                </NavLink>
+            </div>
         </>
     );
     return (
