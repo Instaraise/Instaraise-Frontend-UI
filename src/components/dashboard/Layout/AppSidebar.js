@@ -128,8 +128,8 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                     </div>
                                                 </div>
                                             </NavLink>
-                                            <NavLink
-                                                to='/launchpad'
+                                            <Link
+                                                to='#'
                                                 aria-disabled={true}
                                                 onClick={(e) => {
                                                     e.preventDefault();
@@ -145,7 +145,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                         style={{
                                                             fontSize: 9,
                                                             marginLeft: 5,
-                                                            border: '2px solid #f3f5f6',
+                                                            border: '2px solid #d4d9db',
                                                             borderRadius:
                                                                 '20px',
                                                             paddingLeft: 6,
@@ -157,7 +157,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                         Coming&nbsp;soon
                                                     </div>
                                                 </div>
-                                            </NavLink>
+                                            </Link>
                                             <NavLink
                                                 to='/launchpad/staking'
                                                 className=' ms-2  mt-1  text-sm-2 nav-link sidebar-links d-flex '
