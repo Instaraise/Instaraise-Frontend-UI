@@ -121,6 +121,10 @@
 .width-media {
     width: 15% !important;
 }
+.nav-bottom {
+    position: fixed;
+    bottom: 8%;
+}
 input.form-calender-cursor::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
@@ -136,12 +140,16 @@ input.form-calender-cursor::-webkit-calendar-picker-indicator {
 h3 {
     font-size: calc(1.3rem + 0.6vw);
 }
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 991px) {
     // .layout {
     //     min-height: 200vh;
     // }
     .w-30 {
         width: 100% !important;
+    }
+    .nav-bottom {
+        position: absolute;
+        bottom: 3%;
     }
 }
 @media (min-width: 176px) {

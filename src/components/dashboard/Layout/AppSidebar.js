@@ -39,7 +39,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                 </NavLink>
             </div>
             <div className='sidebar-content shadow-sm'>
-                <ul className='nav nav-pills flex-column py-4 px-3 h-90'>
+                <ul className='nav nav-pills flex-column py-4 px-3'>
                     <li className='nav-item justify-content-center pt-2'>
                         <NavLink
                             to='/dashboard'
@@ -384,10 +384,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         </li>
                     </div>
                 </ul>
-                <div
-                    className='ms-3 d-flex align-items-end pl-5 py-2'
-                    style={{ height: '8%' }}
-                >
+                <div className='nav-bottom ms-3 d-flex align-items-end pl-5'>
                     <Link
                         className='ms-3'
                         to='/'
