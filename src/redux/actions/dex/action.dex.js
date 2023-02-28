@@ -4,6 +4,7 @@ import {
     fetchPrice,
     fetchPriceImpact,
     fetchTokenStats,
+    mintTokens,
 } from './api.dex';
 import BigNumber from 'bignumber.js';
 import {
@@ -12,6 +13,7 @@ import {
     SELECT_NETWORK,
     SELECT_TOKENS_DEX,
     SWAP_TOKENS,
+    TOKENS_MINTED,
     TOKEN_STATS_DATA,
 } from '../index.action';
 export const SELECT_NETWORK_TYPE = (data) => {
@@ -150,6 +152,22 @@ export const GET_PRICE_IMPACT = (args) => {
             return dispatch({
                 type: PRICE_IMPACT,
                 payload: API_RESP.value,
+            });
+        }
+    };
+};
+export const MINT_TOKENS = (data) => {
+    return async (dispatch) => {
+        const API_RESP = await mintTokens(data);
+        if (API_RESP.success) {
+            return dispatch({
+                type: TOKENS_MINTED,
+                payload: API_RESP,
+            });
+        } else {
+            return dispatch({
+                type: TOKENS_MINTED,
+                payload: API_RESP,
             });
         }
     };

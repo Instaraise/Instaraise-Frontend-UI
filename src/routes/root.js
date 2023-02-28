@@ -7,6 +7,7 @@ import '../style/index.scss';
 
 import AddLiquidityPage from '../components/Dex/ManageLiquidity';
 import Dashbaord from '../container/Dashboard';
+import FaucetLayout from '../container/Dex/faucet';
 import LiquidityLayout from '../container/Dex/liquidity';
 import Portfolio from '../container/Dex/portfolio';
 import Swap from '../container/Dex/swap';
@@ -103,6 +104,10 @@ const Root = () => {
                         <Route
                             path='/dex/liquidity'
                             element={<LiquidityLayout />}
+                        />
+                        <Route
+                            path='/dex/faucet'
+                            element={<FaucetLayout flag={!flag} />}
                         />
                         <Route path='/portfolio' element={<Portfolio />} />
                         <Route

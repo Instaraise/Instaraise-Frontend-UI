@@ -310,6 +310,18 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                     </div>
                                                 </div>
                                             </NavLink>
+                                            <NavLink
+                                                to='/dex/faucet'
+                                                className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
+                                                activeclassname='sidebar-links-active'
+                                                aria-current='page'
+                                            >
+                                                <div className=''>
+                                                    <div className='transition-class'>
+                                                        Faucet
+                                                    </div>
+                                                </div>
+                                            </NavLink>
                                             <Link
                                                 to='#'
                                                 onClick={() =>

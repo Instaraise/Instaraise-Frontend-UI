@@ -8,6 +8,7 @@ import usdtz_Img from '../../assets/dex/usdtz.png';
 import uUSD_Img from '../../assets/dex/uUSD.png';
 import Insta_Img from '../../assets/images/INSTA.png';
 export const DEX_TOKEN_CONFIG = [
+    // Let the id of insta be 5
     {
         id: 5,
         TOKEN_ADDRESS: CONTRACT_CONFIG[DEX_NETWORK].TOKEN_ADDRESS,
