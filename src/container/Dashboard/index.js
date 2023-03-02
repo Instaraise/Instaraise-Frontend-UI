@@ -460,7 +460,12 @@ const Dashboard = (props) => {
                                                 width='40'
                                                 height='40'
                                             />
-                                            <div className='ml-3'>
+                                            <div
+                                                className='ml-3'
+                                                style={{
+                                                    wordBreak: 'break-word',
+                                                }}
+                                            >
                                                 <h6 className='text-insta-regular lh-sm font-weight-bold'>
                                                     {elem.heading}
                                                 </h6>

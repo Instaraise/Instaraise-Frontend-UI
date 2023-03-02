@@ -39,7 +39,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                 </NavLink>
             </div>
             <div className='sidebar-content shadow-sm'>
-                <ul className='nav nav-pills flex-column py-4 px-3 h-90'>
+                <ul className='nav nav-pills flex-column py-4 px-3'>
                     <li className='nav-item justify-content-center pt-2'>
                         <NavLink
                             to='/dashboard'
@@ -128,8 +128,8 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                     </div>
                                                 </div>
                                             </NavLink>
-                                            <NavLink
-                                                to='/launchpad/create-crowdsale'
+                                            <Link
+                                                to='#'
                                                 aria-disabled={true}
                                                 onClick={(e) => {
                                                     e.preventDefault();
@@ -145,7 +145,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                         style={{
                                                             fontSize: 9,
                                                             marginLeft: 5,
-                                                            border: '2px solid #f3f5f6',
+                                                            border: '2px solid #d4d9db',
                                                             borderRadius:
                                                                 '20px',
                                                             paddingLeft: 6,
@@ -157,7 +157,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                         Coming&nbsp;soon
                                                     </div>
                                                 </div>
-                                            </NavLink>
+                                            </Link>
                                             <NavLink
                                                 to='/launchpad/staking'
                                                 className=' ms-2  mt-1  text-sm-2 nav-link sidebar-links d-flex '
@@ -236,7 +236,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                             style={{
                                                 fontSize: 12,
                                                 marginLeft: 5,
-                                                border: '2px solid #f3f5f6',
+                                                border: '2px solid #d4d9db',
                                                 borderRadius: '20px',
                                                 paddingLeft: 10,
                                                 paddingRight: 10,
@@ -310,6 +310,18 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                                     </div>
                                                 </div>
                                             </NavLink>
+                                            <NavLink
+                                                to='/dex/faucet'
+                                                className='ms-2 mt-1  text-sm-2 nav-link sidebar-links d-flex '
+                                                activeclassname='sidebar-links-active'
+                                                aria-current='page'
+                                            >
+                                                <div className=''>
+                                                    <div className='transition-class'>
+                                                        Faucet
+                                                    </div>
+                                                </div>
+                                            </NavLink>
                                             <Link
                                                 to='#'
                                                 onClick={() =>
@@ -372,10 +384,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                         </li>
                     </div>
                 </ul>
-                <div
-                    className='ms-3 d-flex align-items-end pl-5 py-2'
-                    style={{ height: '8%' }}
-                >
+                <div className='nav-bottom ms-3 d-flex align-items-end pl-5'>
                     <Link
                         className='ms-3'
                         to='/'

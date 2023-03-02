@@ -186,11 +186,11 @@ const AnalyticsGraph = (props) => {
                             horizontal={true}
                             vertical={false}
                             strokeDasharray='6 4'
-                            stroke={theme ? '#BEB0C9' : '#717171'}
+                            stroke='#BEB0C9'
                         />
                         <XAxis
                             dataKey='name'
-                            stroke={theme ? '#BEB0C9' : '#717171'}
+                            stroke='#BEB0C9'
                             tickMargin={10}
                             tickCount={15}
                             style={{
@@ -207,7 +207,7 @@ const AnalyticsGraph = (props) => {
                             }}
                         />
                         <YAxis
-                            stroke={theme ? '#BEB0C9' : '#717171'}
+                            stroke='#BEB0C9'
                             tickCount={17}
                             type='number'
                             domain={['dataMin', 'dataMax - 0.5']}

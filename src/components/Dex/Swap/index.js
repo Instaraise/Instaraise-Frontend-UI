@@ -1350,7 +1350,7 @@ const Swap_Dex = (props) => {
                                                         !swapLoader && (
                                                             <button
                                                                 type='submit'
-                                                                className='btn w-100  border-10 mb-2 shadow-none btn-sm button-primary trade-button'
+                                                                className='btn w-100  border-10 mb-2 shadow-none btn-sm button-primary btn-faucet '
                                                                 style={{
                                                                     paddingTop:
                                                                         '12px',
@@ -1367,7 +1367,7 @@ const Swap_Dex = (props) => {
                                                         props.wallet && (
                                                             <button
                                                                 type='button'
-                                                                className='btn w-100   border-10 mb-2 shadow-none  btn-sm button-primary trade-button'
+                                                                className='btn w-100   border-10 mb-2 shadow-none  btn-sm button-primary btn-faucet '
                                                                 style={{
                                                                     paddingTop:
                                                                         '12px',
@@ -1395,7 +1395,7 @@ const Swap_Dex = (props) => {
                                                                     }
                                                                 );
                                                             }}
-                                                            className='btn w-100  border-10 mb-2 shadow-none  btn-sm button-primary trade-button'
+                                                            className='btn w-100  border-10 mb-2 shadow-none  btn-sm button-primary btn-faucet '
                                                             style={{
                                                                 paddingTop:
                                                                     '12px',
@@ -2286,7 +2286,7 @@ const Swap_Dex = (props) => {
                                                             !swapLoader && (
                                                                 <button
                                                                     type='submit'
-                                                                    className='btn w-100  border-10 mb-2 shadow-none btn-sm button-primary trade-button'
+                                                                    className='btn w-100  border-10 mb-2 shadow-none btn-sm button-primary btn-faucet'
                                                                     style={{
                                                                         paddingTop:
                                                                             '12px',
@@ -2303,7 +2303,7 @@ const Swap_Dex = (props) => {
                                                             props.wallet && (
                                                                 <button
                                                                     type='button'
-                                                                    className='btn w-100   border-10 mb-2 shadow-none  btn-sm button-primary trade-button'
+                                                                    className='btn w-100   border-10 mb-2 shadow-none  btn-sm button-primary btn-faucet'
                                                                     style={{
                                                                         paddingTop:
                                                                             '12px',
@@ -2331,7 +2331,7 @@ const Swap_Dex = (props) => {
                                                                         }
                                                                     );
                                                                 }}
-                                                                className='btn w-100  border-10 mb-2 shadow-none  btn-sm button-primary trade-button'
+                                                                className='btn w-100  border-10 mb-2 shadow-none  btn-sm button-primary btn-faucet '
                                                                 style={{
                                                                     paddingTop:
                                                                         '12px',
@@ -3150,7 +3150,7 @@ const Swap_Dex = (props) => {
                                             {props.wallet && !swapLoader && (
                                                 <button
                                                     type='submit'
-                                                    className='btn w-100  border-10 mb-2 shadow-none btn-sm button-primary trade-button'
+                                                    className='btn w-100  border-10 mb-2 shadow-none btn-sm button-primary btn-faucet '
                                                     style={{
                                                         paddingTop: '12px',
                                                         paddingBottom: '12px',
@@ -3164,7 +3164,7 @@ const Swap_Dex = (props) => {
                                             {swapLoader && props.wallet && (
                                                 <button
                                                     type='button'
-                                                    className='btn w-100   border-10 mb-2 shadow-none  btn-sm button-primary trade-button'
+                                                    className='btn w-100   border-10 mb-2 shadow-none  btn-sm button-primary btn-faucet '
                                                     style={{
                                                         paddingTop: '12px',
                                                         paddingBottom: '12px',
@@ -3186,7 +3186,7 @@ const Swap_Dex = (props) => {
                                                                 props.selectedNetwork,
                                                         });
                                                     }}
-                                                    className='btn w-100  border-10 mb-2 shadow-none  btn-sm button-primary trade-button'
+                                                    className='btn w-100  border-10 mb-2 shadow-none  btn-sm button-primary btn-faucet '
                                                     style={{
                                                         paddingTop: '12px',
                                                         paddingBottom: '12px',

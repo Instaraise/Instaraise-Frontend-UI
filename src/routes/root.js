@@ -7,6 +7,7 @@ import '../style/index.scss';
 
 import AddLiquidityPage from '../components/Dex/ManageLiquidity';
 import Dashbaord from '../container/Dashboard';
+import FaucetLayout from '../container/Dex/faucet';
 import LiquidityLayout from '../container/Dex/liquidity';
 import Portfolio from '../container/Dex/portfolio';
 import Swap from '../container/Dex/swap';
@@ -16,6 +17,7 @@ import HomeContainer from '../container/home';
 import Ido from '../container/Launchpad/Ido';
 import IdoProjects from '../container/Launchpad/IdoProjects';
 import Staking from '../container/Launchpad/Staking';
+import NotFound from '../container/NotFound/NotFound';
 import Privacy from '../container/privacy';
 import Terms from '../container/terms';
 import useLocalStorage from '../hooks/useLocalStorage';
@@ -62,6 +64,11 @@ const Root = () => {
                         />
                         <Route
                             exact
+                            path='/launchpad'
+                            element={<Ido flag={!flag} />}
+                        />
+                        <Route
+                            exact
                             path='/launchpad/IDO/:name'
                             element={<IdoProjects flag={!flag} />}
                         />
@@ -77,6 +84,15 @@ const Root = () => {
                         <Route path='/farms' element={<Farms flag={!flag} />} />
                         <Route path='/dex/trade' element={<Trade />} />
                         <Route
+                            path='/dex'
+                            element={
+                                <Swap
+                                    showAnalytics={showAnalytics}
+                                    setShowAnalytics={setShowAnalytics}
+                                />
+                            }
+                        />
+                        <Route
                             path='/dex/swap'
                             element={
                                 <Swap
@@ -89,11 +105,16 @@ const Root = () => {
                             path='/dex/liquidity'
                             element={<LiquidityLayout />}
                         />
+                        <Route
+                            path='/dex/faucet'
+                            element={<FaucetLayout flag={!flag} />}
+                        />
                         <Route path='/portfolio' element={<Portfolio />} />
                         <Route
                             path='/dex/liquidity/configure-liquidity/'
                             element={<AddLiquidityPage />}
                         />
+                        <Route path='*' element={<NotFound />} />
                     </Routes>
                 </BrowserRouter>
             </div>
