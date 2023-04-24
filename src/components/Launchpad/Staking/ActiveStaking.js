@@ -278,7 +278,7 @@ const ActiveStaking = (props) => {
                                             </button>
                                             <button
                                                 onClick={() =>
-                                                    setModalType('stake')
+                                                    setModalType('unstake')
                                                 }
                                                 className='text-center ms-1  button-primary px-2 py-2  btn-faucet rounded py-2 margin-auto'
                                             >
