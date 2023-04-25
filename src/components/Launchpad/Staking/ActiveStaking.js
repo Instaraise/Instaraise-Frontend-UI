@@ -77,7 +77,7 @@ const ActiveStaking = (props) => {
         const result = await props.stakeInsta(args);
         if (result.payload.success) {
             setModalType('success');
-            fetchInstaBalance();
+            fetchInstaBalance(args);
             fetchInstaStorage(args);
             setOperationId(result.payload.operationId);
         } else {
@@ -97,7 +97,7 @@ const ActiveStaking = (props) => {
         if (result.payload.success) {
             setModalType('success');
             setOperationId(result.payload.operationHash);
-            fetchInstaBalance();
+            fetchInstaBalance(args);
             fetchInstaStorage(args);
         } else {
             setModalType('error');
@@ -114,10 +114,9 @@ const ActiveStaking = (props) => {
         if (data.payload.success) {
             setModalType('success');
             setOperationId(data.payload.operationId);
-            fetchInstaBalance();
+            fetchInstaBalance(args);
             fetchInstaStorage(args);
         } else {
-            fetchInstaBalance();
             setModalType('error');
         }
     };
