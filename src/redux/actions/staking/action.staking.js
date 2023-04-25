@@ -12,19 +12,32 @@ import {
     FETCH_INSTA_BALANCE,
     GET_HARVEST_VALUE,
     STAKE_INSTA,
+    STAKE_INSTA_LOADER,
     STAKING_DETAILS,
     UNSTAKE_INSTA,
 } from '../index.action';
 
 export const stakeInsta = (args) => {
     return async (dispatch) => {
+        dispatch({
+            type: STAKE_INSTA_LOADER,
+            payload: true,
+        });
         const API_RESPONSE = await stakeInstaAPI(args);
         if (API_RESPONSE.success) {
+            dispatch({
+                type: STAKE_INSTA_LOADER,
+                payload: false,
+            });
             return dispatch({
                 type: STAKE_INSTA,
                 payload: API_RESPONSE,
             });
         } else {
+            dispatch({
+                type: STAKE_INSTA_LOADER,
+                payload: false,
+            });
             return dispatch({
                 type: STAKE_INSTA,
                 payload: API_RESPONSE,

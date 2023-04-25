@@ -40,6 +40,7 @@ import {
     fetchBalanceDetails,
     getHarvestValue,
     stakeInsta,
+    stakeInstaLoader,
     stakingDetails,
     unstakeInsta,
 } from './staking/staking.reducer';
@@ -86,6 +87,7 @@ const rootReducer = combineReducers({
     //staking
     unstakeInsta: unstakeInsta,
     stakeInsta: stakeInsta,
+    stakeInstaLoader: stakeInstaLoader,
     getHarvestValue: getHarvestValue,
     fetchBalanceDetails: fetchBalanceDetails,
     stakingDetails: stakingDetails,
