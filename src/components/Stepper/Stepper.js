@@ -13,7 +13,7 @@ import { connectWallet } from '../../redux/actions/wallet/action.wallet';
 
 const Stepper = (props) => {
     const { stepDetails } = props;
-    const { ALIAS } = props.projectdata;
+    const { ALIAS, TIER_SYSTEM } = props.projectdata;
     const { isWhitelisted, hasStaked, isEnrolled } = props.kycStatus;
     const isPortrait = useMediaQuery({ query: '(orientation: portrait)' });
     const [currentStep, setCurrentStep] = React.useState(1);
@@ -22,6 +22,7 @@ const Stepper = (props) => {
             let data = {
                 wallet: props.wallet,
                 projectName: ALIAS,
+                tierSystem: TIER_SYSTEM,
             };
             await props.fetchKYCDetails(data);
             props.updateSteps([
@@ -76,51 +77,57 @@ const Stepper = (props) => {
         <div className='card h-100 p-3  rounded w-100'>
             <div className='pt-0 h-100 d-flex flex-column justify-content-between'>
                 <div>
-                    <h6 className='text-center'>
-                        Follow these steps to participate in sale
-                    </h6>
-                    <div className=' mt-4'>
+                    {props.projectdata.TIER_SYSTEM && (
+                        <h6 className='text-center'>
+                            Follow these steps to participate in sale
+                        </h6>
+                    )}
+
+                    <div className='mt-4'>
                         <div className='row w-100 '>
                             <div className='d-flex flex-lg-column justify-content-between p-0 '>
-                                <div
-                                    className='d-flex flex-column p-0  flex-lg-row  justify-content-between  position-relative'
-                                    style={{
-                                        height: isPortrait && '15rem',
-                                    }}
-                                >
-                                    <div className='position-absolute connector'>
-                                        <div
-                                            className='dynamic'
-                                            style={{
-                                                [toggler]:
-                                                    (currentStep === 2 &&
-                                                        '50%') ||
-                                                    (currentStep === 3 &&
-                                                        '100%') ||
-                                                    (currentStep === 4 &&
-                                                        '100%'),
-                                            }}
-                                        ></div>
-                                    </div>
-                                    {stepDetails.map((step, index) => (
-                                        <div
-                                            className={
-                                                currentStep === step.step
-                                                    ? 'step-circle-active'
-                                                    : step.visited
-                                                    ? 'step-circle-visited'
-                                                    : 'step-circle'
-                                            }
-                                            key={index}
-                                        >
-                                            {step.visited ? (
-                                                <BsCheckLg />
-                                            ) : (
-                                                step.id
-                                            )}
+                                {props.projectdata.TIER_SYSTEM && (
+                                    <div
+                                        className='d-flex flex-column p-0  flex-lg-row  justify-content-between  position-relative'
+                                        style={{
+                                            height: isPortrait && '15rem',
+                                        }}
+                                    >
+                                        <div className='position-absolute connector'>
+                                            <div
+                                                className='dynamic'
+                                                style={{
+                                                    [toggler]:
+                                                        (currentStep === 2 &&
+                                                            '50%') ||
+                                                        (currentStep === 3 &&
+                                                            '100%') ||
+                                                        (currentStep === 4 &&
+                                                            '100%'),
+                                                }}
+                                            ></div>
                                         </div>
-                                    ))}
-                                </div>
+                                        {stepDetails.map((step, index) => (
+                                            <div
+                                                className={
+                                                    currentStep === step.step
+                                                        ? 'step-circle-active'
+                                                        : step.visited
+                                                        ? 'step-circle-visited'
+                                                        : 'step-circle'
+                                                }
+                                                key={index}
+                                            >
+                                                {step.visited ? (
+                                                    <BsCheckLg />
+                                                ) : (
+                                                    step.id
+                                                )}
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+
                                 <div className='mt-4 w-100 text-center justify-content-center mx-auto d-flex flex-grow-1 align-items-center'>
                                     {!props.wallet ? (
                                         <div>
@@ -159,35 +166,38 @@ const Stepper = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className='d-flex justify-content-between mt-4 '>
-                    <div className=''>
-                        {props.wallet &&
-                            currentStep !== 1 &&
-                            currentStep !== stepDetails.length + 1 && (
-                                <button
-                                    disabled={currentStep === 1}
-                                    className='btn btn-sm rounded px-4 next-prev-button d-flex align-items-center outline-none text-white  shadow-none'
-                                    onClick={handleprevious}
-                                >
-                                    <FaChevronCircleLeft />
-                                    &nbsp;Previous
-                                </button>
-                            )}
+                {props.projectdata.TIER_SYSTEM && (
+                    <div className='d-flex justify-content-between mt-4 '>
+                        <div className=''>
+                            {props.wallet &&
+                                currentStep !== 1 &&
+                                currentStep !== stepDetails.length + 1 && (
+                                    <button
+                                        disabled={currentStep === 1}
+                                        className='btn btn-sm rounded px-4 next-prev-button d-flex align-items-center outline-none text-white  shadow-none'
+                                        onClick={handleprevious}
+                                    >
+                                        <FaChevronCircleLeft />
+                                        &nbsp;Previous
+                                    </button>
+                                )}
+                        </div>
+
+                        <div className=''>
+                            {props.wallet &&
+                                currentStep !== stepDetails.length + 1 &&
+                                currentStep !== stepDetails.length && (
+                                    <button
+                                        className='btn btn-sm next-prev-button px-4 d-flex align-items-center rounded outline-none text-white  shadow-none'
+                                        onClick={handlenext}
+                                    >
+                                        Next&nbsp;
+                                        <FaChevronCircleRight />
+                                    </button>
+                                )}
+                        </div>
                     </div>
-                    <div className=''>
-                        {props.wallet &&
-                            currentStep !== stepDetails.length + 1 &&
-                            currentStep !== stepDetails.length && (
-                                <button
-                                    className='btn btn-sm next-prev-button px-4 d-flex align-items-center rounded outline-none text-white  shadow-none'
-                                    onClick={handlenext}
-                                >
-                                    Next&nbsp;
-                                    <FaChevronCircleRight />
-                                </button>
-                            )}
-                    </div>
-                </div>
+                )}
             </div>
         </div>
     );

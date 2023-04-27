@@ -4,7 +4,7 @@ import axios from 'axios';
 import { NAME, WHITELISTING_API_URL } from '../../../config/config';
 export const kycProcessAPI = async (args) => {
     try {
-        const { projectName } = args;
+        const { projectName, tierSystem } = args;
         // const response = await axios.get(
         //     `${WHITELISTING_API_URL}userAddress=tz1Kov5QTgC5hya8zA51ThkAcQXAJ9xCNW3U&projectName=aqarchain`
         // );
@@ -24,16 +24,18 @@ export const kycProcessAPI = async (args) => {
             let isErolled = response.data.INSTA_ENROLL.enrolled;
 
             let currentStep = 1;
+            if (tierSystem) {
+                if (isWhitelisted && !hasStaked && !isErolled) {
+                    currentStep = 2;
+                }
+                if (isWhitelisted && hasStaked) {
+                    currentStep = 3;
+                }
+                if (isWhitelisted && hasStaked && isErolled) {
+                    currentStep = 4;
+                }
+            }
 
-            if (isWhitelisted && !hasStaked && !isErolled) {
-                currentStep = 2;
-            }
-            if (isWhitelisted && hasStaked) {
-                currentStep = 3;
-            }
-            if (isWhitelisted && hasStaked && isErolled) {
-                currentStep = 4;
-            }
             return {
                 success: true,
                 data: {

@@ -1,7 +1,7 @@
 import AQARCHAIN_ICON from '../../../assets/Ido/Aquachain_Img.jpeg';
+import LYZI_LOGO from '../../../assets/Ido/Lyzi_Img.png';
 import SHUTTLE_ONE_ICON from '../../../assets/Ido/ShuttleOne_Img.jpeg';
 import INSTA_LOGO from '../../../assets/images/INSTA.png';
-
 export const POOL_ADDRESS = {
     goeureka: {
         TOKEN_ADDRESS: 'KT1GioMCKwRyWoQpdrwxvsPVEsFJkkLyquVZ',
@@ -23,15 +23,75 @@ export const POOL_ADDRESS = {
         TOKEN_ADDRESS: 'KT1WzRVUnrJ4mNu59m9hPQZDY8Nq9JWtUbRf',
         POOL_ADDRESS: 'KT1JLUXnNWjj92KA7KgPXMEzgPCgfSUnL9DX',
     },
+    lyzi: {
+        TOKEN_ADDRESS: 'KT1WzRVUnrJ4mNu59m9hPQZDY8Nq9JWtUbRf',
+        POOL_ADDRESS: 'KT1JLUXnNWjj92KA7KgPXMEzgPCgfSUnL9DX',
+    },
 };
 export const IDO_CONFIG = [
+    {
+        DISABLED: true,
+        ALIAS: 'lyzi',
+        PROJECT_NAME: 'Lyzi',
+        TOKEN_NAME: 'LYZI',
+        TELEGRAM: 'https://t.me/Lyzi_us',
+        TYPE: 'Upcoming',
+        DESCRIPTION: `🇨🇵 Pay limitless with +25 crypto in +1500 shops 💸 Get cashback up to 1% to 5% with $LYZI`,
+        TOKEN_ADDRESS: 'KT1WzRVUnrJ4mNu59m9hPQZDY8Nq9JWtUbRf',
+        POOL_ADDRESS: 'KT1JLUXnNWjj92KA7KgPXMEzgPCgfSUnL9DX',
+        ENROLLMENT_KEY: '53625',
+        SALE_MAP_KEY: '53624',
+        ADMIN: 'tz1fa9yiKr11zUkggL6rNh71JYCb9Et95Bg3',
+        WEBSITE: 'https://shuttleone.network/2021/#/home',
+        WHITEPAPER:
+            'https://github.com/shuttle-one/flyshuttleone/blob/aa142fd38305a15fbcc405dda638ebba25b0a173/ShuttleOne%20Litepaper%20August%202020.pdf',
+        TWITTER: 'https://twitter.com/Lyzi_app',
+        ICON: LYZI_LOGO,
+        MEDIUM: 'https://shuttleone.network/2021/#/blog',
+        START_TIME: '2023-05-05T12:00:00Z',
+        END_TIME: '2021-12-13T12:00:00Z',
+        SALE_TYPE: 'Public Sale',
+        SOCIAL_HANDLES: {
+            WEBSITE: 'https://lyzi.fr/',
+            WHITEPAPER:
+                'https://github.com/shuttle-one/flyshuttleone/blob/aa142fd38305a15fbcc405dda638ebba25b0a173/ShuttleOne%20Litepaper%20August%202020.pdf',
+            TWITTER: 'https://twitter.com/Lyzi_app',
+            MEDIUM: 'https://shuttleone.network/2021/#/blog',
+            TELEGRAM: 'https://t.me/Lyzi_us',
+        },
+        AMOUNT_OF_TOKENS_TO_SELL: 1000000,
+        FCFS_TOTAL_RAISE: '17381',
+        FCFS_MIN_ALLOCATION: '50 xtz',
+        FCFS_MAX_ALLOCATION: '500 xtz',
+        FCFS_OPEN_TIME: '2021-12-13T00:00:00Z',
+        FCFS_SWAP_RATE: '',
+        TOKEN_PRICE: 0.12,
+        DISCOUNTED_PRICE: 0.12,
+        MIN_ALLOCATION: 'TBA',
+        MAX_ALLOCATION: 'TBA',
+        AMOUNT_TO_RAISE: 30000,
+        DECIMALS: 6,
+        WHITELIST_LINK: 'https://bit.ly/3k7KOAa',
+        TOKEN_INFO:
+            'It should be noted that 100% of LYZI will be unlocked at TGE',
+        CURRENCY: 'USD',
+        MULTI_SWAP_RATE: false,
+        DISABLE_SWAP_RATE: false,
+        SWAP_RATE_NON_FCFS: `1 XTZ = ${(1 / 0.12).PrecisionMaker(2)} SZO`,
+        SUB_CURRENCY: '',
+        TEZ: '$',
+        XTZ_PRICE: 21560,
+        TOKEN_UNLOCK_TIME: '2021-12-13T13:00:00Z',
+        LISTING_PRICE: '0.12',
+        TIER_SYSTEM: false,
+    },
     {
         DISABLED: false,
         ALIAS: 'shuttleone',
         PROJECT_NAME: 'ShuttleOne',
         TOKEN_NAME: 'SZO',
         TELEGRAM: 'https://t.me/shuttleone',
-        TYPE: 'Upcoming',
+        TYPE: 'Finished',
         DESCRIPTION: `ShuttleOne connects interoperable digital infrastructure by building tools that aggregate crypto to the real world.`,
         TOKEN_ADDRESS: 'KT1WzRVUnrJ4mNu59m9hPQZDY8Nq9JWtUbRf',
         POOL_ADDRESS: 'KT1JLUXnNWjj92KA7KgPXMEzgPCgfSUnL9DX',
@@ -80,6 +140,7 @@ export const IDO_CONFIG = [
         XTZ_PRICE: 21560,
         TOKEN_UNLOCK_TIME: '2021-12-13T13:00:00Z',
         LISTING_PRICE: '0.034',
+        TIER_SYSTEM: true,
     },
     {
         DISABLED: false,
@@ -133,6 +194,7 @@ export const IDO_CONFIG = [
         XTZ_PRICE: 21560,
         LISTING_PRICE: '0.05',
         TOKEN_UNLOCK_TIME: '2021-10-21T14:00:00Z',
+        TIER_SYSTEM: true,
     },
     {
         DISABLED: true,
@@ -179,6 +241,7 @@ export const IDO_CONFIG = [
         XTZ_PRICE: 21560,
         TEZ: 'xtz',
         TOKEN_UNLOCK_TIME: '2021-09-15T14:00:00Z',
+        TIER_SYSTEM: true,
     },
     {
         DISABLED: true,
@@ -225,5 +288,6 @@ export const IDO_CONFIG = [
         XTZ_PRICE: 21560,
         TEZ: 'xtz',
         TOKEN_UNLOCK_TIME: '2021-09-15T14:00:00Z',
+        TIER_SYSTEM: true,
     },
 ];

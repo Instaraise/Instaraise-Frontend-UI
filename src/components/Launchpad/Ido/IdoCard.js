@@ -55,7 +55,7 @@ const IdoCard = (props) => {
         : projectdata.TOKEN_PRICE;
     const XTZRate = TOKEN_PRICE;
     return (
-        <span className='launchpad-card'>
+        <span className='launchpad-card py-3'>
             <div className='container'>
                 <div className='card' data-label={SALE_STATUS}>
                     <div className='card__container pb-0'>

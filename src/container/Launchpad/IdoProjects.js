@@ -43,7 +43,7 @@ const IdoProjects = (props) => {
             tiers[SaleData.data.currentier]
         } and FCFS round`;
     } else if (kycStatus.isWhitelisted) {
-        statement = `You are whitelisted for  FCFS round`;
+        statement = `You are whitelisted for FCFS round`;
     } else {
         statement = 'You are not whitelisted';
     }
@@ -67,6 +67,7 @@ const IdoProjects = (props) => {
             let info = {
                 wallet: wallet,
                 projectName: data.ALIAS,
+                tierSystem: data.TIER_SYSTEM,
             };
             await props.fetchKYCDetails(info);
         }
