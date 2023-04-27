@@ -18,7 +18,7 @@ const Application = (props) => {
         );
     }
     return (
-        <div>
+        <div className={`${!props.TIER_SYSTEM ? 'pl-4 pl-md-0' : ''}`}>
             <div className='text-center mb-2'>
                 <BsShieldFillCheck size={65} />
             </div>

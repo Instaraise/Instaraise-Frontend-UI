@@ -159,6 +159,7 @@ const Stepper = (props) => {
                                             fetchkyc={fetchkyc}
                                             wallet={props.wallet}
                                             ALIAS={ALIAS}
+                                            TIER_SYSTEM={TIER_SYSTEM}
                                         />
                                     )}
                                 </div>
