@@ -128,8 +128,8 @@ const PoolDetails = (props) => {
                         {DATA.map((item, index) => (
                             <div key={index}>
                                 {item.tier === SaleData.data.currentier && (
-                                    <div className='tier card shadow-sm my-4 my-lg-2 border-10'>
-                                        <div className=' row d-flex align-items-center'>
+                                    <div className='container tier card shadow-sm my-4 my-lg-2 border-10'>
+                                        <div className='row d-flex align-items-center'>
                                             <div className='py-3 col-lg-3 col-md-12 text-20 d-flex justify-content-center justify-content-lg-start'>
                                                 <div className='plane'>
                                                     <FaPlaneDeparture className='plane-img d-inline-block align-center me-2' />
@@ -138,28 +138,28 @@ const PoolDetails = (props) => {
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div className='col-lg col-md-6 m-0  py-3  text-12  text-lg-center text-center text-md-left '>
+                                            <div className='col-lg col-md-6 m-0  py-3  text-12  text-center '>
                                                 <span className='text-second d-block d-sm-block d-md-block d-lg-none'>
                                                     Start time
                                                 </span>
                                                 <br className='text-10 d-block d-sm-block d-md-block d-lg-none' />
                                                 {START_TIME}
                                             </div>
-                                            <div className=' col-lg col-md-6  py-3 d-inline-block text-12 align-bottom text-lg-center text-center text-md-left '>
+                                            <div className=' col-lg col-md-6  py-3 d-inline-block text-12 align-bottom text-center '>
                                                 <span className='text-second d-block d-md-block  d-sm-block d-lg-none'>
                                                     Total raise
                                                 </span>
                                                 <br className='d-block d-md-block d-sm-block d-lg-none' />
                                                 {item.totalraise}
                                             </div>
-                                            <div className=' col-lg col-md-6  py-3 text-center text-12 order-12'>
+                                            <div className=' col-lg col-md-6  py-3 d-inline-block text-12 align-bottom text-center '>
                                                 <span className='text-second d-block d-md-block d-sm-block d-lg-none'>
                                                     Your min allocation
                                                 </span>
                                                 <br className='d-block d-sm-block d-md-block d-lg-none' />
                                                 {item.min} xꜩ
                                             </div>
-                                            <div className='col-lg col-md-6 text-center py-3 d-inline-block text-12 align-bottom text-lg-center text-md-left '>
+                                            <div className='col-lg col-md-6 text-center py-3 d-inline-block text-12 align-bottom'>
                                                 <span className='text-second d-block d-md-block d-sm-block d-lg-none'>
                                                     Your max allocation{' '}
                                                 </span>
@@ -169,7 +169,7 @@ const PoolDetails = (props) => {
                                                     ? `${SaleData.data.allocation} xꜩ`
                                                     : 'Not eligible'}
                                             </div>
-                                            <div className='col-lg col-md-6 text-center py-3 d-inline-block text-12 align-bottom text-lg-center text-md-left '>
+                                            <div className='col-lg col-md-6 text-center py-3 d-inline-block text-12 align-bottom'>
                                                 <span className='text-second d-block d-md-block d-sm-block d-lg-none'>
                                                     Swap rate{' '}
                                                 </span>
@@ -215,7 +215,7 @@ const PoolDetails = (props) => {
                         ))}
                         {props.isKyced && (
                             <div>
-                                <div className='tier card shadow-sm my-4 my-lg-2 border-10'>
+                                <div className='container tier card shadow-sm my-4 my-lg-2 border-10'>
                                     <div className=' row d-flex align-items-center'>
                                         <div className='py-3 col-lg-3 col-md-12 text-20 d-flex justify-content-center justify-content-lg-start'>
                                             <div className='plane'>
@@ -239,7 +239,7 @@ const PoolDetails = (props) => {
                                             <br className='d-block d-md-block d-sm-block d-lg-none' />
                                             {projectData.FCFS_TOTAL_RAISE}
                                         </div>
-                                        <div className=' col-lg col-md-6  py-3 text-center text-12 order-12'>
+                                        <div className=' col-lg col-md-6  py-3 d-inline-block text-12 align-bottom text-lg-center text-center text-md-left'>
                                             <span className='d-block d-md-block d-sm-block d-lg-none'>
                                                 Your min allocation
                                             </span>
@@ -325,24 +325,24 @@ export default PoolDetails;
 
 const TableHeader = () => {
     return (
-        <div className='card my-2'>
-            <div className='row d-lg-flex d-none py-1 d-flex align-items-center'>
+        <div className='card my-2 d-none d-lg-block'>
+            <div className='row d-lg-flex py-1 d-flex align-items-center'>
                 <div className='w-25 col-sm-3 text-20'>
                     <span className='text-14'></span>
                 </div>
-                <div className='text-second col-sm w-25 d-inline-block text-12 align-bottom text-center'>
+                <div className='text-second col-sm w-25 text-12 align-bottom text-center'>
                     Start time
                 </div>
-                <div className='text-second col-sm w-25 d-inline-block text-12 align-bottom text-center'>
+                <div className='text-second col-sm w-25 text-12 align-bottom text-center'>
                     Total raise
                 </div>
-                <div className='text-second col-sm w-25 d-inline-block text-12 align-bottom text-center'>
+                <div className='text-second col-sm w-25 text-12 align-bottom text-center'>
                     Your min allocation
                 </div>
-                <div className='text-second col-sm w-25 d-inline-block text-12 align-bottom text-center'>
+                <div className='text-second col-sm w-25 text-12 align-bottom text-center'>
                     Your max allocation
                 </div>
-                <div className='text-second col-sm w-25 d-inline-block text-12 align-bottom text-center'>
+                <div className='text-second col-sm w-25 text-12 align-bottom text-center'>
                     Swap rate
                 </div>
                 <div className='col-sm w-25 d-flex justify-content-end'></div>

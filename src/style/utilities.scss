@@ -103,9 +103,6 @@
 .text-mini {
     font-size: 10px;
 }
-.text-12 {
-    font-size: 12px;
-}
 .text-sm-2 {
     font-size: 14px;
 }
@@ -127,6 +124,13 @@
 .nav-bottom {
     position: fixed;
     bottom: 8%;
+}
+.table {
+    color: var(--project-text-color) !important;
+}
+.table > :not(:last-child) > :last-child > * {
+    border-bottom-color: #dee2e6 !important;
+    border-bottom: 0px;
 }
 input.form-calender-cursor::-webkit-calendar-picker-indicator {
     cursor: pointer;

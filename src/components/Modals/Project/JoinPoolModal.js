@@ -67,7 +67,7 @@ export default function JoinPoolModal(props) {
         if (Number(stakeAmount) > Number(MAX_AMOUNT)) {
             setError({ status: true, message: 'Amount exceeded the limit' });
         }
-        if (Number(stakeAmount) < balance) {
+        if (Number(stakeAmount) > balance) {
             setError({ status: true, message: 'Insufficient balance' });
         }
     }, [stakeAmount, balance]);
