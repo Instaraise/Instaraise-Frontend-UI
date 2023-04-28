@@ -21,7 +21,7 @@ const TrendingNews = (props) => {
             </div>
 
             <div className='row py-lg-4 d-flex justify-content-center align-items-center'>
-                <div className='col-md-6 d-none d-lg-block'>
+                <div className='col-md-6'>
                     {props.allTrendingNews.length > 0 ? (
                         <img
                             role='button'
@@ -37,7 +37,7 @@ const TrendingNews = (props) => {
                         </div>
                     )}
                 </div>
-                <div className='col-md-6 py-1 d-none d-lg-block anchor-tag-hover'>
+                <div className='col-md-6 py-4 py-md-0 anchor-tag-hover'>
                     {props.allTrendingNews.length > 0 ? (
                         <h5
                             dangerouslySetInnerHTML={{

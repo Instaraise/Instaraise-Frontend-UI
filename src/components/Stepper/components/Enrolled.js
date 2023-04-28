@@ -79,7 +79,7 @@ const Enrolled = (props) => {
                             onClick={() => enrollUser()}
                         >
                             Enroll for the Sale
-                            <BiLinkExternal />
+                            <BiLinkExternal className='ml-1' />
                         </Link>
                     )}
                     {loading && <div>Please wait...</div>}

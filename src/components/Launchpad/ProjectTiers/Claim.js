@@ -11,7 +11,7 @@ const Claim = (props) => {
         <>
             {yourInvestments && yourInvestments.length > 0 ? (
                 <>
-                    <div className='d-flex flex-column flex-lg-row flex-md-row my-4 justify-content-start justify-content-lg-between  align-items-start align-items-lg-center'>
+                    <div className='d-flex flex-column flex-lg-row flex-md-row my-4 justify-content-start justify-content-lg-between justify-content-md-between  align-items-start align-items-lg-center'>
                         <div>
                             <h6 className='m-0'>
                                 Your Allocations :&nbsp;
@@ -26,7 +26,7 @@ const Claim = (props) => {
                                         ClaimNow();
                                     }
                                 }}
-                                className={`shadow-none text-14 px-3 btn btn-sm ${
+                                className={`shadow-none text-14 px-3 btn btn-sm mt-2 mt-md-0 mt-lg-0 ${
                                     !IS_CLAIMABLE
                                         ? 'disable-b'
                                         : 'connect-wallet-button'
@@ -52,7 +52,7 @@ const Claim = (props) => {
                         their addresses.
                     </div>
                     <div className='mt-3  d-flex justify-content-between text-second align-items-center  border-10 shadow-none'>
-                        <table className='table table-bordered border-10 '>
+                        <table className='table table-bordered border-10'>
                             <thead className='text-center'>
                                 <tr>
                                     <td className='text-14'>

@@ -34,8 +34,20 @@ export const option = {
 };
 const ActiveStaking = (props) => {
     // const isPortrait = useMediaQuery({ query: "(orientation: portrait)" });
-    const { wallet } = props;
-    const { totalRewards } = props.getHarvestValue;
+    const {
+        wallet,
+        connectWallet,
+        fetchInstaStorage,
+        fetchInstaBalance,
+        GetHarvestValue,
+        claimInstaRewards,
+        unStakeInsta,
+        fetchBalanceDetails,
+        getHarvestValue,
+        stakingDetails,
+        stakeInstaLoader,
+    } = props;
+    const { totalRewards } = getHarvestValue;
     const {
         APY,
         stakedamount,
@@ -45,7 +57,7 @@ const ActiveStaking = (props) => {
         stakings,
         TVL,
         APR,
-    } = props.stakingDetails;
+    } = stakingDetails;
     const [modalType, setModalType] = useState(null);
     const [operationId, setOperationId] = useState(null);
     const [isOpen, setisOpen] = useState(false);
@@ -65,7 +77,8 @@ const ActiveStaking = (props) => {
         const result = await props.stakeInsta(args);
         if (result.payload.success) {
             setModalType('success');
-            fetchInstaBalance();
+            fetchInstaBalance(args);
+            fetchInstaStorage(args);
             setOperationId(result.payload.operationId);
         } else {
             setModalType('error');
@@ -80,11 +93,12 @@ const ActiveStaking = (props) => {
         const args = {
             poolStake: 'ACTIVE',
         };
-        const result = await props.claimInstaRewards(args);
+        const result = await claimInstaRewards(args);
         if (result.payload.success) {
             setModalType('success');
             setOperationId(result.payload.operationHash);
-            fetchInstaBalance();
+            fetchInstaBalance(args);
+            fetchInstaStorage(args);
         } else {
             setModalType('error');
         }
@@ -96,13 +110,13 @@ const ActiveStaking = (props) => {
             stakesToUnstake: stakes,
             poolStake: 'ACTIVE',
         };
-        const data = await props.unStakeInsta(args);
+        const data = await unStakeInsta(args);
         if (data.payload.success) {
             setModalType('success');
             setOperationId(data.payload.operationId);
-            fetchInstaBalance();
+            fetchInstaBalance(args);
+            fetchInstaStorage(args);
         } else {
-            fetchInstaBalance();
             setModalType('error');
         }
     };
@@ -111,9 +125,9 @@ const ActiveStaking = (props) => {
         const args = {
             poolStake: 'ACTIVE',
         };
-        props.fetchInstaStorage(args);
-        props.fetchInstaBalance(args);
-        props.GetHarvestValue(args);
+        fetchInstaStorage(args);
+        fetchInstaBalance(args);
+        GetHarvestValue(args);
     };
 
     React.useEffect(() => {
@@ -129,9 +143,9 @@ const ActiveStaking = (props) => {
         const args = {
             poolStake: 'ACTIVE',
         };
-        props.fetchInstaStorage(args);
-        props.fetchInstaBalance(args);
-        props.GetHarvestValue(args);
+        fetchInstaStorage(args);
+        fetchInstaBalance(args);
+        GetHarvestValue(args);
         // eslint-disable-next-line
     }, [wallet]);
     return (
@@ -140,7 +154,7 @@ const ActiveStaking = (props) => {
                 setModalType={handleModalType}
                 modalType={modalType}
                 wallet={wallet}
-                balance={props.fetchBalanceDetails}
+                balance={fetchBalanceDetails}
                 staking={stakeInsta}
                 operationId={operationId}
                 singularStakes={stakings}
@@ -278,7 +292,7 @@ const ActiveStaking = (props) => {
                                             </button>
                                             <button
                                                 onClick={() =>
-                                                    setModalType('stake')
+                                                    setModalType('unstake')
                                                 }
                                                 className='text-center ms-1  button-primary px-2 py-2  btn-faucet rounded py-2 margin-auto'
                                             >
@@ -300,18 +314,35 @@ const ActiveStaking = (props) => {
                                     <>
                                         <button
                                             onClick={() =>
-                                                setModalType('stake')
+                                                !stakeInstaLoader
+                                                    ? setModalType('stake')
+                                                    : ''
                                             }
                                             className='text-center w-100 button-primary  px-3 py-2  btn-faucet rounded py-2 margin-auto'
                                         >
-                                            Stake now
+                                            {!stakeInstaLoader ? (
+                                                'Stake now'
+                                            ) : (
+                                                <div
+                                                    className='spinner-grow'
+                                                    role='status'
+                                                    style={{
+                                                        width: '1rem',
+                                                        height: '1rem',
+                                                    }}
+                                                >
+                                                    <span className='visually-hidden'>
+                                                        Loading...
+                                                    </span>
+                                                </div>
+                                            )}
                                         </button>
                                     </>
                                 )}
                                 {!wallet && (
                                     <button
                                         onClick={() =>
-                                            props.connectWallet({
+                                            connectWallet({
                                                 NETWORK: 'mainnet',
                                             })
                                         }
@@ -511,6 +542,7 @@ const mapStateToProps = (state) => ({
     stakingDetails: state.stakingDetails,
     fetchBalanceDetails: state.fetchBalanceDetails,
     getHarvestValue: state.getHarvestValue,
+    stakeInstaLoader: state.stakeInstaLoader,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActiveStaking);

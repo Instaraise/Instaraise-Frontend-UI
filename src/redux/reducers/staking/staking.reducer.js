@@ -3,6 +3,7 @@ import {
     FETCH_INSTA_BALANCE,
     GET_HARVEST_VALUE,
     STAKE_INSTA,
+    STAKE_INSTA_LOADER,
     STAKING_DETAILS,
     UNSTAKE_INSTA,
 } from '../../actions/index.action';
@@ -61,7 +62,14 @@ export const stakeInsta = (initialState = 0, action) => {
             return initialState;
     }
 };
-
+export const stakeInstaLoader = (initialState = false, action) => {
+    switch (action.type) {
+        case STAKE_INSTA_LOADER:
+            return action.payload;
+        default:
+            return initialState;
+    }
+};
 export const unstakeInsta = (initialState = 0, action) => {
     switch (action.type) {
         case UNSTAKE_INSTA:

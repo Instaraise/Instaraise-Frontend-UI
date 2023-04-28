@@ -43,7 +43,7 @@ const IdoProjects = (props) => {
             tiers[SaleData.data.currentier]
         } and FCFS round`;
     } else if (kycStatus.isWhitelisted) {
-        statement = `You are whitelisted for  FCFS round`;
+        statement = `You are whitelisted for FCFS round`;
     } else {
         statement = 'You are not whitelisted';
     }
@@ -67,6 +67,7 @@ const IdoProjects = (props) => {
             let info = {
                 wallet: wallet,
                 projectName: data.ALIAS,
+                tierSystem: data.TIER_SYSTEM,
             };
             await props.fetchKYCDetails(info);
         }
@@ -111,7 +112,7 @@ const IdoProjects = (props) => {
                                     className='my-3 d-inline-block align-top me-2 rounded-circle'
                                     alt=''
                                 />
-                                <h5 className='card-title'>
+                                <h5 className='card-title form-header'>
                                     {projectData.PROJECT_NAME}
                                 </h5>
                                 <p className='m-auto card-text mx-4 my-3 text-sm text-second'>
@@ -129,7 +130,7 @@ const IdoProjects = (props) => {
                                     />
                                 </div>
                                 <hr />
-                                <p className='m-auto card-text mx-4 text-j fw-500 text-sm text-center'>
+                                <p className='m-auto card-text mx-4 text-j fw-500 text-sm text-center form-header'>
                                     {statement}
                                 </p>
                             </div>
