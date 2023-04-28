@@ -31,7 +31,7 @@ export const POOL_ADDRESS = {
 export const IDO_CONFIG = [
     {
         DISABLED: true,
-        ALIAS: 'lyzi',
+        ALIAS: '',
         PROJECT_NAME: 'Lyzi',
         TOKEN_NAME: 'LYZI',
         TELEGRAM: 'https://t.me/Lyzi_us',
