@@ -17,8 +17,9 @@ import {
     ParticipateInSale,
     claimNow,
 } from '../../redux/actions/ido/action.ido';
+import NotFound from '../NotFound/NotFound';
 
-const IdoProjects = (props) => {
+const LaunchIdoProjects = (props) => {
     const {
         SaleData,
         fetchSaleData,
@@ -28,7 +29,6 @@ const IdoProjects = (props) => {
         claimTokens,
     } = props;
     const params = useParams();
-
     const [projectData, setProjectData] = useState([]);
 
     const tiers = {
@@ -296,7 +296,17 @@ const IdoProjects = (props) => {
         </div>
     );
 };
-
+const IdoProjects = (props) => {
+    const params = useParams();
+    const data = IDO_CONFIG.filter((item) => {
+        return item.ALIAS === params.name;
+    })[0];
+    return typeof data === 'undefined' ? (
+        <NotFound />
+    ) : (
+        <LaunchIdoProjects {...props} />
+    );
+};
 const mapDispatchToProps = (dispatch) => ({
     participateInSale: (payload) => dispatch(ParticipateInSale(payload)),
     fetchSaleData: (payload) => dispatch(FetchSaleData(payload)),
