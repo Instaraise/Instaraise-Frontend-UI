@@ -14,6 +14,7 @@ const PoolDetails = (props) => {
         wallet,
         participateInSale,
         projectContractAddress,
+        isKyced,
     } = props;
     const [modalType, setModalType] = useState(null);
     const [operationId, setOperationId] = useState(null);
@@ -51,7 +52,11 @@ const PoolDetails = (props) => {
     }
 
     let participateInFCFS = false;
-    if (new Date() >= new Date(projectData.FCFS_OPEN_TIME)) {
+    if (
+        new Date() >= new Date(projectData.FCFS_OPEN_TIME) &&
+        new Date() <= new Date(projectData.END_TIME) &&
+        isKyced
+    ) {
         participateInFCFS = true;
     }
 
@@ -70,7 +75,6 @@ const PoolDetails = (props) => {
     const SWAP_RATE = `1 XTZ = ${(1 / XTZRate).PrecisionMaker(2)} ${
         projectData.TOKEN_NAME
     }`;
-
     return (
         <div className='pool-detail-teir  fw-500'>
             <MainModal
@@ -342,7 +346,7 @@ const TableHeader = () => {
                 <div className='text-second col-sm w-25 text-12 align-bottom text-center'>
                     Your max allocation
                 </div>
-                <div className='text-second col-sm w-25 text-12 align-bottom text-center'>
+                <div className='text-second col-sm w-25 text-12 mr-3 align-bottom text-center'>
                     Swap rate
                 </div>
                 <div className='col-sm w-25 d-flex justify-content-end'></div>

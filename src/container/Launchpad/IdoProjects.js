@@ -159,7 +159,7 @@ const LaunchIdoProjects = (props) => {
                                                 );
                                             }}
                                             to='#'
-                                            className='router-l'
+                                            className='router-l text-decoration-underline'
                                         >
                                             Contract&nbsp;
                                             <BiLinkExternal />

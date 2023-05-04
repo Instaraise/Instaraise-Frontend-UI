@@ -30,6 +30,9 @@
 .form-header {
     font-family: font-Medium;
 }
+.bg-white {
+    background-color: #fff;
+}
 .nav-svg-color {
     color: var(--navbar-svg-color);
 }
@@ -56,6 +59,9 @@
 }
 .text-20 {
     font-size: 20px;
+}
+.table > :not(:last-child) > :last-child > * {
+    border: 1px solid #dee2e6;
 }
 .list-style-none {
     list-style: none;
@@ -120,6 +126,9 @@
 }
 .width-media {
     width: 15% !important;
+}
+.border-15 {
+    border-radius: 15px !important;
 }
 .nav-bottom {
     position: fixed;

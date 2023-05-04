@@ -33,14 +33,21 @@ const IdoCard = (props) => {
 
     var SALE_STATUS = 'Upcoming sale';
     var BUTTON_NAME = 'Enter sale';
+    let DISABLE_SALE = DISABLED;
     const todayDATE = new Date();
     if (todayDATE > new Date(START_TIME) && todayDATE > new Date(END_TIME)) {
         SALE_STATUS = 'Finished sale';
         BUTTON_NAME = 'View info';
+        if (PROJECT_NAME === 'Instaraise') {
+            DISABLE_SALE = true;
+        } else {
+            DISABLE_SALE = false;
+        }
     }
     if (todayDATE > new Date(START_TIME) && todayDATE < new Date(END_TIME)) {
         SALE_STATUS = 'Ongoing sale';
         BUTTON_NAME = 'Enter sale';
+        DISABLE_SALE = false;
     }
     if (todayDATE < new Date(START_TIME) && todayDATE < new Date(END_TIME)) {
         SALE_STATUS = 'Upcoming sale';
@@ -48,7 +55,7 @@ const IdoCard = (props) => {
     }
 
     var countDownDate = new Date(START_TIME).getTime();
-    const PROJECT_LINK = DISABLED ? '#' : `/launchpad/IDO/${ALIAS}`;
+    const PROJECT_LINK = DISABLE_SALE ? '#' : `/launchpad/IDO/${ALIAS}`;
 
     const TOKEN_PRICE = projectdata.IsDiscountedUser
         ? projectdata.DISCOUNTED_PRICE
@@ -135,7 +142,9 @@ const IdoCard = (props) => {
                     <div className='d-flex w-100 justify-content-end py-4 px-4'>
                         <Link
                             style={{
-                                cursor: DISABLED ? 'not-allowed' : 'pointer',
+                                cursor: DISABLE_SALE
+                                    ? 'not-allowed'
+                                    : 'pointer',
                             }}
                             className='btn view-info-btn shadow'
                             to={PROJECT_LINK}

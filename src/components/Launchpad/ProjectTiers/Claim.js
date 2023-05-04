@@ -51,18 +51,16 @@ const Claim = (props) => {
                         to claim, our smart contract will auto credit tokens to
                         their addresses.
                     </div>
-                    <div className='mt-3  d-flex justify-content-between text-second align-items-center  border-10 shadow-none'>
-                        <table className='table table-bordered border-10'>
-                            <thead className='text-center'>
+                    <div className='mt-3 d-flex justify-content-between align-items-center  border-10 shadow-none'>
+                        <table className='table table-bordered border-10 text-center text-dark-to-light'>
+                            <thead className='text-14'>
                                 <tr>
-                                    <td className='text-14'>
-                                        Transaction time
-                                    </td>
-                                    <td className='text-14'>XTZ Invested</td>
-                                    <td className='text-14'>Tokens received</td>
+                                    <td>Transaction time</td>
+                                    <td>XTZ Invested</td>
+                                    <td>Tokens received</td>
                                 </tr>
                             </thead>
-                            <tbody className='text-center'>
+                            <tbody>
                                 {yourInvestments.map((item, index) => (
                                     <tr key={index} className='text-12'>
                                         <td>
