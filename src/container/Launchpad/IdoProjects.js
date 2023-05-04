@@ -67,7 +67,6 @@ const LaunchIdoProjects = (props) => {
             let info = {
                 wallet: wallet,
                 projectName: data.ALIAS,
-                tierSystem: data.TIER_SYSTEM,
             };
             await props.fetchKYCDetails(info);
         }
@@ -105,7 +104,7 @@ const LaunchIdoProjects = (props) => {
                 <div className='row row-cols-1 row-cols-md-2 my-3 g-4 mx-0 mx-lg-3 mx-md-3 '>
                     <div className='col-md-12 col-lg-6 mw-70'>
                         <div className='card project-detail  shadow-sm h-100 border-10'>
-                            <div className='card-body '>
+                            <div className='card-body form-header'>
                                 <img
                                     src={projectData.ICON}
                                     width={45}
@@ -115,7 +114,7 @@ const LaunchIdoProjects = (props) => {
                                 <h5 className='card-title form-header'>
                                     {projectData.PROJECT_NAME}
                                 </h5>
-                                <p className='m-auto card-text mx-4 my-3 text-sm text-second'>
+                                <p className='m-auto card-text mx-4 my-3 text-sm text-second font-insta-regular'>
                                     {projectData.DESCRIPTION}
                                 </p>
                                 <div className='d-flex justify-content-center mt-4 me-3'>
@@ -130,7 +129,7 @@ const LaunchIdoProjects = (props) => {
                                     />
                                 </div>
                                 <hr />
-                                <p className='m-auto card-text mx-4 text-j fw-500 text-sm text-center form-header'>
+                                <p className='m-auto card-text mx-4 text-j fw-500 text-sm text-center'>
                                     {statement}
                                 </p>
                             </div>
@@ -138,9 +137,9 @@ const LaunchIdoProjects = (props) => {
                     </div>
                     <div className='col-md-12 col-lg-6'>
                         <div className='card token-information shadow-sm h-100 border-10 pt-2'>
-                            <div className='card-body'>
+                            <div className='card-body font-insta-regular'>
                                 <div className='d-flex justify-content-between align-items-center'>
-                                    <h5 className='card-title text-18 text-dark-to-light'>
+                                    <h5 className='card-title text-18 text-dark-to-light form-header'>
                                         Token Information
                                     </h5>
                                     <div
@@ -168,7 +167,7 @@ const LaunchIdoProjects = (props) => {
                                 </div>{' '}
                                 <div className='row '>
                                     <div className='mt-3 px-0 text-center text-lg-start text-md-center text-sm-center col-6 col-md-6 col-lg'>
-                                        <div className='fw-500 text-second'>
+                                        <div className='fw-500 text-second form-header'>
                                             Name
                                         </div>
                                         <div className='text-dark-to-light'>
@@ -176,7 +175,7 @@ const LaunchIdoProjects = (props) => {
                                         </div>
                                     </div>
                                     <div className='mt-3 text-center text-lg-start text-md-center text-sm-center px-0   col-6 col-md-6 col-lg'>
-                                        <div className='fw-500 text-second'>
+                                        <div className='fw-500 text-second form-header'>
                                             Token
                                         </div>
                                         <div className='text-dark-to-light'>
@@ -184,7 +183,7 @@ const LaunchIdoProjects = (props) => {
                                         </div>
                                     </div>
                                     <div className='mt-3 px-0 text-center text-lg-start text-md-center text-sm-center   col-6 col-md-6 col-lg'>
-                                        <div className='fw-500 text-second'>
+                                        <div className='fw-500 text-second form-header'>
                                             Decimal
                                         </div>
                                         <div className='text-dark-to-light'>
@@ -192,7 +191,7 @@ const LaunchIdoProjects = (props) => {
                                         </div>
                                     </div>
                                     <div className='mt-3 px-0 text-center text-lg-start text-md-center text-sm-center col-6 col-md-6 col-lg'>
-                                        <div className='fw-500 text-second'>
+                                        <div className='fw-500 text-second form-header'>
                                             Launch Price
                                         </div>
                                         <div className='text-dark-to-light'>
@@ -207,7 +206,7 @@ const LaunchIdoProjects = (props) => {
                                 <p className='card-text text-j mt-3 mb-2 text-sm text-second'>
                                     *{projectData.TOKEN_INFO}
                                 </p>
-                                <div className='mb-0 text-sm fw-500 d-flex justify-content-between align-items-center'>
+                                <div className='mb-0 text-sm fw-500 d-flex justify-content-between align-items-center form-header'>
                                     <div>
                                         <p className='m-0 text-dark-to-light'>
                                             Sale progress
@@ -245,7 +244,7 @@ const LaunchIdoProjects = (props) => {
                                 <div className='mt-3 text-sm fw-500 d-flex justify-content-between align-items-center'>
                                     <div>
                                         <p className='m-0'>
-                                            <span className='value text-sm text-dark-to-light'>
+                                            <span className='value text-sm text-dark-to-light form-header'>
                                                 {SaleData.data.totalTokensSold.PrecisionMaker(
                                                     2
                                                 )}
@@ -262,7 +261,7 @@ const LaunchIdoProjects = (props) => {
                                     </div>
                                     <div className='text-end'>
                                         <p className='m-0'>
-                                            <span className='value text-sm text-dark-to-light'>
+                                            <span className='value text-sm text-dark-to-light form-header'>
                                                 &nbsp;
                                                 {SaleData.data.totalXTZRaised.PrecisionMaker(
                                                     2

@@ -25,22 +25,22 @@ export const POOL_ADDRESS = {
     },
     lyzi: {
         TOKEN_ADDRESS: 'KT1FdqHqf8RXY1L8dAHJYthk8XU5U9ymnSoN',
-        POOL_ADDRESS: 'KT1Po4ctFT4W3pQ44VrtHavRAux9V9QfAt12',
+        POOL_ADDRESS: 'KT1HASGGKKDfytugnX9ModHu1n2ZnjuRGi1N',
     },
 };
 export const IDO_CONFIG = [
     {
         DISABLED: true,
-        ALIAS: 'lyzi',
+        ALIAS: '',
         PROJECT_NAME: 'Lyzi',
         TOKEN_NAME: 'LYZI',
         TELEGRAM: 'https://t.me/Lyzi_us',
         TYPE: 'Upcoming',
         DESCRIPTION: `🇨🇵 Pay limitless with +25 crypto in +1500 shops 💸 Get cashback up to 1% to 5% with $LYZI`,
         TOKEN_ADDRESS: 'KT1FdqHqf8RXY1L8dAHJYthk8XU5U9ymnSoN',
-        POOL_ADDRESS: 'KT1Po4ctFT4W3pQ44VrtHavRAux9V9QfAt12',
-        ENROLLMENT_KEY: '297260',
-        SALE_MAP_KEY: '297259',
+        POOL_ADDRESS: 'KT1HASGGKKDfytugnX9ModHu1n2ZnjuRGi1N',
+        ENROLLMENT_KEY: '297316',
+        SALE_MAP_KEY: '297315',
         ADMIN: 'tz1gM1msEpLwjehrTXzWusD66bcizMXyHWfa',
         WEBSITE: 'https://lyzi.fr/',
         WHITEPAPER:
@@ -48,8 +48,8 @@ export const IDO_CONFIG = [
         TWITTER: 'https://twitter.com/Lyzi_app',
         ICON: LYZI_LOGO,
         MEDIUM: 'https://discord.com/invite/lyzi-app',
-        START_TIME: '2023-05-04T12:40:00Z',
-        END_TIME: '2023-05-04T13:00:00Z',
+        START_TIME: '2023-05-05T09:00:00Z',
+        END_TIME: '2023-05-09T09:00:00Z',
         SALE_TYPE: 'Public Sale',
         SOCIAL_HANDLES: {
             WEBSITE: 'https://lyzi.fr/',
@@ -63,7 +63,7 @@ export const IDO_CONFIG = [
         FCFS_TOTAL_RAISE: '30000',
         FCFS_MIN_ALLOCATION: '50 xtz',
         FCFS_MAX_ALLOCATION: '10000 xtz',
-        FCFS_OPEN_TIME: '2023-05-04T12:40:00Z',
+        FCFS_OPEN_TIME: '2023-05-05T09:00:00Z',
         FCFS_SWAP_RATE: '',
         TOKEN_PRICE: 0.12,
         DISCOUNTED_PRICE: 0.12,
@@ -81,7 +81,7 @@ export const IDO_CONFIG = [
         SUB_CURRENCY: '',
         TEZ: '$',
         XTZ_PRICE: 21560,
-        TOKEN_UNLOCK_TIME: '2023-05-04T13:10:00Z',
+        TOKEN_UNLOCK_TIME: '2023-05-09T10:00:00Z',
         LISTING_PRICE: '0.12',
         TIER_SYSTEM: false,
     },
@@ -140,7 +140,6 @@ export const IDO_CONFIG = [
         XTZ_PRICE: 21560,
         TOKEN_UNLOCK_TIME: '2021-12-13T13:00:00Z',
         LISTING_PRICE: '0.034',
-        TIER_SYSTEM: true,
     },
     {
         DISABLED: false,
@@ -150,7 +149,7 @@ export const IDO_CONFIG = [
         TELEGRAM: 'https://t.me/aqrxtoken',
         TYPE: 'Finished',
         DESCRIPTION: `World's first decentralised marketplace for real estate NFT’s, digitising the real estate industry with an end to end platform that enables seamless online experience for the users.`,
-        TOKEN_ADDRESS: 'KT1WzRVUnrJ4mNu59m9hPQZDY8Nq9JWtUbRf',
+        TOKEN_ADDRESS: 'KT19wuExNXayErfuCkcy6Z56cd1FWzF96xXk',
         POOL_ADDRESS: 'KT1KeKqrvtMujUGdrkwxhtuyVSqNBHPZnoyt',
         ENROLLMENT_KEY: '20874',
         SALE_MAP_KEY: '20873',
@@ -194,7 +193,6 @@ export const IDO_CONFIG = [
         XTZ_PRICE: 21560,
         LISTING_PRICE: '0.05',
         TOKEN_UNLOCK_TIME: '2021-10-21T14:00:00Z',
-        TIER_SYSTEM: true,
     },
     {
         DISABLED: true,
@@ -241,7 +239,6 @@ export const IDO_CONFIG = [
         XTZ_PRICE: 21560,
         TEZ: 'xtz',
         TOKEN_UNLOCK_TIME: '2021-09-15T14:00:00Z',
-        TIER_SYSTEM: true,
     },
     {
         DISABLED: true,
@@ -288,6 +285,5 @@ export const IDO_CONFIG = [
         XTZ_PRICE: 21560,
         TEZ: 'xtz',
         TOKEN_UNLOCK_TIME: '2021-09-15T14:00:00Z',
-        TIER_SYSTEM: true,
     },
 ];

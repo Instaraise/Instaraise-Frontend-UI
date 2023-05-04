@@ -76,7 +76,9 @@ const IdoCard = (props) => {
                             className='d-inline-block align-top me-2 rounded-circle'
                             alt=''
                         />
-                        <h2 className='card__header'>{PROJECT_NAME}</h2>
+                        <h2 className='card__header form-header'>
+                            {PROJECT_NAME}
+                        </h2>
 
                         <p className='card__body font-insta-regular'>
                             <div className='text-dark-to-light'>
