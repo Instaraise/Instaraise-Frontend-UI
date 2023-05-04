@@ -25,7 +25,7 @@ export const POOL_ADDRESS = {
     },
     lyzi: {
         TOKEN_ADDRESS: 'KT1FdqHqf8RXY1L8dAHJYthk8XU5U9ymnSoN',
-        POOL_ADDRESS: 'KT1PNJmakKy2k6YmzTwYvz51NLFaMXN9681S',
+        POOL_ADDRESS: 'KT1Po4ctFT4W3pQ44VrtHavRAux9V9QfAt12',
     },
 };
 export const IDO_CONFIG = [
@@ -38,9 +38,9 @@ export const IDO_CONFIG = [
         TYPE: 'Upcoming',
         DESCRIPTION: `🇨🇵 Pay limitless with +25 crypto in +1500 shops 💸 Get cashback up to 1% to 5% with $LYZI`,
         TOKEN_ADDRESS: 'KT1FdqHqf8RXY1L8dAHJYthk8XU5U9ymnSoN',
-        POOL_ADDRESS: 'KT1PNJmakKy2k6YmzTwYvz51NLFaMXN9681S',
-        ENROLLMENT_KEY: '297241',
-        SALE_MAP_KEY: '297240',
+        POOL_ADDRESS: 'KT1Po4ctFT4W3pQ44VrtHavRAux9V9QfAt12',
+        ENROLLMENT_KEY: '297260',
+        SALE_MAP_KEY: '297259',
         ADMIN: 'tz1gM1msEpLwjehrTXzWusD66bcizMXyHWfa',
         WEBSITE: 'https://lyzi.fr/',
         WHITEPAPER:
@@ -48,8 +48,8 @@ export const IDO_CONFIG = [
         TWITTER: 'https://twitter.com/Lyzi_app',
         ICON: LYZI_LOGO,
         MEDIUM: 'https://discord.com/invite/lyzi-app',
-        START_TIME: '2023-05-04T11:40:00Z',
-        END_TIME: '2023-05-04T12:30:00Z',
+        START_TIME: '2023-05-04T12:40:00Z',
+        END_TIME: '2023-05-04T13:00:00Z',
         SALE_TYPE: 'Public Sale',
         SOCIAL_HANDLES: {
             WEBSITE: 'https://lyzi.fr/',
@@ -63,7 +63,7 @@ export const IDO_CONFIG = [
         FCFS_TOTAL_RAISE: '30000',
         FCFS_MIN_ALLOCATION: '50 xtz',
         FCFS_MAX_ALLOCATION: '10000 xtz',
-        FCFS_OPEN_TIME: '2023-05-04T11:40:00Z',
+        FCFS_OPEN_TIME: '2023-05-04T12:40:00Z',
         FCFS_SWAP_RATE: '',
         TOKEN_PRICE: 0.12,
         DISCOUNTED_PRICE: 0.12,
@@ -81,7 +81,7 @@ export const IDO_CONFIG = [
         SUB_CURRENCY: '',
         TEZ: '$',
         XTZ_PRICE: 21560,
-        TOKEN_UNLOCK_TIME: '2023-05-04T13:30:00Z',
+        TOKEN_UNLOCK_TIME: '2023-05-04T13:10:00Z',
         LISTING_PRICE: '0.12',
         TIER_SYSTEM: false,
     },

@@ -54,8 +54,7 @@ const PoolDetails = (props) => {
     let participateInFCFS = false;
     if (
         new Date() >= new Date(projectData.FCFS_OPEN_TIME) &&
-        new Date() <= new Date(projectData.END_TIME) &&
-        isKyced
+        new Date() <= new Date(projectData.END_TIME)
     ) {
         participateInFCFS = true;
     }
@@ -128,7 +127,7 @@ const PoolDetails = (props) => {
             {tab === 'invest' ? (
                 <>
                     <div className='tiers'>
-                        {props.isKyced && <TableHeader />}
+                        {isKyced && <TableHeader />}
                         {DATA.map((item, index) => (
                             <div key={index}>
                                 {item.tier === SaleData.data.currentier && (
@@ -217,7 +216,7 @@ const PoolDetails = (props) => {
                                 )}
                             </div>
                         ))}
-                        {props.isKyced && (
+                        {isKyced && (
                             <div>
                                 <div className='container tier card shadow-sm my-4 my-lg-2 border-10'>
                                     <div className=' row d-flex align-items-center'>
@@ -299,7 +298,7 @@ const PoolDetails = (props) => {
                         )}
                     </div>
                     <>
-                        {!SaleData.data.IsWhitelistedUser && !props.isKyced ? (
+                        {!SaleData.data.IsWhitelistedUser && !isKyced ? (
                             <div className='col-md-12 col-lg mw-100 h-100 mt-4 p-0'>
                                 <div className='card project-detail  shadow-sm h-100 border-10'>
                                     <div className='card-body  d-flex align-items-center '>
