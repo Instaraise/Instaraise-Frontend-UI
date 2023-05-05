@@ -14,6 +14,7 @@ const PoolDetails = (props) => {
         wallet,
         participateInSale,
         projectContractAddress,
+        isKyced,
     } = props;
     const [modalType, setModalType] = useState(null);
     const [operationId, setOperationId] = useState(null);
@@ -51,7 +52,10 @@ const PoolDetails = (props) => {
     }
 
     let participateInFCFS = false;
-    if (new Date() >= new Date(projectData.FCFS_OPEN_TIME)) {
+    if (
+        new Date() >= new Date(projectData.FCFS_OPEN_TIME) &&
+        new Date() <= new Date(projectData.END_TIME)
+    ) {
         participateInFCFS = true;
     }
 
@@ -70,7 +74,6 @@ const PoolDetails = (props) => {
     const SWAP_RATE = `1 XTZ = ${(1 / XTZRate).PrecisionMaker(2)} ${
         projectData.TOKEN_NAME
     }`;
-
     return (
         <div className='pool-detail-teir  fw-500'>
             <MainModal
@@ -124,7 +127,7 @@ const PoolDetails = (props) => {
             {tab === 'invest' ? (
                 <>
                     <div className='tiers'>
-                        {props.isKyced && <TableHeader />}
+                        {isKyced && <TableHeader />}
                         {DATA.map((item, index) => (
                             <div key={index}>
                                 {item.tier === SaleData.data.currentier && (
@@ -213,9 +216,9 @@ const PoolDetails = (props) => {
                                 )}
                             </div>
                         ))}
-                        {props.isKyced && (
+                        {isKyced && (
                             <div>
-                                <div className='container tier card shadow-sm my-4 my-lg-2 border-10'>
+                                <div className='container-fluid tier card shadow-sm my-4 my-lg-2 border-10'>
                                     <div className=' row d-flex align-items-center'>
                                         <div className='py-3 col-lg-3 col-md-12 text-20 d-flex justify-content-center justify-content-lg-start'>
                                             <div className='plane'>
@@ -295,7 +298,7 @@ const PoolDetails = (props) => {
                         )}
                     </div>
                     <>
-                        {!SaleData.data.IsWhitelistedUser && !props.isKyced ? (
+                        {!SaleData.data.IsWhitelistedUser && !isKyced ? (
                             <div className='col-md-12 col-lg mw-100 h-100 mt-4 p-0'>
                                 <div className='card project-detail  shadow-sm h-100 border-10'>
                                     <div className='card-body  d-flex align-items-center '>
@@ -342,7 +345,7 @@ const TableHeader = () => {
                 <div className='text-second col-sm w-25 text-12 align-bottom text-center'>
                     Your max allocation
                 </div>
-                <div className='text-second col-sm w-25 text-12 align-bottom text-center'>
+                <div className='text-second col-sm w-25 text-12 mr-3 align-bottom text-center'>
                     Swap rate
                 </div>
                 <div className='col-sm w-25 d-flex justify-content-end'></div>

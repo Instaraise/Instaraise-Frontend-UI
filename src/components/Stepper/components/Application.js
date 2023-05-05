@@ -11,14 +11,14 @@ const Application = (props) => {
                 </div>
                 <h6 className='text-center'>
                     <span>
-                        Congrats! you have sucessfully completed your KYC.
+                        Congrats! you have successfully completed your KYC.
                     </span>
                 </h6>
             </div>
         );
     }
     return (
-        <div className={`${!props.TIER_SYSTEM ? 'pl-4 pl-md-0' : ''}`}>
+        <div>
             <div className='text-center mb-2'>
                 <BsShieldFillCheck size={65} />
             </div>

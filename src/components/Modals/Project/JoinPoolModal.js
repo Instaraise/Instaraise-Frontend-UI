@@ -34,10 +34,11 @@ export default function JoinPoolModal(props) {
         px: 2,
         outline: 'none',
     };
-    const MAX_AMOUNT = 500;
-    const MIN_AMOUNT = 50;
+    const MAX_AMOUNT = 30000;
+    const MIN_AMOUNT = 100;
 
     const [balance, setBalance] = React.useState(0);
+    const [btnFlag, setBtnFlag] = React.useState(false);
     const [stakeAmount, setstakeAmount] = React.useState(MIN_AMOUNT);
     const [error, setError] = React.useState({
         status: false,
@@ -175,6 +176,7 @@ export default function JoinPoolModal(props) {
                             onChange={(e) => {
                                 e.preventDefault();
                                 handleChange(e.target.value);
+                                setBtnFlag(false);
                             }}
                             value={stakeAmount}
                             className='w-100 text-dark-to-light text-sm ms-2 py-2 px-2'
@@ -191,6 +193,7 @@ export default function JoinPoolModal(props) {
                         />
                         <div className='me-2'>
                             <button
+                                disabled={btnFlag}
                                 style={buttonColor}
                                 onClick={() => {
                                     setError({
@@ -198,6 +201,7 @@ export default function JoinPoolModal(props) {
                                         message: ' ',
                                     });
                                     setstakeAmount(balance);
+                                    setBtnFlag(true);
                                 }}
                                 className='btn d-inline-flex align-self-end connect-wallet-button text-sm fw-bold text-white shadow-none rounded-2 '
                             >
