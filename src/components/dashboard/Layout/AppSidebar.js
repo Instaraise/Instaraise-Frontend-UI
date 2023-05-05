@@ -98,7 +98,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                         'IDO',
                                         'create-crowdsale',
                                         'staking',
-                                        'tiers',
+                                        undefined,
                                     ].includes(
                                         window.location.pathname.split('/')[2]
                                     )
@@ -256,7 +256,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                                         'IDO',
                                         'create-crowdsale',
                                         'staking',
-                                        'tiers',
+                                        undefined,
                                     ].includes(
                                         window.location.pathname.split('/')[2]
                                     )
