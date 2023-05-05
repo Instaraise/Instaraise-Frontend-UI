@@ -7,13 +7,14 @@ import { useMediaQuery } from 'react-responsive';
 import { Link } from 'react-router-dom';
 
 import RenderAction from './components';
+import { IDO_CONFIG } from '../../config/Launchpad/Ido/IdoConfig';
 import { STEPPER_DATA_ACTION } from '../../redux/actions/common/action.loader';
 import { kycProcess } from '../../redux/actions/common/action.token';
 import { connectWallet } from '../../redux/actions/wallet/action.wallet';
 
 const Stepper = (props) => {
     const { stepDetails } = props;
-    const { ALIAS, TIER_SYSTEM } = props.projectdata;
+    const { ALIAS } = props.projectdata;
     const { isWhitelisted, hasStaked, isEnrolled } = props.kycStatus;
     const isPortrait = useMediaQuery({ query: '(orientation: portrait)' });
     const [currentStep, setCurrentStep] = React.useState(1);
@@ -22,7 +23,6 @@ const Stepper = (props) => {
             let data = {
                 wallet: props.wallet,
                 projectName: ALIAS,
-                tierSystem: TIER_SYSTEM,
             };
             await props.fetchKYCDetails(data);
             props.updateSteps([
@@ -77,7 +77,7 @@ const Stepper = (props) => {
         <div className='card h-100 p-3  rounded w-100'>
             <div className='pt-0 h-100 d-flex flex-column justify-content-between'>
                 <div>
-                    {props.projectdata.TIER_SYSTEM && (
+                    {IDO_CONFIG[0].TIER_SYSTEM && (
                         <h6 className='text-center'>
                             Follow these steps to participate in sale
                         </h6>
@@ -86,7 +86,7 @@ const Stepper = (props) => {
                     <div className='mt-4'>
                         <div className='row w-100 '>
                             <div className='d-flex flex-lg-column justify-content-between p-0 '>
-                                {props.projectdata.TIER_SYSTEM && (
+                                {IDO_CONFIG[0].TIER_SYSTEM && (
                                     <div
                                         className='d-flex flex-column p-0  flex-lg-row  justify-content-between  position-relative'
                                         style={{
@@ -128,7 +128,13 @@ const Stepper = (props) => {
                                     </div>
                                 )}
 
-                                <div className='mt-4 w-100 text-center justify-content-center mx-auto d-flex flex-grow-1 align-items-center'>
+                                <div
+                                    className={`mt-4 w-100 text-center justify-content-center mx-auto d-flex flex-grow-1 align-items-center form-header ${
+                                        !IDO_CONFIG[0].TIER_SYSTEM
+                                            ? 'pl-5 pl-md-0'
+                                            : ''
+                                    }`}
+                                >
                                     {!props.wallet ? (
                                         <div>
                                             <div className='text-center mb-2'>
@@ -159,7 +165,6 @@ const Stepper = (props) => {
                                             fetchkyc={fetchkyc}
                                             wallet={props.wallet}
                                             ALIAS={ALIAS}
-                                            TIER_SYSTEM={TIER_SYSTEM}
                                         />
                                     )}
                                 </div>
@@ -167,7 +172,7 @@ const Stepper = (props) => {
                         </div>
                     </div>
                 </div>
-                {props.projectdata.TIER_SYSTEM && (
+                {IDO_CONFIG[0].TIER_SYSTEM && (
                     <div className='d-flex justify-content-between mt-4 '>
                         <div className=''>
                             {props.wallet &&

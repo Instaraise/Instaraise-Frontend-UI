@@ -21,7 +21,7 @@ const Staking = (props) => {
                 <h6 className='text-center'>
                     <span>
                         <div>
-                            Congrats! you have sucessfully staked for the sale.
+                            Congrats! you have successfully staked for the sale.
                         </div>
                     </span>
                 </h6>

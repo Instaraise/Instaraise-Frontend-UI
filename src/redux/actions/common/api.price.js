@@ -2,9 +2,10 @@ import { BeaconWallet } from '@taquito/beacon-wallet';
 import axios from 'axios';
 
 import { NAME, WHITELISTING_API_URL } from '../../../config/config';
+import { IDO_CONFIG } from '../../../config/Launchpad/Ido/IdoConfig';
 export const kycProcessAPI = async (args) => {
     try {
-        const { projectName, tierSystem } = args;
+        const { projectName } = args;
         // const response = await axios.get(
         //     `${WHITELISTING_API_URL}userAddress=tz1Kov5QTgC5hya8zA51ThkAcQXAJ9xCNW3U&projectName=aqarchain`
         // );
@@ -24,7 +25,7 @@ export const kycProcessAPI = async (args) => {
             let isErolled = response.data.INSTA_ENROLL.enrolled;
 
             let currentStep = 1;
-            if (tierSystem) {
+            if (IDO_CONFIG[0].TIER_SYSTEM) {
                 if (isWhitelisted && !hasStaked && !isErolled) {
                     currentStep = 2;
                 }

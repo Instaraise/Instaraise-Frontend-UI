@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { RxDiscordLogo } from 'react-icons/rx';
+import { useParams } from 'react-router-dom';
 
 import Medium from '../../../assets/Ido/Ido_project_socials/Medium.svg';
 import Telegram from '../../../assets/Ido/Ido_project_socials/Telegram.svg';
@@ -14,6 +16,7 @@ const Socials = ({
     telegram,
     twitter,
 }) => {
+    const params = useParams();
     return (
         <div className='d-flex'>
             <div>
@@ -39,13 +42,21 @@ const Socials = ({
                     target='_blank'
                     rel='noreferrer'
                 >
-                    <img
-                        className='cursor-pointer social-links'
-                        src={Medium}
-                        alt='medium'
-                        width={width}
-                        height={height}
-                    />
+                    {params.name === 'lyzi' ? (
+                        <RxDiscordLogo
+                            size={27}
+                            color='#5e0ee2'
+                            className='cursor-pointer social-links p-1 border-15 bg-white'
+                        />
+                    ) : (
+                        <img
+                            className='cursor-pointer social-links'
+                            src={Medium}
+                            alt='medium'
+                            width={width}
+                            height={height}
+                        />
+                    )}
                 </a>
             </div>
             <div>
