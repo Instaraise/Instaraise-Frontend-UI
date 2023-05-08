@@ -3,31 +3,25 @@ import { BrowserRouter } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 export const ThemeContext = React.createContext();
 
-// eslint-disable-next-line
 import '../style/index.scss';
-import LoadingBar from 'react-top-loading-bar';
+
+import AddLiquidityPage from '../components/Dex/ManageLiquidity';
+import Dashbaord from '../container/Dashboard';
+import FaucetLayout from '../container/Dex/faucet';
+import LiquidityLayout from '../container/Dex/liquidity';
+import Portfolio from '../container/Dex/portfolio';
+import Swap from '../container/Dex/swap';
+import Trade from '../container/Dex/tokens';
+import Farms from '../container/Farms/farms';
+import HomeContainer from '../container/home';
+import Ido from '../container/Launchpad/Ido';
+import IdoProjects from '../container/Launchpad/IdoProjects';
+import Staking from '../container/Launchpad/Staking';
+import NotFound from '../container/NotFound/NotFound';
+import Privacy from '../container/privacy';
+import Terms from '../container/terms';
 import useLocalStorage from '../hooks/useLocalStorage';
-const LazyHomeContainer = React.lazy(() => import('../container/home'));
-const LazyTerms = React.lazy(() => import('../container/terms'));
-const LazyPrivacy = React.lazy(() => import('../container/privacy'));
-const LazyTrade = React.lazy(() => import('../container/Dex/tokens'));
-const LazyDashbaord = React.lazy(() => import('../container/Dashboard'));
-const LazyIdo = React.lazy(() => import('../container/Launchpad/Ido'));
-const LazyIdoProjects = React.lazy(() =>
-    import('../container/Launchpad/IdoProjects')
-);
-const LazyStaking = React.lazy(() => import('../container/Launchpad/Staking'));
-const LazyFarms = React.lazy(() => import('../container/Farms/farms'));
-const LazySwap = React.lazy(() => import('../container/Dex/swap'));
-const LazyLiquidityLayout = React.lazy(() =>
-    import('../container/Dex/liquidity')
-);
-const LazyFaucetLayout = React.lazy(() => import('../container/Dex/faucet'));
-const LazyPortfolio = React.lazy(() => import('../container/Dex/portfolio'));
-const LazyAddLiquidityPage = React.lazy(() =>
-    import('../components/Dex/ManageLiquidity')
-);
-const LazyNotFound = React.lazy(() => import('../container/NotFound/NotFound'));
+
 const getLocalData = () => {
     let selected = localStorage.getItem('selectedAnalytics');
     if (selected) {
@@ -54,16 +48,6 @@ const Root = () => {
         '%cInstaraise',
         'color: #7111e2; font-family: sans-serif; font-size: 4.5em; font-weight: bolder; text-shadow: #000 1px 1px;'
     );
-    const FallbackUI = () => {
-        return (
-            <LoadingBar
-                color='#5e0ee2'
-                height='3px'
-                shadow={true}
-                progress={100}
-            />
-        );
-    };
     return (
         <ThemeContext.Provider
             value={{ theme, handleThemeChange: handleThemeChange }}
@@ -71,151 +55,66 @@ const Root = () => {
             <div className={themeclass}>
                 <BrowserRouter>
                     <Routes>
-                        <Route
-                            path='/'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyHomeContainer />
-                                </React.Suspense>
-                            }
-                        />
-                        <Route
-                            path='/terms'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyTerms />
-                                </React.Suspense>
-                            }
-                        />
-                        <Route
-                            path='/privacy'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyPrivacy />
-                                </React.Suspense>
-                            }
-                        />
+                        <Route path='/' element={<HomeContainer />} />
+                        <Route path='/terms' element={<Terms />} />
+                        <Route path='/privacy' element={<Privacy />} />
                         <Route
                             path='/dashboard'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyDashbaord flag={!flag} />
-                                </React.Suspense>
-                            }
+                            element={<Dashbaord flag={!flag} />}
                         />
                         <Route
                             exact
                             path='/launchpad'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyIdo flag={!flag} />
-                                </React.Suspense>
-                            }
+                            element={<Ido flag={!flag} />}
                         />
                         <Route
                             exact
                             path='/launchpad/IDO/:name'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyIdoProjects flag={!flag} />
-                                </React.Suspense>
-                            }
+                            element={<IdoProjects flag={!flag} />}
                         />
                         <Route
                             path='/launchpad/IDO'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyIdo flag={!flag} />
-                                </React.Suspense>
-                            }
+                            element={<Ido flag={!flag} />}
                         />
 
                         <Route
                             path='/launchpad/staking'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyStaking flag={!flag} />
-                                </React.Suspense>
-                            }
+                            element={<Staking flag={!flag} />}
                         ></Route>
-                        <Route
-                            path='/farms'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyFarms flag={!flag} />
-                                </React.Suspense>
-                            }
-                        />
-                        <Route
-                            path='/dex/trade'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyTrade />
-                                </React.Suspense>
-                            }
-                        />
+                        <Route path='/farms' element={<Farms flag={!flag} />} />
+                        <Route path='/dex/trade' element={<Trade />} />
                         <Route
                             path='/dex'
                             element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazySwap
-                                        showAnalytics={showAnalytics}
-                                        setShowAnalytics={setShowAnalytics}
-                                    />
-                                </React.Suspense>
+                                <Swap
+                                    showAnalytics={showAnalytics}
+                                    setShowAnalytics={setShowAnalytics}
+                                />
                             }
                         />
                         <Route
                             path='/dex/swap'
                             element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazySwap
-                                        showAnalytics={showAnalytics}
-                                        setShowAnalytics={setShowAnalytics}
-                                    />
-                                </React.Suspense>
+                                <Swap
+                                    showAnalytics={showAnalytics}
+                                    setShowAnalytics={setShowAnalytics}
+                                />
                             }
                         />
                         <Route
                             path='/dex/liquidity'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyLiquidityLayout />
-                                </React.Suspense>
-                            }
+                            element={<LiquidityLayout />}
                         />
                         <Route
                             path='/dex/faucet'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyFaucetLayout flag={!flag} />
-                                </React.Suspense>
-                            }
+                            element={<FaucetLayout flag={!flag} />}
                         />
-                        <Route
-                            path='/portfolio'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyPortfolio />
-                                </React.Suspense>
-                            }
-                        />
+                        <Route path='/portfolio' element={<Portfolio />} />
                         <Route
                             path='/dex/liquidity/configure-liquidity/'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyAddLiquidityPage />
-                                </React.Suspense>
-                            }
+                            element={<AddLiquidityPage />}
                         />
-                        <Route
-                            path='*'
-                            element={
-                                <React.Suspense fallback={<FallbackUI />}>
-                                    <LazyNotFound />
-                                </React.Suspense>
-                            }
-                        />
+                        <Route path='*' element={<NotFound />} />
                     </Routes>
                 </BrowserRouter>
             </div>
