@@ -80,7 +80,7 @@ const Claim = (props) => {
                     </div>
                 </>
             ) : (
-                <div className='col-md-12 col-lg mw-100 h-100 mt-4 p-0'>
+                <div className='col-md-12 col-lg mw-100 h-100 py-4 py-md-0 mt-md-4 p-0'>
                     <div className='card project-detail  shadow-sm h-100 border-10'>
                         <div className='card-body  d-flex align-items-center '>
                             <h5 className='card-title text-16 m-auto'>
