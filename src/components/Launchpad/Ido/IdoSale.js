@@ -10,7 +10,7 @@ export const IdoSale = (props) => {
                 <div className='d-flex flex-column flex-lg-row'>
                     <div className='p-2 w-100 text-center'>
                         <div className='col w-100'>
-                            <h4 className='fw-600 text-center form-header'>
+                            <h4 className='fw-600 text-center form-header text-nowrap'>
                                 Welcome to Launchpad
                             </h4>
                             <p className='text-center font-insta-regular'>

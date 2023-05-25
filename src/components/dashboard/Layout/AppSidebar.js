@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import dark_comp_name from '../../../assets/images/dark_comp_name.svg';
@@ -20,8 +20,20 @@ import { SOCIALS_DATA_DASHBOARD } from '../../../config/HomeConfig/FooterConfig/
 import { ThemeContext } from '../../../routes/root';
 const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
     const { theme } = React.useContext(ThemeContext);
+    const sidebarRef = useRef();
+    const handleClickOutside = (event) => {
+        if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+            closeSidebar();
+        }
+    };
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
     return (
-        <div className={`sidebar ${isSidebarOpen}`}>
+        <div ref={sidebarRef} className={`sidebar ${isSidebarOpen}`}>
             <div className='d-flex mr-5 mr-md-5 mr-lg-0 pt-2 pt-md-4 pt-lg-0'>
                 {/* d-flex mr-5 mr-md-0 mr-lg-0 */}
                 <CloseIcon onClick={closeSidebar} theme={theme} />
@@ -40,7 +52,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
             </div>
             <div className='sidebar-content shadow-sm'>
                 <ul className='nav nav-pills flex-column py-4 px-3'>
-                    <li className='nav-item justify-content-center pt-2'>
+                    <li className='nav-item justify-content-center pt-2 w-100'>
                         <NavLink
                             to='/dashboard'
                             className=' text-sm nav-link sidebar-links d-flex '
@@ -63,7 +75,7 @@ const Sidebar = ({ isSidebarOpen, closeSidebar }) => {
                             </div>
                         </NavLink>
                     </li>
-                    <div className='accordion' id='accordionExample'>
+                    <div className='accordion w-100' id='accordionExample'>
                         <div className='accordion-item border-0 bg-transparent nav-item justify-content-center pt-2'>
                             <div
                                 className='px-0 accordion-header bg-transparent'
