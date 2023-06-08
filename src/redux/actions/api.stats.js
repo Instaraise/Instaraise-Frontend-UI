@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { DATA_URL } from '../../config/config';
+import { TOKEN_STATS_API_URL } from '../../config/config';
 export const tokenInfoAPI = async () => {
     try {
-        const response = await axios.get(`${DATA_URL}/v1/homestats`);
+        const response = await axios.get(TOKEN_STATS_API_URL);
         if (response.data.success) {
             const price = response.data.body.insta_stats.price;
             const marketCap = Math.round(

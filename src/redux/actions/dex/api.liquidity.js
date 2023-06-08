@@ -5,7 +5,11 @@ import BigNumber from 'bignumber.js';
 import CoinGecko from 'coingecko-api';
 
 import { SourceToInstaPrice } from './api.dex';
-import { DATA_URL, RPC_NODES, TZKT_NODES } from '../../../config/config';
+import {
+    LIQUIDITY_DATA_API_URL,
+    RPC_NODES,
+    TZKT_NODES,
+} from '../../../config/config';
 import { DEX_NETWORK } from '../../../config/config';
 import { DEX_LIQUIDITY_TOKEN_CONFIG } from '../../../config/DexConfig/dex.config';
 import { CONTRACT_CONFIG } from '../../../config/network.config';
@@ -13,7 +17,7 @@ import { CONTRACT_CONFIG } from '../../../config/network.config';
 const coingecko = new CoinGecko();
 export const fetchPoolStats = async () => {
     try {
-        const response = await axios.get(`${DATA_URL}/v1/liquidity`);
+        const response = await axios.get(LIQUIDITY_DATA_API_URL);
         return response.data;
     } catch (error) {
         return {
