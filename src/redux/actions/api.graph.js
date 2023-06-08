@@ -1,13 +1,13 @@
 import axios from 'axios';
 
-import { DATA_URL } from '../../config/config';
+import { COINGECKO_API_URL } from '../../config/config';
 export const fetchGraphData = async ({ days }) => {
     try {
         let API_URL;
         if (days === 1) {
-            API_URL = `${DATA_URL}/v1/market_chart?vs_currency=usd&days=${days}`;
+            API_URL = `${COINGECKO_API_URL}?vs_currency=usd&days=${days}`;
         } else {
-            API_URL = `${DATA_URL}/v1/market_chart?vs_currency=usd&days=${days}&interval=daily`;
+            API_URL = `${COINGECKO_API_URL}?vs_currency=usd&days=${days}&interval=daily`;
         }
         const response = await axios.get(API_URL);
         // if (days === 1) {

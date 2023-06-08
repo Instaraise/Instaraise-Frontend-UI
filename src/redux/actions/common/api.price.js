@@ -1,7 +1,7 @@
 import { BeaconWallet } from '@taquito/beacon-wallet';
 import axios from 'axios';
 
-import { DATA_URL, NAME } from '../../../config/config';
+import { NAME, WHITELISTING_API_URL } from '../../../config/config';
 import { IDO_CONFIG } from '../../../config/Launchpad/Ido/IdoConfig';
 export const kycProcessAPI = async (args) => {
     try {
@@ -13,7 +13,7 @@ export const kycProcessAPI = async (args) => {
         let account = await wallet.client.getActiveAccount();
 
         const response = await axios.get(
-            `${DATA_URL}/v1/launchpad?userAddress=${account.address}&projectName=${projectName}`
+            `${WHITELISTING_API_URL}?userAddress=${account.address}&projectName=${projectName}`
         );
 
         if (response.data.success) {
