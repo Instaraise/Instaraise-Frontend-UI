@@ -6,11 +6,11 @@ import { TezosMessageUtils, TezosParameterFormat } from 'conseiljs';
 
 import { getInstaPrice } from './action.liquidity';
 import {
+    DATA_URL,
     DEX_ADDRESS,
     DEX_FEE,
     DEX_NETWORK,
     RPC_NODES,
-    TOKEN_DATA_URL,
 } from '../../../config/config';
 import { DEX_TOKEN_CONFIG } from '../../../config/DexConfig/dex.config';
 import { CONTRACT_CONFIG } from '../../../config/network.config';
@@ -45,7 +45,7 @@ export const getPackedKey = (tokenId, address, type) => {
 };
 export const fetchTokenStats = async () => {
     try {
-        const response = await axios.get(`${TOKEN_DATA_URL}/v1/tokens`);
+        const response = await axios.get(`${DATA_URL}/v1/tokens`);
         return response.data;
     } catch (error) {
         return {
