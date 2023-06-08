@@ -2,8 +2,15 @@ import { CONTRACT_CONFIG, testnetNetwork } from './network.config';
 export const WALLET_NETWORK = 'mainnet';
 export const NAME = 'Instaraise';
 export const DEX_NETWORK = testnetNetwork;
-export const DATA_URL =
+
+export const BASE_URL =
     'https://ssuv8jnind.execute-api.us-east-2.amazonaws.com';
+export const LIQUIDITY_DATA_API_URL = `${BASE_URL}/v1/liquidity`;
+export const ENROLL_USER_API_URL = `${BASE_URL}/v1/enroll`;
+export const WHITELISTING_API_URL = `${BASE_URL}/v1/launchpad`;
+export const COINGECKO_API_URL = `${BASE_URL}/v1/market_chart`;
+export const TOKEN_DATA_API_URL = `${BASE_URL}/v1/tokens`;
+export const TOKEN_STATS_API_URL = `${BASE_URL}/v1/homestats`;
 export const DEX_FEE = 1;
 export const DEX_DATA_REFRESH_TIME = 60000;
 export const NETWORK = 'mainnet';
