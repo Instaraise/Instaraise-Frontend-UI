@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import hand_dark_Img from '../../../assets/Ido/stepper/hand_dark_Img.png';
 import hand_Img from '../../../assets/Ido/stepper/hand_Img.png';
-import { ENROLL_USER_API_URL } from '../../../config/config';
+import { DATA_URL } from '../../../config/config';
 import { ThemeContext } from '../../../routes/root';
 const Enrolled = (props) => {
     const { theme } = React.useContext(ThemeContext);
