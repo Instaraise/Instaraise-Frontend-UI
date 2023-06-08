@@ -1,7 +1,7 @@
 import { BeaconWallet } from '@taquito/beacon-wallet';
 import axios from 'axios';
 
-import { DATA_URL, NAME } from '../../../config/config';
+import { NAME, WHITELISTING_API_URL } from '../../../config/config';
 import { IDO_CONFIG } from '../../../config/Launchpad/Ido/IdoConfig';
 export const kycProcessAPI = async (args) => {
     try {

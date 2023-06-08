@@ -6,7 +6,6 @@ import { TezosMessageUtils, TezosParameterFormat } from 'conseiljs';
 
 import { getInstaPrice } from './action.liquidity';
 import {
-    DATA_URL,
     DEX_ADDRESS,
     DEX_FEE,
     DEX_NETWORK,
