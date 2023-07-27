@@ -54,7 +54,7 @@ const TrendingNews = (props) => {
                     {props.allTrendingNews.length > 0 ? (
                         <p
                             dangerouslySetInnerHTML={{
-                                __html: props.allTrendingNews[0].excerpt,
+                                __html: props.allTrendingNews[0].content,
                             }}
                             className='my-3 trending-header-para text-justify font-insta-regular line-clamp'
                         />
@@ -73,12 +73,10 @@ const TrendingNews = (props) => {
 
                     {props.allTrendingNews.length > 0 && (
                         <Link
-                            href={props.allTrendingNews[0].link}
-                            onClick={() => {
-                                window.open(props.allTrendingNews[0].link);
-                            }}
+                            to={props.allTrendingNews[0].link}
+                            target='_blank'
+                            rel='noopener noreferrer'
                             className='trending-font text-decoration-none'
-                            to='/'
                         >
                             Read More
                             <img src={Rightarrow} alt='chevron' />
@@ -87,8 +85,8 @@ const TrendingNews = (props) => {
                 </div>
             </div>
             <div className='row py-md-4 hoverChange anchor-tag-hover'>
-                {props.allTrendingNews.map((elem, index) =>
-                    index !== 0 ? (
+                {props.allTrendingNews.map((elem, index) => {
+                    return index !== 0 ? (
                         <div
                             key={index}
                             className='col-md-4 p-3'
@@ -113,10 +111,24 @@ const TrendingNews = (props) => {
 
                             <p
                                 dangerouslySetInnerHTML={{
-                                    __html: elem.excerpt,
+                                    __html: elem.content,
                                 }}
                                 className='mb-4 lh-lg font-insta-regular text-justify lh-base trending-font-para trending-para-dark'
                             />
+                            <div className='d-flex pb-3 justify-content-between'>
+                                {elem.categories
+                                    .slice(0, 3)
+                                    .map((ele, index) => {
+                                        return (
+                                            <div
+                                                className='category-btn text-center my-auto text-12 font-insta-regular ml-lg-2 ml-md-2 ml-0 px-lg-3 px-2'
+                                                key={index}
+                                            >
+                                                {ele}
+                                            </div>
+                                        );
+                                    })}
+                            </div>
 
                             <div className='d-flex justify-content-between'>
                                 <h6 className='cardDate font-insta-regular trending-para-dark'>
@@ -137,8 +149,8 @@ const TrendingNews = (props) => {
                         </div>
                     ) : (
                         ''
-                    )
-                )}
+                    );
+                })}
             </div>
         </div>
     );
