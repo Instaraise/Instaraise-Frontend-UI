@@ -115,21 +115,6 @@ const TrendingNews = (props) => {
                                 }}
                                 className='mb-4 lh-lg font-insta-regular text-justify lh-base trending-font-para trending-para-dark'
                             />
-                            <div className='d-flex pb-3 justify-content-between'>
-                                {elem.categories
-                                    .slice(0, 3)
-                                    .map((ele, index) => {
-                                        return (
-                                            <div
-                                                className='category-btn text-center my-auto text-12 font-insta-regular ml-lg-2 ml-md-2 ml-0 px-lg-3 px-2'
-                                                key={index}
-                                            >
-                                                {ele}
-                                            </div>
-                                        );
-                                    })}
-                            </div>
-
                             <div className='d-flex justify-content-between'>
                                 <h6 className='cardDate font-insta-regular trending-para-dark'>
                                     {new Date(elem.date).toLocaleDateString()}

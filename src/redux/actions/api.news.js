@@ -21,7 +21,6 @@ export const fetchAllTrendingNews = async () => {
                     image_url: elem.thumbnail,
                     link: elem.link,
                     date: elem.pubDate,
-                    categories: elem.categories,
                 };
             })
             .slice(0, 4);
