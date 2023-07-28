@@ -1,20 +1,26 @@
 import axios from 'axios';
 
-const API_URL = 'https://blog.instaraise.io/wp-json/wp/v2/posts';
+import { MEDIUM_API_URL } from '../../config/config';
 /* eslint-disable no-unreachable */
 export const fetchAllTrendingNews = async () => {
     try {
-        const response = await axios.get(API_URL);
-        const formattedData = response.data
-            .map((elem) => {
+        const response = await axios.get(MEDIUM_API_URL);
+        const formattedData = response.data.items
+            .map((elem, index) => {
+                const contentWithoutImage = elem.content.replace(
+                    /<figure>.*<\/figure>|<img[^>]*>/g,
+                    ''
+                );
+                const lines = contentWithoutImage.split('\n');
+                const content = lines.slice(0, 3).join('\n');
                 return {
-                    id: elem.id,
-                    title: elem.title.rendered,
-                    excerpt: elem.excerpt.rendered,
-                    content: elem.content.rendered,
-                    image_url: elem.yoast_head_json.og_image[0].url,
+                    id: index,
+                    title: elem.title,
+                    description: elem.description,
+                    content: content,
+                    image_url: elem.thumbnail,
                     link: elem.link,
-                    date: elem.date,
+                    date: elem.pubDate,
                 };
             })
             .slice(0, 4);

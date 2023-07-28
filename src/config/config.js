@@ -15,6 +15,8 @@ export const TZKT_NODES = {
     mainnet: 'https://api.tzkt.io',
     testnet: CONTRACT_CONFIG[testnetNetwork].TZKT_NODE,
 };
+export const MEDIUM_API_URL =
+    'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@instaraise';
 export const DEX_ADDRESS = CONTRACT_CONFIG[testnetNetwork].TOKEN_ADDRESS;
 export const API = {
     url: 'https://api.coingecko.com/api/v3/coins/tezos?localization=false&tickers=false&community_data=false&developer_data=false&sparkline=false',

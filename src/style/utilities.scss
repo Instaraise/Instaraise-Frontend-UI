@@ -16,8 +16,14 @@
 .w-15 {
     width: 15% !important;
 }
+.w-29 {
+    width: 29% !important;
+}
 .w-30 {
     width: 30% !important;
+}
+.w-35 {
+    width: 35%;
 }
 .w-48 {
     width: 48% !important;
@@ -129,6 +135,14 @@
 }
 .border-15 {
     border-radius: 15px !important;
+}
+.category-btn {
+    border: 1px solid var(--tag-color);
+    border-radius: 15px;
+    color: #696f7a;
+}
+.fit-content {
+    width: fit-content;
 }
 .nav-bottom {
     position: fixed;
